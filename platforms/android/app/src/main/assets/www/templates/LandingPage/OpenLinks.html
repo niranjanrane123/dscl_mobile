@@ -1,0 +1,37 @@
+<!-- <ion-view ng-controller="OpenLinkCtrl" title="{{pageTitle}}">
+    <ion-nav-back-button></ion-nav-back-button> -->
+    <ion-view ng-controller="OpenLinkCtrl">
+      <ion-nav-bar   class="bar-dark" align-title="center">
+        <ion-nav-back-button class="button-clear">
+          <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+          <img style="right: 46%;
+          position: absolute;
+          margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+        </ion-nav-back-button>
+        </ion-nav-bar>
+  <ion-content ng-controller="OpenLinkCtrl" class="HomeBackground">
+    <div class="headingDiv">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="{{pageTitle}}"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+    </div>
+   <div class="table-outer table-outer-1">
+                 <table id="complainTab">
+                   <tr>
+                     <th translate="DETAILS_INFORMATION">Details/Information</th>
+                     <th translate="ISSUE_DATE">Issue Date</th>
+                     <th translate="DOWNLOAD">Download</th>
+                   </tr>
+                    <tr ng-repeat="rowData in dataList;">
+                     <!-- <td>{{rowData.noticeSubEn}}</td> -->
+                     <td ng-if="langID=='1' || langID==1">{{rowData.noticeSubEn}}</td>
+                     <td ng-if="langID=='2' || langID==2">{{rowData.noticeSubReg}}</td>
+                     <td>{{rowData.issueDate | date:'medium'}}</td>
+                     <!-- <td>{{baseUrl}}{{rowData.profileImgPath}}</td> -->
+                     <!-- <td translate="DOWNLOAD">Download<a  href="{{baseUrl}}{{rowData.profileImgPath}}" title="Download"><img src="img/download_icon.png" width="24px"></img></a></td>   -->
+                     <td ng-if="comeFrom=='Public'"><a  href="{{baseUrl}}{{rowData.profileImgPath}}" title="Download" translate="DOWNLOAD" style="color: blue !important;">Download</a></td>  
+                     <td ng-if="comeFrom=='Quick'"><a  href="{{rowData.link}}" title="View More" translate="VIEW_MORE" style="color: blue !important;">View More</a></td>  
+                   </tr>
+                 </table>
+               </div>
+  </ion-content>
+  </ion-view>
+  

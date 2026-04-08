@@ -1,0 +1,631 @@
+<ion-view class="titlecss" hide-back-button="true" >
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+
+    <img style="right: 46%; position: absolute; margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+
+  </ion-nav-buttons>
+
+  <ion-content class="HomeBackground" style="margin-bottom: 70px;" ng-controller="HomeCtrl">
+
+    <div style="width:100%;text-align:center;margin: -10px 0px;">
+      <h6 class="bgskyBlueColor borderOrange wlcmHeader">{{'Welcome' | translate}}, {{loginUSername}}</h6>
+    </div>
+
+    <!-- Slider Start -->
+    <ng-include src="'templates/LandingPage/LandingSlider.html'"></ng-include>
+    <!-- Slider end -->  
+    
+    <!-- Citizen Services Section Start -->
+    <div>
+      <div class="head-link bgskyBlueColor borderOrange" style="background-color:#d5f3e3;">
+        <h2 class="fontBold" style="margin-bottom: 0.5px;">{{ 'CITIZEN_SERVICES' | translate}}</h2>
+      </div>
+   
+      <div class="row">
+        <!-- new complaint form -->
+        <div class="col col-33">
+          <div class="list list-icon text-center" ng-click="navigatecomplaint(false)">
+            <a class=" gridnopadding">
+              <img src="img/fileComplainIcon.png" height="40" width="40">
+            </a>
+            <h5 style="font-size:12px;padding: 5px;">{{'COMPLAINT_REGISTRATION' | translate}}</h5>
+          </div>
+        </div>
+      
+        <!-- new complaint status -->
+        <div class="col col-33">
+          <div class="list list-icon text-center">
+            <a class=" gridnopadding" ui-sref="app.complaintstatus">
+              <img src="img/complaintStatusIcon.png" height="40" width="40">
+            </a>
+            <h5 style="font-size:12px;padding: 5px;">{{'COMPLSTATUS' | translate}}</h5>
+          </div>
+        </div>
+
+        <div class="col col-33">
+          <div class="list list-icon text-center">
+            <a class=" gridnopadding" ng-click="reopen()">
+              <img src="./img/reopenComplaintIcon.png" height="40" width="40">
+            </a>
+            <h5 style="font-size:13px" translate="REOPENCOMPLAINT"></h5>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col col-33">
+          <div class="list list-icon text-center">
+            <a class=" gridnopadding"  ng-click="notAvailable()" >
+              <!-- ui-sref="app.rtiApplicantDetial" -->
+              <img src="./img/rtiIcon.png" width="40" height="40">
+            </a>
+            <h5 style="font-size:12px; padding: 5px;" translate="RTI"></h5>
+          </div>
+        </div>
+
+        <div class="col col-33">
+          <div class="list list-icon text-center">
+            <a class=" gridnopadding" ng-click="notAvailable()">
+              <!-- ui-sref="app.rtifirstappeal" -->
+              <img src="./img/rtiIcon.png" width="40" height="40">
+            </a>
+            <h5 style="font-size:12px; padding: 5px;" translate="RTIFIRSTAPPEAL"></h5>
+          </div>
+        </div>
+
+        <!-- donation service -->
+        <div class="col col-33" ng-click="openDonation()">
+          <div class="list list-icon text-center">
+            <a class=" gridnopadding">
+              <img src="img/donation_icon.png" height="40" width="40">
+            </a>
+            <h5 style="font-size:12px;padding: 5px;">{{'DONATION_SERVICE' | translate}}</h5>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col col-33">
+          <div class="list list-icon text-center noMargin">
+            <a class="gridnopadding" ui-sref="app.garbageCollectionTracking">
+              <img src="img/waste_collection.jpg" height="40" width="40">
+            </a>
+            <h5 style="font-size:12px;padding: 5px;" ui-sref="app.garbageCollectionTracking" translate="WASTECOLLECTIONTRACK">Ward Wise Waste Collection Tracking </h5>
+          </div>
+        </div>
+      </div>
+
+      <!--Citizen Services Section End  -->
+  
+<!-- Application Status Ends-->
+
+      <div>
+        <div class="head-link bgskyBlueColor borderOrange" style="background-color:#d5f3e3;">
+          <h2 class="fontBold" style="margin-bottom: 0.5px;">{{ 'APPLMGMT' | translate}}</h2>
+        </div>
+     
+        <div class="row">
+          <!-- new complaint form -->
+          <div class="col col-33">
+            <div class="list list-icon text-center">
+              <a class=" gridnopadding" ui-sref="app.applicationList">
+                <img src="img/applicationStatusIcon.png" height="40" width="40">
+              </a>
+              <h5 style="font-size:12px;padding: 5px;">{{'StatusofServiceApplications' | translate}}</h5>
+            </div>
+          </div>
+        
+          <!-- new complaint status -->
+          <div class="col col-33">
+            <div class="list list-icon text-center">
+              <a class=" gridnopadding" ui-sref="app.applicationPaymentStatus">
+                <img src="img/spotBill.png" height="40" width="40">
+              </a>
+              <h5 style="font-size:12px;padding: 5px;">{{'StatusofPayments' | translate}}</h5>
+            </div>
+          </div>
+  
+          <div class="col col-33">
+            <div class="list list-icon text-center">
+              <a class=" gridnopadding" ui-sref="app.applicationStatus">
+                <img src="./img/applicationStatusIcon.png" height="40" width="40">
+              </a>
+              <h5 style="font-size:13px" translate="APPLICATIONSTATUS"></h5>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+  
+<!-- Application Status Ends-->
+
+       <!-- MDDA Start -->
+
+<!-- Enhancement #193178 -->
+    <!-- <div class="head-link bgskyBlueColor borderOrange" style="background-color:#d5f3e3; margin-bottom: -1px;" >
+      <h2 class="fontBold" style="margin-bottom: 0.5px;">{{'MDDA' | translate}}</h2>
+    </div>
+    
+    <div class="row margin-0">
+      <div class="col col-50" ng-click="mddaProject('appCount')">
+        <div class="list list-icon text-center">
+          <a class=" gridnopadding">
+            <img src="img/mdda-logo.png" height="40" width="40">
+          </a>
+          <h5 style="font-size:13px;"><span>{{'TOTAL_APP_COUNT' | translate}}<br>{{totalAppCount}}</span></h5>
+        </div>
+      </div>
+
+      <div class="col col-50" ng-click="mddaProject('bpmsCount')">
+        <div class="list list-icon text-center">
+          <a class=" gridnopadding" >
+            <img src="img/mdda-logo.png" height="40" width="40">
+          </a>
+          <h5 style="font-size:13px;"><span>{{'TOTAL_BPMS_COUNT' | translate}}<br>{{totalBMPSCount}}</span></h5>
+        </div>
+      </div>
+
+       </div> -->
+     
+      <!-- MDDA End -->
+
+      <!-- GIS Start -->
+
+      <div class="head-link bgskyBlueColor borderOrange" style="background-color:#d5f3e3; margin-bottom: -1px;" >
+        <h2 class="fontBold" style="margin-bottom: 0.5px;">{{'GISSERVICES' | translate}}</h2>
+      </div>
+   
+      <div class="row margin-0">
+        <div class="col col-50">
+          <div class="list list-icon text-center">
+            <a class=" gridnopadding"  href="https://dsclgis.uk.gov.in/">
+              <img src="img/protalIcon.png" height="40" width="40">
+            </a>
+            <h5 style="font-size:13px;" translate="GISPORTAL"></h5>
+          </div>
+        </div>
+
+        <div class="col col-50">
+          <div class="list list-icon text-center">
+            <a class=" gridnopadding" ng-click="callService('app.nearBy')" >
+              <!-- ui-sref="app.nearBy" -->
+              <img src="img/placeholder.png" height="40" width="40">
+            </a>
+            <h5 style="font-size:13px;" translate="GIS"></h5>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- GIS End -->
+
+      <!-- Quick Services Start -->
+
+      <!--<div style="border-top: 1px solid #00aa55;">-->
+        <div class="head-link bgskyBlueColor borderOrange" style="background-color:#d5f3e3; margin-bottom: -1px;" >
+          <h2 class="fontBold" style="margin-bottom: 0.5px;">{{ 'QUICK_SERVICES' | translate}}</h2>
+        </div>
+
+          <div class="row margin-0">
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.helpLine">
+                  <img src="img/helpLineIcon.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px;" translate="CITIZENHELPLINE">Citizen HelpLine</h5>
+              </div>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding"  ng-click="callService('app.trafficlist')">
+                  <!-- ui-sref="app.trafficlist" -->
+                  <img src="img/traffic.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="TRAFFIC"></h5>
+              </div>
+            </div>
+
+            
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.smartWaterATMs">
+                  <img src="img/waterATMs.jpg" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="SMARTWATERATM">Smart Water ATM</h5>
+              </div>
+            </div>
+                   
+            <!--<div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.applicationStatus">
+                  <img src="img/applicationStatusIcon.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="APPLICATIONSTATUS">Application Status</h5>
+              </div>
+           
+            </div> -->
+          </div>
+
+          <div class="row margin-0">
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ng-click="openService('ebus')">
+                  <img src="img/ITS_bus_route.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="EBUS">E-Bus Service</h5>
+              </div>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.smartToilets">
+                  <img src="img/smartToilets.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="SMART_TOILET">Smart Toilets</h5>
+              </div>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding"  ng-click="callService('app.knowYour')">
+                  <!-- ui-sref="app.knowYour" -->
+                  <img src="img/wardZoneIcon.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="KNOWWARDZONE"></h5>
+              </div>
+            </div>   
+
+          </div>
+
+
+          <div class="row margin-0">
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ng-click="callService('app.environment')">
+                  <!-- ui-sref="app.environment" -->
+                  <img src="img/environment.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="ENVIRONMENT">Environment </h5>
+              </div>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.echallan">
+                  <img src="img/echallan.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="ECHALLAN">EChallan </h5>
+              </div>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center" style="margin-bottom: 0px !important;" >
+                <a class=" gridnopadding" ng-click='callSOS()'>
+                  <img src="./img/emergency_call_sos.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px; text-align: center;" translate="EMERGENCY_CALL_112">Emergency Call 112</h5>
+            </div>
+
+          </div>
+
+          <div class="row margin-0">
+
+            <div class="col col-33">
+              <div class="list list-icon text-center noMargin">
+                <a class=" gridnopadding" ui-sref="app.propertytax">
+                  <img src="img/propertyTaxPay.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="PROPERTYTAXBILLPAYMENT">PROPERTYTAXBILLPAYMENT </h5>
+              </div>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center noMargin">
+                <a class=" gridnopadding" ui-sref="app.upclViewBill">
+                  <img src="img/view-updcl-bill.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="UPCLVIEWBILL">UPCL View Bill </h5>
+              </div>
+            </div>
+
+            <div class="col col-33" ng-click="apuniSarkar()">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding">
+                  <img src="img/apnisarkarlogo.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="APNISARKAR">Apuni Sarkar</h5>
+              </div>
+            </div>
+  
+            
+          </div>
+
+          <div class="row margin-0">
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.swmcompainlist">
+                  <img src="img/complaintStatusIcon.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="SWM"></h5>
+              </div>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center noMargin">
+                <a class=" gridnopadding" ui-sref="app.jalsansthanViewBill">
+                  <img src="img/jalsansthan.jpg" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="JALBILLVIEW">Jal Sansthan Bill View </h5>
+              </div>
+            </div>
+
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.propertytax">
+                  <img src="img/propertyTaxPay.png" height="40" width="45">
+                </a>
+                <h5 style="font-size:13px" translate="PROPERTYTAXBILLPAYMENT">PROPERTYTAXBILLPAYMENT </h5>
+              </div>
+             
+            </div>-->
+          </div>
+      </div>
+
+      <!-- Quick Services End -->
+
+      <!-- Important, Public, Quick Links Start -->
+
+      <div class="row margin-0 bgskyBlueColor" style="background-color: #d5f3e3;">
+        
+        <div class="col col-33" ng-click="openLink('Quick')">
+          <div class="list list-icon text-center fontRegular">
+            <p style="font-size:13px;padding-left: 5px;font-weight: 600;" translate="QUICK_LINKS" >Quick Links</p>
+            <a class=" gridnopadding">   
+              <img src="img/linkearth.png" height="30" width="30">
+            </a>
+          </div> 
+        </div>
+
+        <div class="col col-33"ng-click="openLink('Important')" >
+            <div class="list list-icon text-center fontRegular">
+              <p style="font-size:13px;padding-left: 5px;font-weight: 600;" translate="IMPORTANT_LINKS">Important Links</p>
+              <a class=" gridnopadding">   
+                <img src="img/link.png" height="30" width="30">
+              </a>
+            </div>
+        </div>
+
+          <div class="col col-33" ng-click="openLink('Public')">
+            <div class="list list-icon text-center fontRegular">
+              <p style="font-size:13px;padding-left: 5px;font-weight: 600;" translate="PUBLIC_NOTICE">Public Notices</p>
+              <a class=" gridnopadding">   
+                <img src="img/linkpublic.png" height="30" width="30">
+              </a>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="row margin-0 bgskyBlueColor borderOrange" style="background-color: #d5f3e3;">
+        
+        <div class="col col-33" ng-click="viewAll()" style="margin-left: 15%">
+          <div class="list list-icon text-center fontRegular">
+            <p style="font-size:13px;padding-left: 5px;font-weight: 600;" translate="ON_GOING_PROJECTS" >On Going Projects</p>
+            <a class=" gridnopadding">   
+              <img src="img/projects.png" height="30" width="30">
+            </a>
+          </div> 
+        </div>
+
+        <div class="col col-33" ng-click="viewAllPopular()" >
+          <div class="list list-icon text-center fontRegular">
+            <p style="font-size:13px;padding-left: 5px;font-weight: 600;" translate="POPULAR_PLACE">Popular Places</p>
+            <a class=" gridnopadding">   
+              <img src="img/popular-place.png" height="30" width="30">
+            </a>
+          </div>
+        </div>
+      
+      </div>
+
+      <!-- <div class="col col-6 divv" >
+        <a class="footerButton" id="viewAll">
+          <img src="./img/projects.png" width="25" height="25">
+          <h6 class="colorWhite footerClass" translate="ON_GOING_PROJECTS"></h6>
+        </a>
+      </div>
+
+      <div class="col col-6 divv">
+        <a class="footerButton" id="viewAllPopular">
+          <img src="./img/popular-place.png" height="25" width="25" style="border-radius: 0.5rem;">
+          <h6 class="colorWhite footerClass" translate="POPULAR_PLACE"></h6>
+        </a>
+      </div> -->
+
+<!-- Important, Public, New Links End -->
+
+  <!-- Stackholder Start -->
+    <div id="stackholder">
+     <div class="row margin-0" ng-repeat="row in memberDetailsGrouped">
+  <div class="col col-50" ng-repeat="member in row">
+    <div class="list list-icon text-center">
+      <a class="gridnopadding">
+        <img class="borderOrange" ng-src="{{member.image && member.image !== '*' ? 'data:image/jpeg;base64,' + member.image : 'img/unknown-person.jpg'}}" />
+      </a>
+      <p class="bgorangeColor fontRegular" style="font-size:12px;padding:5px;font-weight:600;">
+        {{ lang=='1'? member.designation :member.designationReg}}
+      </p>
+      <span class="fontRegular">
+        {{ lang=='1'? member.name :member.nameReg}}
+      </span>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <div class="row margin-0 bgskyBlueColor borderOrange" style="place-content: center;">
+      
+      <div class="col col-20">
+        <div class="list list-icon text-center">
+          <a class="facebook" href="https://www.facebook.com/smartcitydehradun/">
+            <img src="img/sm_facebook.png" height="30" width="30">
+          </a>
+        </div> 
+      </div>
+    
+      <div class="col col-20">
+        <div class="list list-icon text-center">
+          <a class="twitter" href="https://twitter.com/smartcityddun?lang=en">   
+            <img src="img/X-Twitter-logo.png" height="30" width="30">
+          </a>
+        </div>
+      </div>
+    
+      <div class="col col-20">
+        <div class="list list-icon text-center">        
+          <a class="youtube" href="https://www.youtube.com/channel/UC3uWtt6N-91zRXOv6ffqr7Q">   
+            <img src="img/sm_youtube.png" height="30" width="30">
+          </a>
+        </div>
+      </div>
+    
+      <div class="col col-20">
+        <div class="list list-icon text-center">
+          <a class="instagram" href="https://www.instagram.com/smartcitydehradun/?hl=en">   
+            <img src="img/instagram.png" height="30" width="30">
+          </a>
+        </div>
+      </div>
+    
+    </div>
+
+  </ion-content>
+
+  
+  <div class="footer" style="border-top: 2px solid #d74701;">
+    <div class="row margin-00" style="margin-left: 0px !important;">
+
+      <div class="col col-6 divv">
+        <a class="footerButton" ui-sref="app.helpLine">
+          <img src="./img/footer_call_line.png" width="25" height="25">
+          <h6 class="colorWhite footerClass" translate="CITIZENHELPLINE"></h6>
+        </a>
+      </div>
+
+      <div class="col col-6 divv">
+        <a class="footerButton" id="callSOS">
+          <img src="./img/emergency_call_sos.png" height="25" width="25" style="border-radius: 0.5rem;">
+          <h6 class="colorWhite footerClass" translate="EMERGENCY_CALL_112"></h6>
+        </a>
+      </div>
+      <!-- <div class="col col-33 divv">
+        <a class="footerButton"
+        ui-sref="app.Metrological">
+        <img src="./img/cloudy.png" width="20" height="20" />
+        <h5 style="color: #013561;font-weight: bold;" translate="CITYWEATHER">City weather</h5>
+      </a>
+      </div> -->
+      <div class="col col-6 divv">  
+        <a class="footerButton" id="whatsAppId">  
+           <img src="./img/whatsapp.png" width="25" height="25">  
+          <h6 class="colorWhite footerClass" translate="CONNECTUS" ></h6>  
+        </a>  
+      </div>    
+
+      <div class="col col-6 divv" id="tollFree">
+        <a class="footerButton">
+          <img src="./img/toll_free_icon.png" width="25" height="25" />
+          <h6 class="colorWhite footerClass" translate="TOLLFREENO"></h6>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+</ion-view>
+
+<style>
+  .noMargin{
+    margin: 0px !important;
+  }
+
+  .head-link{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .head-link h2{
+    color: #555;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .head-link p a{
+    font-size: 12px;
+    color: #00aa55 !important;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .links p{
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  /* Social media css start */
+
+  .facebook {
+    color: white;
+  }
+
+  .twitter {
+    color: white;
+  }
+
+  .youtube {
+    color: white;
+  }
+
+  .instagram {
+    color: white;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 10px;
+    width: 100%;
+    height: 75px;
+    border-color: #111;
+    /* background: linear-gradient(to bottom, #0ac969 0%, #00aa55 100%) !important; */
+    background-color: #095788;
+    color: #fff;
+  }
+
+  .footerButton {
+    color: #fff !important;
+    height: 50px;
+  }
+
+  .divv {
+    text-align: center;
+    padding:0px
+  }
+
+  .wlcmHeader{
+    letter-spacing: 3px;
+    padding: 5px;
+    font-size: 1em;
+    font-weight: 800;
+  }
+</style>

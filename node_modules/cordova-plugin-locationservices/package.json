@@ -1,0 +1,55 @@
+{
+  "_from": "cordova-plugin-locationservices@^2.0.0",
+  "_id": "cordova-plugin-locationservices@2.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-e0lAKcZr6G4YYVbODQOyrnIC4kcOjSfz6fLlZ5Fr50bAec5/4IfBLwz4NPXyFwn5nyslY2kWt8+9WwqMBvspHw==",
+  "_location": "/cordova-plugin-locationservices",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "cordova-plugin-locationservices@^2.0.0",
+    "name": "cordova-plugin-locationservices",
+    "escapedName": "cordova-plugin-locationservices",
+    "rawSpec": "^2.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^2.0.0"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-locationservices/-/cordova-plugin-locationservices-2.1.0.tgz",
+  "_shasum": "d5cacf9da66d8c6b42abb794e1fd36dca18ff26b",
+  "_spec": "cordova-plugin-locationservices@^2.0.0",
+  "_where": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp",
+  "author": {
+    "name": "louisbl"
+  },
+  "bugs": {
+    "url": "https://github.com/louisbl/cordova-plugin-locationservices/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-locationservices",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Android geolocation plugin using Google Play Services Location API.",
+  "homepage": "https://github.com/louisbl/cordova-plugin-locationservices#readme",
+  "keywords": [
+    "cordova",
+    "google-play-services",
+    "geolocation",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-locationservices",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louisbl/cordova-plugin-locationservices.git"
+  },
+  "version": "2.1.0"
+}

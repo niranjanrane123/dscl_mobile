@@ -1,0 +1,128 @@
+<ion-view>
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%; position: absolute; margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	</ion-nav-bar>
+
+  <ion-content ng-controller="EchallanPageCtrl" class="HomeBackground">
+
+    <form name="upclForm" ng-show="!showList">
+      <div class="list">
+
+        <div class="headingDiv">
+          <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="ECHALLAN"></h3>
+        </div>
+        
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="CHALLANNO"></span>
+          <input type="text" id="complaintstatustokeninput" placeholder="{{ 'CHALLANNO' | translate }}*" name="tokennumber"  limit="20" ng-trim="false" ng-model-options="{ allowInvalid: true}" ng-model="tokennumber" id="tokennumberid" ng-keyup="eighteendigit()" required />
+          <span class="errorMessage" ng-show="complaintstatusform.tokennumber.$error.pattern">{{'VALIDTOKEN' | translate}}</span>
+        </label>
+
+        <div class="padding">
+          <button type="submit" ng-click="getChallanListFunction(tokennumber)()" class="button button-block customBgColor">     
+          <span translate="SEARCH"></span></button>
+        </div>
+
+        <div class="card list" ng-repeat="subject in respcompainList ">
+          <div class="item item-divider dividerbar">
+            <p style="color:#fff;">{{ 'CHALLANNO' | translate }}: {{ subject.challanNo }}</p>
+            <!-- <i class="icon ion-ios-arrow-right"></i> -->
+          </div>
+          <div class="item item-text-wrap textcolor">
+            <p>{{ 'AMOUNT' | translate }}: {{ subject.amount | translate }}</p>
+            <p>{{ 'LOCATION' | translate }}: {{ subject.location }}</p>
+            <p>{{ 'DATE' | translate }}:{{ subject.timeStamp }}</p>
+            <p>{{ 'VIOLATIONTYPE' | translate }}:{{ subject.violationType }}</p>
+            <p>{{ 'VECHICLENO' | translate }}:{{ subject.vehicleNo }}</p>
+          </div>
+          <!--adding test code-->
+          <div class = "item item-text-wwrap textcolor">
+            <p>{{'AMOUNT' | translate}}: {{subject.amount }}</p>
+            <p>{{'LOCATION' | translate}}: {{subject.location}}</p>
+            <p>{{'DATE' | translate}}: {{subject.timeStamp}}</p>
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+  </ion-content>
+
+
+  <!-- <ion-content ng-controller="EchallanPageCtrl" class="HomeBackground">
+    <div class="headingDiv">
+      <h3 class="heading" translate="ECHALLAN"></h3>
+    </div>
+    <div class="list">
+      <div class="row margin-0">
+        <div class="col col-99">
+          <label class="item item-input item-floating-label">
+            <input type="text" id="complaintstatustokeninput"
+              placeholder="{{ 'CHALLANNO' | translate }}*" name="tokennumber"  limit="20"
+              ng-trim="false" ng-model-options="{ allowInvalid: true}" ng-model="tokennumber" id="tokennumberid"
+              ng-keyup="eighteendigit()" required />
+            <span class="errorMessage" ng-show="complaintstatusform.tokennumber.$error.pattern">{{'VALIDTOKEN' |
+              translate}}</span>
+          </label>
+        </div>
+
+        <div class="padding">
+          <button type="submit" ng-click="getChallanListFunction(tokennumber)()" class="button button-block customBgColor">     
+          <span translate="SEARCH"></span></button>
+        </div>
+        
+        <!-- <div class="col col-33">
+          <div class="padding">
+            <button type="submit" class="buttonSearch" ng-click="getChallanListFunction(tokennumber)">{{'SEARCH' |translate}}</button>
+          </div>
+        </div> 
+      </div>-->
+
+      
+    </div>
+
+</ion-view>
+
+<style>
+  .buttonSearch {
+    width: auto;
+    border-color: transparent;
+    /* background-color: #00aa55; */  /* New Theme Change */
+    background-color: #095788 ;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0px 10px;
+    /* min-width: 52px; */
+    /* min-height: 47px; */
+    border-width: 1px;
+    border-style: solid;
+    /* border-radius: 4px; */
+    vertical-align: top;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    line-height: 42px;
+    cursor: pointer;
+    line-height: 35px;
+    font-family: 'Poppins-Regular';
+  }
+
+  .dividerbar {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    /* background-color: #00aa55; */
+    background-color: #095788;
+    color: #fff;
+  }
+
+  .textcolor {
+    font-family: 'Open Sans';
+    font-weight: 600;
+  }
+</style>

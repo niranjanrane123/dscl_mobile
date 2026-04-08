@@ -1,0 +1,891 @@
+  angular.module('starter')
+    .controller('rtiInformationCtrl', function ($rootScope,$scope, RestService, $ionicLoading, $stateParams, toaster, $filter, ENV,$ionicHistory,
+        $state, $localStorage,$sessionStorage,$ionicModal,$ionicPopup) {
+  $scope.collectionModeDetails = false;
+  /*function start*/
+  $scope.orgid = $localStorage.selectedorgID;
+  $scope.provertyCheck = $localStorage.belowPovertycheck;
+  $scope.oragnisationCheck = $localStorage.organisationCheck;
+  $scope.direct = $sessionStorage.direct;
+  $scope.bankList = new Array();
+  $localStorage.Lock	= 0;
+  $sessionStorage.documentObjectArray = [];
+  $scope.chargesFree = true;
+   $scope.invalid = false;
+   $scope.fileName='';
+   $scope.friend = {};
+  console.log("refernec Mode- response--"+$sessionStorage.responseservicechargedata);
+  if($sessionStorage.responseservicechargedata == undefined || Object.keys($sessionStorage.responseservicechargedata).length === 0){
+      $scope.payStatus = 'F';
+      $scope.amountToPay = '0.0';
+  }else{
+      $scope.payStatus = 'Y';
+      $scope.chargesFree = $sessionStorage.responseservicechargedata.free;
+      $scope.amountToPay = $sessionStorage.responseservicechargedata.responseObj[0].chargeAmount
+  }
+    var arrayListTest	=	new Array();
+    var arrayListTest2	=	new Array();
+	      if($sessionStorage.check == 'yes'){
+
+	        $scope.subjects2 = $sessionStorage.rtiCheckList.responseObj;
+		      console.log("subjects"+JSON.stringify($scope.subjects2));
+  		    //alert("subjects ::: "+JSON.stringify($scope.subjects));
+            if($scope.subjects2!=null){
+              $scope.docsitems = [];
+                            var usagedoctable = "";
+                            for (var i = 0; i < $scope.subjects2.length; i++) {
+
+                            var docdata = {
+                                  attactID: $scope.subjects2[i].attachmentId,
+                                      docID: $scope.subjects2[i].documentId,
+                                      docName: $scope.subjects2[i].documentName,
+                                      docSerialNo: $scope.subjects2[i].documentSerialNo,
+                                      docDescType: $scope.subjects2[i].descriptionType,
+                                      docType: $scope.subjects2[i].documentType,
+                                      docDescMar: $scope.subjects2[i].doc_DESC_Mar,
+                                      docDesceng: $scope.subjects2[i].doc_DESC_ENGL,
+                                      docByteCode: $scope.subjects2[i].documentByteCode,
+                                      docMandatory: fullmandatory($scope.subjects2[i].checkkMANDATORY)
+                               }
+                                $scope.docsitems.push(docdata);
+                            }
+            }
+         }
+
+        var verfy;
+        var verfy2;
+        	$scope.imageupload = function(fileObject){
+        		var reader = new FileReader();
+        		var idValue1	=	fileObject.getAttribute("id");
+        		verfy  = fileObject.files[0];
+                if(verfy){
+        		var maxSize = fileObject.getAttribute('data-max-size');
+        	    var fileSize = verfy.size;
+              $scope.fileName = verfy.name;
+        		var ext = fileObject.value.split('.').pop();
+        		if(ext){
+        	    	if(ext == "pdf" || ext == "docx" || ext == "doc" || ext == "xls" || ext == "xlsx"){
+        	        }
+        	    	else{
+        	    		fileObject.value = "";
+        	        	
+                    $rootScope.simpleAlert('Onlypdfdocxls');
+                    
+        	            $('#iDivBusyLoad').hide();
+        	            return;
+        	    	}
+        	    }else{
+        	    	$rootScope.simpleAlert('validdocument');
+        	    	$('#iDivBusyLoad').hide();
+        	    	return;
+        	    }
+        	    if(fileSize > maxSize){
+        	    	fileObject.value = "";
+        	        $rootScope.simpleAlert('validdocumentSize5');
+        	        $('#iDivBusyLoad').hide();
+        	        return;
+        	    }
+        		reader.onload = function(e){
+        			console.log("about to encode");
+                    $scope.encoded_file1 = window.btoa(e.target.result.toString());
+        			//$scope.encoded_file = "TESTIng";
+        			for(var k=0;k<$scope.subjects2.length;k++)
+        			{
+        				var documentObject =
+        				{
+        					attachmentId: $scope.subjects2[k].attachmentId,
+        					documentId: $scope.subjects2[k].documentId,
+        					documentName: $scope.fileName,
+        					documentSerialNo: $scope.subjects2[k].documentSerialNo,
+        					descriptionType: $scope.subjects2[k].descriptionType,
+        					documentType: $scope.subjects2[k].documentType,
+        					doc_DESC_Mar: $scope.subjects2[k].doc_DESC_Mar,
+        					doc_DESC_ENGL: $scope.subjects2[k].doc_DESC_ENGL,
+        					documentByteCode: null,
+        					checkkMANDATORY: $scope.subjects2[k].checkkMANDATORY
+        				};
+
+        				if($localStorage.Lock== 0)
+        				{
+        					if($scope.subjects2[k].documentId == idValue1)
+        					{
+        						documentObject.documentName		=	verfy.name;
+        						documentObject.documentByteCode	=	$scope.encoded_file1;
+        					}
+        					arrayListTest.push(documentObject);
+        					if((k+1)==$scope.subjects2.length)
+        					{
+        						$localStorage.Lock = 1;
+        					}
+        				}
+        				else
+        				{
+        					for (var l=0; l <arrayListTest.length; l++) {
+                                if (arrayListTest[l].documentId == idValue1 && $scope.subjects2[k].documentId == idValue1)
+                                {
+                                  arrayListTest[l].documentName		    =	$scope.fileName;
+                                  arrayListTest[l].documentSerialNo 	= 	$scope.subjects2[k].documentSerialNo;
+                                  arrayListTest[l].doc_DESC_Mar 		=	$scope.subjects2[k].doc_DESC_Mar;
+                                  arrayListTest[l].doc_DESC_ENGL 		=	$scope.subjects2[k].doc_DESC_ENGL;
+                                  arrayListTest[l].documentByteCode	    =	    $scope.encoded_file1;
+                                  arrayListTest[l].checkkMANDATORY 	= 	$scope.subjects2[k].checkkMANDATORY;
+                                }
+        				   }
+        				}
+        			}
+        			console.log("Final $localStorage.TempArray-----"+JSON.stringify(arrayListTest));
+        		};
+        		reader.readAsBinaryString(verfy);
+        		}else{
+        	  	  arrayListTest = [];
+        		  $localStorage.Lock = 0;
+        		}
+        	};
+          $scope.imageupload2 = function(fileObject){
+            console.log($scope.plbmg);
+             var reader = new FileReader();
+             var idValue	=	fileObject.getAttribute("id");
+             verfy  = fileObject.files[0];
+             var maxSize = 1000000;
+             $scope.fileName = verfy.name;
+             if(verfy){
+                var fileSize = verfy.size;
+                var ext = fileObject.value.split('.').pop();
+                if(ext){
+                    if(ext == "png" || ext == "jpeg" || ext == "jpg"){
+       
+                      }
+                    else{
+                      fileObject.value = "";
+                        alert('Only jpeg,jpg,png,gif,bmp extension(s) file(s) allow.');
+                          $('#iDivBusyLoad').hide();
+                          return;
+                    }
+                  }else{
+                    alert("Please uplaod a valid image");
+                    $('#iDivBusyLoad').hide();
+                    return;
+                  }
+                        if(fileSize > maxSize){
+                            fileObject.value = "";
+                            $scope.encoded_file = undefined;
+                            alert('File Size Must Not Be Greater Than 1 MB');
+                            $('#iDivBusyLoad').hide();
+                            return;
+                        }
+                       reader.onload = function(e){
+                        console.log("about to encode");
+                        $scope.encoded_file = window.btoa(e.target.result.toString());
+                      };
+                     reader.readAsBinaryString(verfy);
+             }else{
+               $scope.encoded_file = undefined;
+             }
+       
+            };
+     //image to bycode
+    //  $scope.imageupload2 = function(fileObject){
+    //  console.log($scope.plbmg);
+    //   var reader = new FileReader();
+    //   var idValue	=	fileObject.getAttribute("id");
+    //   verfy  = fileObject.files[0];
+    //   var maxSize = 1000000;
+    //   $scope.fileName = verfy.name;
+    //   if(verfy){
+    //      var fileSize = verfy.size;
+    //      var ext = fileObject.value.split('.').pop();
+    //           if(ext){
+    //               if(ext == "png" || ext == "jpeg" || ext == "jpg"){
+
+    //               }
+    //               else{
+    //                 fileObject.value = "";
+    //                  $rootScope.simpleAlert('Onlyjpgpngpdfdoc');
+    //                    $('#iDivBusyLoad').hide();
+    //                    return;
+    //               }
+    //              }else{
+    //                $rootScope.simpleAlert("Please uplaod a valid file");
+    //                $('#iDivBusyLoad').hide();
+    //                return;
+    //              }
+    //              if(fileSize > maxSize){
+    //                  fileObject.value = "";
+    //                  $rootScope.simpleAlert('validdocumentSize');
+    //                  $('#iDivBusyLoad').hide();
+    //                  return;
+    //              }
+    //             reader.onload = function(e){
+    //              console.log("about to encode");
+    //              $scope.encoded_file = window.btoa(e.target.result.toString());
+    //            };
+    //           reader.readAsBinaryString(verfy);
+    //   }else{
+    //     $scope.encoded_file = undefined;
+    //   }
+
+    //  };
+
+    $scope.saveRtiFormData = function(){
+     console.log("arrayListTest---"+JSON.stringify(arrayListTest));
+                if($scope.encoded_file == undefined ){
+                  $rootScope.simpleAlert($filter('translate')('UPLOADFILES'))
+                }
+                else{
+                    if($scope.subjects2 != undefined){
+                              if(arrayListTest.length>0)
+                              {
+                                for(var i = 0; i < arrayListTest.length; i++)
+                                  {
+                                    if(arrayListTest[i].checkkMANDATORY == "Y")
+                                    {
+                                      if(arrayListTest[i].documentByteCode ==	null)
+                                      {
+                                        $rootScope.simpleAlert($filter('translate')('UPLOADMANDATORY'))
+                                        return
+                                      }
+                                      else
+                                      {
+                                        $sessionStorage.documentObjectArray	=	arrayListTest;
+                                      }
+                                    }
+                                  }
+                              }
+                              else
+                              {
+                                $rootScope.simpleAlert($filter('translate')('UPLOADMANDATORY'))
+                                return;
+                              }
+                            }
+                            var rtiData = {
+                                            fName: $localStorage.applicantDetails.firstname,
+                                            mName: $localStorage.applicantDetails.middlename,
+                                            lName: $localStorage.applicantDetails.lastname,
+                                            mobileNo: $localStorage.applicantDetails.mobileNo.toString(),
+                                            corrAddrsPincodeNo: $localStorage.applicantDetails.Pincodecorres,
+                                            corrAddrsAreaName: $localStorage.applicantDetails.Addresscorres,
+                                            appealType:null,
+                                            apmOrgnName:null,
+                                            district: $localStorage.applicantDetails.district,
+                                            apmMode:null,
+                                            phone: null,
+                                            meterSize:null,
+                                            locId:null,
+                                            email: $localStorage.applicantDetails.emailId,
+                                            orgId: $localStorage.applicantDetails.org,
+                                            deptId: $scope.DepartmentIdGet,
+                                            empId: null,
+                                            onlineOfflineCheck:null,
+                                            applicationId: null,
+                                            challanNo: null,
+                                            txnId: null,
+                                            licenseNo: null,
+                                            serviceId: $scope.ServiceIdGet,
+                                            serviceName: null,
+                                            supplimentryBillIdMap: {},
+                                            userId: $localStorage.responselogindata.userId,
+                                            langId: 1,
+                                            ownership:null,
+                                            payStatus: $scope.payStatus,
+                                            payAmount: null,
+                                            macId: null,
+                                            updatedBy: $localStorage.responselogindata.userId,
+                                            serviceShortCode: null,
+                                            tenant: null,
+                                            dispatchDocketNo:null,
+                                            ccnNumber:null,
+                                            ccnSize:null,
+                                            dispatchMobile:null,
+                                            dispatchName:null,
+                                            documentList: $sessionStorage.documentObjectArray,
+                                            dirPath: null,
+                                            titleId: 1,
+                                            blockNo: null,
+                                            floor: null,
+                                            wing: null,
+                                            bldgName: null,
+                                            houseComplexName: null,
+                                            roadName: null,
+                                            areaName: $localStorage.applicantDetails.address,
+                                            pincodeNo: $localStorage.applicantDetails.pinCode,
+                                            applicationType: $localStorage.applicantDetails.applicantType,
+                                            phone1: null,
+                                            phone2: null,
+                                            wardNo: null,
+                                            bplNo: $localStorage.applicantDetails.bplNo,
+                                            gender: $localStorage.applicantDetails.gender,
+                                            aadhaarNo: $localStorage.applicantDetails.adhaarNumber,
+                                            zoneNo: null,
+                                            blockName: null,
+                                            flatBuildingNo: null,
+                                            cityName: null,
+                                            uid: $localStorage.applicantDetails.adhaarNumber,
+                                            free: $sessionStorage.free,
+                                            idfId: null,
+                                            status: null,
+                                  //          departmentName: null,
+                                            referenceId: null,
+                                            isBPL: $localStorage.applicantDetails.povertyLineValue,
+                                            yearOfIssue: $localStorage.applicantDetails.yearOfIssue,
+                                            binder:null,
+                                            bplIssuingAuthority: $localStorage.applicantDetails.issuingAuthority,
+                                            apmOrgnName: $localStorage.orgName,
+                                            rtiId: 0,
+                                            rtiNo: null,
+                                            apmApplicationId: null,
+                                            apmApplicationDate: new Date(),
+                                            smServiceId: $scope.ServiceIdGet,
+                                            applReferenceMode: $sessionStorage.referenceDetails.referenceMode,
+                                            rtiLocationId: $scope.location,
+                                            rtiSubject: $scope.subject,
+                                            rtiDesc:$scope.reqApplication,
+                                            rtiDeciDet:null,
+                                            rtiDeciRecDate:null,
+                                            rtiDeciRecDateDesc:null,
+                                            rtiDeptidFdate:null,
+                                            rtiDetails: null,
+                                            loiApplicable: null,
+                                            reasonForLoiNa: null,
+                                            finalDispatchMode: 0,
+                                            dispatchDate: null,
+                                            deliveryReferenceNumber: 0,
+                                            rtiPioAction:null,
+                                            rtiPioActionDate:null,
+                                            rtiRemarkList: [],
+                                            stampNo: $sessionStorage.referenceDetails.stampNo,
+                                            stampAmt: $sessionStorage.referenceDetails.stampAmount,
+                                            stampDocPath: $sessionStorage.referenceDetails.encoded_file,
+                                            rtiAction: null,
+                                            reasonId: 0,
+                                            rtiRemarks: null,
+                                            partialInfoFlag: 0,
+                                            folio:null,
+                                            inwardType: $sessionStorage.referenceDetails.inWardType,
+                                            inwReferenceNo: $sessionStorage.referenceDetails.referenceNo,
+                                            inwReferenceDate: $sessionStorage.referenceDetails.date,
+                                            inwAuthorityDept: $scope.department,
+                                            inwAuthorityName: $sessionStorage.referenceDetails.authorityName,
+                                            inwAuthorityAddress: $sessionStorage.referenceDetails.address,
+                                            othForwardPioAddress: null,
+                                            othForwardPioName: null,
+                                            othForwardDeptName: null,
+                                            othForwardPioEmail: null,
+                                            othForwardPioModNo: 0,
+                                            lModDate: new Date(),
+                                            lgIpMac: $localStorage.macAddress,
+                                            updateDate: new Date(),
+                                            lgIpMacUpd: null,
+                                            isDeleted: 0,
+                                            isCorrespondingAddress: null,
+                                            applicant: $localStorage.applicantDetails.applicantType,
+                                            title: null,
+                                            remarksSerialNo: null,
+                                            otherRemarks: null,
+                                            gen: null,
+                                            locationName: null,
+                                            inwardTypeName: null,
+                                            rtiDeptId: $scope.DepartmentIdGet,
+                                            applicationDate: null,
+                                            referenceDate: null,
+                                            taskId: null,
+                                            objType: null,
+                                            objNo: 0,
+                                            srNo: 0,
+                                            objAppealno: 0,
+                                            fromDate: null,
+                                            toDate: null,
+                                            amountToPay: $scope.amountToPay,
+                                            paymentMode: null,
+                                            isDocumentUpload: null,
+                                            address: null,
+                                            checkListFlag: false,
+                                            paymentFlag: false,
+                                            dateDesc: null,
+                                            applicantName: null,
+                                            empname: null,
+                                            isFree: null,
+                                            charges: 0,
+                                            rtiBplFlag: $localStorage.applicantDetails.povertyLineValue,
+                                            applicantDTO: {
+                                              organizationName: null,
+                                              applicantFirstName: null,
+                                              applicantMiddleName: null,
+                                              applicantLastName: null,
+                                              gender: null,
+                                              mobileNo: null,
+                                              emailId: null,
+                                              pinCode: null,
+                                              buildingName: null,
+                                              roadName: null,
+                                              applicantTitle: null,
+                                              areaName: null,
+                                              blockName: null,
+                                              housingComplexName: null,
+                                              wing: null,
+                                              floorNo: null,
+                                              phone1: null,
+                                              phone2: null,
+                                              contactPersonName: null,
+                                              villageTownSub: null,
+                                              cfcCitizenId: null,
+                                              povertyLine: null,
+                                              orgId: 0,
+                                              langId: 0,
+                                              userId: 0,
+                                              bplNo: null,
+                                              flatBuildingNo: null,
+                                              codTryId1: null,
+                                              codTryId2: null,
+                                              codTryId3: null,
+                                              codTryId4: null,
+                                              codTryId5: null,
+                                              aadharNo: null,
+                                              dwzid1: null,
+                                              dwzid2: null,
+                                              dwzid3: null,
+                                              dwzid4: null,
+                                              dwzid5: null,
+                                              serviceId: null,
+                                              departmentId: null,
+                                              isBPL: $localStorage.applicantDetails.povertyLineValue,
+                                              panNo: null
+                                            },
+                                            chargesMap: {},
+                                            offlineDTO: {
+                                              challanNo: null,
+                                              serviceId: null,
+                                              oflPaymentMode: 0,
+                                              applNo: null,
+                                              ddNo: null,
+                                              ddDate: null,
+                                              poNo: null,
+                                              poDate: null,
+                                              bankaAccId: null,
+                                              isDeleted: null,
+                                              orgId: null,
+                                              userId: null,
+                                              langId: 0,
+                                              lmodDate: null,
+                                              lgIpMac: null,
+                                              bmBankAccountId: null,
+                                              payModeIn: null,
+                                              bmDrawOn: null,
+                                              bmChqDDNo: null,
+                                              bmChqDDDate: null,
+                                              amountToPay: 0,
+                                              amountToShow: 0,
+                                              hidebmChqDDNo: null,
+                                              hidebmChqDDDate: null,
+                                              deptId: null,
+                                              faYearId: null,
+                                              challanServiceType: null,
+                                              challanValidDate: null,
+                                              feeIds: {},
+                                              billDetIds: null,
+                                              finYearStartDate: null,
+                                              finYearEndDate: null,
+                                              applicantAddress: null,
+                                              documentUploaded: false,
+                                              bankData: [],
+                                              loiNo: null,
+                                              mobileNumber: null,
+                                              emailId: null,
+                                              applicantName: null,
+                                              offlinePaymentText: null,
+                                              onlineOfflineCheck: $localStorage.applicantDetails.bplNo,
+                                              cbBankId: null,
+                                              uniquePrimaryId: null,
+                                              paymentCategory: null,
+                                              taskId: null,
+                                              empType: null,
+                                              loggedLocId: null,
+                                              tdpPrefixId: null,
+                                              narration: null,
+                                              manualReceiptNo: null,
+                                              manualReeiptDate: null,
+                                              documentList: null,
+                                              paymentStatus: null,
+                                              objectionNumber: null,
+                                              chargesMap: {},
+                                              charges: null,
+                                              vendorId: null,
+                                              receiptcategoryId: null,
+                                              demandLevelRebate: 0,
+                                              referenceNo: null,
+                                              usageType: null,
+                                              deptCode: null,
+                                              serviceCode: null,
+                                              propNoConnNoEstateNoL: null,
+                                              propNoConnNoEstateNoV: null,
+                                              billDetails: {},
+                                              printDtoList: [],
+                                              dwzDTO: {
+                                                areaDivision1: 0,
+                                                areaDivision2: 0,
+                                                areaDivision3: 0,
+                                                areaDivision4: 0,
+                                                areaDivision5: 0,
+                                                empId: 0,
+                                                tariffCategory: 0,
+                                                available: false
+                                              }
+                                            },
+                                            fetchDocs: [{
+                                                attachmentId: null,
+                                                documentId: null,
+                                                documentName: $scope.fileName,
+                                                documentSerialNo: null,
+                                                descriptionType: null,
+                                                documentType: null,
+                                                uploadedDocumentPath: null,
+                                                doc_DESC_Mar: null,
+                                                doc_DESC_ENGL: null,
+                                                documentByteCode: $scope.encoded_file,
+                                                checkkMANDATORY: null
+                                            }],
+                                            subject: $scope.subject,
+                                            acceptRemarks: null
+                                          }
+                            if($localStorage.langNewId == "2"){
+                               $ionicLoading.show({	template: 'लोड हो रहा है...'		});
+                             }else{
+                               $ionicLoading.show({	template: 'Loading...'		});
+                            }
+                            console.log("ghdj "+rtiData);
+                           RestService.saveRtiData(rtiData).then(function (getprefixdataresponsecsz) {
+                             console.log("getprefixdataresponsecsz=="+JSON.stringify(getprefixdataresponsecsz));
+                             if(getprefixdataresponsecsz==undefined || getprefixdataresponsecsz == null || getprefixdataresponsecsz=="")
+                              {
+                                 $ionicLoading.hide();
+
+                              }
+                              else
+                              {
+                                 $ionicLoading.hide();
+                                 $scope.applictNo = getprefixdataresponsecsz.apmApplicationId;
+
+                                 
+                                 var alertPopup = $ionicPopup.alert({
+                                  title: $filter('translate')('RTI'),
+                                  template: $filter('translate')('RTIAPPLICATIONSAVED') +' '+$scope.applictNo,
+                                    buttons : [{
+                                       text : $filter('translate')('PROCEEDFORPAYMENT'),
+                                       type : 'button button-block  customBgColor',
+                                       onTap : function(){
+                                          $sessionStorage.applictNo = $scope.applictNo;
+                                          $state.go("app.RtiPay");
+                                         // console.log('$sessionStorage.applictNo', $sessionStorage.applictNo);
+                                         // console.log('$sessionStorage.responseservicechargedata.responseObj[0].chargeAmount);
+                          
+                                          // organization 2 and individual 10
+                                       }
+                                    }]
+                                });
+                                $scope.savePaymentRequest(getprefixdataresponsecsz);
+                                
+                                 /*if($scope.chargesFree == false && $sessionStorage.responseservicechargedata.responseObj[0].chargeAmount > 0){
+                                    var alertPopup = $ionicPopup.alert({
+                                      title: $filter('translate')('RTI'),
+                                      template: $filter('translate')('RTIAPPLICATIONSAVED') +' '+$scope.applictNo,
+                                        buttons : [{
+                                           text : $filter('translate')('PROCEEDFORPAYMENT'),
+                                           type : 'button button-block  customBgColor',
+                                           onTap : function(){
+                                              $sessionStorage.applictNo = $scope.applictNo;
+                                              $state.go("app.RtiPay");
+                                           }
+                                        }]
+                                    });
+                                    $scope.savePaymentRequest(getprefixdataresponsecsz);
+                                 }else{
+                                   $ionicLoading.hide();
+                                   $ionicHistory.nextViewOptions({
+                                              disableBack: true,
+                                              disableAnimate: true,
+                                              historyRoot: true
+                                    });
+                                    $ionicHistory.clearCache();
+                                    $ionicHistory.clearHistory();
+                                    $state.go("app.home");
+
+                                    var alertPopup = $ionicPopup.alert({
+                                      title: $filter('translate')('RTI'),
+                                      template: $filter('translate')('RTIAPPLICATIONSAVED') +' '+$scope.applictNo,
+                                        buttons : [{
+                                           text : $filter('translate')('OK'),
+                                           type : 'button button-block  customBgColor',
+                                           onTap : function(){
+                                            
+                                           }
+                                        }]
+                                    });
+                                 }*/
+
+                              }
+
+                              },function (err) {
+                                toaster.error($filter('translate')('ERROR'), $filter('translate')('ERROR_OCCURED'));
+                                $ionicLoading.hide();
+                              })
+
+                }
+
+          }
+
+        $scope.savePaymentRequest=function(data)
+        {
+          
+        var params={
+            "serviceId": data.serviceId,
+            "applicationId":data.apmApplicationId,
+            "applicantName": data.fName+' '+data.lName,
+            "dueAmt": data.amountToPay,
+            "mobNo": data.mobileNo,
+            "email":data.email,
+            "serviceName": "File RTI On-line",
+            "udf1": data.serviceId,
+            "udf2": data.apmApplicationId,
+            "udf3": "CitizenHome.html",
+            "udf4": null,
+            "udf5": data.serviceShortCode,
+            "udf6": null,
+            "udf7": "null",
+            "udf8": null,
+            "udf9": null,
+            "udf10": data.deptId,
+            "errors": null,
+            "finalAmount": btoa(data.amountToPay),
+            "validateAmount": data.amountToPay,
+            "key": null,
+            "txnid": data.txnid,
+            "salt": null,
+            "bankId": null,
+            "hash": null,
+            "controlUrl": RestService.cxfServiceUrl+"rest/commonPaymentController/savePaymentRequest",
+            "pgUrl": null,
+            "successUrl": RestService.eipURL+"/RtiApplicationUserDetailForm.html?payuSuccess",
+            "failUrl": RestService.eipURL+"/RtiApplicationUserDetailForm.html?failPayU",
+            "cancelUrl": RestService.eipURL+"/RtiApplicationUserDetailForm.html?cancelPayU",
+            "errorCause": null,
+            "onlineBankList": null,
+            "orgId": data.orgId,
+            "empId": data.empId,
+            "payRequestMsg": null,
+            "pgName": null,
+            "merchantId": null,
+            "schemeCode": null,
+            "production": null,
+            "requestType": null,
+            "chargeFlag": null,
+            "recieptDTO": null,
+            "payModeorType": null,
+            "challanServiceType": data.challanServiceType,
+            "documentUploaded": data.documentUploaded,
+            "feeIds": data.feeIds,
+            "orderId": null,
+            "trnCurrency": null,
+            "trnRemarks": null,
+            "recurrPeriod": null,
+            "recurrDay": null,
+            "noOfRecurring": null,
+            "responseUrl": null,
+            "addField1": null,
+            "addField2": null,
+            "addField3": null,
+            "addField4": null,
+            "addField5": null,
+            "addField6": null,
+            "addField7": null,
+            "addField8": null,
+            "serviceID": null,
+            "fundID": null,
+            "checksumKey": null,
+            "enableChildWindowPosting": false,
+            "enablePaymentRetry": false,
+            "retryAttemptCount": 0,
+            "txtPayCategory": null,
+            "securityId": null,
+            "typeField1": null,
+            "typeField3": null,
+            "typeField2": null
+        };
+        RestService.savePaymentRequest(params).then(function (response){
+                  console.log("savePayment--"+response);
+                  if(response==undefined || response == null || response=="")
+                    {
+                      $ionicLoading.hide();
+                      return false;
+                    }
+                  else
+                    {
+                      
+                    }
+                  $ionicLoading.hide();
+                },function (err) {
+                  toaster.error($filter('translate')('ERROR'), $filter('translate')('ERROR'));
+                  $ionicLoading.hide();
+          })
+
+        }
+       $scope.departmentType = function(){
+       
+          RestService.getDepartmentLocByOrg($localStorage.applicantDetails.org,$scope.department)
+            .then(function(response){
+              console.log("department loc"+JSON.stringify(response));
+              if(response.length > 0){
+                  var listResponse = response;
+                  $scope.departmentLoc = new Array();
+                  for(var i=0;i<listResponse.length;i++){
+                    
+                  if($localStorage.langNewId == "2"){
+                  $scope.departmentLoc.push({
+                      value : listResponse[i].lookUpId,
+                      name : listResponse[i].descLangSecond
+                    })
+                  }else{
+                        $scope.departmentLoc.push({
+                          value : listResponse[i].lookUpId,
+                          name : listResponse[i].descLangFirst
+                        })
+                    }
+                    console.log('hello', $scope.departmentLoc);
+                  }
+                  console.log("preparationLoc"+JSON.stringify($scope.departmentLoc))
+                $ionicLoading.hide();
+              }
+              else {
+                $ionicLoading.hide();
+                toaster.error($filter('translate')('ERROR'), $filter('translate')('ERROR_OCCURED'));
+
+              }
+            },function(err){
+              toaster.error($filter('translate')('ERROR'), $filter('translate')('ERROR_OCCURED'));
+              $ionicLoading.hide();
+            })
+        }
+  $scope.paymentmode = function(payModeID)
+  {
+    console.log("payModeID---"+payModeID);
+    console.log("bankList---"+JSON.stringify($sessionStorage.response));
+      for(var i=0;i<$sessionStorage.response.PAY.length;i++){
+        if($sessionStorage.response.PAY[i].lookUpId == payModeID){
+              $scope.payModeCode = $sessionStorage.response.PAY[i].lookUpCode;
+               console.log("$scope.payModeCode---"+$scope.payModeCode);
+              if($scope.payModeCode == "C")
+              {
+                $scope.collectionModeDetails = false;
+              }else{
+                $scope.collectionModeDetails = true;
+              }
+          }
+      }
+  }
+  $scope.submit = function(){   $state.go("app.home");   }
+    var _init = function (){
+         RestService.getServiceId($localStorage.applicantDetails.org,"RAF")
+             .then(function (response) {
+             console.log("service id response"+JSON.stringify(response));
+             $ionicLoading.hide();
+             $scope.ServiceIdGet = response;
+             $sessionStoragertiServiceId = response;
+             getDepartmentId();
+             console.log("SERVICE OD "+$scope.ServiceIdGet)
+           }, function (err) {
+             $ionicLoading.hide();
+             toaster.error($filter('translate')('ERROR'), $filter('translate')('ERROR_OCCURED'));
+
+        })
+        var getDepartmentId = function(){
+           RestService.getDepartId($localStorage.applicantDetails.org,"RAF")
+               .then(function (response) {
+               console.log("department id response"+JSON.stringify(response));
+               $ionicLoading.hide();
+               $scope.DepartmentIdGet = response;
+               console.log("department OD "+$scope.ServiceIdGet)
+             }, function (err) {
+               $ionicLoading.hide();
+               toaster.error($filter('translate')('ERROR'), $filter('translate')('ERROR_OCCURED'));
+             })
+        }
+       	RestService.getDepartmentByOrg($localStorage.applicantDetails.org)
+          .then(function(response){
+            console.log("department"+JSON.stringify(response));
+            if(response.length > 0){
+                var listResponse = response;
+                $scope.departmentList = new Array();
+                for(var i=0;i<listResponse.length;i++){
+                 if(listResponse[i].lookUpCode=="RTI"){
+                  $scope.department = listResponse[i].lookUpId;
+                    if($localStorage.langNewId == "2"){
+                        $scope.departmentList.push({
+                            value : listResponse[i].lookUpId,
+                            name : listResponse[i].descLangSecond
+                          })
+                    }else{
+                      $scope.departmentList.push({
+                        value : listResponse[i].lookUpId,
+                        name : listResponse[i].descLangFirst
+                      })
+                    }
+                    $scope.department = 19
+                    // $scope.friend = {
+                    //   isPresent: true,
+                    //   selectedTicket: { "name": listResponse[i].descLangFirst, "id": listResponse[i].lookUpId } // <-- this is the default item
+                    // };
+                    // $scope.department = 19;
+                  }
+                }
+                // console.log("preparation"+JSON.stringify($scope.departmentList))
+                // console.log('hello 1', $scope.departmentList[0].value);
+                // $scope.department = $scope.departmentList[0].value;
+
+              $ionicLoading.hide();
+            }
+            else {
+                    $ionicLoading.hide();
+                 }
+          },function(err){
+            if(err){
+              $ionicLoading.hide();
+            }
+                
+          })
+
+        //$scope.getNonHDatanew1("RIN","inwardTypeoptions",$scope.orgid);
+
+         	$ionicLoading.show({	template:$filter('translate')('LOADING')		});
+            	RestService.prefixpayment($localStorage.applicantDetails.org).then(function (response) {
+            		console.log("bankList--options-"+response);
+                    $sessionStorage.response = response;
+            		$scope.bankList = new Array();
+            	    for(var i=0;i<$sessionStorage.response.PAY.length;i++){
+            	    if($localStorage.langNewId=="2"){
+            	            $scope.bankList.push({
+                                			    	id : $sessionStorage.response.PAY[i].lookUpId,
+                                			    	name : $sessionStorage.response.PAY[i].descLangSecond
+                                		        })
+            	    }else{
+            	            $scope.bankList.push({
+                                			    	id : $sessionStorage.response.PAY[i].lookUpId,
+                                			    	name : $sessionStorage.response.PAY[i].descLangFirst
+                                                })
+                         }
+
+            	     }
+                     console.log("bankList--Pay-"+JSON.stringify($scope.bankList));
+            	     $scope.chequebankList = new Array();
+                     for(var i=0;i<$sessionStorage.response.BANK.length;i++){
+
+                      	 $scope.chequebankList.push({
+                      		id : $sessionStorage.response.BANK[i].lookUpId,
+                      		name : $sessionStorage.response.BANK[i].lookUpDesc
+                         })
+                    }
+                  console.log("bankList-Bank--"+JSON.stringify($scope.chequebankList));
+            		$ionicLoading.hide();
+            	}, function (err) {
+            		$ionicLoading.hide();
+            	})
+       };
+    _init();
+  });

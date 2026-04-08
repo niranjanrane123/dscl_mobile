@@ -1,0 +1,96 @@
+<ion-view>
+    <!-- title="{{'ECHATTISGARH' | translate}}" -->
+    <ion-nav-bar class="bar-dark" align-title="center">
+          <ion-nav-back-button class="button-clear">
+            <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+            <img style="right: 46%;
+            position: absolute;
+            margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+          </ion-nav-back-button>
+        </ion-nav-bar>
+  
+    <ion-content ng-controller="PropertyPageCtrl" class="HomeBackground">
+      <div class="headingDiv">
+        <h3 class="heading" translate="PROPERTYTAXBILLPAYMENT"></h3>
+      </div>
+      <div class="list">
+        <div class="row margin-0">
+          <div class="col col-99">
+            <label class="item item-input item-floating-label">
+              <input type="text" id="complaintstatustokeninput"
+                placeholder="{{ 'PROPERTYNO' | translate }}*" name="tokennumber"  limit="20"
+                ng-trim="false" ng-model-options="{ allowInvalid: true}" ng-model="tokennumber" id="tokennumberid"
+                ng-keyup="eighteendigit()" required />
+              <span class="errorMessage" ng-show="complaintstatusform.tokennumber.$error.pattern">{{'VALIDTOKEN' |
+                translate}}</span>
+            </label>
+          </div>
+          <div class="col col-33">
+            <div class="padding">
+              <button type="submit" class="buttonSearch" ng-click="getPropertTaxFunction(tokennumber)">{{'SEARCH' |
+                translate}}</button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="card list" ng-if = "respcompainList.length != 0">
+          <div class="item item-divider dividerbar">
+            <p style="color:#fff;">{{ 'PROPERTY_TAX' | translate }}: {{ respcompainList.consumerCode }}</p>
+          </div>
+          <div class="item item-text-wrap textcolor">
+            <p>{{ 'BILLNO' | translate }}: {{ respcompainList.billNumber }}</p>
+            <p>{{ 'PAYERNAME' | translate }}:{{ respcompainList.payerName }}</p>
+            <p>{{ 'STATUS' | translate }}:{{ respcompainList.status }}</p>
+            <p>{{'MOBILENO' | translate}}: {{respcompainList.mobileNumber}}</p>
+            <p>{{'CONSUMERCODE' | translate}}: {{respcompainList.consumerCode}}</p>
+          </div>
+          <div class = "item item-text-wwrap textcolor">
+            <p>{{'AMOUNT' | translate}}: {{respcompainList.totalAmount}}</p>           
+          </div>
+          <div class="padding">
+            <button ng-click="Payment()"  class="button button-block button-positive customBgColor">
+              <span translate="PAYMENT"></span></button>
+          </div>
+        </div>
+      </div>
+  
+    </ion-content>
+  </ion-view>
+  
+  <style>
+    .buttonSearch {
+      width: auto;
+      border-color: transparent;
+      background-color: #095788;
+      color: #fff;
+      position: relative;
+      display: inline-block;
+      margin: 0;
+      padding: 0px 10px;
+      /* min-width: 52px; */
+      /* min-height: 47px; */
+      border-width: 1px;
+      border-style: solid;
+      /* border-radius: 4px; */
+      vertical-align: top;
+      text-align: center;
+      text-overflow: ellipsis;
+      font-size: 14px;
+      line-height: 42px;
+      cursor: pointer;
+      line-height: 35px;
+      font-family: 'Poppins-Regular';
+    }
+  
+    .dividerbar {
+      font-family: 'Open Sans';
+      font-weight: 600;
+      background-color: #00aa55;
+      color: #fff;
+    }
+  
+    .textcolor {
+      font-family: 'Open Sans';
+      font-weight: 600;
+    }
+  </style>

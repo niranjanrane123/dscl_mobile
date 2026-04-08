@@ -1,0 +1,39 @@
+<ion-view >
+  <ion-nav-bar class="bar-dark" align-title="center">
+    <ion-nav-back-button class="button-clear">
+      <!-- <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button> -->
+      <button class="icon ion-chevron-left" ng-click="myGoBack()" style="background: transparent;border: none;"></button>
+      <img style="right: 46%; position: absolute; margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+
+<ion-content ng-controller="ApplicationHistoryPageCtrl" class="HomeBackground">
+
+ <div class="table-outer table-outer-1">
+               <table id="complainTab">
+                 <tr>
+                   <th  translate="SRNO"></td>
+                   <th translate="DATE"></td>
+                   <th translate="TaskName"></td>
+                   <th translate="STATUS"></td>
+                   <th translate="EMPNAME"></td>
+                   <th translate="EMAIL"></td>
+                   <th translate="DESIGNATION"></td>
+                   <th translate="REMARKS"></td>
+                 </tr>
+                  <tr ng-repeat="rowData in historydata;">
+                   <td>{{$index+1}}</td>
+                   <td>{{rowData.dateOfAction | date:'medium'}}</td>
+                   <td>{{rowData.taskName}}</td>
+                   <td>{{rowData.decision}}</td>
+                   <td>{{rowData.empName}}</td>
+                   <td>{{rowData.empEmail}}</td>
+                   <td ng-if="langID=='1' || langID==1">{{rowData.empGroupDescEng}}</td>
+                   <td ng-if="langID=='2' || langID==2">{{rowData.empGroupDescReg}}</td>
+                   <td>{{rowData.comments}}</td>
+                 </tr>
+               </table>
+             </div>
+</ion-content>
+</ion-view>
+

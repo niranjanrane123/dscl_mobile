@@ -1,0 +1,410 @@
+<ion-view >
+  <!-- title="{{'ECHATTISGARH' | translate}}"
+  <ion-nav-back-button></ion-nav-back-button> -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+
+  <ion-content ng-controller="EnvironmentPageCtrl" class="HomeBackground">
+    <!-- <div style="height: 40px;" class="search_categories">
+      <div class="select">
+        <select id="crimeType" class="item item-input item-select col text-center login crimtype"
+          ng-model="complaintReferenceCategory" style="width:100%;"
+          ng-options="o.lookUpCode as o.name for o in locationoptions" ng-change="locationpincode()" ng-click="reset()">
+          <option value="" translate="LOCATION" required></option>
+          <option ng-repeat="crime in locationoptions" value="{{crime.lookUpCode}}">{{crime.lookUpDesc}}</option>
+        </select>
+      </div>
+    </div> -->
+    <div class="headingDiv">
+      <h3 class="heading" translate="ENVIRONMENT"></h3>
+    </div>
+    <label class="input-label padding-left-15 required" translate="LOCATION"></label>
+    <select class="select-dropdown" name="department" ng-model="complaintReferenceCategory"
+    ng-options="o.lookUpCode as o.name for o in locationoptions" ng-change="getEnvData()" ng-click="reset()" required>
+      <!-- <option value="" translate="LOCATION"></option> -->
+      <option value="" translate="SELECT" disabled></option>
+    </select>
+
+    <div class="headingDiv" ng-show="showDetails">
+      <h3 class="heading" style="padding: 5px 0 25px 10px !important;">{{"AQI"|translate}} ({{"DATEANDTIME"|translate}} {{dateTime}})</h3>
+    </div>
+
+
+    <!-- <div ng-show="showDetails">
+
+        <div class="sameRow" >
+
+        <div class="env-box">
+                              
+          <div class="aqi-heading">
+            <i class="fa fa-tachometer" aria-hidden="true"></i>
+            <b id="noReading">{{tags[7]}}</b>
+            <span></span>
+          </div>
+          <div><span style="margin-left: 42%;">{{devices[7]}}</span>
+            <div style="border-radius:10px; background:#FFF;" class="aqi-meter">
+              <span class="aqi-bg-green" id="aqiColor" style="width: 2%;"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="env-box env-evenBox">
+                              
+          <div class="aqi-heading">
+            <i class="fa fa-tree" aria-hidden="true"></i>
+            <b id="noReading">{{tags[6]}}</b>
+            <span>µg/m³</span>
+          </div>
+          <div><span style="margin-left: 42%;">{{devices[6]}}</span>
+            <div style="border-radius:10px; background:#FFF;" class="aqi-meter">
+              <span class="aqi-bg-green" id="o3Color" style="width: 2%;"></span>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+      <div class="sameRow">
+
+        <div class="env-box">
+                              
+          <div class="aqi-heading">
+            <i class="fa fa-mixcloud" aria-hidden="true"></i>
+            <b id="noReading">{{tags[0]}}</b>
+            <span>ppb</span>
+          </div>
+          <div><span style="margin-left: 42%;">{{devices[0]}}</span>
+            <div style="border-radius:10px; background:#FFF;" class="aqi-meter">
+              <span class="aqi-bg-green" id="noColor" style="width: 2%;"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="env-box env-evenBox">
+                              
+          <div class="aqi-heading">
+            <i class="fa fa-circle-o" aria-hidden="true"></i>
+            <b id="noReading">{{tags[1]}}</b>
+            <span>ppb</span>
+          </div>
+          <div><span style="margin-left: 42%;">{{devices[1]}}</span>
+            <div style="border-radius:10px; background:#FFF;" class="aqi-meter">
+              <span class="aqi-bg-green" id="o3Color" style="width: 2%;"></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="sameRow" >
+
+        <div class="env-box">
+                              
+          <div class="aqi-heading">
+            <i class="fa fa-tree" aria-hidden="true"></i>
+            <b id="noReading">{{tags[2]}}</b>
+            <span>µg/m³</span>
+          </div>
+          <div><span style="margin-left: 42%;">{{devices[2]}}</span>
+            <div style="border-radius:10px; background:#FFF;" class="aqi-meter">
+              <span class="aqi-bg-green" id="pmColor" style="width: 2%;"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="env-box env-evenBox">
+                              
+          <div class="aqi-heading">
+            <i class="fa fa-compass" aria-hidden="true"></i>
+            <b id="noReading">{{tags[3]}}</b>
+            <span>ppb</span>
+          </div>
+          <div><span style="margin-left: 42%;">{{devices[3]}}</span>
+            <div style="border-radius:10px; background:#FFF;" class="aqi-meter">
+              <span class="aqi-bg-green" id="soColor" style="width: 2%;"></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="sameRow" >
+
+        <div class="env-box">
+                              
+          <div class="aqi-heading">
+            <i class="fa fa-circle-o-notch" aria-hidden="true"></i>
+            <b id="noReading">{{tags[4]}}</b>
+            <span>ppm</span>
+          </div>
+          <div><span style="margin-left: 42%;">{{devices[4]}}</span>
+            <div style="border-radius:10px; background:#FFF;" class="aqi-meter">
+              <span class="aqi-bg-green" id="coColor" style="width: 2%;"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="env-box env-evenBox">
+                              
+          <div class="aqi-heading">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+            <b id="noReading">{{tags[5]}}</b>
+            <span>ppm</span>
+          </div>
+          <div><span style="margin-left: 42%;">{{devices[5]}}</span>
+            <div style="border-radius:10px; background:#FFF;" class="aqi-meter">
+              <span class="aqi-bg-green" id="cColor" style="width: 2%;"></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    
+    </div> -->
+
+
+
+    <div ng-show="showDetails">
+
+  <div class="sameRow" ng-repeat="item in envList track by $index" ng-if="$index % 2 === 0">
+
+    <!-- LEFT BOX -->
+    <div class="env-box">
+      <div class="aqi-heading">
+        <i class="fa {{item.icon}}" aria-hidden="true"></i>
+        <b>{{item.value}}</b>
+        <span>{{item.unit}}</span>
+      </div>
+
+      <div>
+        <span style="margin-left:42%;">{{item.label}}</span>
+        <div class="aqi-meter" style="border-radius:10px;background:#FFF;">
+          <span ng-class="item.colorClass"
+                ng-style="{'width': item.width}">
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT BOX -->
+    <div class="env-box env-evenBox" ng-if="envList[$index + 1]">
+      <div class="aqi-heading">
+        <i class="fa {{envList[$index + 1].icon}}"></i>
+        <b>{{envList[$index + 1].value}}</b>
+        <span>{{envList[$index + 1].unit}}</span>
+      </div>
+
+      <div>
+        <span style="margin-left:42%;">{{envList[$index + 1].label}}</span>
+        <div class="aqi-meter" style="border-radius:10px;background:#FFF;">
+          <span ng-class="envList[$index + 1].colorClass"
+                ng-style="{'width': envList[$index + 1].width}">
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+    <div id="aqi-index" ng-show="showDetails">
+      <table class="text-center">
+        <tr>
+          <td class="aqi-bg-green">{{"GOOD"|translate}}</td>
+          <td class="aqi-bg-yellow">{{"SATISFACTORY"|translate}}</td>
+          <td class="aqi-bg-ddyellow">{{"MODERATE"|translate}}</td>
+          <td class="aqi-bg-pink">{{"POOR"|translate}}</td>
+          <td class="aqi-bg-megenta">{{"VERYPOOR"|translate}}</td>
+          <td class="aqi-bg-red">{{"SEVERE"|translate}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <p translate="ENVNOTE" style="text-align: justify; font-size: 10px; margin: 3% 3%;" ng-show="showDetails"></p>
+
+<!-- Enhancement #181269 -->
+    <!-- <div>   
+      <div>
+        <div class="row margin-0">
+          <div class="table-outer">
+            <table class="complaintTable fontRegular" ng-if="mysearch.length<1 || !mysearch">
+              <tr class="table-heading">
+                <td translate="INDEXNO">Index No</td>
+                <td translate="ITEM_LIST">Item List</td>
+                <td translate="DETAILS" colspan="2">DETAILS</td>
+              </tr>
+              <tr ng-repeat="rowData in devices track by $index">
+                <td>{{$index+1}}</td>
+                <td>{{devices[$index]}}</td>
+                <td>{{tags[$index]}}</td>
+                <!-- <td style="text-align: end; border-right: none !important;">{{tags[$index]}}</td>
+                <td style="border-left: none !important;">{{datas[$index]}}</td> --
+              </tr>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+ -->
+    <div style="margin: 5% 1% 1% 1%;" ng-show="showDetails">
+      <h3 class="heading">{{"ENVSENSORLOC"|translate}}</h3>
+    </div>
+
+    <div id="map" ng-show="showDetails"></div>
+
+    <p class="errorMsg" ng-show="errorMsg">{{"ENVNODATAFOUNDERR"|translate}}</p>
+    <!-- 
+    <form name="reopenForm">
+      <div id="existingcomplaint">
+        <div class="card list">
+          <div class="item item-text-wrap textcolor">
+            <p>NO2: {{ enviornmentData.NO2 }}</p>
+            <p>O3: {{ enviornmentData.O3 }}</p>
+            <p>PM10: {{ enviornmentData.PM10 }}</p>
+            <p>SO2: {{ enviornmentData.SO2 }}</p>
+            <p>CO: {{ enviornmentData.CO }}</p>
+            <p>CO2: {{ enviornmentData.CO2 }}</p>
+            <p>AQI: {{ enviornmentData.AQI }}</p>
+            <p>DATE_TIME: {{ enviornmentData.DATE_TIME }}</p>
+          </div>
+        </div>
+      </div>
+    </form> -->
+
+  </ion-content>
+</ion-view>
+
+<style>
+  .dividerbar {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    background-color: #00aa55;
+    color: #fff;
+  }
+
+  .textcolor {
+    font-family: 'Open Sans';
+    font-weight: 600;
+  }
+
+  .sameRow{
+    flex: 1;
+    flex-direction: row;
+    display: flex;
+  }
+
+  .env-box {
+    height: 100px;
+    margin: 0 0 0 6%;
+    padding: 2rem 0px;
+    border-radius: 15px;
+    vertical-align: middle;
+  }
+
+  .env-evenBox {
+    position: absolute;
+    left: 50%;
+  }
+
+  .aqi-heading {
+    font-size: 2.2rem;
+    font-weight: bold;
+  }
+
+  .aqi-heading i {
+    margin-right: 0.5rem;
+  }
+
+  .aqi-heading span {
+    font-weight: normal;
+    font-size: 1.2rem;
+    margin-left: 0.2rem;
+  }
+
+  .aqi-meter {
+    height: 10px;
+    border-radius: 8px;
+    /* margin-left: 25%; */
+    margin-top: 0.5rem;
+    border: 1px solid #DDD;
+    width: 140px;
+  }
+
+  .aqi-meter span {
+    height: 9px;
+    border-radius: 8px;
+    display: block;
+  }
+
+  #aqi-index {
+    margin: 0.2rem;
+  }
+
+  #aqi-index table {
+    width: 100%;
+    color: #FFF;
+  }
+
+  #aqi-index table {
+    width: 100%;
+    color: #FFF;
+  }
+
+  #aqi-index tr td {
+    width: 16.7%;
+    color: #000;
+    padding: 5px 10px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+
+  .errorMsg{
+    color: red;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 8%;
+    padding: 1rem;
+  }
+
+  #map {
+    width: 92%;
+    position: absolute;
+    /* top: 112%;
+    bottom: -15%; */
+    right: 0%;
+    left: 4%;
+    height: 52%;
+  }
+  
+
+/* For iOS */
+  /* #map {
+    width: 92%;
+    position: absolute;
+    top: 65%;
+    bottom: -2%;
+    right: 0%;
+    left: 4%;
+  } */
+  
+</style>

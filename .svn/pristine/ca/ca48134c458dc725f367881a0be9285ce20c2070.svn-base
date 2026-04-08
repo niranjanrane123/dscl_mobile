@@ -1,0 +1,53 @@
+<ion-view>
+
+ <ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<!--<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>-->
+
+<ion-content ng-controller="nidanHomePagectrl" class="backgroundimage">
+  <h3 class="heading">NIDAN 1100</h3>
+  <!--<div class="padding-left-15" style="color: red;">Note:-The time to file a complaint is from 08:00 to 06:00</div>-->
+<div class="row margin-0">
+	<div class="col col-50 animated fadeInLeft">
+		<div class="list text-center">
+			<a class="item gridnopadding" ui-sref="app.nidanApplicationDetail"><img src="./img/water-bill-icon.png" width="55px" height="55px">
+			<h5 translate="LODGECOMPL"> </h5></a>
+		</div>
+	</div>
+	<!--<div class="col col-50 animated fadeInRight">
+		<div class="list text-center">
+			<a class="item gridnopadding" ng-click="reopen()"><img src="./img/new-water-connection.png" width="55px" height="55px">
+			<h5 translate="">Reopen Complaint</h5></a>
+		</div>
+	</div>-->
+  <div class="col col-50 animated fadeInRight">
+    <div class="list text-center">
+      <a class="item gridnopadding" ui-sref="app.nidanStatus"><img src="./img/new-water-connection.png" width="55px" height="55px">
+        <h5 translate="COMPLSTATUS"> </h5></a>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row margin-0">
+
+	<div class="col col-50 animated fadeInLeft">
+		<div class="list text-center" id="p3">
+			<a class="item gridnopadding" ng-click="callNumber('p3');">
+        <i class="icon ion-ios-telephone-outline iconcss" style="font-size: 30px !important"></i>
+			<h5 translate="">Call 1100 </h5> </a>
+		</div>
+	</div>
+
+</div>
+
+ </ion-content>
+</ion-view>
+

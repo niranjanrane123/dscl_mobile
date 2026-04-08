@@ -1,0 +1,79 @@
+<ion-view  class="titlecss">
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+<ion-content ng-controller="applicationStatusDetailCTRL" class="HomeBackground">
+  <form name="applicationDetailForm">
+
+    <div class="headingDiv">
+      <h3 class="heading" translate="APPLICATIONSTATUSDETAIL"></h3>
+    </div>
+
+      <table class="gridtable">
+        <tr ng-if="organizationName">
+          <th width="50%" translate="ORGANISATIONNAME"></th>
+          <td>{{ organizationName }}</td>
+        </tr>
+        <tr ng-if="applicationNumber">
+          <th width="50%" translate="APLICATIONNO"></th>
+          <td>{{ applicationNumber }}</td>
+        </tr>
+        <tr ng-if="applicationDate">
+          <th width="50%" translate="APPLICATIONDATE"></th>
+          <td>{{ applicationDate }}</td>
+        </tr>
+        <tr ng-if="serviceName">
+          <th width="50%" translate="ServiceName"></th>
+          <td>{{ serviceName }}</td>
+        </tr>
+        <tr ng-if="status">
+          <th width="50%" translate="STATUS"></th>
+          <td>{{ status }}</td>
+        </tr>
+      </table>
+
+    <div ng-if="actionTable">
+      <div class="headingDiv">
+        <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="ACTIONDETAIL">
+          <!-- <img src="./img/quick-services-32x32.png" width="32" height="32" translate="ACTIONDETAIL"> -->
+        </h3>
+      </div>
+      <table class="gridtable" ng-repeat="subject in actionListDetailsList" >
+        <tr ng-if="subject.datetime">
+          <th translate="DATEANDTIME"></th>
+          <td>{{ subject.datetime | date:'dd-MMM-yyyy h:mm a'}}</td>
+        </tr>
+        <tr ng-if="subject.action">
+          <th translate="ACTION"></th>
+          <td>{{ subject.action }}</td>
+        </tr>
+        <tr ng-if="subject.empName">
+          <th translate="EMPNAME"></th>
+          <td>{{ subject.empName }}</td>
+        </tr>
+        <tr ng-if="subject.comments">
+          <th translate="COMMENTS"></th>
+          <td>{{ subject.comments }}</td>
+        </tr>
+
+      </table>
+
+    </div>
+
+
+    <div class="padding">
+      <button ng-click="homepage()" class="button button-block button-positive customBgColor">
+        <span translate="HOMEPAGE"></span></button>
+    </div>
+  </form>
+
+</ion-content>
+</ion-view>
+
+

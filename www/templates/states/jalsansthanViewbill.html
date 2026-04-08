@@ -1,0 +1,100 @@
+<ion-view >
+  
+  <ion-nav-bar class="bar-dark" align-title="center">
+    <ion-nav-back-button class="button-clear">
+      <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+      <img style="right: 46%; position: absolute; margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  
+  <ion-content ng-controller="jalsansthanViewBillCtrl" class="animated zoomIn">
+
+    <form name="upclForm">
+      <div class="list">
+      
+        <div class="headingDiv">
+          <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="JALBILLVIEW"></h3>
+        </div>
+  
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="CONNECTION_NUMBER"></span>
+          <input type="tel" placeholder="{{ 'CONSNAME' | translate}}*" name="consumerNo" ng-model="consumerNo" required/>
+          <span class="errorMessage" ng-show="complaintMobileForm.complaintMobileNo.$error.pattern" translate="VALIDMOBILE"></span>
+        </label>
+  
+        <div class="padding" ng-show="!upclFormDetailsCard">
+          <button  ng-click="searchBill()" class="button button-block customBgColor" >
+          <span translate="SEARCHBILL"></span></button>
+        </div>
+  
+      </div>
+    </form>
+
+    <form name="upclFormDetails" ng-show="upclFormDetailsCard">
+      <div class="list">
+
+        <!-- <input type="search" id="upclSearch" class="mysearch" name="upclSearch" ng-model="upclSearch" alpha-numeric-only limit="20" ng-trim="false" ng-model-options="{ allowInvalid: true}" style="font-family: 'Poppins-Regular';" placeholder="{{'SEARCH' | translate}}" /> -->
+  
+        <div class="row margin-0">
+
+          <div class="table-outer">
+         
+            <table class="complaintTable fontRegular" style="border: 2px solid black; margin-left: 10px; width: 95% !important;margin-bottom: 10px;">
+              <tr>
+                <td colspan="2" class="table-heading thClass" translate="JALSANSTHANBILLDATA" style="text-align: center; font-weight: bolder; letter-spacing: 3px; border: 2px solid black;"></td>
+              </tr>
+              <tr>
+                <th class="table-heading thClass" translate="CONSNAME"></th>
+                <td>{{consumerName}}</td>
+              </tr>
+              <tr>
+                <th class="table-heading thClass" translate="CONSUMERCODE"></th>
+                <td>{{consumerCode}}</td>
+              </tr>
+              <tr>
+                <th class="table-heading thClass" translate="CONSUMERADDRESS"></th>
+                <td>{{conAddress}}</td>
+              </tr>
+              <tr>
+                <th class="table-heading thClass" translate="BILLNO"></th>
+                <td>{{billNo}}</td>
+              </tr>
+              <tr>
+                <th class="table-heading thClass" translate="BILLAMOUNT"></th>
+                <td>{{billAmount}}</td>
+              </tr>
+              <tr>
+                <th class="table-heading thClass" translate="PAYMENTDUEDATE"></th>
+                <td>{{dueDate}}</td>
+              </tr>
+            </table>
+
+            <div class="padding" ng-show="showPayBtn">
+              <button ng-click="payBill()" class="button button-block customBgColor">     
+              <span translate="PAY"></span></button>
+            </div>
+
+            <div class="padding" ng-show="!showPayBtn">
+              <button class="button button-block customBgColor" disabled>     
+              <span translate="PAYBILL"></span></button>
+            </div>
+  
+
+          </div>
+         </div>
+  
+      </div>
+    </form>
+
+
+
+  </ion-content>
+
+</ion-view>
+
+<style>
+  th{
+    border: 2px solid black;
+    padding-left: 10px;
+  }
+</style>

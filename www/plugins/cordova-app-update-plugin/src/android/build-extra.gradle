@@ -1,0 +1,16 @@
+android {
+	compileSdkVersion 28
+}
+
+allprojects {
+     repositories {
+        maven {
+            url "https://maven.google.com"
+        }
+    }
+}
+
+dependencies {
+ 	implementation 'com.google.android.play:app-update:2.1.0'
+ 	implementation 'com.android.support:design:25.0.1'
+}

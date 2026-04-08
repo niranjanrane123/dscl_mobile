@@ -1,0 +1,80 @@
+<ion-view >
+  <!--title="{{'ECHATTISGARH' | translate}}" <ion-nav-bar class="bar-dark" align-title="center">    <ion-nav-back-button></ion-nav-back-button></ion-nav-bar> -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+  <ion-content ng-controller="initiateTransferCtrl" class="HomeBackground">
+
+    <h3 style="height:32px; padding: 5px 0px 0px 10px;" class="heading" translate="Transfer to"></h3>
+    <div class="row" style="margin-left:0px;">
+      <div class="col col-35" style="text-align: -webkit-center;">
+        <input type="button" style="width: 16px;" class="button button-block  customBgColor" ng-click="Add()" value="+"  />
+      </div>
+    </div>
+    <div  class="row" style="margin-left:0px;">
+      <div class="col col-35">
+        <input type="text" ng-model="ownerName" placeholder="Owner Name" style="height: 50px; width: 165px;" />
+      </div>
+      <div class="col col-35">
+        <input type="text" ng-model="ownerContact" placeholder="Owner Contact" style="height: 50px; width: 165px;" />
+      </div>
+    </div>
+    <div  class="row" style="margin-left:0px;">
+      <div class="col col-35">
+        <input type="text" ng-model="ownerAddress" placeholder="Owner Address" style="height: 50px; width: 165px;" />
+      </div>
+      <div class="col col-35" style="height: 50px;">
+        <input type="text" ng-model="ownerPan" placeholder="Owner Pan" style="height: 50px; width: 165px;" />
+      </div>
+    </div>
+
+
+    <div ng-repeat="m in breakUp">
+      <div class="row" style="margin-left:0px;">
+        <div class="col col-35" style="text-align: -webkit-center;">
+          <input type="button" style="text-align: -webkit-center;width: 16px; margin-left: 9px;" class="button button-block  customBgColor" ng-click="Remove($index)" value="-" />
+        </div>
+      </div>
+      <div  class="row" style="margin-left:0px;">
+        <div class="col col-35">
+          <input type="text" value="{{m.ownerName }}" placeholder="Owner Name" style="height: 50px; width: 165px;" />
+        </div>
+        <div class="col col-35">
+          <input type="number" value="{{m.ownerContact }}" placeholder="Owner Contact" style="height: 50px; width: 165px;" />
+        </div>
+      </div>
+      <div  class="row" style="margin-left:0px;">
+        <div class="col col-35">
+          <input type="text" value="{{m.ownerAddress }}" placeholder="Owner Address" style="height: 50px; width: 165px;" />
+        </div>
+        <div class="col col-35" style="height: 50px;">
+          <input type="text" value="{{m.ownerPan }}" placeholder="Owner Pan" style="height: 50px; width: 165px;" />
+        </div>
+      </div>
+    </div>
+
+
+
+    <!--<div  class="row" style="margin-left:0px;"  ng-repeat="m in breakUp">-->
+      <!--<div class="col col-35" style="margin-top: 22px; text-align: center;width:10px;margin-left: 20px;">-->
+        <!--<input type="text" value="{{m.ownerName }}" disabled/>-->
+      <!--</div>-->
+      <!--<div class="col col-35" style="margin-top: 22px; text-align: center; width:12px;margin-left: 35px;" >-->
+        <!--<input type="number" value="{{m.ownerContact}}" disabled/>-->
+      <!--</div>-->
+      <!--<div class="col col-35">-->
+        <!--<input type="button" style="text-align: -webkit-center;width: 16px; margin-left: 9px;" class="button button-block  customBgColor" ng-click="Remove($index)" value="-" />-->
+      <!--</div>-->
+    <!--</div>-->
+    <div class="padding">
+      <button  type="button" class="button button-block  customBgColor"
+              ng-model="submit" ng-click="showPopup()"  translate="SUBMIT"></button>
+    </div>
+
+  </ion-content>
+</ion-view>

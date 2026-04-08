@@ -1,0 +1,304 @@
+org/apache/cordova/device/Device.java
+ org.apache.cordova.device.Device
+org/apache/cordova/file/InvalidModificationException.java
+ org.apache.cordova.file.InvalidModificationException
+org/apache/cordova/inappbrowser/InAppBrowser.java
+ org.apache.cordova.inappbrowser.InAppBrowser
+ org.apache.cordova.inappbrowser.InAppBrowser$1
+ org.apache.cordova.inappbrowser.InAppBrowser$2
+ org.apache.cordova.inappbrowser.InAppBrowser$3
+ org.apache.cordova.inappbrowser.InAppBrowser$4
+ org.apache.cordova.inappbrowser.InAppBrowser$5
+ org.apache.cordova.inappbrowser.InAppBrowser$5$1
+ org.apache.cordova.inappbrowser.InAppBrowser$6
+ org.apache.cordova.inappbrowser.InAppBrowser$6$1
+ org.apache.cordova.inappbrowser.InAppBrowser$6$2
+ org.apache.cordova.inappbrowser.InAppBrowser$6$3
+ org.apache.cordova.inappbrowser.InAppBrowser$InAppBrowserClient
+com/plugin/datepicker/DatePickerPlugin.java
+ com.plugin.datepicker.DatePickerPlugin
+ com.plugin.datepicker.DatePickerPlugin$1
+ com.plugin.datepicker.DatePickerPlugin$1$1
+ com.plugin.datepicker.DatePickerPlugin$1$2
+ com.plugin.datepicker.DatePickerPlugin$1$3
+ com.plugin.datepicker.DatePickerPlugin$2
+ com.plugin.datepicker.DatePickerPlugin$3
+ com.plugin.datepicker.DatePickerPlugin$4
+ com.plugin.datepicker.DatePickerPlugin$5
+ com.plugin.datepicker.DatePickerPlugin$6
+ com.plugin.datepicker.DatePickerPlugin$DateSetListener
+ com.plugin.datepicker.DatePickerPlugin$JsonDate
+ com.plugin.datepicker.DatePickerPlugin$TimeSetListener
+org/apache/cordova/camera/ExifHelper.java
+ org.apache.cordova.camera.ExifHelper
+de/appplant/cordova/plugin/notification/action/ActionGroup.java
+ de.appplant.cordova.plugin.notification.action.ActionGroup
+de/appplant/cordova/plugin/background/BackgroundMode.java
+ de.appplant.cordova.plugin.background.BackgroundMode
+ de.appplant.cordova.plugin.background.BackgroundMode$1
+ de.appplant.cordova.plugin.background.BackgroundMode$2
+ de.appplant.cordova.plugin.background.BackgroundMode$3
+ de.appplant.cordova.plugin.background.BackgroundMode$Event
+de/appplant/cordova/plugin/notification/receiver/AbstractClickReceiver.java
+ de.appplant.cordova.plugin.notification.receiver.AbstractClickReceiver
+uk/co/whiteoctober/cordova/AppVersion.java
+ uk.co.whiteoctober.cordova.AppVersion
+de/appplant/cordova/plugin/background/ForegroundService.java
+ de.appplant.cordova.plugin.background.ForegroundService
+ de.appplant.cordova.plugin.background.ForegroundService$ForegroundBinder
+org/apache/cordova/file/ContentFilesystem.java
+ org.apache.cordova.file.ContentFilesystem
+org/apache/cordova/file/FileUtils.java
+ org.apache.cordova.file.FileUtils
+ org.apache.cordova.file.FileUtils$1
+ org.apache.cordova.file.FileUtils$10
+ org.apache.cordova.file.FileUtils$11
+ org.apache.cordova.file.FileUtils$12
+ org.apache.cordova.file.FileUtils$13
+ org.apache.cordova.file.FileUtils$14
+ org.apache.cordova.file.FileUtils$15
+ org.apache.cordova.file.FileUtils$16
+ org.apache.cordova.file.FileUtils$17
+ org.apache.cordova.file.FileUtils$18
+ org.apache.cordova.file.FileUtils$19
+ org.apache.cordova.file.FileUtils$2
+ org.apache.cordova.file.FileUtils$20
+ org.apache.cordova.file.FileUtils$21
+ org.apache.cordova.file.FileUtils$22
+ org.apache.cordova.file.FileUtils$23
+ org.apache.cordova.file.FileUtils$24
+ org.apache.cordova.file.FileUtils$25
+ org.apache.cordova.file.FileUtils$26
+ org.apache.cordova.file.FileUtils$27
+ org.apache.cordova.file.FileUtils$28
+ org.apache.cordova.file.FileUtils$29
+ org.apache.cordova.file.FileUtils$3
+ org.apache.cordova.file.FileUtils$4
+ org.apache.cordova.file.FileUtils$5
+ org.apache.cordova.file.FileUtils$6
+ org.apache.cordova.file.FileUtils$7
+ org.apache.cordova.file.FileUtils$8
+ org.apache.cordova.file.FileUtils$9
+ org.apache.cordova.file.FileUtils$FileOp
+com/badrit/MacAddress/MacAddressPlugin.java
+ com.badrit.MacAddress.MacAddressPlugin
+fr/louisbl/cordova/locationservices/CordovaLocationServices.java
+ fr.louisbl.cordova.locationservices.CordovaLocationServices
+org/apache/cordova/dialogs/Notification.java
+ org.apache.cordova.dialogs.Notification
+ org.apache.cordova.dialogs.Notification$1
+ org.apache.cordova.dialogs.Notification$2
+ org.apache.cordova.dialogs.Notification$2$1
+ org.apache.cordova.dialogs.Notification$2$2
+ org.apache.cordova.dialogs.Notification$3
+ org.apache.cordova.dialogs.Notification$3$1
+ org.apache.cordova.dialogs.Notification$3$2
+ org.apache.cordova.dialogs.Notification$3$3
+ org.apache.cordova.dialogs.Notification$3$4
+ org.apache.cordova.dialogs.Notification$4
+ org.apache.cordova.dialogs.Notification$4$1
+ org.apache.cordova.dialogs.Notification$4$2
+ org.apache.cordova.dialogs.Notification$4$3
+ org.apache.cordova.dialogs.Notification$4$4
+ org.apache.cordova.dialogs.Notification$5
+ org.apache.cordova.dialogs.Notification$5$1
+ org.apache.cordova.dialogs.Notification$6
+ org.apache.cordova.dialogs.Notification$6$1
+de/appplant/cordova/plugin/notification/trigger/IntervalTrigger.java
+ de.appplant.cordova.plugin.notification.trigger.IntervalTrigger
+ de.appplant.cordova.plugin.notification.trigger.IntervalTrigger$1
+de/appplant/cordova/plugin/notification/receiver/AbstractTriggerReceiver.java
+ de.appplant.cordova.plugin.notification.receiver.AbstractTriggerReceiver
+de/appplant/cordova/plugin/notification/trigger/DateTrigger.java
+ de.appplant.cordova.plugin.notification.trigger.DateTrigger
+ de.appplant.cordova.plugin.notification.trigger.DateTrigger$Unit
+de/appplant/cordova/plugin/localnotification/LocalNotification.java
+ de.appplant.cordova.plugin.localnotification.LocalNotification
+ de.appplant.cordova.plugin.localnotification.LocalNotification$1
+ de.appplant.cordova.plugin.localnotification.LocalNotification$2
+ de.appplant.cordova.plugin.localnotification.LocalNotification$3
+nl/xservices/plugins/SocialSharing.java
+ nl.xservices.plugins.SocialSharing
+ nl.xservices.plugins.SocialSharing$1
+ nl.xservices.plugins.SocialSharing$1$1
+ nl.xservices.plugins.SocialSharing$2
+ nl.xservices.plugins.SocialSharing$2$1
+ nl.xservices.plugins.SocialSharing$2$2
+ nl.xservices.plugins.SocialSharing$2$2$1
+ nl.xservices.plugins.SocialSharing$2$3
+ nl.xservices.plugins.SocialSharing$3
+ nl.xservices.plugins.SocialSharing$3$1
+ nl.xservices.plugins.SocialSharing$4
+ nl.xservices.plugins.SocialSharing$SocialSharingRunnable
+org/apache/cordova/whitelist/WhitelistPlugin.java
+ org.apache.cordova.whitelist.WhitelistPlugin
+ org.apache.cordova.whitelist.WhitelistPlugin$1
+ org.apache.cordova.whitelist.WhitelistPlugin$CustomConfigXmlParser
+org/apache/cordova/geolocation/Geolocation.java
+ org.apache.cordova.geolocation.Geolocation
+org/apache/cordova/camera/FileProvider.java
+ org.apache.cordova.camera.FileProvider
+de/appplant/cordova/plugin/notification/Builder.java
+ de.appplant.cordova.plugin.notification.Builder
+io/ionic/keyboard/IonicKeyboard.java
+ io.ionic.keyboard.IonicKeyboard
+ io.ionic.keyboard.IonicKeyboard$1
+ io.ionic.keyboard.IonicKeyboard$2
+ io.ionic.keyboard.IonicKeyboard$3
+ io.ionic.keyboard.IonicKeyboard$3$1
+org/apache/cordova/file/Filesystem.java
+ org.apache.cordova.file.Filesystem
+ org.apache.cordova.file.Filesystem$LimitedInputStream
+ org.apache.cordova.file.Filesystem$ReadFileCallback
+org/apache/cordova/file/TypeMismatchException.java
+ org.apache.cordova.file.TypeMismatchException
+de/appplant/cordova/plugin/notification/trigger/MatchTrigger.java
+ de.appplant.cordova.plugin.notification.trigger.MatchTrigger
+ de.appplant.cordova.plugin.notification.trigger.MatchTrigger$1
+mx/ferreyra/callnumber/CFCallNumber.java
+ mx.ferreyra.callnumber.CFCallNumber
+org/apache/cordova/file/LocalFilesystemURL.java
+ org.apache.cordova.file.LocalFilesystemURL
+org/apache/cordova/file/DirectoryManager.java
+ org.apache.cordova.file.DirectoryManager
+de/appplant/cordova/plugin/badge/Badge.java
+ de.appplant.cordova.plugin.badge.Badge
+ de.appplant.cordova.plugin.badge.Badge$1
+ de.appplant.cordova.plugin.badge.Badge$2
+ de.appplant.cordova.plugin.badge.Badge$3
+ de.appplant.cordova.plugin.badge.Badge$4
+ de.appplant.cordova.plugin.badge.Badge$5
+ de.appplant.cordova.plugin.badge.Badge$6
+de/appplant/cordova/plugin/localnotification/RestoreReceiver.java
+ de.appplant.cordova.plugin.localnotification.RestoreReceiver
+de/appplant/cordova/plugin/notification/Manager.java
+ de.appplant.cordova.plugin.notification.Manager
+org/apache/cordova/file/LocalFilesystem.java
+ org.apache.cordova.file.LocalFilesystem
+com/phonegap/plugins/barcodescanner/BarcodeScanner.java
+ com.phonegap.plugins.barcodescanner.BarcodeScanner
+de/martinreinhardt/cordova/plugins/email/EmailComposerImpl.java
+ de.martinreinhardt.cordova.plugins.email.EmailComposerImpl
+ de.martinreinhardt.cordova.plugins.email.EmailComposerImpl$1
+org/apache/cordova/contacts/ContactInfoDTO.java
+ org.apache.cordova.contacts.ContactInfoDTO
+cordova/plugin/RequestLocationAccuracy.java
+ cordova.plugin.RequestLocationAccuracy
+ cordova.plugin.RequestLocationAccuracy$1
+com/tv/plugin/AddressImpl.java
+ com.tv.plugin.AddressImpl
+com/doon/doonproduct/BuildConfig.java
+ com.doon.doonproduct.BuildConfig
+de/appplant/cordova/plugin/badge/BadgeImpl.java
+ de.appplant.cordova.plugin.badge.BadgeImpl
+de/martinreinhardt/cordova/plugins/email/EmailComposer.java
+ de.martinreinhardt.cordova.plugins.email.EmailComposer
+ de.martinreinhardt.cordova.plugins.email.EmailComposer$1
+ de.martinreinhardt.cordova.plugins.email.EmailComposer$2
+org/apache/cordova/networkinformation/NetworkManager.java
+ org.apache.cordova.networkinformation.NetworkManager
+ org.apache.cordova.networkinformation.NetworkManager$1
+com/razorpay/cordova/Main.java
+ com.razorpay.cordova.Main
+org/apache/cordova/contacts/ContactAccessor.java
+ org.apache.cordova.contacts.ContactAccessor
+ org.apache.cordova.contacts.ContactAccessor$WhereOptions
+org/apache/cordova/splashscreen/SplashScreen.java
+ org.apache.cordova.splashscreen.SplashScreen
+ org.apache.cordova.splashscreen.SplashScreen$1
+ org.apache.cordova.splashscreen.SplashScreen$2
+ org.apache.cordova.splashscreen.SplashScreen$3
+ org.apache.cordova.splashscreen.SplashScreen$4
+ org.apache.cordova.splashscreen.SplashScreen$4$1
+ org.apache.cordova.splashscreen.SplashScreen$5
+ org.apache.cordova.splashscreen.SplashScreen$5$1
+ org.apache.cordova.splashscreen.SplashScreen$6
+ org.apache.cordova.splashscreen.SplashScreen$6$1
+ org.apache.cordova.splashscreen.SplashScreen$7
+de/appplant/cordova/plugin/notification/receiver/AbstractClearReceiver.java
+ de.appplant.cordova.plugin.notification.receiver.AbstractClearReceiver
+org/apache/cordova/file/NoModificationAllowedException.java
+ org.apache.cordova.file.NoModificationAllowedException
+org/apache/cordova/contacts/ContactManager.java
+ org.apache.cordova.contacts.ContactManager
+ org.apache.cordova.contacts.ContactManager$1
+ org.apache.cordova.contacts.ContactManager$2
+ org.apache.cordova.contacts.ContactManager$3
+ org.apache.cordova.contacts.ContactManager$4
+de/appplant/cordova/plugin/background/BackgroundExt.java
+ de.appplant.cordova.plugin.background.BackgroundExt
+ de.appplant.cordova.plugin.background.BackgroundExt$1
+ de.appplant.cordova.plugin.background.BackgroundExt$1$1
+org/apache/cordova/inappbrowser/InAppChromeClient.java
+ org.apache.cordova.inappbrowser.InAppChromeClient
+fr/louisbl/cordova/locationservices/GApiUtils.java
+ fr.louisbl.cordova.locationservices.GApiUtils
+ fr.louisbl.cordova.locationservices.GApiUtils$1
+org/apache/cordova/file/PendingRequests.java
+ org.apache.cordova.file.PendingRequests
+ org.apache.cordova.file.PendingRequests$1
+ org.apache.cordova.file.PendingRequests$Request
+org/apache/cordova/statusbar/StatusBar.java
+ org.apache.cordova.statusbar.StatusBar
+ org.apache.cordova.statusbar.StatusBar$1
+ org.apache.cordova.statusbar.StatusBar$2
+ org.apache.cordova.statusbar.StatusBar$3
+ org.apache.cordova.statusbar.StatusBar$4
+de/appplant/cordova/plugin/notification/Request.java
+ de.appplant.cordova.plugin.notification.Request
+org/apache/cordova/file/FileExistsException.java
+ org.apache.cordova.file.FileExistsException
+com/doon/doonproduct/MainActivity.java
+ com.doon.doonproduct.MainActivity
+nl/xservices/plugins/FileProvider.java
+ nl.xservices.plugins.FileProvider
+org/apache/cordova/file/EncodingException.java
+ org.apache.cordova.file.EncodingException
+de/appplant/cordova/plugin/localnotification/ClearReceiver.java
+ de.appplant.cordova.plugin.localnotification.ClearReceiver
+nl/xservices/plugins/ShareChooserPendingIntent.java
+ nl.xservices.plugins.ShareChooserPendingIntent
+nl/xservices/plugins/GooglePlus.java
+ nl.xservices.plugins.GooglePlus
+ nl.xservices.plugins.GooglePlus$1
+ nl.xservices.plugins.GooglePlus$2
+ nl.xservices.plugins.GooglePlus$3
+de/appplant/cordova/plugin/notification/receiver/AbstractRestoreReceiver.java
+ de.appplant.cordova.plugin.notification.receiver.AbstractRestoreReceiver
+org/apache/cordova/file/AssetFilesystem.java
+ org.apache.cordova.file.AssetFilesystem
+org/apache/cordova/camera/FileHelper.java
+ org.apache.cordova.camera.FileHelper
+de/appplant/cordova/plugin/localnotification/TriggerReceiver.java
+ de.appplant.cordova.plugin.localnotification.TriggerReceiver
+fr/louisbl/cordova/locationservices/ErrorDialogFragment.java
+ fr.louisbl.cordova.locationservices.ErrorDialogFragment
+org/apache/cordova/camera/CameraLauncher.java
+ org.apache.cordova.camera.CameraLauncher
+ org.apache.cordova.camera.CameraLauncher$1
+ org.apache.cordova.camera.CameraLauncher$JsonExclusionStrategy
+ org.apache.cordova.camera.CameraLauncher$JsonResultObj
+fr/louisbl/cordova/locationservices/LocationUtils.java
+ fr.louisbl.cordova.locationservices.LocationUtils
+de/appplant/cordova/plugin/notification/Options.java
+ de.appplant.cordova.plugin.notification.Options
+org/apache/cordova/contacts/ContactAccessorSdk5.java
+ org.apache.cordova.contacts.ContactAccessorSdk5
+de/appplant/cordova/plugin/notification/Notification.java
+ de.appplant.cordova.plugin.notification.Notification
+ de.appplant.cordova.plugin.notification.Notification$Type
+de/appplant/cordova/plugin/notification/action/Action.java
+ de.appplant.cordova.plugin.notification.action.Action
+de/appplant/cordova/plugin/notification/util/AssetUtil.java
+ de.appplant.cordova.plugin.notification.util.AssetUtil
+de/appplant/cordova/plugin/localnotification/ClickReceiver.java
+ de.appplant.cordova.plugin.localnotification.ClickReceiver
+org/apache/cordova/inappbrowser/InAppBrowserDialog.java
+ org.apache.cordova.inappbrowser.InAppBrowserDialog
+de/appplant/cordova/plugin/notification/util/AssetProvider.java
+ de.appplant.cordova.plugin.notification.util.AssetProvider
+org/apache/cordova/camera/CordovaUri.java
+ org.apache.cordova.camera.CordovaUri
+fr/louisbl/cordova/locationservices/CordovaLocationListener.java
+ fr.louisbl.cordova.locationservices.CordovaLocationListener
+ fr.louisbl.cordova.locationservices.CordovaLocationListener$LocationTimeoutTask

@@ -1,0 +1,57 @@
+<ion-view title="e-Chhattisgarh">
+  <ion-nav-bar class="bar-dark" align-title="center"><ion-nav-back-button></ion-nav-back-button></ion-nav-bar>
+<!--<ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<ion-nav-buttons side="left">
+  <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>-->
+
+<ion-content ng-controller="actionhistorypageCtrl" class="HomeBackground">
+<!--<h3 class="heading">Action History</h3>-->
+  <form name="actionform">
+  <div class="headingDiv">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="">
+	<img src="../www/img/quick-services-32x32.png" width="32" height="32">Action History</h3>
+  </div>
+
+  <table class="gridtable" ng-repeat="subject in escalDetailsList">
+		<tr ng-if="subject.datetime">
+			<th width="40%">Date & Time</th>
+			<td>{{ subject.datetime }}</td>
+		</tr>
+		<tr ng-if="subject.action">
+			<th width="40%">Action</th>
+			<td>{{ subject.action }}</td>
+		</tr>
+		<tr ng-if="subject.empName">
+			<th width="40%">Employee Name</th>
+			<td>{{ subject.empName }}</td>
+		</tr>
+		<tr ng-if="subject.Email">
+			<th width="40%">Email</th>
+			<td>{{ subject.Email }}</td>
+		</tr>
+		<tr ng-if="subject.designation">
+			<th width="40%">Designation</th>
+			<td>{{ subject.designation }}</td>
+		</tr>
+		<tr ng-if="subject.remarks">
+			<th width="40%">Remarks</th>
+			<td>{{ subject.remarks }}</td>
+		</tr>
+	</table>
+
+  <div class="padding">
+    <button ng-click="goBack()" class="button button-block  customBgColor">
+      <span translate="">GoBack</span></button>
+  </div>
+
+</form>
+
+    </ion-content>
+</ion-view>
+

@@ -1,0 +1,60 @@
+<ion-view class="" title="e-Chhattisgarh">
+	<!--<ion-nav-title>
+		<div class="bar bar-header headercolor">
+			<h1 class="title">MaiNet<sup>&reg;</sup></h1>
+		</div>
+	</ion-nav-title>
+	<ion-nav-buttons side="left">
+		<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+		</button>
+	</ion-nav-buttons>-->
+
+	<ion-content scroll="true" class="HomeBackground">
+<!--	<h3 class="heading">Property Information</h3>-->
+		<form name="estateBookPropForm" ng-submit="propnext()">
+      <div class="headingDiv">
+        <h3 class="heading"><img src="./img/quick-services-32x32.png" width="32" height="32">Property Information</h3>
+      </div>
+				    <table class="gridtable">
+						<tr><th style="width: 50%;">Estate Code</th>
+							<td>{{RNLEstateCode}}</td>
+						</tr>
+						<tr><th>Estate Name</th>
+							<td>{{RNLEstateName}}</td>
+						</tr>
+						<tr><th>Property Code</th>
+							<td>{{RNLPropertyNo}}</td>
+						</tr>
+						<tr><th>Property Name</th>
+							<td>{{RNLPropName}}</td>
+						</tr>
+						<tr><th>Unit Number</th>
+							<td>{{RNLUnitNo}}</td>
+						</tr>
+						<tr><th>Occupancy Type</th>
+							<td>{{RNLOccType}}</td>
+						</tr>
+						<tr><th>Usage</th>
+							<td>{{RNLUsage}}</td>
+						</tr>
+						<tr><th>Floor</th>
+							<td>{{RNLFloor}}</td>
+						</tr>
+						<tr><th>Total Area</th>
+							<td>{{RNLTotalArea}}</td>
+						</tr>
+					</table>
+						<div class="padding">
+							<button ng-disabled="estateBookPropForm.$invalid" class="button button-block  customBgColor">
+								<span translate="">NEXT</span>
+							</button>
+						</div>
+		</form>
+    </ion-content>
+    <!-- <ion-footer-bar align-title="center">All fields marked asterik(<span class="required"></span>) are mandatory</ion-footer-bar> -->
+</ion-view>
+<style>
+.slider{
+	height: 477px;
+}
+</style>

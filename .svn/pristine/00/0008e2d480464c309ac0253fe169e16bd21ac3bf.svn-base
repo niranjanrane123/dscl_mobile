@@ -1,0 +1,57 @@
+<ion-modal-view>
+     <ion-header-bar class="bar-dark">
+        <h1 class="title logo-app">Additional Owner</h1>
+        <button class="button button-icon button-clear ion-ios-close-empty" ng-click="closeModal()"></button>
+    </ion-header-bar>
+
+ <ion-content ng-controller="modalCtrl">
+
+		<form name="additionalOwnerForm">
+            <div class="list">
+          	 <label class="input-label padding-left-15 required" translate="SEL_TITLE"></label>
+				<select class="select-dropdown" name="WNCselecttitle" ng-model="WNCselecttitle"
+				ng-options="o.value as o.name for o in ttlList" required>
+					<option value="" translate="SELECT">Select</option>
+					<!-- <option value="Mr">Mr</option>
+					<option value="Mrs">Mrs</option> -->
+				</select>
+	           <label class="item item-input item-floating-label">
+					<span class="input-label required " translate="FNAME"> </span>
+					<input type="text" placeholder="{{'FNAME' | translate}}*" name="WNCFirstname" ng-model="WNCFirstname" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+					<span class="errorMessage" ng-show="additionalOwnerForm.WNCFirstname.$error.pattern">Please Enter Valid First Name</span>
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label " translate="MNAME"> </span>
+					<input type="text" placeholder="{{'MNAME' | translate}}" name="WNCMiddlename" ng-model="WNCMiddlename" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" />
+					<span class="errorMessage" ng-show="additionalOwnerForm.WNCMiddlename.$error.pattern">Please Enter Valid Middle Name</span>
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label required" translate="LNAME"></span>
+					<input type="text" placeholder="{{'LNAME' | translate}}*" name="WNCLastname" ng-model="WNCLastname" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+					<span class="errorMessage" ng-show="additionalOwnerForm.WNCLastname.$error.pattern">Please Enter Valid Last Name</span>
+				</label>
+				<label class="input-label padding-left-15 required" translate="GENDER">Gender</label>
+					<select ng-change="selectAction(WNCgender)"class="select-dropdown" name="WNCgender"  ng-model="WNCgender"
+					ng-options="o as o.name for o in genList" required>
+            <option value="" translate="SELECT">Select</option>
+						<!-- <option value="M">Male</option>
+						<option value="F">Female</option> -->
+					</select>
+				<label class="item item-input item-floating-label">
+					<span class="input-label required" translate="ADHARNO"></span>
+					<input type="number" placeholder="{{'ADHARNO' | translate}}*" name="WNCaadharnumber" ng-model="WNCaadharnumber"
+					 ng-trim="false" required/>
+					<span class="errorMessage" ng-show="additionalOwnerForm.WNCaadharnumber.$error.pattern">Please Enter Valid Aadhar Number</span>
+				</label>
+
+            </div>
+      <div class="button-group" data-grouptype="OR" style="font-size: 24px;">
+				<button ng-disabled="additionalOwnerForm.$invalid" type="button" class="button  twoButtons customBgColor" ng-click="additionalOwner('save')" translate="SAVE">Save</button>
+				<button ng-disabled="additionalOwnerForm.$invalid" type="button" class="button  twoButtons customBgColor" ng-click="additionalOwner('savenew')" translate="SAVECON">Save & Add</button>
+			</div>
+        </form>
+
+ </ion-content>
+
+
+</ion-modal-view>

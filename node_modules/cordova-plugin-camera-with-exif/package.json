@@ -1,0 +1,87 @@
+{
+  "_from": "cordova-plugin-camera-with-exif@^1.2.2",
+  "_id": "cordova-plugin-camera-with-exif@1.5.1",
+  "_inBundle": false,
+  "_integrity": "sha512-hs5Ri76w/WaTB9Z5WRbfcRmAVhNE73Mw9+cK1QvayVJKWzgtkBQIZl4iStvVYJzGAdwP92FqnSI/PskFgO96KA==",
+  "_location": "/cordova-plugin-camera-with-exif",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "cordova-plugin-camera-with-exif@^1.2.2",
+    "name": "cordova-plugin-camera-with-exif",
+    "escapedName": "cordova-plugin-camera-with-exif",
+    "rawSpec": "^1.2.2",
+    "saveSpec": null,
+    "fetchSpec": "^1.2.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-camera-with-exif/-/cordova-plugin-camera-with-exif-1.5.1.tgz",
+  "_shasum": "7117cde06711925ddbc4f5129777c29a04735335",
+  "_spec": "cordova-plugin-camera-with-exif@^1.2.2",
+  "_where": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp",
+  "author": {
+    "name": "@remoorejr"
+  },
+  "bugs": {
+    "url": "https://github.com/remoorejr/cordova-plugin-camera-with-exif/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-camera-with-exif",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Camera Plugin that will return an image as well as the EXIF data (including GPS location) on iOS and Android devices.",
+  "engines": {
+    "cordovaDependencies": {
+      "3.0.0": {
+        "cordova-android": ">=6.3.0"
+      },
+      "4.1.0": {
+        "cordova": ">=7.1.0",
+        "cordova-android": ">=6.3.0"
+      },
+      "5.0.0": {
+        "cordova": ">=9.0.0",
+        "cordova-android": ">=9.0.0",
+        "cordova-ios": ">=5.1.0"
+      },
+      "5.0.4-dev": {
+        "cordova": ">=9.0.0",
+        "cordova-android": "<10.0.0",
+        "cordova-ios": ">=5.1.0"
+      },
+      "6.0.0": {
+        "cordova": ">=9.0.0",
+        "cordova-android": ">=10.0.0",
+        "cordova-ios": ">=5.1.0"
+      },
+      "7.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
+  "homepage": "https://github.com/remoorejr/cordova-plugin-camera-with-exif#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "camera",
+    "camera with exif",
+    "exif",
+    "gps",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-camera-with-exif",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remoorejr/cordova-plugin-camera-with-exif.git"
+  },
+  "version": "1.5.1"
+}

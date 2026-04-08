@@ -1,0 +1,255 @@
+<ion-view class="titlecss" >
+    <!-- <ion-nav-title>
+  <div class="bar bar-header headercolor">
+     <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>-->
+  <ion-nav-buttons side="left" >
+    <div class="title title-center header-item" style="font-weight: bold; color: #fff; left: 48px; right: 48px; font-size: 21px; text-align: center; top: 0px;">
+        <!-- {{'ECHATTISGARH' | translate}} -->
+      </div>
+      <img style="right: 46%;
+      position: absolute;
+      margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+    </ion-nav-buttons>
+    <ion-content ng-controller="ComplaintstatusDetailctrl" class="HomeBackground">
+        <!-- <h3 class="heading" translate="COMPLSTATUS"></h3>-->
+       
+        <form name="tableform" class="animated zoomIn">
+			<div class="headingDiv" >
+				<h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="EXTCOMPLDET"><img
+						src="../www/img/quick-services-32x32.png" width="32" height="32"></h3>
+			</div>
+            <table class="gridtable gridStyle">
+                <tr ng-if="tokenNo">
+                    <th>{{'COMPLAINTNO'|translate}}</th>
+                    <td><p style="display: inline-flex;margin: 0px;" selectable-text>{{ tokenNo }}</p></td>  
+                    <!-- style="background-color: #617a8f;color: #ffffff;padding:4px" -->
+                </tr>
+                <tr ng-if="date">
+                    <th>{{'COMPLAINTDATE'|translate}}</th>
+                    <td>{{ date }}</td>
+                </tr>
+                <tr ng-if="complainantName">
+                    <th>{{'COMPLIMENTNAME'|translate}}</th>
+                    <td>{{ complainantName }}</td>
+                </tr>
+                <tr ng-if="status">
+                    <th>{{'STATUS'|translate}}</th>
+                    <td>{{ status }}</td>
+                </tr>
+                <tr ng-if="complaintType">
+                    <th>{{'DEPTYPE'| translate}}</th>
+                    <td>{{ complaintType }}</td>
+                </tr>
+                <tr ng-if="complaintSubType">
+                    <th>{{'COMPLTYPE'|translate}} </th>
+                    <td>{{ complaintSubType }}</td>
+                </tr>
+                <tr ng-if="ward">
+                    <th>{{'LOCATIONCOMP'|translate}}</th>
+                    <td>{{ ward }} </td>
+                </tr>
+                <tr ng-if="description">
+                    <th>{{'DESCRIPTION'|translate}}</th>
+                    <td>{{ description }}</td>
+                </tr>
+                <tr ng-show="showCompAtt">
+                    <th>{{'ATTBYCOMP'|translate}}</th>
+                    <td><button ng-click="openCitizenDoc(showCitizenDoc)" class="button button-block customBgColor buttondesign" ng-model="showCitizenDoc">{{'CLICKTOVIEW'|translate}}</button></td>
+                </tr>
+                <tr ng-show="showCitizenDoc" >
+                    <td colspan="2">
+                        <div style="margin: 16px;" ng-repeat="obj in compArrays track by $index">
+                            <div class="col-xs-4" ng-click="zoomPic(obj.attachmentId, obj.docType)">
+                                <!-- <img ng-src="{{ 'data:image/jpeg;base64,'+ obj.documentByteCode }}" data-ng-model="cameraImg" class="camerImage" /> -->
+                                <img ng-if="obj.docType=='png' || obj.docType=='jpeg' || obj.docType=='jpg'" ng-src="{{ 'data:image/jpeg;base64,'+ obj.documentByteCode }}" class="camerImage" id="myImg"/>
+                                <img ng-if="obj.docType=='pdf'" src="./img/pdf.png" class="camerImage"/>
+                                <img ng-if="obj.docType=='doc' || obj.docType=='docx'" src="./img/docx.png" class="camerImage"/>
+                                <p style="font-size: 12px; margin-top: 2px; text-align: center;">{{obj.documentName}}</p>
+                            </div>
+                        </div>
+                        <div ng-show="zoomedIn" class="zoom-container">
+                            <span class="closeBtn" ng-click="zoomPicClose()">&times;</span>
+                            <img ng-src="{{ 'data:image/jpeg;base64,'+ imageZoomed }}" class="zoomed-image"/>
+                            <!-- <img ng-if="obj.docType=='pdf'" class="zoomedImage" id="zoomed-image"/>
+                            <img ng-if="obj.docType=='doc' || obj.docType=='docx'" class="zoomedImage" id="zoomed-image"/> -->
+                            <!-- <p style="font-size: 12px; margin-top: 2px; text-align: center;">{{obj.documentName}}</p> -->
+                        </div>
+                    </td>
+                </tr>
+                
+                
+            </table>
+
+            <div ng-if="showDeptAction">
+                <div class="headingDiv" >
+                    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="DEPTACTIONS">
+                        <img src="../www/img/quick-services-32x32.png" width="32" height="32">
+                    </h3>
+                </div>
+
+                <table class="gridtable gridStyle">
+                    <tr ng-if="actionRemark">
+                        <th>{{'REMARKS'|translate}}</th>
+                        <td>{{ actionRemark }}</td>
+                    </tr>
+                    <tr ng-if="deptArr">
+                        <th>{{'ATTBYDEPT'|translate}}</th>
+                        <td><button ng-click="openDeptDoc(showDeptDoc)" class="button button-block customBgColor buttondesign" ng-model="showDeptDoc">{{'CLICKTOVIEW'|translate}}</button></td>
+                    </tr>
+                    <!-- <tr ng-if="showDeptDoc">
+                        <td colspan="2"><img ng-src="{{ deptImgUrl }}" data-ng-model="cameraDeptImg" class="camerImage" /></td>
+                    </tr> -->
+                    <tr ng-show="showDeptDoc" >
+                        <td colspan="2">
+                            <div style="margin: 16px;" ng-repeat="obj in deptArr track by $index">
+                                <div class="col-xs-4" ng-click="zoomPic(obj.attachmentId, obj.docType)">
+                                    <!-- <img ng-src="{{ 'data:image/jpeg;base64,'+ obj.documentByteCode }}" data-ng-model="cameraDeptImg" class="camerImage" /> -->
+                                    <img ng-if="obj.docType=='png' || obj.docType=='jpeg' || obj.docType=='jpg'" ng-src="{{ 'data:image/jpeg;base64,'+ obj.documentByteCode }}" class="camerImage"/>
+                                    <img ng-if="obj.docType=='pdf'" src="./img/pdf.png" class="camerImage"/>
+                                    <img ng-if="obj.docType=='doc' || obj.docType=='docx'" src="./img/docx.png" class="camerImage"/>
+                                    <p style="font-size: 12px; margin-top: 2px; text-align: center;">{{obj.documentName}}</p>
+                                </div>
+                            </div>
+                            <div ng-show="zoomedIn" class="zoom-container">
+                                <span class="closeBtn" ng-click="zoomPicClose()">&times;</span>
+                                <img ng-src="{{ 'data:image/jpeg;base64,'+ imageZoomed }}" class="zoomed-image"/>
+                                <!-- <img ng-if="obj.docType=='pdf'" class="zoomedImage" id="zoomed-image"/>
+                                <img ng-if="obj.docType=='doc' || obj.docType=='docx'" class="zoomedImage" id="zoomed-image"/> -->
+                                <!-- <p style="font-size: 12px; margin-top: 2px; text-align: center;">{{obj.documentName}}</p> -->
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div ng-if="esctable">
+                <!--<h3 class="heading" translate="COMPLESCDETS" ></h3>-->
+                <div class="headingDiv" ng-show="showEscHeader">
+                    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="COMPLESCDETS"><img
+                            src="../www/img/quick-services-32x32.png" width="32" height="32"></h3>
+                </div>
+                <table class="gridtable gridStyle" ng-repeat="subject in escalDetailsList">
+                    <tr ng-if="subject.datetime">
+                        <th width="50%">{{'DATEANDTIME'|translate}}</th>
+                        <td>{{ subject.datetime }}</td>
+                    </tr>
+                    <tr ng-if="subject.action">
+                        <th width="50%">{{'ACTION'|translate}}</th>
+                        <td>{{ subject.action }}</td>
+                    </tr>
+                    <tr ng-if="subject.empName">
+                        <th width="50%">{{'EMPNAME'|translate}}</th>
+                        <td>{{ subject.empName }}</td>
+                    </tr>
+                    <!--    <tr ng-if="subject.Email">
+            <th width="50%">Email</th>
+            <td>{{ subject.Email }}</td>
+        </tr>-->
+                    <tr ng-if="subject.designation">
+                        <th width="50%">{{'DESIGNATION'|translate}}</th>
+                        <td>{{ subject.designation }}</td>
+                    </tr>
+                    <tr ng-if="subject.department">
+                        <th width="50%">{{'DEPARTMENTNAME'|translate}}</th>
+                        <td>{{ subject.department }}</td>
+                    </tr>
+                    <tr ng-if="subject.status">
+                        <th width="50%">{{'STATUS'|translate}}</th>
+                        <td>{{ subject.status }}</td>
+                    </tr>
+                    <tr ng-if="subject.remarks">
+                        <th width="50%">{{'REMARKS'|translate}}</th>
+                        <td>{{ subject.remarks }}</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <!-- <div class="padding">
+                <button ng-click="homepage()" class="button button-block  customBgColor">
+                    <span translate="HOMEPAGE"></span></button>
+            </div> -->
+
+        </form>
+
+    </ion-content>
+</ion-view>
+
+<style>
+    .gridStyle{
+      font-family: 'Poppins-Regular';
+      font-size: 13px;
+    }
+    .camerImage {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 85px;
+        height: 85px;
+    }
+    .zoom-container {
+        position: fixed;
+        top: 1%;
+        left: 5%;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        height: 90%;
+        width: 90%;
+    }
+
+    .zoomed-image {
+        max-width: 95%;
+        max-height: 95%;
+    }
+    .closeBtn{
+        position: absolute;
+        font-size: 30px;
+        font-weight: 700;
+        height: 5%;
+        color: #fff;
+        opacity: 0.8;
+        top: 1%;
+        right: 2%;
+        width: 6%;
+    }
+/* 
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(1)}
+    to {-webkit-transform:scale(2)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0.4)}
+    to {transform:scale(1)}
+}
+@-webkit-keyframes zoom-out {
+    from {transform:scale(1)}
+    to {transform:scale(0)}
+}
+@keyframes zoom-out {
+    from {transform:scale(1)}
+    to {transform:scale(0)}
+} */
+
+
+    .buttondesign{
+        border: none;
+        line-height: 0px !important;
+        min-height: 0px !important;
+        height: 40px;
+        width: 130px !important;
+        min-width: 0px !important;
+    }
+  </style>

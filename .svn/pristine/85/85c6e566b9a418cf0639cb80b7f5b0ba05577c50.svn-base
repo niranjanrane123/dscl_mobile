@@ -1,0 +1,40 @@
+<ion-view>
+	<!-- title="{{'ECHATTISGARH' | translate}}" -->
+	
+<!--<ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+</ion-nav-buttons>-->
+
+<ion-content ng-controller="ChangeofUsageCTRL" class="HomeBackground">
+
+<form name="ChangeofuasgesearchForm">
+	<!--<h3 class="heading" translate="CHANGE_OF_USAGE"> </h3>-->
+  <div class="headingDiv">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="CHANGE_OF_USAGE"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+  </div>
+	<div class="list">
+		 <label class="item item-input item-floating-label">
+			<span class="input-label required" translate="CONNECTION_NUMBER"></span>
+			<input type="text" placeholder="{{'CONNECTION_NUMBER' | translate}}*" name="changeusages" ng-model="changeusages" id="connectionNosearch"
+		     ng-keyup="eighteendigit()" required/>
+			<span class="errorMessage" ng-show="ChangeofuasgesearchForm.changeusages.$error.pattern" translate="PLEASEENTERVALIDCONNECTION"></span>
+	   </label>
+
+		 <div class="padding">
+			<button ng-disabled="!ChangeofuasgesearchForm.$valid" ng-click="searchchangeusages()" class="button button-block  customBgColor"><i class="icon ion-search fonth3"></i>
+			<span translate="SEARCH"></span></button>
+	 	</div>
+
+	</div>
+</form>
+
+</ion-content>
+
+</ion-view>

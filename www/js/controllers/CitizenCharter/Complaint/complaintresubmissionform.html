@@ -1,0 +1,121 @@
+<ion-view title="e-Chhattisgarh">
+  <ion-nav-bar class="bar-dark" align-title="center">    <ion-nav-back-button></ion-nav-back-button></ion-nav-bar>
+<!--<ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>-->
+
+<ion-content ng-controller="complaintresubmissionformCtrl" class="HomeBackground">
+<!-- <h3 class="heading" translate="COMPLDETS"> </h3>-->
+  <div class="headingDiv">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="COMPLDETS">
+      <img src="../www/img/quick-services-32x32.png" width="32" height="32"></h3>
+  </div>
+  <table class="gridtable" >
+    <tr>
+      <th translate="">Token Number</th>
+      <td>{{ tokennumber }}</td>
+    </tr>
+    <tr>
+      <th translate="">Date and Time</th>
+      <td>{{ datentime }}</td>
+    </tr>
+    <tr>
+      <th translate="">Applicant Name</th>
+      <td>{{ empname }}</td>
+    </tr>
+    <tr>
+      <th translate="">Status</th>
+      <td>{{ status }}</td>
+    </tr>
+    <tr>
+      <th translate="DEPARTMENT"></th>
+      <td>{{ deptname }}</td>
+    </tr>
+    <tr>
+      <th translate="COMPLTYPE"> </th>
+      <td>{{ compltype }}</td>
+    </tr>
+    <tr>
+      <th translate="COMPLLOC"> </th>
+      <td>{{ complloc }}</td>
+    </tr>
+    <tr>
+      <th translate="COMPLDESC"> </th>
+      <td>{{ compldesc }}</td>
+    </tr>
+  </table>
+
+  <!--Action History data-->
+ <!-- <h3 class="heading" translate="">Action History</h3>-->
+  <div class="headingDiv">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="COMPLDETS">
+      <img src="../www/img/quick-services-32x32.png" width="32" height="32"></h3>
+  </div>
+  <table class="gridtable" ng-repeat="action in actionlist" >
+    <tr ng-if="action.datetime">
+      <th width="40%">Date & Time</th>
+      <td>{{ action.datetime }}</td>
+    </tr>
+    <tr ng-if="action.action">
+      <th width="40%">Action</th>
+      <td>{{ action.action }}</td>
+    </tr>
+    <tr ng-if="action.empName">
+      <th width="40%">Employee Name</th>
+      <td>{{ action.empName }}</td>
+    </tr>
+    <tr ng-if="action.Email">
+      <th width="40%">Email</th>
+      <td>{{ action.Email }}</td>
+    </tr>
+    <tr ng-if="action.designation">
+      <th width="40%">Designation</th>
+      <td>{{ action.designation }}</td>
+    </tr>
+    <tr ng-if="action.remarks">
+      <th width="40%">Remarks</th>
+      <td>{{ action.remarks }}</td>
+    </tr>
+  </table>
+
+  <!--<h3 class="heading" translate="">ReSubmit Complaint</h3>-->
+  <div class="headingDiv">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="">
+      <img src="../www/img/quick-services-32x32.png" width="32" height="32">ReSubmit Complaint</h3>
+  </div>
+  <form name="resubmissionform">
+
+    <div class="list">
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="REMARKS"></span>
+        <input type="text" placeholder="{{ 'REMARKS' | translate}}*" name="resubremarks" ng-model="resubremarks" ng-trim="false"
+         ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+        <span class="errorMessage" ng-show="resubmissionform.resubremarks.$error.pattern">Please Enter Valid Remarks</span>
+      </label>
+
+      <label class="item item-input item-floating-label"></label>
+      <label class="item item-input item-floating-label">
+        <input type="file" placeholder="Attach File" name="resubDoc" ng-model="resubDoc" id="verfiyFile"
+          ng-trim="false" onchange="angular.element(this).scope().imageupload()" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" />
+        <span class="errorMessage" ng-show="resubmissionform.resubDoc.$error.pattern">Please Enter Valid File</span>
+      </label>
+    </div>
+
+    <div class="padding">
+<!--      <button ng-disabled="!resubmissionform.$valid" ng-click="savecitizenAction()" class="button button-block customBgColor">-->
+<!--      <span translate="">Submit</span></button>-->
+      <button  type="button" class="button button-block  customBgColor" ng-disabled="!resubmissionform.$valid" on-tap="savecitizenAction()"   translate="SUBMIT"></button>
+    </div>
+
+  </form>
+
+</ion-content>
+</ion-view>
+

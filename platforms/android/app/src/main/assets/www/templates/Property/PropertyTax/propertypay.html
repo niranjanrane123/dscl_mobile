@@ -1,0 +1,53 @@
+<ion-view >
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+<ion-content ng-controller="propertyPayCtrl" class="HomeBackground" >
+
+  <form name="propertyPay">
+    <div class="headingDiv">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="PROPERTY_BILL_PAYMENT"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+    </div>
+	<div class="list">
+    <!--ng-pattern="/^[0-9]{1,9}$/"-->
+    <label class="item item-input item-floating-label">
+		<span class="input-label required" translate="PROPERTYNO"></span>
+		<input type="text" placeholder="{{'PROPERTYNO' | translate}}" name="search" ng-model="propertysearch" id="connectionNosearch" ng-change=changeText()
+	     ng-keyup="eighteendigit()"/>
+		<!--<span class="errorMessage" ng-show="propertyPay.search.$error.pattern" translate="PLEASEENTERVALIDPROPERTY"></span>-->
+	</label>
+
+    <ion-list ng-if="showValue" ng-click="getValue()">
+      <ion-item>
+        <span>{{showno}}</span>
+      </ion-item>
+    </ion-list>
+
+    <label class="item item-input item-floating-label">
+      <span class="input-label required" translate="OLD_PID"></span>
+      <input type="text" placeholder="{{'OLD_PID' | translate}}" name="assOldpro" ng-model="assOldpropno" id="connectisearch"
+        ng-keyup="eighteendigit()" />
+<!--      <span class="errorMessage" ng-show="propertyPay.assOldpro.$error.pattern" translate="PLEASEENTERVALIDOLDPROPERTY"></span>-->
+    </label>
+	 <div class="padding">
+      <button ng-disabled="!propertyPay.$valid" ng-click="searchpropertyBill()" id="btn1"
+       class="button button-block  customBgColor"><i class="icon ion-search fonth3"></i>
+      <span translate="SEARCH"></span></button>
+      <div style="text-align: center;" translate="OR"></div>
+       <button  ng-click="scanBarcode()"class="button button-block  customBgColor">
+       <i class="icon ion-qr-scanner fonth3"></i>
+       <span translate="SCANQRCODE"></span></button>
+
+ 	</div>
+
+  </div>
+</form>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,101 @@
+<ion-view >
+  <!-- <ion-nav-back-button> 
+    <div side="center">
+    <img src="./img/doon1-3d-test_13-10-2021.png" style="margin-left: 118px;
+    height: 30px;
+    width: 40px;">
+    </div>
+    <img style="right: 46%;
+     position: absolute;
+     margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+  </ion-nav-back-button> -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+    <ion-nav-back-button class="button-clear">
+      <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+      <img style="right: 46%;
+      position: absolute;
+      margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+    </ion-nav-back-button>
+    </ion-nav-bar>
+
+<ion-content ng-controller="ApplicationListPageCtrl" class="HomeBackground">
+ <div >
+          <div>
+            <div class="headingDiv">
+              <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="StatusofServiceApplications"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+            </div>
+             <input ng-if="getDashBoardData.length>0" type="search" id="home-application-search" ng-pattern="/^[0-9a-zA-Z]{0,20}$/" class="mysearch" name="search" ng-model="$parent.mysearch" alpha-numeric-only limit="20" ng-model-options="{ allowInvalid: true}" ng-trim="false" placeholder="{{'SEARCH' | translate}}" />
+            
+            <div class="row margin-0">
+
+             <div class="table-outer">
+            
+               <table  id="complainTab" ><!-- ng-if="mysearch.length<1 || !mysearch" -->
+                 <tr>
+                   <th  translate="APPLICATIONNO">Application No</th>
+                   <!--<td translate="APPLICATIONDATE">Application Date</td>-->
+                   <!--<td translate="DEPARTMENTNAME">Department Name</td>-->
+                   <th translate="ServiceName" ng-if="langID=='1' || langID==1">Service Name</th>
+                   <th translate="ServiceNameReg" ng-if="langID=='2' || langID==2">Service Name Reg</th>
+                   <!--<td translate="STATUS">Status</td>-->
+                   <th translate="ACTION">Action</th>
+                 </tr>
+                  <tr ng-repeat="rowData in getDashBoardDataPage | filter:mysearch">
+                   <td>{{rowData.appId}}</td>
+                   <!--<td>{{rowData.appDate}}</td>-->
+                   <!--<td>{{rowData.deptName}}</td>-->
+                   <td ng-if="langID=='1' || langID==1">{{rowData.serviceName}}</td>
+                   <td ng-if="langID=='2' || langID==2">{{rowData.smServiceNameMar}}</td>
+                   <!--<td>{{rowData.status | translate}}</td>-->
+                   <td></i>
+                   <i class="icon ion-eye" ng-click="viewApplication(rowData)" title="history"></i>
+                  <i class="icon ion-refresh" ng-click="viewHistory(rowData)" title="refresh"></i>
+                  </td>
+                 </tr>
+               </table>
+
+               <div class="pagination" ng-if="mysearch.length<1 || !mysearch">
+                 <span class="page-num {{$index==currentPagination?'activepage':''}}" ng-repeat="i in currentPaginationArray" ng-if="$index<11" ng-click="getDashBoardDataPageData({{$index}},'fix')">{{$index+1}}</span>
+                 <select ng-if="currentPaginationArray.length>11" ng-model="$parent.pagginationSelect" ng-change="getDashBoardDataPageData(pagginationSelect,'select')">
+                   <option value="{{$index}}" ng-repeat="i in currentPaginationArray" ng-if="$index>=11">{{$index+1}}</option>
+                 </select>
+               </div>
+
+               <!-- Defect #179295 -->
+               <!-- <table id="complainTab" ng-if="mysearch.length>=1">
+                 <tr>
+                   <th  translate="APPLICATIONNO">Application No</th>
+                   <th translate="APPLICATIONDATE">Application Date</th>
+                   <th translate="DEPARTMENTNAME">Department Name</th>
+                   <th translate="ServiceName">Service Name</th>
+                   <th translate="ServiceNameReg">Service Name Reg</th>
+                   <th translate="STATUS">Status</th>
+                   <th translate="ACTION">Action</th>
+                 </tr>
+                  <tr ng-repeat="rowData in getDashBoardData | filter:mysearch">
+                   <td>{{rowData.appId}}</td>
+                   <td>{{rowData.appDate}}</td>
+                   <td>{{rowData.deptName}}</td>
+                   <td>{{rowData.serviceName}}</td>
+                   <td>{{rowData.smServiceNameMar}}</td>
+                   <!-- <td>{{rowData.status}}</td> --
+                   <td ng-if = "rowData.status == 'PENDING'">Pending</td>
+                   <td ng-if = "rowData.status == 'DRAFT'">Draft</td>
+                   <td ng-if = "rowData.status == 'CLOSED'">Closed</td>
+                   <td ng-if = "rowData.status != 'PENDING' && rowData.status != 'DRAFT' && rowData.status != 'CLOSED'">{{rowData.status}}</td>
+                   <td></i>
+                    <i class="icon ion-eye" ng-click="viewApplication(rowData)"></i>
+                  <i class="icon ion-refresh" ng-click="viewHistory(rowData)">
+                  </td>
+                 </tr>
+               </table> -->
+
+               
+             </div>
+            </div>
+          </div>
+        </div>
+
+</ion-content>
+</ion-view>
+

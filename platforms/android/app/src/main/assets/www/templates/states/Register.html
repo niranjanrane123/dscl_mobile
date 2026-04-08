@@ -1,0 +1,224 @@
+<ion-view hide-nav-bar="true" ng-controller="RegisterPageCtrl">
+  
+	<!-- <ion-header-bar class="bar-dark">
+	  
+		   <i class="back-button icon ion-chevron-left" ng-click="goback()"></i>
+		  <div class="title">{{'ECHATTISGARH' | translate}}</div>
+	  </ion-header-bar> -->
+
+	  <ion-header-bar class="bar-dark">
+	  
+		<i class="back-button icon ion-chevron-left" ng-click="goback()"></i>
+	   <!-- <div class="title">{{'ECHATTISGARH' | translate}}</div> -->
+	   <img style="right: 46%;
+	   position: absolute;
+	   margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+   </ion-header-bar>
+
+
+	  <!-- <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar> -->
+  <ion-content class="HomeBackground">
+  <form name="registerForm">
+  
+  <div class="list"  ng-show="show==1">
+	<div class="headingDiv">
+	  <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="CITIZENREGISTRATION">Citizen Registration</h3>
+	</div>
+  
+	<p class="ptextcss" translate="PLEASEFILLUPPERSONAL">Please fill up your personal details:</p>
+	<!--<div>-->
+	  <!--<select class="select-dropdown" name="organisationID" ng-model="$parent.organisationID"-->
+		<!--ng-options="o.id as o.name for o in ULBoptions"  ng-change="organizationChange()" required>-->
+		<!--<option value="" translate="SELORG"></option>-->
+	  <!--</select>-->
+	<!--</div>-->
+  
+  <!--  <ui-select ng-model="$parent.organisationID" class="borderradiusselect" ng-change="organizationChange(organisationID)">-->
+  <!--    <ui-select-match placeholder="{{'SEARCHORSELECT' | translate}}">{{$select.selected.name}}</ui-select-match>-->
+  <!--    <ui-select-choices repeat="item in ULBoptions | filter: $select.search">-->
+  <!--      <div ng-bind-html="item.name | highlight: $select.search"></div>-->
+  <!--    </ui-select-choices>-->
+  <!--  </ui-select>-->
+  
+	<!-- </select> -->
+	<label class="item item-input item-stacked-label">
+	  <label class="input-label padding-left-15 required" translate="TITLE">Title</label>
+	  <select class="select-dropdown" name="reggender" data-ng-model="regtitle" ng-change="onTitleChange(regtitle)"
+			  ng-options="o.value as o.name for o in ttloptions" style="padding-left: 0px !important;" required>
+	<option value="" translate="SELECT" disabled>Select</option>
+   </select>
+  </label>
+	<!-- <label class="item item-input item-floating-label">
+	<label class="input-label padding-left-15 required" translate="TITLE">Title</label>
+	<select class="select-dropdown" name="reggender" data-ng-model="$parent.regtitle" ng-options="o.value as o.name for o in ttloptions" required>
+	  <option value="" translate="SELECT">Select</option>
+	 </select>
+	  </label> -->
+  
+	 <label class="item item-input item-stacked-label"></label>
+	  <label class="item item-input item-stacked-label">
+		  <span class="input-label required" translate="FNAME"></span>
+		  <input type="text"   id="fName"  placeholder="{{ 'FNAME' | translate}}*" ng-trim="false" name="regfirstname" minlength="3" alphabet-only limit="50" ng-model="$parent.regfirstname"  required/>
+		  <span class="errorMessage" ng-show="registerForm.regfirstname.$error.pattern" translate="VALIDFIRSTNAME"></span>
+		  <span class="errorMessage" ng-show="registerForm.regfirstname.$error.minlength" translate="VALIDNAMEmin3"></span>
+  
+	  </label>
+	  <label class="item item-input item-stacked-label">
+		  <span class="input-label" translate="MNAME"></span>
+		  <input type="text" placeholder="{{ 'MNAME' | translate}}"  name="regmiddlename" ng-trim="false"  alphabet-only limit="50"  ng-model-options="{ allowInvalid: true}" ng-model="$parent.regmiddlename" />
+		  
+		  
+	  </label>
+	  
+	  <label class="item item-input item-stacked-label">
+		  <span class="input-label required" translate="LNAME"></span>
+		  <input type="text"  placeholder="{{ 'LNAME' | translate}}*"  name="reglastname" ng-trim="false" minlength="3" alphabet-only limit="50" ng-model="$parent.reglastname"  required/>
+		  <span class="errorMessage" ng-show="registerForm.reglastname.$error.pattern" translate="VALIDLASTNAME"></span>
+		  <span class="errorMessage" ng-show="registerForm.reglastname.$error.minlength" translate="VALIDNAMEmin3"></span>
+	  </label>
+  
+	  <label class="item item-input item-stacked-label">
+		  <label class="input-label padding-left-15 required" translate="GENDER"></label>
+		  <select class="select-dropdown" name="reggender" data-ng-model="reggender" ng-change="onGenderChange(reggender)"
+				  ng-options="o.value as o.name for o in genoptions" style="padding-left: 0px !important;" required>
+			  <option value="" translate="SELECT" disabled></option>
+		  </select>
+	  </label>
+  
+	  <!-- <label class="input-label padding-left-15 required" translate="GENDER"></label>
+	  <select class="select-dropdown" name="reggender" data-ng-model="$parent.reggender" ng-options="o.value as o.name for o in genoptions" required>
+		  <option value="" translate="SELECT"></option>
+	  </select> -->
+  
+  
+	  <label class="item item-input item-stacked-label" ng-click="openCalender()" id="date">
+		  <span class="input-label required" translate="DOB"></span>
+		  <input type="text" ng-change="checkAge()" 
+			  placeholder="{{'DOB'|translate}}" name="regdob" ng-model="regdob|date:'dd/MM/yyyy'" ng-trim="false"
+			   required disabled/>
+	  </label>
+	  
+	  <!-- <label class="item item-input item-stacked-label"></label>
+	  <label class="input-label padding-left-15 required" translate="DOB"></label>
+		  <input type="date" max="{{currentDate}}" id="regdob" ng-change="checkAge()" style="width:100%; background: #fff; height: 50px!important;border-bottom: 2px solid #dde4dc;padding: 10px 10px !important;font-size: 16px;" ng-blur="checkAge()" name="regdob" ng-model="$parent.regdob" ng-trim="false" required/>
+		  <span class="errorMessage" ng-show="registerForm.regdob.$error.pattern" translate="VALIDATE"></span>
+		  <span class="errorMessage" ng-show="registerForm.regdob.$error.max" translate="VALIDATE"></span> -->
+  
+  
+	  <label class="item item-input item-stacked-label">
+		  <span class="input-label required" translate="MOBILENO"></span>
+		  <input type="tel" maxlength="10" placeholder="{{ 'MOBILENO' | translate}}*" name="regmobile" ng-model="$parent.regmobile"
+		   ng-trim="false" ng-pattern="/^[0-9]{10,10}$/" required/>
+		  <span class="errorMessage" ng-show="registerForm.regmobile.$error.pattern" translate="VALIDMOBILE"></span>
+	  </label>
+	  <label class="item item-input item-stacked-label">
+		  <span class="input-label required" translate="EMAILID"> </span>
+		  <input type="text" placeholder="{{ 'EMAILID' | translate}}*" name="regemailid" ng-model="$parent.regemailid" ng-trim="false"
+				 ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required/>
+		  <span class="errorMessage" ng-show="registerForm.regemailid.$error.pattern"translate="VALIDEMAIL"></span>
+	  </label>
+	<!--<label class="item item-input item-floating-label">-->
+	  <!--<span class="input-label required" translate="PERADDRESS"></span>-->
+	  <!--<input type="text" placeholder="{{ 'PERADDRESS' | translate}}*"  name="regAddress" ng-model="$parent.regAddress" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>-->
+	  <!--<span class="errorMessage" ng-show="registerForm.regAddress.$error.pattern">Please Enter First Name</span>-->
+	<!--</label>-->
+	  <!--<label class="item item-input item-floating-label">-->
+		  <!--<span class="input-label required" translate="PINCODE"> </span>-->
+		  <!--<input type="number" placeholder="{{ 'PINCODE' | translate}}*" name="regaadharnumber" ng-model="$parent.regaadharnumber"-->
+		  <!--ng-trim="false" ng-pattern="/^[0-9]{6,12}$/" />-->
+		  <!--<span class="errorMessage" ng-show="registerForm.regaadharnumber.$error.pattern">Please Enter Valid Pincode</span>-->
+	  <!--</label>-->
+  
+	  <div class="padding">
+		  <button ng-disabled="!registerForm.$valid" ng-click="regsubmit()" class="button button-block  customBgColor">
+		  <span translate="SUBMIT"></span></button>
+	  </div>
+  </div>
+  
+  </form>
+  
+  <form name="otpform" class="animated zoomIn">
+  <div class="list" ng-show="show==2">
+  <!--<h3 class="heading">OTP Verfication</h3>-->
+  <div class="headingDiv">
+	<h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="OTPVERIFICATION"><!-- <img src="./img/quick-services-32x32.png" width="32" height="32" translate="OTPVERIFICATION"> --></h3>
+  </div>
+	  <label class="item item-input item-floating-label">
+		  <span class="input-label required" translate="ENTOTP"></span>
+		  <input type="tel" id="otpregistration" maxlength="6" placeholder="{{ 'ENTOTP' | translate}}*" name="regotp" ng-model="$parent.regotp"
+		  ng-trim="false" numbers-only limit="6" ng-trim="false" ng-model-options="{ allowInvalid: true}" ng-pattern="/^[0-9]{6,6}$/" required/>
+		  <span class="errorMessage" ng-show="otpform.regotp.$error.pattern" translate="VALIDOTP"></span>
+	  </label>
+	  <div class="padding">
+		  <button ng-disabled="!otpform.$valid" ng-click="otpsubmit()" class="button button-block  customBgColor">
+		  <span translate="SUBMIT"></span></button>
+	  </div>
+	  <ul class="center">
+		  <li><a  ng-click="forgotmobilesubmit1()"><b  style="color: #00aa55;"  translate="RESENDOTP"></b></a></li>
+	  </ul>
+  </div>
+  </form>
+  
+  <form name="passwordpage" class="animated zoomIn">
+  <div class="list" ng-show="show==3">
+  <!--<h3 class="heading">Password Page</h3>-->
+  <div class="headingDiv">
+	<h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="ENTPASSWORD"><!-- <img src="./img/quick-services-32x32.png" width="32" height="32" translate="PASSWORD"> --></h3>
+  </div>
+	  <label class="item item-input item-floating-label">
+		  <span class="input-label required" translate="PASSWORD"></span>
+		  <input type="{{inputType}}" id="txtPassword" placeholder="{{ 'PASSWORD' | translate}}*"  name="regpassword" ng-model="$parent.regpassword" ng-trim="false" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/" ng-keyup="checkPasswordStrength(regpassword)" required/>
+		  <progress id="progressBar" value="0" max="100"></progress>
+		  <span id="progresslabel"></span>
+		  <!--<span class="errorMessage" ng-show="passwordpage.regpassword.$error.pattern" translate="VALIDPASS"></span>-->
+		  
+	  </label>
+  
+	  <!-- <progress id="progress" value="0" max="100">70</progress>
+	  <span id="progresslabel"></span> -->
+  
+	  <div class="password-hide-show">
+		  <i class="icon ion-eye eye-icon" ng-if="inputType=='password'" ng-click="hideShowPassword()"></i>
+		  <i class="icon ion-eye-disabled eye-icon" ng-if="inputType=='text'" ng-click="hideShowPassword()"></i>
+	  </div>
+	  <div class="pswd_info">
+		  <div id="password-strength-status"></div>
+		  <div id="passwordCriterion" class="passwordCriterion">
+			  <ul>
+				  <li data-criterion="length" translate="PASSWORD_length"></li>
+				  <li data-criterion="capital" translate="PASSWORD_capital"></li>
+				  <li data-criterion="small" translate="PASSWORD_small"></li>
+				  <li data-criterion="number" translate="PASSWORD_number"></li>
+				  <li data-criterion="special" translate="PASSWORD_special"></li>
+  
+			  </ul>
+		  </div>
+	  </div>
+	  <label class="item item-input item-floating-label">
+		  <span class="input-label required" translate="CNFPASSWORD"></span>
+		  <input type="{{inputType}}" id="txtConfirmPassword" placeholder="{{ 'CNFPASSWORD' | translate}}*" name="regconpass" ng-model="$parent.regconpass"
+		  ng-trim="false" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/" required/>
+		  <span class="errorMessage" ng-show="passwordpage.regconpass.$error.pattern" translate="VALIDCONFIRMPASS"></span>
+	  </label>
+	  <div class="password-hide-show">
+		  <i class="icon ion-eye eye-icon" ng-if="inputType=='password'" ng-click="hideShowPassword()"></i>
+		  <i class="icon ion-eye-disabled eye-icon" ng-if="inputType=='text'" ng-click="hideShowPassword()"></i>
+	  </div>
+	  <div class=" padding">
+		  <button ng-disabled="!passwordpage.$valid" ng-click="passwordsubmit()" class="button button-block  customBgColor">
+		  <span translate="SUBMIT"></span></button>
+	  </div>
+  </div>
+  </form>
+  
+  </ion-content>
+  </ion-view>
+  
+  

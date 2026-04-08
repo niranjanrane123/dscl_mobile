@@ -1,0 +1,207 @@
+<ion-view class="titlecss">
+    <!-- title="{{'ECHATTISGARH' | translate}}" -->
+    <ion-nav-bar class="bar-dark" align-title="center">
+      <ion-nav-back-button class="button-clear">
+        <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"
+          style="background: transparent;border: none;"></button>
+        <img style="right: 46%;
+        position: absolute;
+        margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content ng-controller="nearByCTRL" class="HomeBackground">
+
+
+<!-- <html lang="en">
+
+<head>
+   
+   
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+
+   
+    <style>
+        html, body {
+            height: 100%;
+            margin: 7;
+            margin-bottom: 19px;
+        }
+        .leaflet-container {
+            height: 700px;
+            width: 600px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+
+   
+</head>
+<body> -->
+    <div id="map"></div>
+
+    <div class="locField">        
+            <label class="input-label padding-left-15 required" translate="ABDMAP">ABD Map Options</label>
+                <select class="select-dropdown" name="abdMapOption" data-ng-model="abdMapOption" ng-change="onChangeAbdMap(abdMapOption)"
+                      ng-options="o.value as o.name for o in abdMapOptions" style="height: 30px !important;" required>
+                  <option value="" translate="SELECT" disabled>Select</option>
+                </select>
+            <label class="item item-input item-floating-label"></label>
+      </div>
+<!-- <script>
+      var geocodeResponse = []
+ 
+   
+
+ var map = L.map('map').setView([Latitude, Longitude], 13,{
+     
+ });
+
+ var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+     layers: 'boundary_ward,boundary_zone',
+     maxZoom: 18,
+     attribution: 'Map data &copy; <a href="https://dsclgis.uk.gov.in:8443/cgi-bin/IGiS_Ent_service.exe?IEG_PROJECT=dehradun_ws">OpenStreetMap</a> contributors, ' +
+         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+     id: 'mapbox/streets-v11',
+     tileSize: 512,
+     zoomOffset: -1
+ }).addTo(map);
+
+ var circle = L.circle([Latitude, Longitude], {
+     color: 'red',
+     fillColor: '#f03',
+     fillOpacity: 0.5,
+     radius: 500,
+ }).addTo(map);
+ 
+
+ map.on('click', function(e){
+ // Place marker
+ 
+ var marker = new L.marker(e.latlng).addTo(map);
+ // Ajax query to save the values:
+
+ var url = 'https://dsclgis.uk.gov.in:8443/IGISRestAPI/Geocoder/GetPlaceFromLayer/landmark/name/' + Latitude + "/" + Longitude + "/" + '500/10'
+var token = "Bearer" + " " + "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjoiZGVocmFkdW4iLCJQYXNzd29yZCI6ImFkbWluQDEyMyIsIlByb2plY3QiOiJzYzEwX2RlaHJhZHVuX3BnIiwiSG9zdCI6IjEwLjY3LjE3MS40NyIsIlBvcnQiOjU0MzIsInR5cGUiOiJQcm9mZXNzaW9uYWwiLCJpYXQiOjE2MTkyNjQxNzMsImF1ZCI6InNnbDpQcm9mZXNzaW9uYWwiLCJpc3MiOiJzZ2wudGxkIn0.qiQihyNiwE6H2XVEa11aWxN3AhFK9U6aCRPFUUYtb30cn9jc4yeTAt4I2jOp5sX3qlsYKNRtB2nkGGSUn7bBm6J33HFQC692LjRaDeTszI6BcNmGJTD9Ewr9nEDJY_0EUub0hC5uafVt0i4kZbCB6saW4P1vRzyGeO7WwKeEuBw"
+ //var url = 'https://dsclgis.uk.gov.in:8443/IGISRestAPI/Geocoder/GetPlaceFromLayer/landmark/name/30.2982/78.0535/500/10'
+// Creating Our XMLHttpRequest object
+
+ 
+   console.log(Latitude,"near by lat ")
+    console.log(Longitude,"near by long ")
+   
+fetch(url, {
+method: "GET",
+headers: {'Authorization': token}
+}).then(res => {return res.json()})
+ .then(data => {
+     var a = [];
+     geocodeResponse.push(data);
+     
+     for(var i = 0; i<data.length;i++){
+         var  latLong = data[i].latitude + "" + data[i].longitude
+
+         if(e.latlng){
+         circle.bindPopup(data[i].name);
+         console.log(geocodeResponse[i].name,"00000000")
+     }else{
+         circle.bindPopup(e.latlng);
+     }
+
+     }
+     //handler(geocodeResponse);
+ });
+
+data = geocodeResponse
+console.log(data,"..........")
+ for (var i = 0; i < geocodeResponse.length; i++) {
+     console.log(geocodeResponse,"hghjghjgh")
+     if(geocodeResponse[i].latitude + "" + geocodeResponse[i].longitude == e.latlng){
+         circle.bindPopup(geocodeResponse[i].name);
+         console.log(geocodeResponse[i].name,"00000000")
+     }else{
+         circle.bindPopup(e.latlng);
+     }
+ }
+   
+});
+ function onMapClick(e) {
+ alert(e.latlng);
+ 
+}
+
+map.on('click', onMapClick);
+
+
+    geoSuccess = function (position) {
+        console.log("position---" + JSON.stringify(position));
+        console.log('Latitude: ' + position.coords.latitude + '\n' +
+          'Longitude: ' + position.coords.longitude + '\n' +
+          'Altitude: ' + position.coords.altitude + '\n' +
+          'Accuracy: ' + position.coords.accuracy + '\n' +
+          'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
+          'Heading: ' + position.coords.heading + '\n' +
+          'Speed: ' + position.coords.speed + '\n' +
+          'Timestamp: ' + position.timestamp + '\n');
+        // $scope.myImgUrl = thisResult.filename;
+        // console.log("result.filename------" + thisResult.filename);
+     var Latitude = position.coords.latitude;
+       var  Longitude = position.coords.longitude;
+     
+console.log(Latitude,"lattiuede....")
+console.log(Longitude,"longtitutede..")
+      };
+      var fail = function (err) {
+        alert('code: ' + error.code + '\n' +
+          'message: ' + error.message + '\n');
+      }
+</script>
+ -->
+
+
+<!-- </body>
+</html> -->
+</ion-content>
+</ion-view>
+
+<style>
+    #map {
+        width: 100%;
+        position: absolute;
+        top: 0%;
+        bottom: 11%; 
+        right: 0;
+        left: 0;
+    }
+   /* .ol-collapsed{
+    display: none;
+    }
+   .ol-rotate{
+    display: none;
+    }
+    .ol-uncollapsible{
+        display: none
+    }
+    .ol,.ul {
+    display: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+} */
+
+/* For iOS */
+    /* #map {
+        width: 100%;
+        position: absolute;
+        top: 0%;
+        bottom: 22%; 
+        right: 0;
+        left: 0;
+    } */
+</style>

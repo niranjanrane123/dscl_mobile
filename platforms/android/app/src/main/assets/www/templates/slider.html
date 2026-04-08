@@ -1,0 +1,153 @@
+<ion-view  hide-nav-bar="true">
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+
+<ion-content ng-controller="SliderCtrl" class="HomeBackground">
+  <ion-slide-box  does-continue="true" ionSlideReachEnd="slideHasChanged()">
+    <ion-slide >
+      <div class="box-green">
+        <div style="width:100%; padding-top:15px;padding-right:15px; text-align: end !important;">
+          <a ng-click="loginRegister()">Skip ></a>
+        </div>
+        <div class="contentContainer" >
+            <div>
+              <img src="./img/property_tax.png" height="200" width="200">
+            </div>
+            <div style="margin-top:20px;margin-bottom:20px">
+            <span translate="PROPERTYTAXPAYMENT" style="font-size: 30px; font-family: Arial; font-weight: bold;color: #ffffff;" ></span>
+            </div>
+           <div>
+            <span translate="PROPERTYSUBTEXT" style="font-size: 1em; font-weight: bold; font-family: Arial; color: #ffffff;"> </span>
+           </div>
+
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide  >
+      <div class="box-green1">
+        <div style="width:100%; padding-top:15px;padding-right:15px; text-align: end !important;">
+          <a ng-click="loginRegister()">Skip ></a>
+        </div>
+        <div class="contentContainer" >
+          <div >
+            <img src="./img/Water.png" height="200" width="200">
+          </div>
+          <div style="margin-top:20px; margin-bottom:20px">
+            <span translate="WATERCONNECTION" style="font-size: 30px; font-family: Arial; font-weight: bold;color: #ffffff;" ></span>
+          </div>
+          <div  >
+            <span translate="WATERSUBTEXT" style="font-size: 1em; font-weight: bold; font-family: Arial; color: #ffffff;"> </span>
+          </div>
+
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide  >
+      <div class="box-orange">
+        <div style="width:100%; padding-top:15px;padding-right:15px; text-align: end !important;">
+          <a ng-click="loginRegister()">Skip ></a>
+        </div>
+        <div class="contentContainer" >
+          <div>
+            <img src="./img/municipal.png" height="200" width="200">
+          </div>
+          <div style="margin-top:20px;margin-bottom:20px">
+            <span translate="MUNICIPALPROPERTYBOKKING" style="font-size: 30px; font-family: Arial; font-weight: bold;color: #ffffff;" ></span>
+          </div>
+          <div>
+            <span translate="MUNICIPALSUBTEXT" style="font-size: 1em; font-weight: bold; font-family: Arial; color: #ffffff;" > </span>
+          </div>
+
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide  >
+      <div class="box-blue">
+        <div style="width:100%; padding-top:15px;padding-right:15px; text-align: end !important;">
+          <a ng-click="loginRegister()">Skip ></a>
+        </div>
+        <div class="contentContainer" >
+          <div  >
+            <img src="./img/application_satatus.png" height="200" width="200">
+          </div>
+          <div style="margin-top:20px;margin-bottom:20px">
+            <span translate="APPLICATIONSTATUS" style="font-size: 30px; font-family: Arial; font-weight: bold;color: #ffffff;" ></span>
+          </div>
+          <div  >
+            <span translate="APPLICATIONSTATUSSUBTEXT" style="font-size: 1em; font-weight: bold; font-family: Arial; color: #ffffff;" > </span>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide  >
+      <div class="box-puple">
+        <div style="width:100%; padding-top:15px;padding-right:15px; text-align: end !important;">
+          <a ng-click="loginRegister()">Skip ></a>
+        </div>
+        <div class="contentContainer" >
+          <div >
+            <img src="./img/citizen.png" height="200" width="200">
+          </div>
+          <div style="margin-top:20px;margin-bottom:20px">
+            <span translate="CITIZENHELPLINE" style="font-size: 30px; font-family: Arial; font-weight: bold;color: #ffffff;" ></span>
+          </div>
+          <div >
+            <span translate="CITIZENSUBTEXT" style="font-size: 1em; font-weight: bold; font-family: Arial; color: #ffffff;"> </span>
+          </div>
+
+        </div>
+      </div>
+    </ion-slide>
+
+  </ion-slide-box>
+
+</ion-content>
+
+</ion-view>
+
+<style>
+  .box-green{
+    height: 100%;
+    width: 100%;
+    background-color: #01ac92 !important;
+  }
+  .contentContainer {
+    text-align: center;
+    padding: 20px;
+    margin-top:30%;
+}
+  .box-puple{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+     background-color: #8100a6 !important;
+  }
+  .box-orange{
+    height: 100%;
+    width: 100%;
+     background-color: #ff6c00 !important;
+  }
+  .box-blue{
+    height: 100%;
+    width: 100%;
+     background-color: #ff0054 !important;
+  }
+  .box-green1{
+    height: 100%;
+    width: 100%;
+     background-color: #82ac01 !important;
+  }
+</style>
+
+

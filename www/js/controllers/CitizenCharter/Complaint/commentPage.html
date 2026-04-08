@@ -1,0 +1,40 @@
+<ion-view class="home-page">
+  <ion-nav-title>
+    <div class="bar bar-header headercolor">
+      <h1 class="title">SmartCity Suggestion</h1>
+    </div>
+  </ion-nav-title>
+
+  <ion-content class="animated zoomIn backgroundimage" ng-controller="commentPageCtrl">
+    <form name="commentForm">
+
+          <div class="card">
+            <div class="item" >
+                <ul class="list-group" >
+                  <li class="list-group-item" ng-repeat="cmt in commentArray">
+                    <p>@{{fullName}}</p>
+                    {{cmt}}
+                    <a href="" ng-click="romoveComment($comText);" >
+                      <span class="icon ion-trash-b" style="float:right"> </span></a>
+                  </li>
+                </ul>
+                <br />
+                  <textarea style="height: 30px;" class="form-control" placeholder="Your Comment Please....."  ng-model="data.CommentText"></textarea>
+                  <button class="btn btn-success pull-right" ng-click="addComment()">Comment.</button>
+            </div>
+          </div>
+
+    </form>
+  </ion-content>
+</ion-view>
+<style>
+.slider{
+	height: 477px;
+}
+ .center1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+</style>

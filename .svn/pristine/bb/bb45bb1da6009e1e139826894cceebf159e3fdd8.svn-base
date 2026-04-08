@@ -1,0 +1,66 @@
+<!-- <ion-view title="{{'ECHATTISGARH' | translate}}">
+  <ion-nav-back-button></ion-nav-back-button>
+
+  <ion-content ng-controller="swmComplainCtrl" class="HomeBackground">
+    <div>
+      <div class="list">
+        <a class="item card" href="#" ng-repeat="rowData in respcompains">
+          <p><b>Incident Type: </b>
+            <br>{{ rowData.incidentType}}<p>
+            <p><b>Address: </b>{{ rowData.location}}
+            <p>
+            <p><b>Description: </b>{{ rowData.description}}</p>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view> -->
+
+<ion-view class="titlecss">
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+  <ion-content ng-controller="swmComplainCtrl" class="HomeBackground">
+
+    <form name="reopenForm">
+      <div id="existingcomplaint">
+
+        <div class="headingDiv">
+          <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="HISTORY"></h3>
+        </div>
+        <div class="card list" ng-repeat="subject in respcompainList.SWM.complaints ">
+          <div class="item item-divider dividerbar">
+            <p style="color:#fff;">{{ 'COMPLAINTNO' | translate }}: {{ subject.complaintId }}</p>
+            <!-- <i class="icon ion-ios-arrow-right"></i> -->
+          </div>
+          <div class="item item-text-wrap textcolor">
+            <p>{{ 'STATUS' | translate }}: {{ subject.complaintStatus | translate }}</p>
+            <p>{{ 'COMPLTYPE' | translate }}:{{ subject.incidentType }}</p>
+            <p>{{ 'COMPLDESC' | translate }}:{{ subject.description }}</p>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-view>
+
+<style>
+  .dividerbar {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    background-color: #00aa55;
+    color: #fff;
+  }
+
+  .textcolor {
+    font-family: 'Open Sans';
+    font-weight: 600;
+  }
+</style>

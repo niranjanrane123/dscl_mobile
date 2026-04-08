@@ -1,0 +1,37 @@
+<ion-view>
+
+<ion-nav-title>
+  <div class="bar bar-header headercolor">
+  	<h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>
+
+<ion-content class="backgroundimage" ng-controller="propertyServiceCtrl">
+<h1 class="heading">PROPERTY TAX SERVICES</h1>
+  <div class="row margin-0">
+    <div class="col col-50 animated fadeInLeft">
+      <div class="list text-center">
+         <a class="item gridnopadding" ui-sref="app.propertypay">
+         <img src="./img/property-tax48x48.png" width="55px" height="55px">
+         <h5 translate="PROPERTY_BILL_PAYMENT"></h5></a>
+      </div>
+    </div>
+    <div class="col col-50 animated fadeInRight">
+      <div class="list text-center">
+        <a class="item gridnopadding" ui-sref="app.noChangeValidate">
+          <img src="./img/property-tax48x48.png" width="55px" height="55px">
+          <h5 translate="">No Change</h5></a>
+      </div>
+    </div>
+
+  </div><br>
+
+  <!--<qr type-number="8" correction-level="'M'" size="200" input-mode="'ALPHA_NUM'" text="string" image="true"></qr>-->
+
+
+</ion-content>
+</ion-view>

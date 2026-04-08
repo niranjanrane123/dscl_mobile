@@ -1,0 +1,203 @@
+<ion-view >
+
+  <!-- <ion-nav-bar class="bar-dark" align-title="center">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar> -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+<ion-content ng-controller="rtiApplicantdetailsCtrl">
+<form name="rtiApplicantForm">
+  <div class="list">
+    <h3 class="heading" translate="RTI"></h3>
+    
+     <div class="rti-steps">1 of 4</div>
+      <label class="input-label padding-left-15 required" translate="TYPEOFAPPLICATION"></label>
+      <select class="select-dropdown" name="applicantType" data-ng-model="applicantType" id="applicantTypeID"
+        ng-options="o.value as o.name for o in aptoptions" ng-change="changeApplicantType()" required>
+        <option value="" translate="SELECT"></option>
+      </select>
+      <label class="item item-input item-floating-label"></label>
+
+<!--      <label ng-if="uad" class="input-label padding-left-15 required" translate="DISTRICT"></label>-->
+<!--      <select ng-if="uad"  class="select-dropdown" name="dist" data-ng-model="district" id="district"-->
+<!--              ng-options="o.id as o.name for o in dstoptions" ng-change="changeDistrict(district)"  required readonly>-->
+<!--        <option value="{{o.id}}" selected >{{o.name}}</option>-->
+<!--      </select>-->
+<!--      <label csewlass="item item-input item-floating-label"></label>-->
+
+
+    <!--<label  ng-if="uad" class="input-label padding-left-15 required" translate="DISTRICT"> </label>
+
+        <select class="select-dropdown" ng-options="dstoptions.id as dstoptions.name for dstoptions in dstoptions track by dstoptions.name"
+                ng-model="friend.selectedTicket"
+                ng-disabled="!friend.isPresent"
+                ng-change="changeDistrict(friend.selectedTicket.id)" readonly>
+           {{friend.selectedTicket.name}}
+        </select>-->
+
+        <label ng-if="uad" class="input-label padding-left-15 required" translate="DISTRICT"></label>
+        <select class="select-dropdown" name="applicantType" data-ng-model="friend.selectedTicket" 
+          id="applicantTypeID" ng-disabled="!friend.isPresent"
+          ng-options="dstoptions.id as dstoptions.name for dstoptions in dstoptions track by dstoptions.name" ng-change="changeDistrict(friend.selectedTicket.id)" required>
+          <option value="" translate="SELECT"></option>
+          {{friend.selectedTicket.name}}
+        </select>
+        <label class="item item-input item-floating-label"></label>
+
+    <!--<label  ng-if="uad" class="input-label padding-left-15 required" translate="ORG"></label>
+    <select ng-if="uad" class="select-dropdown" name="org" data-ng-model="organization" id="organization"
+            ng-options="o.id as o.name for o in orgoptions" ng-change="changeOrg()" required>
+      <option value="" translate="SELECT"></option>
+    </select>
+    <label csewlass="item item-input item-floating-label"></label>-->
+
+    <label ng-if="uad" class="input-label padding-left-15 required" translate="ORG"></label>
+        <select ng-if="uad" class="select-dropdown" name="applicantType" data-ng-model="organization" 
+          id="organization" 
+          ng-options="o.id as o.name for o in orgoptions" ng-change="changeOrg()" required>
+          <option value="" translate="SELECT"></option>
+        </select>
+        <label class="item item-input item-floating-label"></label>
+
+      <label ng-if="organisation" class="item item-input item-floating-label">
+        <span class="input-label required" translate="ORGNAME"></span>
+        <input type="text" placeholder="{{'ORGNAME' | translate}}*" name="orgname" ng-model="orgName" required/>
+        <span class="errorMessage" ng-show="rtiApplicantForm.data_.orgname.$error.pattern" translate="VALIDORGNAME"></span>
+      </label>
+<!-- need to add disabled in title i have remove for testing -->
+      <label class="input-label padding-left-15 required" translate="SEL_TITLE"></label>
+        <select class="select-dropdown" name="title" ng-model="title"
+          ng-options="o.value as o.name for o in ttloptions" required>
+          <option value="" translate="SELECT"></option>
+        </select>
+      <label class="item item-input item-floating-label" ></label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="FIRSTNAME"></span>
+        <input type="text" ng-pattern="/^[a-zA-Z\u0900-\u097F ]*$/" ng-pattern-restrict placeholder="{{'FIRSTNAME' | translate}}*" name="firstname" ng-model="firstname" required disabled/>
+        <span class="errorMessage" ng-show="rtiApplicantForm.firstname.$error.pattern" translate="VALIDFIRSTNAME"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label" translate="MIDDLENAME"></span>
+        <input type="text" ng-pattern="/^[a-zA-Z\u0900-\u097F ]*$/" placeholder="{{'MIDDLENAME' | translate}}" name="middlename" ng-model="middlename" disabled/>
+        <span class="errorMessage" ng-show="rtiApplicantForm.middlename.$error.pattern" translate="VALIDMIDDLENAME"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="LASTNAME"></span>
+        <input type="text" ng-pattern="/^[a-zA-Z\u0900-\u097F ]*$/" placeholder="{{'LASTNAME' | translate}}*" name="lastname" ng-model="lastname"   required disabled/>
+        <span class="errorMessage" ng-show="rtiApplicantForm.lastname.$error.pattern" translate="VALIDLASTNAME"></span>
+      </label>
+      <label class="input-label padding-left-15 required" translate="GENDER"></label>
+        <select class="select-dropdown" name="gender" ng-model="gender"
+        ng-options="o.value as o.name for o in genoptions" required>
+        <option value="" translate="SELECT"></option>
+        </select>
+      <label class="item item-input item-floating-label" ></label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="MOBILENO" required></span>
+        <input type="tel" maxlength="10" placeholder="{{'MOBILENO' | translate}}*" name="mobileNo" ng-model="mobileNo"
+          ng-trim="false" ng-pattern="/^[0-9]{10,10}$/" required disabled/>
+        <span class="errorMessage" ng-show="rtiApplicantForm.mobileNo.$error.pattern" translate="VALIDMOBILE"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="EMAILID"></span>
+        <input type="text" placeholder="{{'EMAILID' | translate}}*" name="emailId" ng-model="emailId"  ng-trim="false"
+               ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" />
+        <span class="errorMessage" ng-show="rtiApplicantForm.emailId.$error.pattern" translate="VALIDEMAIL"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="ADDRESS" required></span>
+        <input type="text" limit-character limit="100" ng-model-options="{ allowInvalid: true}" placeholder="{{'ADDRESS' | translate}}*" ng-trim="false" name="address"  ng-model="userAddress"
+               required/>
+        <span class="errorMessage" ng-show="rtiApplicantForm.flatBldgNo.$error.pattern" translate="VALIDADDRESS"></span>
+      </label>
+      <label class="item item-input item-floating-label" required>
+        <span class="input-label required" translate="PINCODE" required></span>
+        <input type="tel" maxlength="6" placeholder="{{'PINCODE' | translate}}*" name="pinCode" ng-model="userPincode"  ng-trim="false"
+              ng-pattern="/^[1-9]\d{5,5}$/" numbers-only limit="6" ng-model-options="{ allowInvalid: true}" required />
+        <span class="errorMessage" ng-show="rtiApplicantForm.pinCode.$error.pattern" translate="VALIDPINCODE"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="ADHARNO"></span>
+        <input type="tel" maxlength="12" placeholder="{{'ADHARNO' | translate}}" name="adhaar"  id="adhaarNum" ng-model="adhaarNumber"  numbers-only limit="12" ng-model-options="{ allowInvalid: true}" ng-trim="false"
+                ng-pattern="/^[1-9]\d{11,11}$/"/>
+        <span class="errorMessage" ng-show="rtiApplicantForm.adhaar.$error.pattern" translate="VALIDAADHAR"></span>
+      </label>
+
+      <!--<label class="input-label padding-left-15 required" ng-if="!organisation" translate="ISBELOWPOVERTYLINE"></label>
+      <select ng-if="!organisation" class="select-dropdown" name="povertyLevel" data-ng-model="data_.povertyLineValue" id="povertyLine"
+              ng-options="o.value as o.name for o in povertyLine" ng-change="changePoverty()" required>
+        <option value="" translate="SELECT"></option>
+      </select>-->
+
+      <label ng-if="!organisation" class="input-label padding-left-15 required" translate="ISBELOWPOVERTYLINE"></label>
+        <select  ng-if="!organisation" class="select-dropdown" name="applicantType" data-ng-model="data_.povertyLineValue" 
+          id="povertyLine"
+          ng-options="o.value as o.name for o in povertyLine" ng-change="changePoverty()" required>
+          <option value="" translate="SELECT"></option>
+        </select>
+        <label ng-if="data_.povertyLineValue == 'Y'" class="item item-input item-floating-label"></label>
+      
+      <label class="item item-input item-floating-label" ng-if="data_.povertyLineValue == 'Y'">
+        <span class="input-label required" translate="BPLNO"></span>
+        <input type="tel" maxlength="6" placeholder="{{'BPLNO' | translate}}*" name="bplNo" ng-model="data_.bplNo" numbers-only limit="6" ng-model-options="{ allowInvalid: true}" ng-pattern="/^[0-9]{6,6}$/"  ng-trim="false"
+                required/>
+        <span class="errorMessage" ng-show="rtiApplicantForm.bplNo.$error.pattern" translate="VALIDBPL"></span>
+      </label>
+      <!--<label class="input-label padding-left-15 required" ng-if="data_.povertyLineValue == 'Y'" translate="YEAROFISSUE"></label>
+      <select ng-if="data_.povertyLineValue == 'Y'" class="select-dropdown" name="current" ng-model="data_.current" ng-change="changeInYear()"
+              ng-options="item as item for item in yearArray" required>
+        <option value="" translate="SELECT"></option>
+      </select>-->
+
+      <label ng-if="data_.povertyLineValue == 'Y'" class="input-label padding-left-15 required" translate="YEAROFISSUE"></label>
+        <select  ng-if="data_.povertyLineValue == 'Y'" class="select-dropdown" name="current" ng-model="data_.current" 
+          id="povertyLine"
+          ng-options="item as item for item in yearArray" ng-change="changeInYear()" required>
+          <option value="" translate="SELECT"></option>
+        </select>
+        <label ng-if="data_.povertyLineValue == 'Y'" class="item item-input item-floating-label"></label>
+
+      <label class="item item-input item-floating-label" ng-if="data_.povertyLineValue == 'Y'">
+        <span class="input-label required" translate="ISSUINGAUTHORITY"></span>
+        <input type="text" maxlength="40" placeholder="{{'ISSUINGAUTHORITY' | translate}}*" name="issuingAuthority" id="issuingAuthority" ng-model="data_.issuingAuthority" ng-pattern="/^[0-9a-zA-Z ]{1,40}$/"  ng-trim="false"   alpha-numeric-only space="true" limit="40" ng-model-options="{ allowInvalid: true}"
+                required/>
+         <span class="errorMessage" ng-show="rtiApplicantForm.issuingAuthority.$error.pattern" translate="ENTERVALIDISSUINGAUTH"></span>
+      </label>
+
+    </div>
+    <li class = "item item-checkbox border-none" style="background: transparent;">
+      {{'CORROSPONDENCESAME' | translate}}
+      <label class = "checkbox">
+        <input style="margin-left: 0px;" type = "checkbox" ng-checked="corrosPondence" ng-model="myCheckbox"  name="xxx"/>
+      </label>
+    </li>
+
+    <div ng-if="!myCheckbox">
+      <div class="headingDiv">
+        <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="INPUTCORRESADDRESS"></h3>
+      </div>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="CORROSPONDENCE"></span>
+        <input type="text" name="propertyAddress" placeholder="{{'CORROSPONDENCE' | translate}}*" ng-model="data_.Addresscorres" ng-trim="false" limit-character limit="100" ng-model-options="{ allowInvalid: true}" required />
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="PINCODE"></span>
+        <input type="tel" maxlength="6" ng-pattern="/^[1-9]\d{5,5}$/" placeholder="{{'PINCODE' | translate}}*" name="Pincodecores" ng-model="data_.Pincodecorres" id="Pincodecorres"
+               ng-trim="false" required/>
+        <span class="errorMessage" ng-show="rtiApplicantForm.Pincodecores.$error.pattern" translate="VALIDPINCODE" ></span>
+      </label>
+    </div>
+    <div class="padding">
+      <button ng-disabled="!rtiApplicantForm.$valid" class="button button-block  customBgColor" ng-click="next()">
+      <span translate="NEXT" style="color:#fff"></span></button>
+    </div>
+ </form>
+</ion-content>
+</ion-view>

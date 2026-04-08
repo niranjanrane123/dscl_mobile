@@ -1,0 +1,612 @@
+<ion-view   hide-back-button="true">
+  <ion-nav-view name=“menuContent” animation=“slide-left-right”></ion-nav-view>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+    <!-- <div side="center">
+      <img src="./img/doon1-3d-test_13-10-2021.png" style="margin-left: 153px;
+      width: 45px;">
+      </div> -->
+      <img style="right: 46%;
+   position: absolute;
+   margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+    <!-- <img style="left: 197px; position: absolute; margin-top: 1px;" src="./img/Dehradun_Logo.jpg" width=30px; height=30px;> -->
+</ion-nav-buttons>
+  <ion-nav-buttons side="right">
+      <button class="login-button" ng-controller="LandingPageCtrl" ng-click="openLogin()" translate="LOGIN1">Login</button>
+      <!-- <button class="languagebuttton"  align="center">English</button> -->
+      <!-- <button class="languagebuttton" ng-controller="LandingPageCtrl" ng-click="changeText(myText)" align="center">{{ myText }}</button> -->
+    </ion-nav-buttons>
+   
+    <ion-content ng-controller="LandingPageCtrl" >
+
+     
+      <!-- Slider Start -->
+        <ng-include src="'templates/LandingPage/LandingSlider.html'"></ng-include>
+        <!-- Slider end -->
+
+      <!-- On Going Projects Start-->
+
+     <div id="on-going" style="background-color: #effff7;">
+          <div class="head-link">
+              <h2>{{ 'ON_GOING_PROJECTS' | translate}}</h2>
+              <p><a ng-click="viewAll()" >{{'VIEW_MORE' | translate}}</a></p>
+          </div>
+         
+          <div class="row margin-0">
+              <div class="col col-33">
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding">
+                    <!-- ui-sref="app.complaintrefrence" -->
+ 
+                    <img src="img/ongoing-project1.jpg">
+                  </a>
+                  <h5 style="font-size:12px;padding-left: 5px;">{{'WATER_SUPPLY' | translate}}</h5>
+                </div>
+               
+              </div>
+
+              <div class="col col-33">
+                  <div class="list list-icon text-center">
+                    <a class=" gridnopadding">
+                      <!-- ui-sref="app.complaintrefrence" -->
+   
+                      <img src="img/ongoing-project2.jpg">
+                    </a>
+                    <h5 style="font-size:12px;padding-left: 5px; ">{{'SMART_SCHOOL' | translate}}</h5>
+                  </div>
+                 
+                </div>
+
+                <div class="col col-33">
+                  <div class="list list-icon text-center">
+                    <a class=" gridnopadding">
+                      <!-- ui-sref="app.complaintrefrence" -->
+   
+                      <img src="img/ongoing-project3.png">
+                    </a>
+                    <h5 style="font-size:12px;padding-left: 5px; ">{{'SMART_TOILET' | translate}}</h5>
+                  </div>
+               
+                </div>
+
+
+
+              </div>
+
+          </div>
+
+       
+      <!-- On Going Projects End-->
+
+      <!-- Citizen Services Section Start -->
+     <div>
+      <div class="head-link" style="background-color:#d5f3e3;">
+        <h2 style="margin-bottom: 0.5px;">{{ 'CITIZEN_SERVICES' | translate}}</h2>
+    </div>
+   
+      <div class="row">
+        <!-- new complaint form -->
+        <div class="col col-33" ng-click="openComplaint()">
+          <div class="list list-icon text-center">
+            <a class=" gridnopadding">
+              <img src="img/fileComplainIcon.png" height="40" width="40">
+            </a>
+            <h5 style="font-size:12px;padding: 5px;">{{'COMPLAINT_REGISTRATION' | translate}}</h5>
+          </div>
+        </div>
+      
+        <!-- new complaint status -->
+        <div class="col col-33" ng-click="openComplaintStatus()">
+          <div class="list list-icon text-center">
+            <a class=" gridnopadding">
+              <img src="img/complaintStatusIcon.png" height="40" width="40">
+            </a>
+            <h5 style="font-size:12px;padding: 5px;">{{'COMPLSTATUS' | translate}}</h5>
+          </div>
+        </div>
+      
+        <!-- donation service -->
+        <div class="col col-33" ng-click="openDonation()">
+          <div class="list list-icon text-center">
+            <a class=" gridnopadding">
+              <img src="img/donation_icon.png" height="40" width="40">
+            </a>
+            <h5 style="font-size:12px;padding: 5px;">{{'DONATION_SERVICE' | translate}}</h5>
+          </div>
+        </div>
+      
+      </div>
+      </div>
+
+      <!--Citizen Services Section End  -->
+
+       <!-- MDDA Start -->
+
+       <div class="head-link" style="background-color:#d5f3e3; margin-bottom: -1px;" >
+        <h2 style="margin-bottom: 0.5px;">{{'MDDA' | translate}}</h2>
+     </div>
+    
+     <div class="row margin-0">
+      <div class="col col-50" ng-click="mddaProject('appCount')">
+        <div class="list list-icon text-center">
+          <a class=" gridnopadding">
+            <img src="img/mdda-logo.png" height="40" width="40">
+          </a>
+          <h5 style="font-size:13px;"><span>{{'TOTAL_APP_COUNT' | translate}}<br>{{totalAppCount}}</span></h5>
+        </div>
+      </div>
+
+      <div class="col col-50" ng-click="mddaProject('bpmsCount')">
+        <div class="list list-icon text-center">
+          <a class=" gridnopadding" >
+            <img src="img/mdda-logo.png" height="40" width="40">
+          </a>
+          <h5 style="font-size:13px;"><span>{{'TOTAL_BPMS_COUNT' | translate}}<br>{{totalBMPSCount}}</span></h5>
+        </div>
+      </div>
+
+       </div>
+     
+      <!-- MDDA End -->
+
+      <!-- Quick Services Start -->
+
+      <!--<div style="border-top: 1px solid #00aa55;">-->
+        <div class="head-link" style="background-color:#d5f3e3; margin-bottom: -1px;" >
+          <h2 style="margin-bottom: 0.5px;">{{ 'QUICK_SERVICES' | translate}}</h2>
+       </div>
+          <div class="row margin-0">
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.helpLine">
+                  <img src="img/helpLineIcon.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px;" translate="CITIZENHELPLINE">Citizen HelpLine</h5>
+              </div>
+             
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.knowYour">
+                  <img src="img/wardZoneIcon.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="KNOWWARDZONE"></h5>
+              </div>
+             
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.applicationStatus">
+                  <img src="img/applicationStatusIcon.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="APPLICATIONSTATUS">Application Status</h5>
+              </div>
+           
+            </div>
+          </div>
+
+          <div class="row margin-0">
+           
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center"  ng-click="inappbrowserlinnk(dashBoardURL)">
+                <a class=" gridnopadding">
+                  <img src="img/dashBoradIcon.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="DASHBOARD">DashBoard</h5>
+              </div>
+           
+            </div> -->
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center" ng-click="inappbrowserlinnk(portalURL)">
+                <a class=" gridnopadding">
+                  <img src="img/protalIcon.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="PORTAL"></h5>
+              </div>
+             
+            </div> -->
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.trafficlist">
+                  <img src="img/traffic.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="TRAFFIC"></h5>
+              </div>
+             
+            </div>
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.environment">
+                  <img src="img/environment.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="ENVIRONMENT">Environment </h5>
+              </div>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.echallan">
+                  <img src="img/echallan.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="ECHALLAN">EChallan </h5>
+              </div>
+             
+            </div>
+          </div>
+
+          <div class="row margin-0">
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.environment">
+                  <img src="img/environment.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="ENVIRONMENT">Environment </h5>
+              </div>
+             
+            </div> -->
+
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.echallan">
+                  <img src="img/echallan.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:13px" translate="ECHALLAN">EChallan </h5>
+              </div>
+             
+            </div> -->
+
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.propertytax">
+                  <img src="img/propertyTaxPay.png" height="40" width="45">
+                </a>
+                <h5 style="font-size:13px" translate="PROPERTYTAXBILLPAYMENT">PROPERTYTAXBILLPAYMENT </h5>
+              </div>
+             
+            </div>
+ -->
+           </div>
+      </div>
+
+
+
+      <!-- Quick Services End -->
+
+      <!-- Important, Public, Quick Links Start -->
+
+          <div class="row margin-0" style="background-color: #d5f3e3;">
+              <div class="col col-33" ng-click="openLink('Quick')">
+                <div class="list list-icon text-center">
+                 <p style="font-size:12px;padding-left: 5px;font-weight: 600;" translate="QUICK_LINKS" >Quick Links</p>
+                  <a class=" gridnopadding">   
+                    <img src="img/linkearth.png" height="30" width="30">
+
+                  </a>
+                </div>
+               
+              </div>
+
+              <div class="col col-33"ng-click="openLink('Important')" >
+                  <div class="list list-icon text-center">
+                   <p style="font-size:12px;padding-left: 5px;font-weight: 600;" translate="IMPORTANT_LINKS">Important Links</p>
+                    <a class=" gridnopadding">   
+                      <img src="img/link.png" height="30" width="30">
+
+                    </a>
+                  </div>
+                 
+                </div>
+
+                <div class="col col-33" ng-click="openLink('Public')">
+                  <div class="list list-icon text-center">
+                   <p style="font-size:12px;padding-left: 5px;font-weight: 600;" translate="PUBLIC_NOTICE">Public Notices</p>
+                    <a class=" gridnopadding">   
+                      <img src="img/linkpublic.png" height="30" width="30">
+
+                    </a>
+                  </div>
+                 
+                </div>
+          </div>
+
+      <!-- Important, Public, New Links End -->
+
+
+                  <!-- Stackholder Start -->
+     <div id="stackholder">
+     
+      <div class="row margin-0">
+       <div class="col col-50">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding">
+                  <!-- ui-sref="app.complaintrefrence" -->
+
+                  <img src="img/stackholder-1.jpg">
+                </a>
+                <p style="font-size:12px;padding:5px;font-weight: 600;" translate="PRIME_MINISTER">Hon' ble Prime Minister</p>
+                <span translate="PRIME_MINISTER_NAME">Shri. Narendra Modi</span>
+
+              </div>
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding">
+
+                  <img src="img/urban-minister.jpeg">
+                </a>
+                <p style="font-size:12px;padding:5px;font-weight: 600;" translate="URBAN_DEVELOPMENT">Hon' ble Cabinet Minister</p>
+                <span translate="CABINET_MINISTER_NAME">Shri. PremChand Aggarwal</span>
+
+              </div>
+             
+            </div>
+ 
+
+           
+              <div class="col col-50">
+               
+                 
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding">
+ 
+                    <img src="img/stackholder-2.jpg">
+                  </a>
+                  <p style="font-size:12px;padding: 5px;font-weight: 600;" translate="CHIEF_MINISTER"> Hon' ble Chief Minister</p>
+                  <span translate="CHIEF_MINISTER_NAME">Shri. Pushkar Singh Dhami</span>
+                </div>
+             
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding">
+ 
+                    <img src="img/stackholder-4.jpg">
+                  </a>
+                  <p style="font-size:12px;padding: 5px;font-weight: 600;" translate="MAYOR">Hon' ble  Mayor</p>
+                  <span translate="MAYOR_NAME"> Shri. Sunil Uniyal Gama</span>
+                </div>
+               
+              </div>
+              </div>
+
+              <!-- <div class="row margin-0">
+                  <div class="col col-50">
+                         <div class="list list-icon text-center">
+                           <a class=" gridnopadding">
+           
+                             <img src="img/stackholder-3.jpg">
+                           </a>
+                           <p style="font-size:12px;padding:5px;font-weight: 600;" translate="CABINET_MINISTER">Hon' ble Cabinet Minister</p>
+                           <span translate="CABINET_MINISTER_NAME">Shri. Bansidhar Bhagat</span>
+
+                         </div>
+                       
+                       </div>
+             
+         
+                       
+                         <div class="col col-50">
+                           <div class="list list-icon text-center">
+                             <a class=" gridnopadding">
+             
+                               <img src="img/stackholder-4.jpg">
+                             </a>
+                             <p style="font-size:12px;padding: 5px;font-weight: 600;" translate="MAYOR">Hon' ble  Mayor</p>
+                             <span translate="MAYOR_NAME"> Shri. Sunil Uniyal Gama</span>
+                           </div>
+                         
+                         </div>
+                         </div> -->
+                         <!-- <div class="col col-50">
+                          <div class="list list-icon text-center">
+                            <a class=" gridnopadding">
+           
+                              <img src="img/stackholder-4.jpg">
+                            </a>
+                            <p style="font-size:12px;padding: 5px;font-weight: 600;" translate="MAYOR">Hon' ble  Mayor</p>
+                            <span translate="MAYOR_NAME"> Shri. Sunil Uniyal Gama</span>
+                          </div>
+                         
+                        </div> -->
+                       
+
+              </div>
+
+      <!--Stackholder Section End  -->
+
+
+      <!-- Popular Places Start -->
+      <div id="popular" style="background-color: #effff7;">
+          <div class="head-link">
+              <h2 translate="POPULAR_PLACE">Popular Places</h2>
+              <p><a ng-click= "viewAllPopular()" translate="VIEW_MORE">View More</a></p>
+          </div>
+         
+       
+          <div class="row">
+              <div class="col col-33">
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding" >
+                    <img src="img/pp1.jpg" >
+                  </a>
+                 
+                </div>
+               
+              </div>
+ 
+              <div class="col col-33">
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding" >
+                    <img src="img/pp2.jpg" >
+                  </a>
+                  </div>
+               
+              </div>
+ 
+              <div class="col col-33">
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding" >
+                    <img src="img/pp3.jpg" >
+                  </a>
+                 
+                </div>
+             
+              </div>
+            </div>
+ 
+            <div class="row">
+             
+              <div class="col col-33">
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding">
+                    <img src="img/pp4.jpg" >
+                  </a>
+                 
+                </div>
+             
+              </div>
+              <div class="col col-33">
+                <div class="list list-icon text-center" >
+                  <a class=" gridnopadding">
+                    <img src="img/pp5.jpg" >
+                  </a>
+                 
+                </div>
+               
+              </div>
+              <div class="col col-33">
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding">
+                    <img src="img/pp6.jpg">
+                  </a>
+                 
+                </div>
+               
+              </div>
+
+             
+
+          </div>
+      </div>
+
+      <!-- Popular Places End -->
+
+
+      <!-- Social Media Start -->
+     
+
+      <div class="row margin-0" style="place-content: center;">
+          <div class="col col-20">
+            <div class="list list-icon text-center">
+             
+              <a class="facebook" href="https://www.facebook.com/smartcitydehradun/">
+ 
+                <img src="img/facebook.png" height="30" width="30">
+              </a>
+            </div>
+           
+          </div>
+
+          <div class="col col-20">
+              <div class="list list-icon text-center">
+                 <a class="twitter" href="https://twitter.com/smartcityddun?lang=en">   
+                  <img src="img/twitter.png" height="30" width="30">
+
+                </a>
+              </div>
+             
+            </div>
+
+            <div class="col col-20">
+              <div class="list list-icon text-center">
+               
+                <a class="youtube" href="https://www.youtube.com/channel/UC3uWtt6N-91zRXOv6ffqr7Q">   
+                  <img src="img/youtube.png" height="30" width="30">
+
+                </a>
+              </div>
+             
+            </div>
+
+            <div class="col col-20">
+              <div class="list list-icon text-center">
+               
+                <a class="instagram" href="https://www.instagram.com/smartcitydehradun/?hl=en">   
+                  <img src="img/instagram.png" height="30" width="30">
+
+                </a>
+              </div>
+             
+            </div>
+
+      </div>
+
+ 
+
+<!-- Social Media End -->
+
+    </ion-content>
+
+    <!-- <ion-content></ion-content> -->
+
+    </ion-view>
+ 
+ 
+
+<style>
+
+.head-link{
+padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.head-link h2{
+color: #555;
+font-size: 16px;
+font-weight: 600;
+}
+.head-link p a{
+font-size: 12px;
+color: #00aa55 !important;
+text-decoration: none;
+  font-weight: 600;
+}
+
+.links p{
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
+
+/* Social media css start */
+
+
+.facebook {
+
+color: white;
+}
+
+.twitter {
+
+color: white;
+}
+
+
+
+
+
+.youtube {
+
+color: white;
+}
+
+.instagram {
+
+color: white;
+}
+
+/* Social media css end */
+
+
+</style>
+

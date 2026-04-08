@@ -1,0 +1,213 @@
+<ion-view title="{{'ECHATTISGARH' | translate}}">
+  <ion-nav-bar class="bar-dark" align-title="center">    <ion-nav-back-button></ion-nav-back-button></ion-nav-bar>
+
+<ion-content ng-controller="ComplaintCareCtrl" class="HomeBackground">
+  <div class="headingDiv">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="COMPLDETS">
+      <img src="../www/img/quick-services-32x32.png" width="32" height="32"></h3>
+  </div>
+	 <table class="gridtable">
+		 <tr>
+			<th translate="TOKENNUMBER">Token Number</th>
+			<td>{{ tokennumber }}</td>
+		 </tr>
+		 <tr>
+			<th translate="DEPARTMENT"></th>
+			<td>{{ Deptdetails }}</td>
+		 </tr>
+		 <tr>
+			<th translate="COMPLTYPE"></th>
+			<td>{{ CompTypedetails }}</td>
+		 </tr>
+		 <tr>
+			<th translate="COMPLDESC"> </th>
+			<td>{{ CompDescriptiondetails }}</td>
+		 </tr>
+		 <tr>
+			<th translate="PINCODE"></th>
+			<td>{{ CompPincodedetails }}</td>
+		 </tr>
+		 <tr>
+			 <th translate="AGEOFREQUEST"> </th>
+			 <td>{{ Compaggetails }}</td>
+		 </tr>
+		 <tr>
+			<th translate="MODE"> </th>
+			<td>{{ CompModedetails }}</td>
+		 </tr>
+		 <tr>
+			 <th translate="CATEGORY"> </th>
+			 <td>{{ CompCategorydetails }}</td>
+		 </tr>
+		 <tr >
+			 <th translate="WARDKARALAYA"> </th>
+			 <td>{{ CompWarddetails }}</td>
+		 </tr>
+		 <tr ng-if="CompWarddetails2">
+			 <th translate="WARD"> </th>
+			 <td>{{ CompWarddetails2 }}</td>
+		 </tr>
+		 <tr ng-if="CompWarddetails3">
+			 <th translate="WARD"> </th>
+			 <td>{{ CompWarddetails3 }}</td>
+		 </tr>
+		 <tr ng-if="CompWarddetails4">
+			 <th translate="WARD"> </th>
+			 <td>{{ CompWarddetails4 }}</td>
+		 </tr>
+		 <tr ng-if="CompWarddetails5">
+			 <th translate="WARD"> </th>
+			 <td>{{ CompWarddetail5 }}</td>
+		 </tr>
+<!--		 <tr>-->
+<!--			 <th translate="WARD"> </th>-->
+<!--			 <td>{{ CompLocationdetails }}</td>-->
+<!--		 </tr>-->
+		 <tr>
+			 <th translate="REFERENCEDATE"> </th>
+			 <td>{{ CompReferenceDatedetails }}</td>
+		 </tr>
+		 <tr>
+			 <th translate="SEL_TYPE_APPL"> </th>
+			 <td>{{ CompTypeAppldetails }}</td>
+		 </tr>
+		 <tr>
+			 <th translate="NAME"> </th>
+			 <td>{{ CompNamedetails }}</td>
+		 </tr>
+		 <tr>
+			 <th translate="GENDER"> </th>
+			 <td>{{ CompGenderdetails }}</td>
+		 </tr>
+		 <tr>
+			 <th translate="MOBILENO"> </th>
+			 <td>{{ CompNodetails }}</td>
+		 </tr>
+		 <tr>
+			 <th translate="EMAILADDRESS"> </th>
+			 <td>{{ CompEmaildetails }}</td>
+		 </tr>
+		 <tr>
+			 <th translate="ADDRESS"> </th>
+			 <td>{{ Compadddetails }}</td>
+		 </tr>
+
+	</table>
+
+<form name="departmentfilledform" >
+	<div class="list">
+    <button class="rightcss customButtonSmall" ng-click="actionhistory()">Action History</button><br>
+    <div class="headingDiv" style="margin:3% 1% !important;">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="DEPTACT">Action History</h3>
+    </div>
+
+<!--
+for product purpose
+			  <label class="input-label padding-left-15 required" translate="ACTAPPL"></label>
+				<select class="select-dropdown" name="actionappln" ng-model="actionappln" ng-change="Actionselected()"  required>
+					<option value="">Select</option>
+					<option value="APPROVED">{{ 'CLOSED' | translate}}</option>
+					<option value="HOLD">{{ 'ONHOLD' | translate}}</option>
+					<option value="REJECTED">{{ 'REJECT' | translate}}</option>
+					<option value="FORWARD_TO_DEPARTMENT">{{ 'REVDEPT' | translate}}</option>
+					<option value="FORWARD_TO_EMPLOYEE">{{ 'EMPDEPT' | translate}}</option>
+				</select>
+
+				<div ng-if="actionappln == 'FORWARD_TO_DEPARTMENT'" id="RelevantDepartmentdata" >
+					<label class="input-label padding-left-15 required" translate="DEPARTMENT">Department</label>
+					<select class="select-dropdown required" name="data.department" data-ng-model="data.department"
+					ng-options="o.deptid as o.deptname for o in deptOptions" ng-change="departmentselected()" required>
+						<option value="">Select</option>
+					</select>
+
+          <div ng-if="showcompltype">
+            <label class="input-label padding-left-15 required" translate="COMPLTYPE"></label>
+            <select class="select-dropdown required" name="data.complTypeID" ng-model="data.complTypeID"
+                ng-options ="o.cid as o.cname for o in complaintOptions" ng-change="compltypechanged()" required>
+              <option value="">Select</option>
+            </select>
+
+            <div  ng-if="complainLabels">
+              <div ng-repeat = "data in compLabel">
+                <label  class="input-label padding-left-15 required"> {{ data.name }} </label>
+                <select class="select-dropdown" id ="{{ 'compLevel-' + data.index }}" ng-model="data.selectedID"
+                        ng-click="complevelId($event)"
+                        ng-change="compchangefunction(data.selectedID)" >
+                  <option value=""> Select </option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+				</div>
+
+    <div ng-if="actionappln == 'FORWARD_TO_EMPLOYEE'  "  id="EmployeewithinDepartmentdata" >
+				 <label class="input-label padding-left-15 required" translate="SELECT"></label>
+					<select class="select-dropdown" name="data.empdepttmode" ng-model="data.empdepttmode"
+             ng-change="empAction()" required>
+					 	<option value="">Select</option>
+						<option value="LOCATION" ng-disabled="locationdisabled" >{{ 'LOCATION' | translate}}</option>
+						<option value="EMPLOYEE">{{ 'EMPWDEPT' | translate}}</option>
+					</select>
+
+      <div id="Locdiv" ng-if="data.empdepttmode == 'LOCATION'">
+
+        <div ng-repeat = "data in compList">
+          <label  class="input-label padding-left-15 required"> {{ data.name }} </label>
+          <select class="select-dropdown" id ="{{ 'level-' + data.index }}" ng-model="data.locItem"
+             ng-click="retriveId($event)"
+             ng-change="changefunction(data.locItem)" >
+            <option value=""> Select </option>
+          </select>
+        </div>
+      </div>
+
+
+					<div ng-if="data.empdepttmode == 'EMPLOYEE'">
+						<label class="input-label padding-left-15 required" translate="EMPNAME"> </label>
+						<select class="select-dropdown" name="data.empID" ng-model="data.empID"
+						ng-options="o.empid as o.empname for o in employeeoptions" required>
+							<option value="">Select</option>
+						</select>
+          </div>
+
+				</div>
+-->
+       <!-- <label class="input-label padding-left-15 required" translate="ACTAPPL"></label>
+        <select class="select-dropdown" name="actionappln" ng-model="actionappln"  required>
+          <option value="">Select</option>
+          <option value="SEND_FOR_FEEDBACK">Request for Citizen Feedback</option>
+          <option value="REJECTED">Marked Unsolvable</option>
+          <option value="APPROVED" ng-if="deptResolved">Resolved</option>
+        </select>-->
+
+		<label class="input-label padding-left-15 required" translate="ACTAPPL"></label>
+		<select class="select-dropdown" name="actionappln"
+				ng-model="actionappln" ng-options="o.value as o.name for o in action"  required>
+			<option value="">Select</option>
+		</select>
+
+				<label class="item item-input item-floating-label"></label>
+			  <label class="item item-input item-floating-label">
+          <input type="file" placeholder="Attach File" name="CompDocument" ng-model="CompDocument" id="verfiyFile"
+          ng-trim="false" onchange="angular.element(this).scope().imageupload()" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" />
+          <span class="errorMessage" ng-show="departmentfilledform.CompDocument.$error.pattern">Please Select Valid File</span>
+			  </label>
+
+		 <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="REMARKS"></span>
+          <input type="text" placeholder="{{ 'REMARKS' | translate}}*" name="remarks" ng-model="remarks" ng-trim="false"
+           ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+          <span class="errorMessage" ng-show="departmentfilledform.remarks.$error.pattern">Please Enter Valid Remarks</span>
+			 </label>
+		</div>
+
+	<div class="padding">
+		<button ng-disabled="!departmentfilledform.$valid" ng-click="savedeptAction()" class="button button-block  customBgColor">
+		<span translate="">Submit</span></button>
+	</div>
+
+</form>
+
+</ion-content>
+</ion-view>

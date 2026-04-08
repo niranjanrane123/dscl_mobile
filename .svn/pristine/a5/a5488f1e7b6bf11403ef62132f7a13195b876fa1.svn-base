@@ -1,0 +1,85 @@
+<ion-view>
+
+ <ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<!--<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>-->
+
+<ion-content ng-controller="nidanComplaintRegister" class="backgroundimage">
+<form name="nidanForm">
+ <h3 class="heading">Grievance Registration Form</h3>
+    <div class="list">
+
+      <label class="input-label padding-left-15 required" translate="">Select District</label>
+      <select class="select-dropdown" name="district" ng-model="district"
+       ng-change="distrcitchange()" ng-options="o.districtID as o.districtName for o in districtOptions" required>
+        <option value="">Select </option>
+      </select><label class="item item-input item-floating-label"></label>
+
+      <label class="input-label padding-left-15 required" translate="">Select Organistaion</label>
+      <select class="select-dropdown" name="nidanOrganisation" ng-model="nidanOrganisation"
+        ng-options ="o.id as o.name for o in organisationOptions" ng-change="organisationChange()" required>
+        <option value="">Select</option>
+      </select><label class="item item-input item-floating-label"></label>
+
+      <label class="input-label padding-left-15 required" translate="DEPTYPE"></label>
+      <select class="select-dropdown" name="nidandepartmentType" ng-model="departmentType"
+         ng-change="departmentChange()" ng-options="o.id as o.name for o in departmentOptions" required>
+        <option value="">Select </option>
+      </select><label class="item item-input item-floating-label"></label>
+
+      <label class="input-label padding-left-15 required" translate="COMPLTYPE"></label>
+      <select class="select-dropdown" name="nidanComplaintType" ng-model="nidanComplaintType"
+              ng-options ="o.comptypeID as o.comptypeDesc for o in compltypeoption" ng-change="complaintTypeChange()" required>
+        <option value="">Select</option>
+      </select><label class="item item-input item-floating-label"></label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="COMPLDESC"></span>
+        <input type="text" placeholder="{{'COMPLDESC' | translate}}*"  name="nidanDescription" ng-model="nidanDescription" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+        <span class="errorMessage" ng-show="nidanForm.nidanDescription.$error.pattern">Please Enter Valid Complaint Description</span>
+      </label>
+
+      <label class="input-label padding-left-15 required" translate="COMPLOCATION"></label>
+      <select class="select-dropdown" name="nidanLocation" ng-model="nidanLocation"
+         ng-options="o.locationid as o.locationname for o in locationoptions" ng-change="locationChange()" required>
+        <option value="">Select</option>
+      </select><label class="item item-input item-floating-label"></label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label " translate="PINCODE"></span>
+        <input type="number" placeholder="{{'PINCODE' | translate}}" name="nidanPincode" ng-model="nidanPincode" id="pincodelim"
+          ng-keyup="onlyNumericSixLimitInput()" ng-trim="false"ng-pattern="/^[1-9]\d{5,5}$/" />
+        <span class="errorMessage" ng-show="nidanForm.nidanPincode.$error.pattern">Please Enter Valid Pincode</span>
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label " translate="LANDMARK"></span>
+        <input type="text" placeholder="{{'LANDMARK' | translate}}"  name="nidanLandmark" ng-model="nidanLandmark" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" />
+        <span class="errorMessage" ng-show="nidanForm.nidanLandmark.$error.pattern">Please Enter Valid Landmark</span>
+      </label>
+
+      <div class="container">
+        <div class="col col-50" >
+          <button ng-click="openModal()" class="button button-block  customBgColor">
+            <span>Upload</span></button>
+        </div>
+
+        <div class="col col-50" >
+          <button ng-disabled="!nidanForm.$valid" ng-click="nidanSaveComplaint()" class="button button-block  customBgColor">
+            <span translate="SUBMIT"></span></button>
+        </div>
+      </div>
+
+    </div>
+</form>
+
+
+ </ion-content>
+</ion-view>
+

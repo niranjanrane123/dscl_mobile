@@ -1,0 +1,859 @@
+<!--<ion-view title="e-Chhattisgarh">-->
+<!--  <ion-nav-bar class="bar-dark" align-title="center">    <ion-nav-back-button></ion-nav-back-button></ion-nav-bar>-->
+<!--&lt;!&ndash;<ion-nav-title>-->
+<!--  <div class="bar bar-header headercolor">-->
+<!-- 	 <h1 class="title">MaiNet</h1>-->
+<!-- </div>-->
+<!--</ion-nav-title>-->
+
+<!--<ion-nav-buttons side="left">-->
+<!--<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>-->
+<!--</ion-nav-buttons>&ndash;&gt;-->
+
+<!--<ion-content ng-controller="ComplaintRefrenceCtrl" class="animated zoomIn">-->
+<!--  <div class="headingDiv">-->
+<!--    <h3 class="heading" translate="REFERENCEDETAILS"></h3>-->
+<!--  </div>-->
+<!--  <form style="margin-top: 19px;" name="refrenceForm">-->
+<!--    <div style="height: 52px;" class="search_categories">-->
+<!--      <div class="select">-->
+<!--        <select class="search_categories" name="propertyzone" ng-model="complaintReferenceMode"  id="complaintReferenceMode"-->
+<!--            ng-options="o.value as o.name for o in modes" ng-change="fetchMode()" required >-->
+<!--            <option value="" translate="SELECT" required></option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div style="height: 52px;" class="search_categories">-->
+<!--      <div class="select">-->
+<!--        <select class="search_categories" name="propertyzone" ng-model="complaintReferenceCategory"  id="complaintReferenceCategory"-->
+<!--                ng-options="o.value as o.name for o in category" ng-change="fetchCategory()" required >-->
+<!--          <option value="" translate="SELECT" required></option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div style="height: 52px;" class="search_categories">-->
+<!--      <div class="select">-->
+<!--        <select class="search_categories" name="propertyzone" ng-model="complaintReferenceZone"  id="complaintReferenceZone"-->
+<!--                ng-options="o.value as o.name for o in zones" ng-change="fetchZone()" required >-->
+<!--          <option value="" translate="SELECT" required></option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <label class="item item-input item-floating-label">-->
+<!--      <span class="input-label" translate="REFERENCEDATE">*</span>-->
+<!--      <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="{{ 'REFERENCEDATE' | translate}}*" ng-blur="changeAttr($event)" name="referencedate" ng-model="referenceDate" ng-trim="false"-->
+<!--             max="{{maxDate | date: 'yyyy-MM-dd'}}" ng-pattern="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$" required/>-->
+<!--      <span class="errorMessage" ng-show="refrenceForm.referencedate.$error.pattern">Please Enter Valid Date</span>-->
+<!--    </label>-->
+
+<!--    <div class="factorQes">-->
+<!--      <span class="input-label" translate="APPLICATIONTYPE">*</span>-->
+<!--      <label for="yesW" class="radio-inline">-->
+<!--        <input id="yesW" name="yesW" class="factorSet selectFactor"  ng-click="showW('R')" ng-model="applicationType" type="radio" value="R" >-->
+<!--        {{'SERVICEREQUEST' | translate}}</label>-->
+<!--      <label for="noW" class="radio-inline">-->
+<!--        <input id="noW" name="noW" class="factorStatus selectFactor"  ng-click="showW('C')" ng-model="applicationType" type="radio" value="C">-->
+<!--        {{'COMPLAINT' | translate}}</label>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;<div class="list">&ndash;&gt;-->
+<!--      <div class="headingDiv">-->
+<!--        <h3 class="heading" translate="APPLICANTINFORMATION"></h3>-->
+<!--      </div>-->
+<!--   &lt;!&ndash; </div>&ndash;&gt;-->
+<!--    <label class="item item-input item-floating-label">-->
+<!--      <span class="input-label" translate="MOBILENO">*</span>-->
+<!--      <input type="number"   placeholder="{{ 'MOBILENO' | translate}}*" ng-pattern="/^[0-9]{10,10}$/" name="MobileNo" ng-model="mobileNumber" ng-trim="false" required/>-->
+<!--      <span class="errorMessage" ng-show="refrenceForm.MobileNo.$error.pattern" translate="VALIDMOBILE"></span>-->
+<!--    </label>-->
+<!--    <div style="height: 52px;" class="search_categories">-->
+<!--      <div class="select">-->
+<!--        <select class="search_categories" name="title" ng-model="nameTitle"  id="nameTitle"-->
+<!--                ng-options="o.value as o.name for o in title" ng-change="fetchTitle()" required >-->
+<!--          <option value="" translate="SELECT" required></option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <label class="item item-input item-floating-label">-->
+<!--      <span class="input-label" translate="FIRSTNAME">*</span>-->
+<!--      <input type="text"   placeholder="{{ 'FIRSTNAME' | translate}}*" name="firstName" ng-model="firstName" ng-trim="false" required/>-->
+<!--    </label>-->
+<!--    <label class="item item-input item-floating-label">-->
+<!--      <span class="input-label" translate="MIDDLENAME">*</span>-->
+<!--      <input type="text"   placeholder="{{ 'MIDDLENAME' | translate}}*" name="middleName" ng-model="middleName" ng-trim="false" required/>-->
+<!--    </label>-->
+<!--    <label class="item item-input item-floating-label">-->
+<!--      <span class="input-label" translate="LASTNAME">*</span>-->
+<!--      <input type="text"   placeholder="{{ 'LASTNAME' | translate}}*" name="lastName" ng-model="lastName" ng-trim="false" required/>-->
+<!--    </label>-->
+<!--    <div style="height: 52px;" class="search_categories">-->
+<!--      <div class="select">-->
+<!--        <select class="search_categories" name="gender" ng-model="gender"  id="gender" ng-options="o.value as o.name for o in genderV" ng-change="fetchGender()" required >-->
+<!--          <option value="" translate="GENDER" required></option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <label class="item item-input item-floating-label">-->
+<!--      <span class="input-label" translate="EMAILID"></span>-->
+<!--      <input type="text"   placeholder="{{ 'EMAILID' | translate}}" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" name="email" ng-model="email" ng-trim="false"/>-->
+<!--      <span class="errorMessage" ng-show="refrenceForm.email.$error.pattern" translate="VALIDEMAILID"></span>-->
+<!--    </label>-->
+<!--    <label class="item item-input item-floating-label">-->
+<!--      <span class="input-label" translate="ADDRESS">*</span>-->
+<!--      <input type="text"   placeholder="{{ 'ADDRESS' | translate}}*" name="address" ng-model="address" ng-trim="false" required/>-->
+<!--    </label>-->
+<!--    <label class="item item-input item-floating-label">-->
+<!--      <span class="input-label" translate="PINCODE"></span>-->
+<!--      <input type="number"   placeholder="{{ 'PINCODE' | translate}}" ng-pattern="/^[0-9]{6,6}$/" name="pinCode" ng-model="pinCode" ng-trim="false" />-->
+<!--      <span class="errorMessage" ng-show="refrenceForm.pinCode.$error.pattern" translate="VALIDPINCODE"></span>-->
+<!--    </label>-->
+<!--    <div class="padding">-->
+<!--      <button ng-disabled="!refrenceForm.$valid" type="button" class="button button-block  customBgColor"-->
+<!--              ng-model="submit" ng-click="next()"  translate="NEXT"></button>-->
+<!--    </div>-->
+<!--  </form>-->
+
+<!--</ion-content>-->
+<!--</ion-view>-->
+<ion-view >
+  
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+ 
+    <ion-nav-buttons side="left" >
+      <div class="title title-center header-item" style="font-weight: bold; color: #fff; left: 48px; right: 48px; font-size: 21px; text-align: center; top: 0px;">
+        </div>
+        <img style="right: 46%;
+        position: absolute;
+        margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+      </ion-nav-buttons>
+  <ion-content ng-controller="ComplaintRefrenceCtrl" class="animated zoomIn">
+    <div class="headingDiv">
+      <h3 class="heading" translate="REFERENCEDETAILS"></h3>
+      <div class="rti-steps">1 of 2</div>
+    </div>
+    
+    <form style="margin-top: 19px 0px 1px 1px;" name="refrenceForm">
+      <!--<div style="height: 52px;" class="search_categories">
+        <div class="select">
+          <select class="search_categories" name="propertyzone" ng-model="complaintReferenceMode"  id="complaintReferenceMode"
+              ng-options="o.value as o.name for o in modes" ng-change="fetchMode()" selected="complaintReferenceMode" required disabled>
+             <option value=""  translate="MODE" required></option>
+          </select>
+        </div>
+      </div>-->
+
+      <!-- <div style="height: 52px;" class="search_categories">
+        <div class="select">
+          <select class="search_categories" name="propertyzone" ng-model="complaintReferenceCategory"
+            id="complaintReferenceCategory" ng-options="o.value as o.name for o in category" ng-change="fetchCategory()"
+            required disabled>
+            <option value="" translate="CATEGORY" required></option>
+          </select>
+        </div>
+      </div> -->
+      <div ng-if="ward1">
+        <label class="input-label padding-left-15 required" translate="CATEGORY"></label>
+        <select class="select-dropdown" name="propertyzone" ng-model="complaintReferenceCategory"
+            id="complaintReferenceCategory" ng-options="o.value as o.name for o in category" ng-change="fetchCategory()"
+            required disabled>
+            <option value="" translate="CATEGORY" required></option>
+          </select><label class="item item-input item-floating-label"></label>
+      </div>
+
+      <!--      <div style="height: 52px;" class="search_categories" ng-repeat="(key, value) in allWard">-->
+      <!--        <div class="select">-->
+      <!--          <select class="search_categories" name="propertyzone" ng-model="complaintReferenceZone"  id="complaintReferenceZone"-->
+      <!--                  ng-options="o.value as o.name for o in value.options" ng-change="fetchZone(key, complaintReferenceZone)" required >-->
+      <!--            <option value=""  required>{{value.Desc}}</option>-->
+      <!--          </select>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!------demo-->
+      <div  >
+        <label class="input-label padding-left-15 required" translate="SELECTDISTRICT"></label>
+          <!-- <label ng-if="uad" class="input-label padding-left-15 required" translate="DISTRICT"> </label> -->
+          <select class="select-dropdown"
+            ng-options="dstoptions.id as dstoptions.name for dstoptions in dstoptions track by dstoptions.name"
+            ng-model="friend.selectedTicket" ng-disabled="!friend.isPresent"
+            ng-change="changeDistrict(friend.selectedTicket.id)" readonly>
+            {{friend.selectedTicket.name}}
+            <option value="" translate="SELECTDISTRICT" required></option>
+          </select><label class="item item-input item-floating-label"></label>
+        </div>
+
+      <div  >
+        <label class="input-label padding-left-15 required" translate="SELORG"></label>
+        <select class="select-dropdown" name="org" data-ng-model="organization" id="organization"
+          ng-options="o.id as o.name for o in orgoptions" ng-change="changeOrg(organization)" required>
+          <option value="" translate="SELORG" required></option>
+        </select><label class="item item-input item-floating-label"></label>
+      </div>
+      <!--demo-->
+      <div  ng-if="ward1">
+        <label class="input-label padding-left-15 required" translate="ZONE"></label>
+        <select class="select-dropdown" name="propertyzone" ng-model="wardKaryalaya"  id="complaintReferenceone"
+        ng-options="o.value as o.name for o in ward1" ng-change="fetchZone(2,wardKaryalaya)" required>
+          <option value="" translate="SELECT">{{allWard[0].comDesc}}</option>
+        </select><label class="item item-input item-floating-label"></label>
+    </div>
+    
+    <div  ng-if="ward2">
+      <label class="input-label padding-left-15 required" translate="WARD"></label>
+      <select class="select-dropdown" name="propertyztwo" ng-model="wardOne"  id="complaintReferencetwo"
+      ng-options="o.value as o.name for o in wardSec" ng-change="fetchZone(3,wardOne)" required>
+        <option value="" translate="SELECT">{{allWard[1].comDesc}}</option>
+      </select><label class="item item-input item-floating-label"></label>
+    </div>
+    
+    <div ng-if="ward3">
+      <label class="input-label padding-left-15 required" translate="WARD"></label>
+      <select class="select-dropdown" name="propertyzthree" ng-model="wardTwo"  id="complaintReferencethree"
+      ng-options="o.value as o.name for o in wardTh" ng-change="fetchZone(4,wardTwo)" required>
+        <option value="" translate="SELECT">{{allWard[2].comDesc}}</option>
+      </select><label class="item item-input item-floating-label"></label>
+    </div>
+    
+    <div ng-if="ward4">
+      <label class="input-label padding-left-15 required" translate="WARD"></label>
+      <select class="select-dropdown" name="propertyzfour" ng-model="wardThree"  id="complaintReferencefour"
+      ng-options="o.value as o.name for o in wardFor" ng-change="fetchZone(5,wardThree)"  required>
+        <option value="" translate="SELECT">{{allWard[3].comDesc}}</option>
+      </select><label class="item item-input item-floating-label"></label>
+    </div>
+    
+    
+    <div  ng-if="ward5">
+      <label class="input-label padding-left-15 required" translate="WARD"></label>
+      <select class="select-dropdown" name="propertyzfive" ng-model="wardFour"  id="complaintReferencefive"
+      ng-options="o.value as o.name for o in wardFiv" ng-change="fetchZone(6,wardFour)"  required>
+        <option value="" translate="SELECT">{allWard[4].comDesc}}</option>
+      </select><label class="item item-input item-floating-label"></label>
+    </div>
+    
+      <!-- <div style="height: 52px;" class="search_categories" ng-if="ward1">
+        <div class="select">
+          <select class="search_categories" name="propertyzone" ng-model="wardKaryalaya" id="complaintReferenceone"
+            ng-options="o.value as o.name for o in ward1" ng-change="fetchZone(2,wardKaryalaya)" required>
+            <option value=""  translate="ZONE" required>{{FirstLabel}}</option>
+          </select>
+        </div>
+      </div>
+      
+      <div style="height: 52px;" class="search_categories" ng-if="ward2">
+        <div class="select">
+          <select class="search_categories" name="propertyztwo" ng-model="wardOne" id="complaintReferencetwo"
+            ng-options="o.value as o.name for o in wardSec" ng-change="fetchZone(3,wardOne)" required>
+            <option value="" translate="WARD" required>{{SecondLabel}}</option>
+          </select>
+        </div>
+      </div>
+      <div style="height: 52px;" class="search_categories" ng-if="ward3">
+        <div class="select">
+          <select class="search_categories" name="propertyzthree" ng-model="wardTwo" id="complaintReferencethree"
+            ng-options="o.value as o.name for o in wardTh" ng-change="fetchZone(4,wardTwo)" required>
+            <option value="" required>{{thiredLabel}}</option>
+          </select>
+        </div>
+      </div>
+      <div style="height: 52px;" class="search_categories" ng-if="ward4">
+        <div class="select">
+          <select class="search_categories" name="propertyzfour" ng-model="wardThree" id="complaintReferencefour"
+            ng-options="o.value as o.name for o in wardFor" ng-change="fetchZone(5,wardThree)" required>
+            <option value="" required>{{fourthLabel}}</option>
+          </select>
+        </div>
+      </div>
+      <div style="height: 52px;" class="search_categories" ng-if="ward5">
+        <div class="select">
+          <select class="search_categories" name="propertyzfive" ng-model="wardFour" id="complaintReferencefive"
+            ng-options="o.value as o.name for o in wardFiv" ng-change="fetchZone(6,wardFour)" required>
+            <option value="" required>{{fifthLabel}}</option>
+          </select>
+        </div>
+      </div> -->
+<!--new-->
+      <!-- <label class="item item-input item-floating-label">
+        <span class="input-label" translate="REFERENCEDATE">*</span>
+        <input type="text" ng-blur="changeAttr($event)" name="referencedate" ng-model="referenceDate" ng-trim="false"
+          max="{{maxDate | date: 'yyyy-MM-dd'}}" disabled />
+        <span class="errorMessage" ng-show="refrenceForm.referencedate.$error.pattern">Please Enter Valid Date</span>
+      </label> -->
+
+      <div class="factorQes">
+        <span class="input-label" translate="APPLICATIONTYPE">*</span>
+        <label for="yesW" class="radio-inline" ng-if="compType[1].code=='R' && compType[1].active=='Y'">
+          <input id="yesW" name="yesW" class="factorSet selectFactor" ng-click="showW('R')" type="radio" value="R">
+          {{'SERVICEREQUEST' | translate}}</label>
+        <label for="noW" class="radio-inline" ng-if="compType[0].code=='C' && compType[0].active=='Y'">
+          <input id="noW" name="noW" class="factorStatus selectFactor" ng-click="showW('C')" type="radio" value="C"
+            checked>
+          {{'COMPLAINT' | translate}}</label>
+      </div>
+      <!--<div class="list">-->
+      <div class="headingDiv">
+        <h3 class="heading" translate="APPLICANTINFORMATION"></h3>
+      </div>
+      <!-- </div>-->
+      <label class="item item-input item-floating-label">
+        <span class="input-label" translate="MOBILENUMBER">*</span>
+        <input type="tel" id="mobileNumber" maxlength="10" placeholder="{{ 'MOBILENUMBER' | translate}}*"
+          ng-pattern="/^[0-9]{10,10}$/" name="MobileNo" ng-model="mobileNumber" ng-trim="false" required disabled />
+        <span class="errorMessage" ng-show="refrenceForm.MobileNo.$error.pattern" translate="VALIDMOBILE"></span>
+      </label>
+      <!-- <div style="height: 52px;" class="search_categories">
+        <div class="select">
+          <select class="search_categories" name="title" ng-model="nameTitle" id="nameTitle"
+            ng-options="o.value as o.name for o in title" ng-change="fetchTitle()" required disabled>
+            <option value="" translate="SELECT" required></option>
+          </select>
+        </div>
+      </div> -->
+      <div class = "dropdown-padding">
+        <label class="input-label padding-left-15 required" translate="SEL_TITLE"></label>
+        <select class="select-dropdown" name="title" ng-model="nameTitle"
+          ng-options="o.value as o.name for o in title" ng-change="fetchTitle()" required>
+          <option value="" translate="SELECT"></option>
+        </select>
+      </div>
+    
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label" translate="FIRSTNAME">*</span>
+        <input type="text" ng-pattern="/^[a-zA-Z\u0900-\u097F ]*$/" placeholder="{{ 'FIRSTNAME' | translate}}*"
+          name="firstName" ng-model="firstName" required disabled />
+        <span class="errorMessage" ng-show="refrenceForm.firstName.$error.pattern" translate="VALIDFIRSTNAME"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label" translate="MIDDLENAME"></span>
+        <input type="text" ng-pattern="/^[a-zA-Z\u0900-\u097F ]*$/" placeholder="{{ 'MIDDLENAME' | translate}}"
+          name="middleName" ng-model="middleName" disabled />
+        <span class="errorMessage" ng-show="refrenceForm.middleName.$error.pattern" translate="VALIDMIDDLENAME"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label" translate="LASTNAME">*</span>
+        <input type="text" ng-pattern="/^[a-zA-Z\u0900-\u097F ]*$/" placeholder="{{ 'LASTNAME' | translate}}*"
+          name="lastName" ng-model="lastName" required disabled />
+        <span class="errorMessage" ng-show="refrenceForm.lastName.$error.pattern" translate="VALIDLASTNAME"></span>
+      </label>
+      <!-- <div style="height: 52px;" class="search_categories">
+        <div class="select">
+          <select class="search_categories" name="gender" ng-model="gender" id="gender"
+            ng-options="o.value as o.name for o in genderV" ng-change="fetchGender()" required disabled>
+            <option value="" translate="GENDER" required></option>
+          </select>
+        </div>
+      </div> -->
+   
+      <div class = "dropdown-padding">
+        <label class="input-label padding-left-15 required" translate="GENDER"></label>
+        <select class="select-dropdown" name="gender" ng-model="gender"
+        ng-options="o.value as o.name for o in genderV"  ng-change="fetchGender()"  required>
+        <option value="" translate="SELECT"></option>
+        </select>
+      </div>
+      
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label" translate="EMAILID"></span>
+        <input type="text" placeholder="{{ 'EMAILID' | translate}}" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+          name="emaill" ng-model="email" ng-trim="false" />
+        <span class="errorMessage" ng-show="refrenceForm.emaill.$error.pattern" translate="VALIDEMAIL"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label" translate="ADDRESS">*</span>
+        <input type="text" placeholder="{{ 'ADDRESS' | translate}}*" name="address" ng-model="address" limit-character
+          limit="100" ng-trim="false" ng-model-options="{ allowInvalid: true}" required />
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label" translate="PINCODE"></span>
+        <input type="tel" id="otpNum" maxlength="6" placeholder="{{ 'PINCODE' | translate}}"
+          ng-pattern="/^[1-9]\d{5,5}$/" numbers-only limit="6" ng-model-options="{ allowInvalid: true}" name="pinCode"
+          ng-model="pinCode" ng-trim="false" />
+        <span class="errorMessage" ng-show="refrenceForm.pinCode.$error.pattern" translate="VALIDPINCODE"></span>
+      </label>
+      <div class="padding">
+        <button ng-disabled="!refrenceForm.$valid" type="button" class="button button-block  customBgColor"
+          ng-model="submit" ng-click="next()" translate="NEXT"></button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
+<style>
+  .radio .radio-icon {
+    visibility: visible !important;
+  }
+
+  .factorQes {
+    margin-left: 15px;
+  }
+
+  .radio-inline.item {
+    display: inline-block;
+    border: none;
+    margin: 0;
+    height: 50px;
+  }
+
+  .radio-inline+.radio-inline {
+    margin-top: 0;
+    margin-left: 0px !important;
+  }
+
+  .errorMessage {
+    font-weight: normal;
+    font-size: 11px;
+    color: red;
+  }
+
+  .item-input {
+    border-style: solid;
+    border-color: #bcbcbc !important;
+    /*border-color: #36979e !important;*/
+    border-width: 0px 0px 1px 0px;
+  }
+
+  .radio .radio-icon:before {
+    content: "" !important;
+    border: 2px solid black !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+
+  .radio .radio-icon {
+    visibility: visible !important;
+  }
+
+  .radio .radio-icon:before {
+    content: "" !important;
+    border: 2px solid black !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+
+  .radio .radio-icon:after {
+    content: "" !important;
+    position: absolute !important;
+    right: 20px !important;
+    top: 22px !important;
+    background: black !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    transition: -webkit-transform .28s cubic-bezier(0.420, 0.000, 0.000, 1.650);
+    transition: transform .28s cubic-bezier(0.420, 0.000, 0.000, 1.650);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  .radio.item-radio>input[type=radio]:checked~.radio-icon:after {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  .radio .item-content {
+    background-color: #fff;
+    margin: 0;
+    padding-right: 50px;
+    padding-left: 0px;
+  }
+
+  .radio.item-radio>input[type=radio]:checked~.item-content {
+    background-color: #fff;
+  }
+
+  .radio-inline.item {
+    display: inline-block;
+    border: none;
+    margin: 0;
+    height: 50px;
+  }
+
+  .radio-blue .radio-icon:after {
+    background: #2196F3 !important;
+  }
+
+  .radio-blue .radio-icon:before {
+    border-color: #2196F3 !important;
+  }
+
+  .radio-teal .radio-icon:after {
+    background: #009688 !important;
+  }
+
+  .radio-teal .radio-icon:before {
+    border-color: #009688 !important;
+  }
+
+  .radio-gray .radio-icon:after {
+    background: #B6B6B6 !important;
+  }
+
+  .radio-gray .radio-icon:before {
+    border-color: #B6B6B6 !important;
+  }
+
+  .radio-content {
+    height: 10px;
+  }
+
+  .input[type="text"][disabled] {
+    background-color: transparent;
+  }
+
+  .margin-top-20 {
+    margin-top: 20px;
+  }
+
+  input[type=checkbox],
+  input[type=radio] {
+    margin: 0px 0 0;
+  }
+
+  .radio .radio-icon:after {
+    content: "" !important;
+    position: absolute !important;
+    right: 20px !important;
+    top: 22px !important;
+    background: black !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    transition: -webkit-transform .28s cubic-bezier(0.420, 0.000, 0.000, 1.650);
+    transition: transform .28s cubic-bezier(0.420, 0.000, 0.000, 1.650);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  .radio.item-radio>input[type=radio]:checked~.radio-icon:after {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  .radio .item-content {
+    background-color: #fff;
+    margin: 0;
+    padding-right: 50px;
+    padding-left: 0px;
+  }
+
+  .radio.item-radio>input[type=radio]:checked~.item-content {
+    background-color: #fff;
+  }
+
+  .heading {
+    font-size: 1.12em;
+    padding: 5px 0px 0px 10px;
+    line-height: 20px;
+    height: 32px;
+    font-family: 'Open Sans';
+    font-weight: 500;
+    background: #05e776;
+    color: #fff;
+    border-radius: 6px 6px 0px 0px;
+  }
+
+  .radio-inline.item {
+    display: inline-block;
+    border: none;
+    margin: 0;
+    height: 50px;
+  }
+
+  .radio-blue .radio-icon:after {
+    background: #2196F3 !important;
+  }
+
+  .radio-blue .radio-icon:before {
+    border-color: #2196F3 !important;
+  }
+
+  .radio-teal .radio-icon:after {
+    background: #009688 !important;
+  }
+
+  .radio-teal .radio-icon:before {
+    border-color: #009688 !important;
+  }
+
+  .radio-gray .radio-icon:after {
+    background: #B6B6B6 !important;
+  }
+
+  .radio-gray .radio-icon:before {
+    border-color: #B6B6B6 !important;
+  }
+
+  .radio-content {
+    height: 10px;
+  }
+
+  .input[type="text"][disabled] {
+    background-color: transparent;
+  }
+
+  .margin-top-20 {
+    margin-top: 20px;
+  }
+
+  input[type=checkbox],
+  input[type=radio] {
+    margin: 0px 0 0;
+  }
+/* .checkbox input[type=checkbox],
+  .checkbox-inline input[type=checkbox],
+  .radio input[type=radio],
+  .radio-inline input[type=radio] {
+    margin: 0px;
+  } */
+</style>
+
+<style>
+  .radio .radio-icon {
+    visibility: visible !important;
+  }
+
+  .factorQes {
+    margin-left: 15px;
+  }
+
+  .radio-inline.item {
+    display: inline-block;
+    border: none;
+    margin: 0;
+    height: 50px;
+  }
+
+  .radio-inline+.radio-inline {
+    margin-top: 0;
+    margin-left: 0px !important;
+  }
+
+  .errorMessage {
+    font-weight: normal;
+    font-size: 11px;
+    color: red;
+  }
+
+  .item-input {
+    border-style: solid;
+    border-color: #bcbcbc !important;
+    /*border-color: #36979e !important;*/
+    border-width: 0px 0px 1px 0px;
+  }
+
+  .radio .radio-icon:before {
+    content: "" !important;
+    border: 2px solid black !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+
+  .radio .radio-icon {
+    visibility: visible !important;
+  }
+
+  .radio .radio-icon:before {
+    content: "" !important;
+    border: 2px solid black !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+
+  .radio .radio-icon:after {
+    content: "" !important;
+    position: absolute !important;
+    right: 20px !important;
+    top: 22px !important;
+    background: black !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    transition: -webkit-transform .28s cubic-bezier(0.420, 0.000, 0.000, 1.650);
+    transition: transform .28s cubic-bezier(0.420, 0.000, 0.000, 1.650);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  .radio.item-radio>input[type=radio]:checked~.radio-icon:after {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  .radio .item-content {
+    background-color: #fff;
+    margin: 0;
+    padding-right: 50px;
+    padding-left: 0px;
+  }
+
+  .radio.item-radio>input[type=radio]:checked~.item-content {
+    background-color: #fff;
+  }
+
+  .radio-inline.item {
+    display: inline-block;
+    border: none;
+    margin: 0;
+    height: 50px;
+  }
+
+  .radio-blue .radio-icon:after {
+    background: #2196F3 !important;
+  }
+
+  .radio-blue .radio-icon:before {
+    border-color: #2196F3 !important;
+  }
+
+  .radio-teal .radio-icon:after {
+    background: #009688 !important;
+  }
+
+  .radio-teal .radio-icon:before {
+    border-color: #009688 !important;
+  }
+
+  .radio-gray .radio-icon:after {
+    background: #B6B6B6 !important;
+  }
+
+  .radio-gray .radio-icon:before {
+    border-color: #B6B6B6 !important;
+  }
+
+  .radio-content {
+    height: 10px;
+  }
+
+  .input[type="text"][disabled] {
+    background-color: transparent;
+  }
+
+  .margin-top-20 {
+    margin-top: 20px;
+  }
+
+  input[type=checkbox],
+  input[type=radio] {
+    margin: 0px 0 0;
+  }
+
+  .radio .radio-icon:after {
+    content: "" !important;
+    position: absolute !important;
+    right: 20px !important;
+    top: 22px !important;
+    background: black !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    transition: -webkit-transform .28s cubic-bezier(0.420, 0.000, 0.000, 1.650);
+    transition: transform .28s cubic-bezier(0.420, 0.000, 0.000, 1.650);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  .radio.item-radio>input[type=radio]:checked~.radio-icon:after {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  .radio .item-content {
+    background-color: #fff;
+    margin: 0;
+    padding-right: 50px;
+    padding-left: 0px;
+  }
+
+  .radio.item-radio>input[type=radio]:checked~.item-content {
+    background-color: #fff;
+  }
+
+  .heading {
+    font-size: 1.12em;
+    padding: 5px 0px 0px 10px;
+    line-height: 20px;
+    height: 32px;
+    font-family: 'Open Sans';
+    font-weight: 500;
+    background: #00aa55;
+    color: #fff;
+    border-radius: 6px 6px 0px 0px;
+  }
+
+  .radio-inline.item {
+    display: inline-block;
+    border: none;
+    margin: 0;
+    height: 50px;
+  }
+
+  .radio-blue .radio-icon:after {
+    background: #2196F3 !important;
+  }
+
+  .radio-blue .radio-icon:before {
+    border-color: #2196F3 !important;
+  }
+
+  .radio-teal .radio-icon:after {
+    background: #009688 !important;
+  }
+
+  .radio-teal .radio-icon:before {
+    border-color: #009688 !important;
+  }
+
+  .radio-gray .radio-icon:after {
+    background: #B6B6B6 !important;
+  }
+
+  .radio-gray .radio-icon:before {
+    border-color: #B6B6B6 !important;
+  }
+
+  .radio-content {
+    height: 10px;
+  }
+
+  .input[type="text"][disabled] {
+    background-color: transparent;
+  }
+
+  .margin-top-20 {
+    margin-top: 20px;
+  }
+
+  input[type=checkbox],
+  input[type=radio] {
+    margin: 0px 0 0;
+  }
+  .dropdown-padding{
+    margin-top: 5px;
+    padding-right: 10px;
+  }
+/* .checkbox input[type=checkbox],
+  .checkbox-inline input[type=checkbox],
+  .radio input[type=radio],
+  .radio-inline input[type=radio] 
+  {
+    margin: 0px;
+
+  } */
+
+  
+</style>

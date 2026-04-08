@@ -1,0 +1,265 @@
+<ion-view class="titlecss">
+
+  <ion-nav-buttons side="left" >
+    <div class="title title-center header-item" style="font-weight: bold; color: #fff; left: 48px; right: 48px; font-size: 21px; text-align: center; top: 0px;"></div>
+    <img style="right: 46%; position: absolute; margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+  </ion-nav-buttons>
+
+  <ion-content class="animated zoomIn" ng-controller="rtiFirstAppealCtrl">
+
+    <!-- <form name="lodgeComplaintForm" style="padding: 15px;"> -->
+      <!-- <div class="list formLayout" style="background-color: #fff;">
+ -->
+        <div class="headingDiv">
+          <h3 class="heading" translate="RTIFIRSTAPPEAL">RTI First-Appeal</h3>
+        </div>
+
+        <p class="ptextcss formSubHeading note" ng-show="!showErrorMsg" translate="FIRSTAPPEALNOTE">Please Note:Reference No.=RTI No.,Property No.,Trade License No.</p>
+
+      <form style="margin-top: 19px 0px 1px 1px;" name="applForm">  
+        <!-- <label class="item item-input item-stacked-label labelClass">
+          <span class="input-label spanClass required" translate="APLICATIONNO">Application Number</span>
+          <input type="text" ng-click="callRefrenceNo()" class="inputClass" placeholder="{{'ENTERREFNO' | translate}}" name="referenceNo" ng-model="referenceNo" required/>
+        </label> -->
+        
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="APLICATIONNO">*</span>
+          <input type="tel" maxlength="15" placeholder="{{ 'APLICATIONNO' | translate}}*"
+            name="referenceNo" ng-model="referenceNo" ng-trim="false" required />
+          <span class="errorMessage" ng-show="applForm.referenceNo.$error.maxlength" translate=""></span>
+        </label>
+
+        <div class="padding" ng-show="!showDetails">
+          <button ng-disabled="!applForm.$valid" type="button" class="button button-block customBgColor"
+            ng-model="search" ng-click="callRefrenceNo()" translate="SEARCH"></button>
+        </div>
+
+        <div class="ptextcss formSubHeading note" ng-show="showErrorMsg" translate="FIRSTAPPEALDONE">First Appeal has already been created for the application number</div>
+      </form>
+
+      <form ng-show="showDetails" style="margin-top: 19px 0px 1px 1px;" name="refrenceForm">
+        <!-- <div class="item item-input item-stacked-label labelClass">
+          <label class="input-label padding-left-15 required" style="font-family: 'Poppins-Regular';" translate="DEPARTMENTNAME"></label>
+          <select class="select-dropdown titleClass selectClass" name="deptName" ng-model="deptName"
+            ng-options="o.lookUpId as o.deptname for o in deptOptions" ng-change="selectService()" required>
+            <option value="" translate="SELECTDEPARTMENT" required></option>
+          </select>
+        </div> -->
+    
+
+        <!-- <div class="item item-input item-stacked-label labelClass">
+          <label class="input-label padding-left-15 required" style="font-family: 'Poppins-Regular';" translate="ServiceName"></label>
+          <select class="select-dropdown titleClass selectClass" name="serviceName" ng-model="serviceName" 
+            ng-options="o.lookUpId as o.deptname for o in serviceOptions" required><!-- ng-change="getLocation()" -->  <!-- Enhancement #182314 --
+            <option value="" translate="SELECTSERVICE" required></option>
+          </select>
+        </div> -->
+        
+        <div>
+          <label class="input-label padding-left-15 required" translate="TITLE">Title</label>
+          <select class="select-dropdown" name="title" data-ng-model="title"
+            ng-options="o.value as o.name for o in ttloptions" required>
+            <option value="" translate="SELECT" required></option>
+          </select><label class="item item-input item-floating-label"></label>
+        </div>
+    
+       <!--  <label class="item item-input item-stacked-label labelClass">
+            <span class="input-label spanClass required" translate="FNAME"></span>
+            <input alphabet-only type="text" class="inputClass" placeholder="{{ 'FNAME' | translate}}*" name="firstname" ng-model="firstname" ng-trim="false"  required/>
+        </label> -->
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="FIRSTNAME">*</span>
+          <input type="text" ng-pattern="/^[a-zA-Z\u0900-\u097F ]*$/" placeholder="{{ 'FIRSTNAME' | translate}}*"
+            name="firstName" ng-model="firstName" required />
+          <span class="errorMessage" ng-show="refrenceForm.firstName.$error.pattern" translate="VALIDFIRSTNAME"></span>
+        </label>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label" translate="MIDDLENAME"></span>
+          <input type="text" ng-pattern="/^[a-zA-Z\u0900-\u097F ]*$/" placeholder="{{ 'MIDDLENAME' | translate}}"
+            name="middleName" ng-model="middleName" />
+          <span class="errorMessage" ng-show="refrenceForm.middleName.$error.pattern" translate="VALIDMIDDLENAME"></span>
+        </label>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="LASTNAME">*</span>
+          <input type="text" ng-pattern="/^[a-zA-Z\u0900-\u097F ]*$/" placeholder="{{ 'LASTNAME' | translate}}*"
+            name="lastName" ng-model="lastName" required />
+          <span class="errorMessage" ng-show="refrenceForm.lastName.$error.pattern" translate="VALIDLASTNAME"></span>
+        </label>
+
+        <!-- <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="FNAME">*</span>
+          <input alphabet-only type="text" placeholder="{{ 'FNAME' | translate}}*"
+            name="firstname" ng-model="firstname" ng-trim="false" required />
+          <span class="errorMessage" ng-show="refrenceForm.MobileNo.$error.pattern" translate="VALIDMOBILE"></span>
+        </label> -->
+
+        <!-- <label class="item item-input item-stacked-label labelClass">
+            <span class="input-label spanClass" translate="MNAME"></span>
+            <input alphabet-only type="text" class="inputClass" placeholder="{{ 'MNAME' | translate}}" name="middlename" ng-model="middlename" ng-trim="false"  />
+        </label>
+
+        <label class="item item-input item-stacked-label labelClass">
+            <span class="input-label spanClass required" translate="LNAME"></span>
+            <input alphabet-only type="text" class="inputClass" placeholder="{{ 'LNAME' | translate}}*" name="lastname" ng-model="lastname" ng-trim="false"  required/>
+        </label> -->
+
+        <div>
+          <label class="input-label padding-left-15 required" translate="GENDER">Gender</label>
+          <select class="select-dropdown" name="genderr" data-ng-model="gender"
+            ng-options="o.value as o.name for o in genoptions" required>
+            <option value="" translate="SELECT" required></option>
+          </select><label class="item item-input item-floating-label"></label>
+        </div>
+
+        <!-- <label class="item item-input item-stacked-label labelClass">
+          <span class="input-label spanClass required" translate="MOBILENO"></span>
+          <input type="tel" class="inputClass" placeholder="{{ 'MOBILENO' | translate}}" name="mobilenum" ng-model="mobilenum"
+                ng-trim="false" ng-pattern="/^[0-9]{10,10}$/" readonly/>
+        </label> -->
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="MOBILENUMBER">*</span>
+          <input type="tel" maxlength="10" placeholder="{{ 'MOBILENUMBER' | translate}}*"
+            ng-pattern="/^[0-9]{10,10}$/" name="mobilenum" ng-model="mobilenum" ng-trim="false" required />
+          <span class="errorMessage" ng-show="refrenceForm.mobilenum.$error.pattern" translate="VALIDMOBILE"></span>
+        </label>
+
+        <!-- <label class="item item-input item-stacked-label labelClass">
+          <span class="input-label spanClass" translate="EMAILID"> </span>
+          <input type="email" class="inputClass" placeholder="{{ 'EMAILID' | translate}}*"  ng-model="emailid" ng-trim="false" ng-pattern="/^[A-Za-z0-9/s,.'-@]{1,50}$/" />
+        </label> -->
+        <label class="item item-input item-floating-label">
+          <span class="input-label" translate="EMAILID"></span>
+          <input type="email" placeholder="{{ 'EMAILID' | translate}}" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+            name="emailid" ng-model="emailid" ng-trim="false" />
+          <span class="errorMessage" ng-show="refrenceForm.emailid.$error.pattern" translate="VALIDEMAIL"></span>
+        </label>
+
+        <!-- <label class="item item-input item-stacked-label labelClass" >
+          <span class="input-label spanClass" translate="AADHARNO"  ></span>
+          <input type="tel" maxlength="12" class="inputClass" placeholder="{{'AADHARNO' | translate}}" ng-pattern="/^[0-9]{12,12}$/" name="aadharno" ng-model="aadharno" id="aadharno" ng-trim="false" />
+        </label>
+
+        <label class="item item-input item-stacked-label labelClass">
+          <span class="input-label spanClass required" translate="ADDRESS"></span>
+          <textarea style="font-weight: normal; font-size: 15px;" class="inputClass" type="text" placeholder="{{ 'ADDRESS' | translate}}*"  name="add" ng-model="editAddress" ng-trim="false"  required></textarea>
+        </label> -->
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label" translate="AADHARNO"></span>
+          <input type="tel" id="aadharno" maxlength="12" ng-pattern="/^[0-9]{12,12}$/" placeholder="{{ 'AADHARNO' | translate}}"
+            name="aadharno" ng-model="aadharno" />
+          <span class="errorMessage" ng-show="refrenceForm.aadharno.$error.pattern" translate="VALIDAADHAR"></span>
+        </label>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="ADDRESS">*</span>
+          <input type="text" placeholder="{{ 'ADDRESS' | translate}}*" name="add" ng-model="editAddress" ng-trim="false"  required/>
+          <!-- <span class="errorMessage" ng-show="refrenceForm.add.$error.max" translate="VALIDADDRESS"></span> -->
+        </label>
+
+<!-- Enhancement #182314 -->
+        <!-- <label class="item item-input item-stacked-label labelClass">
+          <label class="input-label padding-left-15 required" translate="LOCATION"></label>
+          <select class="select-dropdown titleClass" style="padding-left: 0px !important; font-family: 'Poppins-Regular';" name="Location" data-ng-model="Location" 
+          ng-options="o.locationid as o.locationname for o in locationOptions" style="font-size:14px;" required>
+              <option value="" translate="SELECT" required>Select</option>
+          </select>
+        </label> -->
+        
+<!-- Defect #184222 -->
+        <!-- <div class="factorQes">
+          <span class="input-label" translate="REASONFORAPPEAL">*</span>
+          <label for="yesW" class="radio-inline">
+            <input id="yesW" name="yesW" class="factorSet selectFactor" ng-click="showW()" type="radio" value="I" ng-model="radioChn">
+            {{'INFONOTRECEIVED' | translate}}</label>
+          <label for="noW" class="radio-inline">
+            <input id="noW" name="noW" class="factorStatus selectFactor" ng-click="showW()" type="radio" value="A" ng-model="radioChn">
+            {{'AGGRIEVEDBYDEC' | translate}}</label>
+        </div> -->
+
+        <div>
+          <label class="input-label  padding-left-15 required" translate="APPEALTYPE"></label>
+          <select class="select-dropdown" name="appealType" ng-model="appealType"
+            ng-options="o.value as o.name for o in appealTypeOptions" required>
+            <!-- <option value="" translate="SELAPPEALTYPE" required></option> -->
+            <option value="" translate="SELECT" required></option>
+          </select><label class="item item-input item-floating-label"></label>
+        </div>
+
+        <!-- <label class="item item-input item-stacked-label labelClass">
+          <span class="input-label spanClass required" translate="OBJDETAILS"></span>
+          <textarea  maxlength='3000' rows="4" class="inputClass" placeholder="{{ 'OBJDETAILS' | translate}}*"  name="objDetails" ng-model="objDetails" ng-keyup="LimitInput()" id="descLim"
+            style="font-weight: normal;border: 1px #bcbcbc solid;padding: 10px; margin-top: 10px;" required></textarea> <!-- ng-trim="false" -->
+          <!-- <div id="char_contact" class="limit-count {{NewCompDescription.length>3000?'error':''}}" style="padding: 2px; float: right; font-size: 8px; font-family: 'Poppins-Regular';">{{NewCompDescription.length}} / 3000</div> --
+        </label> -->
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="OBJDETAILS">*</span>
+          <textarea class="addressField" type="text" maxlength='3000' rows="4" id="descLim" placeholder="{{ 'OBJDETAILS' | translate}}*"  name="objDetails" ng-model="objDetails" ng-keyup="LimitInput()" ng-trim="false"
+            style="font-weight: 100; text-indent: 0; width: 95%;" required></textarea>
+         <!--  <div id="char_contact" class="limit-count {{NewCompDescription.length>3000?'error':''}}" style="padding: 2px; float: right; font-size: 8px; font-family: 'Poppins-Regular';">{{NewCompDescription.length}} / 3000</div> -->
+          <span class="errorMessage" ng-show="refrenceForm.objDetails.$error.maxlength" translate="VALIDOBJDETAILS"></span>
+        </label>
+
+        <div ng-if = "attachments" style="margin: 16px;" ng-repeat="obj in attachments track by $index" ng-click="zoomPic(obj.documentName, obj.documentType)">
+          <div class="col-xs-4">
+            <button ng-click="removeImage($index)" class="crossBtnClass">
+              <img src="./img/cancel.png" class="imgClass">
+            </button>
+            <!-- <img ng-if="obj.documentType=='png' || obj.documentType=='jpeg' || obj.documentType=='jpg'" ng-src="{{ 'data:image/jpeg;base64,'+ obj.documentByteCode }}" class="camerImage"/> -->
+            <img ng-if="obj.documentType=='pdf'" src="./img/pdf.png" class="camerImage"/>
+            <img ng-if="obj.documentType=='doc' || obj.documentType=='docx'" src="./img/docx.png" class="camerImage"/>
+            <p style="font-size: 12px; margin-top: 2px; text-align: center;">{{obj.documentName}}</p>
+            
+          </div>
+        </div>
+        <!-- <div ng-show="zoomedIn" class="zoom-container">
+          <span class="closeBtn" ng-click="zoomPicClose()">&times;</span>
+          <img ng-src="{{ 'data:image/jpeg;base64,'+ imageZoomed }}" class="zoomed-image"/>
+        </div> -->
+        <!-- <div class="divcennter">
+          <!-- <img ng-src="{{ myImgUrl }}" data-ng-model="cameraImg" class="camerImage" ng-show="cameraImage" /> --
+          <div style="text-align: center;"><i class="icon ion-camera fonth3"></i><span
+              translate="UPLOADIMAGEGRAIVANCE"></span></div>
+        </div> -->
+
+        <div style="display: inline-flex;align-items: center; margin: 16px; width: 91%;">
+          <button class="button button-small customBgColor" style="width: 100%;" onclick="document.getElementById('myImgUrlid').click()">
+            {{'UPLOADIMAGEGRAIVANCE'| translate}}
+            </button>
+        </div>
+        <p class="uploadDocStyle">{{'UPLOADDOCEXT' | translate}} {{'TOTALSIZELESSERTHAN5MB' | translate}}</p>
+        <input style="display:none" data-max-size="5000000" type="file" class="filecss " id="myImgUrlid"
+          onchange="angular.element(this).scope().imageupload(this,'myImgUrlid')"/>
+
+        <div class="padding">
+          <button ng-disabled="!refrenceForm.$valid" type="button" class="button button-block customBgColor"
+            ng-model="submit" ng-click="submitRTIAppeal()" translate="SUBMIT"></button>
+        </div>
+      
+      <!-- </div> -->
+    </form>
+
+
+  </ion-content>
+  
+
+</ion-view>
+
+<style>
+  .note{
+    font-weight: bolder;
+    color: red; 
+    margin-top: 10px !important;
+  }
+
+  .selectClass{
+    padding-left: 0px !important; 
+    font-family: 'Poppins-Regular'; 
+    font-size:14px;
+  }
+</style>

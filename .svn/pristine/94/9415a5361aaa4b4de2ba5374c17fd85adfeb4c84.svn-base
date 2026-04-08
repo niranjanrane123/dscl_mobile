@@ -1,0 +1,82 @@
+<ion-view >
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+<ion-content ng-controller="propertyTaxDetailCtrl" class="HomeBackground">
+	<form name="waterBillForm"  class="animated zoomIn">
+
+     <div class="headingDiv">
+       <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="PROPERTYBILLDETAILS"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+     </div>
+     <div class="padding-left-15" style="color: red;" ng-if="amtzero" translate="SINCENODEUSAREPENDING"></div>
+
+     <table class="gridtable">
+       <tr>
+         <th translate="BILLNO"></th>
+         <td>{{billNo}}</td>
+       </tr>
+       <tr>
+         <th translate="BILLDATE"></th>
+         <td>{{billDate}}</td>
+       </tr>
+       <tr>
+         <th translate="PROPERTYNO"></th>
+         <td>{{propNo}}</td>
+       </tr>
+       <tr>
+         <th translate="OWNERNAME"></th>
+         <td>{{primaryOwnerName}}</td>
+       </tr>
+       <tr>
+         <th translate="ADDRESS"></th>
+         <td>{{address}}</td>
+       </tr>
+     </table>
+
+     <div class="headingDiv">
+       <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="TAXDETAILS"></h3>
+     </div>
+    <table class="gridtable" >
+			<tr>
+			   <th translate="TAXDESC"></th>
+			   <th translate="ARREAR"></th>
+			   <th translate="CURTAMT"></th>
+			   <th translate="TOTAL_AMOUNT"></th>
+			</tr>
+			<tr ng-repeat = "subject in docsitems">
+				<td>{{ subject.taxdesc }}</td>
+				<td>{{ subject.arrear }}</td>
+				<td>{{ subject.curtamt }}</td>
+				<td>{{ subject.total }}</td>
+			</tr>
+		 </table>
+
+     <!--<table class="gridtable">
+       <tr ng-if="totalPayableAmt">
+         <th colspan="2">Total Tax Payable</th>
+         <td colspan="2">{{ totalPayableAmt }}</td>
+       </tr>
+     </table>-->
+
+    <div class="list">
+     <label class="item item-input item-floating-label">
+       <span class="input-label" translate="TOTAL_AMOUNT"> </span>
+       <input type="text" placeholder="{{'TOTAL_AMOUNT' | translate}}" name="totalPayableAmt" ng-model="totalPayableAmt"
+          ng-trim="false" ng-pattern="/^[0-9.]{1,50}$/" disabled/>
+     </label>
+
+			 <div class="padding">
+         <button class="button button-block  customBgColor" ng-click="paypropertyBill()">
+         <span translate="PROCEED_TO_PAY"></span></button>
+       </div>
+   </div>
+</form>
+
+    </ion-content>
+</ion-view>

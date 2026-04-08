@@ -1,0 +1,46 @@
+<ion-view>
+
+ <ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<!-- <ion-nav-buttons side="left">
+  <button class="button button-icon button-clear ion-navicon" menu-toggle="left"> </button>
+</ion-nav-buttons>-->
+
+<ion-content ng-controller="nidanStatusctrl" class="animated zoomIn backgroundimage">
+    <h3 class="heading" translate="COMPLSTATUS"></h3>
+
+<form name="nidantstatusform">
+  
+<div class="list">
+	<label class="item item-input item-floating-label">
+		<span class="input-label required" translate="TOKENNOMOBILE"></span>
+		<input type="number" placeholder="{{ 'TOKENNOMOBILE' | translate }}*" name="tokennumber" ng-model="tokennumber"
+	    ng-trim="false" ng-pattern="/^[0-9]{1,25}$/" />
+		<span class="errorMessage" ng-show="nidantstatusform.tokennumber.$error.pattern">Please Enter Valid Token Number</span>
+	</label>
+
+<!--  <br><div style="text-align: center;">OR</div><br>
+
+  <label class="item item-input item-floating-label">
+    <span class="input-label required" translate="MOBILENO"></span>
+    <input type="number" placeholder="{{'MOBILENO' | translate}}*" name="nidanmobileNumber" ng-model="nidanmobileNumber" id="mobileno"
+       ng-trim="false" ng-pattern="/^[0-9]{10,10}$/" />
+    <span class="errorMessage" ng-show="nidantstatusform.nidanmobileNumber.$error.pattern">Please Enter Valid Mobile Number</span>
+  </label>-->
+
+	<div class="padding">
+		<button  ng-click="applicationstatussearch()" class="button button-block  customBgColor">
+      <i class="icon ion-search fonth3"></i>
+		<span translate="SEARCH"></span></button>
+	</div>
+</div>
+
+</form>
+
+  </ion-content>
+</ion-view>
+

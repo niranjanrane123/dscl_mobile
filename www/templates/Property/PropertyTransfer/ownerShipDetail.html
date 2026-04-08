@@ -1,0 +1,434 @@
+<ion-view>
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+  <ion-content ng-controller="owenerShipDetailsCtrl" class="HomeBackground">
+    <form name="propertyDetailForm"  class="animated zoomIn">
+      <div class="headingDiv">
+        <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate=""><img src="./img/quick-services-32x32.png" width="32" height="32">Property  Details</h3>
+      </div>
+
+      <div  class="slider-box-height-84 border-radius-0066 background-off-white">
+      <ion-slide-box>
+
+        <ion-slide>
+
+        <div class="headingDiv">
+          <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="OwnerShipDetails" ></h3>
+        </div>
+            <table class="gridtable">
+              <tr>
+                <th style="width: 50%;" translate="OwnerShipType"></th>
+                <td>{{ OwnerType }}</td>
+              </tr>
+            </table>
+            <table class="gridtable" ng-repeat="item in ownerDetails">
+              <tr ng-if="item.assoOwnerName">
+                <th style="width: 50%;" translate="OwnersName"></th>
+                <td>{{ item.assoOwnerName }}</td>
+              </tr>
+              <tr ng-if="item.assoGuardianName">
+                <th style="width: 50%;" translate="CONTACTPERSON"> </th>
+                <td>{{ item.assoGuardianName }}</td>
+              </tr>
+              <tr ng-if="item.assoMobileno">
+                <th style="width: 50%;" translate="MOBILENO"></th>
+                <td>{{ item.assoMobileno }}</td>
+              </tr>
+              <tr ng-if="item.eMail">
+                <th style="width: 50%;" translate="EMAILADDRESS"></th>
+                <td>{{ item.eMail }}</td>
+              </tr>
+              <tr ng-if="item.assoPanno">
+                <th style="width: 50%;" translate="PANNO"></th>
+                <td>{{ item.assoPanno }}</td>
+              </tr>
+          </table>
+        </ion-slide>
+      </ion-slide-box>
+     </div>
+
+      <div class="list">
+        <div class="headingDiv" ng-if="oldPropertyNo != null || landType != null">
+          <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="LANDDETAILS"></h3>
+        </div>
+        <table class="gridtable" ng-if="oldPropertyNo != null || landType != null">
+          <tr ng-if="oldPropertyNo != null">
+            <th style="width: 50%;" translate="OLDPROPERTY"></th>
+            <td>{{ oldPropertyNo }}</td>
+          </tr>
+          <tr ng-if="landType != null">
+            <th style="width: 50%;" translate="LANDTYPE"></th>
+            <td>{{ landType }}</td>
+          </tr>
+        </table>
+
+        <div class="headingDiv">
+          <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="EXISTINGPROPERTYDETAILS"></h3>
+        </div>
+        <table class="gridtable">
+          <tr>
+            <th style="width: 50%;" translate="PROPERTYLOCATIONADDRESS"></th>
+            <td>{{ propertyAddress }}</td>
+          </tr>
+          <tr>
+            <th style="width: 50%;" translate="LOCATION"></th>
+            <td>{{ getValue.getLocation(locationAddress) }}</td>
+          </tr>
+          <tr>
+            <th style="width: 50%;" translate="PINCODE"></th>
+            <td>{{ pinCode }}</td>
+          </tr>
+        </table>
+
+        <div class="headingDiv">
+          <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="TAXZONEDETAILS"></h3>
+        </div>
+        <table class="gridtable">
+          <tr>
+            <th style="width: 50%;" translate="PROPERTYZONE"></th>
+            <td>{{ getValue.fetchZoneType(propertyZone) }}</td>
+          </tr>
+          <tr>
+            <th style="width: 50%;" translate="PROPERTYWARD"></th>
+            <td>{{ getValue.fetchZoneWardType(locationWard) }}</td>
+          </tr>
+          <tr>
+            <th style="width: 50%;" translate="ROADTYPE"></th>
+            <td>{{ getValue.fetchRoadType(propertyRoadType) }}</td>
+          </tr>
+        </table>
+        <div class="headingDiv">
+          <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="TRANSFERDETAILS"></h3>
+        </div>
+        <!--<div style="height: 52px;" class="search_categories">-->
+          <!--<div class="select">-->
+            <!--<select class="search_categories" name="transferType" ng-model="transferType"  id="transferType"-->
+                    <!--ng-options="o.value as o.name for o in transferType" ng-change="transfrerTypeChange()" required >-->
+              <!--<option value="" translate="TRANSFERTYPE" required></option>-->
+            <!--</select>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <label class="input-label padding-left-15 required" translate="TRANSFERTYPE"></label>
+        <select  class="select-dropdown" name="transferTypeValue" ng-model="transferTypeValue"
+                 ng-options="k.value as k.name for k in transferType" id="disability" required>
+          <option value="" translate="TRANSFERTYPE"></option>
+        </select>
+        <label class="item item-input item-floating-label" ></label>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="ACTUALTRANSFERDATE"></span>
+          <input type="text" placeholder="{{'ACTUALTRANSFERDATE' | translate}}*"  onfocus="(this.type='date')" onblur="(this.type='text')"  ng-model="actualTransferDate" name="actualTransferDate" max="{{yeardate | date: 'yyyy-MM-dd'}}" >
+        </label>
+
+        <label  class="item item-input item-floating-label">
+          <span class="input-label" translate="MARKETVALUE"></span>
+          <input style="background: transparent;" type="number" placeholder="{{'MARKETVALUE' | translate}}" name="marketValue" ng-model="marketValue" id="marketValue"
+             />
+        </label>
+
+        <label  class="item item-input item-floating-label">
+          <span class="input-label" translate="SALESDEADVALUE"></span>
+          <input style="background: transparent;" type="number" placeholder="{{'SALESDEADVALUE' | translate}}" name="salesDeadValue" ng-model="salesDeadValue" id="salesDeadValue"
+              />
+        </label>
+        <!--<a class="rightcss" style="margin-right: 10px !important;" ng-click="billdetail()"><u>View Bill Details</u></a>-->
+        <label class="input-label padding-left-15 required" translate="OWNERSHIPTYPE"></label>
+        <select  class="select-dropdown" name="ownerShipType" ng-model="ownerShipType"
+                 ng-options="k.value as k.name for k in ownership" id="ownerShipType" ng-change="fetchOwner()"  required>
+          <option value="" translate="OWNERSHIPTYPE"></option>
+        </select>
+        <label class="item item-input item-floating-label" ></label>
+
+        <!-- <a ui-sref="app.taxdetail" class="rightcss"><b>Tax Details</b></a> -->
+
+      </div>
+    </form>
+
+
+    <div class="headingDiv">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="OwnersDetails"></h3>
+    </div>
+    <form class="form-background-border" name="pDataEntryForm" ng-if="showJoint">
+    <span style="color: red;
+    font-size: 10px;
+    margin-left: 6px;" translate="Firstownerwillbe" ></span>
+      <label class="item item-input item-floating-label"  >
+        <span class="input-label required" translate="OwnersName"></span>
+        <input  type="text" name="jointName"  placeholder="{{'OwnersName' | translate}}" ng-model="jointownername" ng-change="fetchGender(jointownername)" required/>
+        <span class="errorMessage" ng-show="pDataEntryForm.jointName.$error.pattern">Please Enter Name</span>
+      </label>
+      <div style="height: 52px;" >
+          <select class="select-dropdown" name="jointgender" ng-model="pdejointgender" ng-change="fetchGender(pdejointgender)"
+                  ng-options="k.value as k.name for k in genoptions" id="jointTTlIDg" required>
+            <option value="" translate="GENDER"></option>
+          </select>
+      </div>
+
+      <div style="height: 52px;" >
+          <select class="select-dropdown" name="PDEjointrelation" ng-model="PDErelationjaoint" ng-change="fetchRelation(PDErelationjaoint)"  id="pdrelationt"
+                  ng-options="o.value as o.name for o in relation" required  ng-change="fetchRelation()">
+            <option value="" translate="RELATION"></option>
+          </select>
+      </div>
+
+      <label class="item item-input item-floating-label" >
+        <span class="input-label required" translate="GURDIANNAME"></span>
+        <input type="text" placeholder="{{'GURDIANNAME' | translate}}*"  name="PDEjointgurd" ng-change="guardianinput(PDEgurdianjoint)" ng-model="PDEgurdianjoint" id="pdegurdiant"
+               required/>
+      </label>
+      <label class="item item-input item-floating-label" >
+        <span class="input-label" translate="PROPERTYSHARE"></span>
+        <input type="number" placeholder="{{'PROPERTYSHARE' | translate}}"  ng-pattern="/^[0-9.]{1,50}$/" ng-change="propertyShare(PDEpropertysharejoint)" name="PDEjointpropertys" ng-model="PDEpropertysharejoint" id="pdeprojointshare"
+               ng-trim="false"/>
+        <span class="errorMessage" ng-show="pDataEntryForm.PDEjointpropertyshare.$error.pattern">Please Enter Valid Amount</span>
+      </label>
+      <label class="item item-input item-floating-label" >
+        <span class="input-label required" translate="MOBILENO"></span>
+        <input type="number" ng-pattern="/^[0-9]{10,10}$/"  placeholder="{{'MOBILENO' | translate}}*" name="jointmobile" ng-model="Jointmobile" id="jointmobileno"
+               required/>
+        <span class="errorMessage" ng-show="pDataEntryForm.jointmobile.$error.pattern" translate="VALIDMOBILE"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+      <span class="input-label" translate="EMAILADDRESS"></span>
+      <input type="text" ng-pattern="/[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})/" placeholder="{{'EMAILADDRESS' | translate}}" name="jointemailaddress"  ng-change="emailChange(emailjointaddress)" ng-model="emailjointaddress" id="emailaddressjoint"
+      ng-trim="false"/>
+      <span class="errorMessage" ng-show="pDataEntryForm.jointemailaddress.$error.pattern" translate="VALIDEMAILID"></span>
+      </label>
+
+      <label class="item item-input item-floating-label" >
+      <span class="input-label" translate="AADHARNO"  ></span>
+      <input type="number" placeholder="{{'AADHARNO' | translate}}"ng-pattern="/^[0-9]{12,12}$/" name="Jointaadharno"  ng-change="adharChange(aadharnojoint)" ng-model="aadharnojoint" id="aadharjointno"
+      ng-trim="false"/>
+      <span class="errorMessage" ng-show="pDataEntryForm.Jointaadharno.$error.pattern" translate="VALIDAADHAR"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+      <span class="input-label" translate="PANNO"></span>
+      <input type="text" autocapitalize="characters" placeholder="{{'PANNO' | translate}}" ng-pattern="/[A-Z]{5}[0-9]{4}[A-Z]{1}/" name="Jointpanno" ng-change="panChange(pannojoint)" ng-model="pannojoint" id="panjointno"
+      ng-trim="false"/>
+      <span class="errorMessage" ng-show="pDataEntryForm.Jointpanno.$error.pattern" translate="VALIDPANCARD"></span>
+      </label>
+      <div class="padding" >
+        <button ng-disabled="!pDataEntryForm.$valid"  ng-click="add()" id="btnAdd"
+                class="btn btn-success">
+          <span>+</span></button>
+      </div>
+
+      <ion-item class="background-off-white " ng-repeat="item in tempArray"   ng-hide='showSingle'>
+        <div class="border-grey">
+          <div  class="row">
+            <div class="col-xs-6">
+              <h2 style="font-size: 12px;"><b>{{'OwnersName' | translate}}</b>: {{ item.ownersName }}</h2>
+            </div>
+            <div class="col-xs-1">
+              <input type="button"  class="btn btn-xs btn-danger" ng-click="remove($index)" value="-" />
+            </div>
+          </div>
+          <div  class="row" style="margin-top: 4px;
+             margin-bottom: 4px;">
+            <div class="col-xs-5">
+              <h2 style="font-size: 12px;"><b>{{'GENDER' | translate}}</b>: {{ item.gender }}</h2>
+            </div>
+            <div class="col-xs-7">
+              <h2 style="font-size: 12px;"><b>{{'RELATION' | translate}}</b>: {{ item.relation }}</h2>
+            </div>
+          </div>
+          <div  class="row" style="margin-top: 4px;
+             margin-bottom: 4px;">
+            <div class="col-xs-5">
+              <h2 style="font-size: 12px;"><b>{{'GURDIANNAME' | translate}}</b>: {{ item.gurdian }}</h2>
+            </div>
+            <div class="col-xs-7">
+              <h2 style="font-size: 12px;"><b>{{'PROPERTYSHARE' | translate}}</b>: {{ item.propertyShare }}</h2>
+            </div>
+          </div>
+          <div  class="row" style="margin-top: 4px;">
+            <div class="col-xs-10">
+              <h2 style="font-size: 12px;"><b>{{'MOBILENO' | translate}}</b>: {{ item.mobile }}</h2>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+
+      <div class="padding">
+        <button class="button button-block  customBgColor" ng-click="transferNext(Jointmobile)">
+          <span translate="Initiate Transfer"></span>
+        </button>
+      </div>
+    </form>
+
+    <form name="pDataEntryForm3" class="form-background-border" ng-if="showSingle">
+    <span style="color: red;font-size: 10px;margin-left: 6px;" translate="Firstownerwillbe" ></span>
+
+      <label class="item item-input item-floating-label" ng-if='!showOther' >
+        <span class="input-label required" translate="OwnersName"></span>
+        <input  type="text"  placeholder="{{'OwnersName' | translate}}" ng-change="OwnerChange(singleownername)" ng-model="singleownername" name="ownersinglename" required/>
+      </label>
+      <div style="height: 52px;" >
+          <select class="select-dropdown" name="Singlegendername" ng-model="singlegender" ng-change="fetchGender(singlegender)"
+                  ng-options="k.value as k.name for k in genoptions" id="singleTTlIDg3" required ng-if='!showOther'>
+            <option value="" translate="GENDER"></option>
+          </select>
+      </div>
+
+      <div style="height: 52px;" >
+          <select class="select-dropdown" ng-model="singlerelation"  id="Singlerelation3"
+                  ng-options="o.value as o.name for o in relation" required  ng-change="fetchRelation(singlerelation)">
+            <option value="" translate="RELATION"></option>
+          </select>
+      </div>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="GURDIANNAME"></span>
+        <input type="text" placeholder="{{'GURDIANNAME' | translate}}*" ng-change="guardianinput(singlegurdian)" ng-model="singlegurdian" id="Singlegurdian3"
+               required/>
+      </label>
+
+      <label class="item item-input item-floating-label" >
+        <span class="input-label required" translate="MOBILENO"></span>
+        <input type="number" ng-pattern="/^[0-9]{10,10}$/"  placeholder="{{'MOBILENO' | translate}}*" name="singlemobile" ng-model="Singlemobile" id="pdemobileno3"
+               required/>
+        <span class="errorMessage" ng-show="pDataEntryForm3.singlemobile.$error.pattern" translate="VALIDMOBILE"></span>
+      </label>
+
+      <label class="item item-input item-floating-label" >
+        <span class="input-label" translate="EMAILADDRESS"></span>
+        <input type="text" ng-pattern="/[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})/"  placeholder="{{'EMAILADDRESS' | translate}}" name="singleaddress" ng-change="emailChange(sinleemailddress)" ng-model="sinleemailddress" id="Singleemailaddresss2"/>
+        <span class="errorMessage" ng-show="pDataEntryForm3.singleaddress.$error.pattern" translate="VALIDEMAILID"></span>
+      </label>
+
+      <label class="item item-input item-floating-label" >
+        <span class="input-label" translate="PANNO"></span>
+        <input type="text" ng-pattern="/[A-Z]{5}[0-9]{4}[A-Z]{1}/"  placeholder="{{'PANNO' | translate}}" name="pannosingle" ng-change="panChange(singlepanno)" ng-model="singlepanno" id="Singlepannoo2"/>
+        <span class="errorMessage" ng-show="pDataEntryForm3.pannosingle.$error.pattern" translate="VALIDPANCARD"></span>
+      </label>
+
+      <label class="item item-input item-floating-label" >
+      <span class="input-label" translate="AADHARNO"  ></span>
+      <input type="number" placeholder="{{'AADHARNO' | translate}}"ng-pattern="/^[0-9]{12,12}$/" name="sinaadharno" ng-change="adharChange(sinpdeaadharno)" ng-model="sinpdeaadharno" id="singleaadharno"
+      ng-trim="false"/>
+      <span class="errorMessage" ng-show="pDataEntryForm3.sinaadharno.$error.pattern" translate="VALIDAADHAR"></span>
+      </label>
+
+      <div class="padding">
+        <button class="button button-block  customBgColor" ng-click="transferNext(Singlemobile)">
+          <span translate="Initiate Transfer"></span>
+        </button>
+      </div>
+    </form>
+
+
+    <form name="pDataEntryForm2" class="form-background-border" ng-if="showOther">
+    <span style="color: red; font-size: 10px; margin-left: 6px;" translate="Firstownerwillbe" ></span>
+
+      <label class="item item-input item-floating-label" >
+        <span class="input-label required">Name Of{{nameOfLabel}}</span>
+        <input type="text" placeholder="{{ nameOfLabel }}*" ng-change="OwnerChange(PDEnameof)" name="PDEname" ng-model="PDEnameof" id="pdenameof2"
+               required/>
+      </label>
+      <label class="item item-input item-floating-label" >
+        <span class="input-label required" translate="CONTACTPERSON"></span>
+        <input type="text" placeholder="{{'CONTACTPERSON' | translate}}*" name="PDEcontactperson" ng-change="contactPerChange(PDEcontactper)" ng-model="PDEcontactper" id="pdecontactperson2"
+             required/>
+      </label>
+
+
+      <label class="item item-input item-floating-label" >
+        <span class="input-label required" translate="MOBILENO"></span>
+        <input type="number" ng-pattern="/^[0-9]{10,10}$/"  placeholder="{{'MOBILENO' | translate}}*" name="PDEmobile" ng-model="othermobile" id="pdemobileno2"
+               required/>
+        <span class="errorMessage" ng-show="pDataEntryForm2.PDEmobile.$error.pattern" translate="VALIDMOBILE"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+      <span class="input-label" translate="EMAILADDRESS"></span>
+      <input type="text" ng-pattern="/[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})/" placeholder="{{'EMAILADDRESS' | translate}}" name="PDEemailaddres" ng-change="emailChange(Otheremailaddress)" ng-model="Otheremailaddress" id="pdeemailaddres"
+      ng-trim="false"/>
+      <span class="errorMessage" ng-show="pDataEntryForm2.PDEemailaddress.$error.pattern" translate="VALIDEMAILID"></span>
+      </label>
+
+      <label class="item item-input item-floating-label">
+      <span class="input-label" translate="PANNO"></span>
+      <input type="text" autocapitalize="characters" placeholder="{{'PANNO' | translate}}" ng-pattern="/[A-Z]{5}[0-9]{4}[A-Z]{1}/" name="PDEpann" ng-change="panChange(PDEpanno)" ng-model="PDEpanno" id="pdepann"
+      ng-trim="false"/>
+      <span class="errorMessage" ng-show="pDataEntryForm.PDEpanno.$error.pattern" translate="VALIDPANCARD"></span>
+      </label>
+
+      <div class="padding">
+        <button ng-disabled="!pDataEntryForm2.$valid" class="button button-block  customBgColor" ng-click="transferNext(othermobile)">
+        <span translate="Initiate Transfer"></span>
+        </button>
+      </div>
+    </form>
+
+
+
+  </ion-content>
+</ion-view>
+<style>
+
+.slider{
+  height: 86% !important;
+}
+
+.slider-box-height-84{
+  height: 84%;
+}
+
+.slider-box-height-90{
+  height: 90%;
+}
+
+.item-expand {
+position: relative;
+width: 100%;
+max-height: 60px;
+transition: max-height 0.1s ease-out;
+overflow: hidden;
+}
+
+.item-expand.inactive:after {
+content: "";
+position: absolute;
+bottom: 0px;
+left: 0;
+height: 2px;
+width: 100%;
+display: block;
+background-image: -webkit-gradient(
+linear,
+left top,
+left bottom,
+color-stop(0, rgba(255, 255, 255, 0)),
+color-stop(1, rgba(255, 255, 255, 1))
+);
+background-image: -o-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+background-image: -moz-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+background-image: -ms-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.item-expand.active {
+  max-height: 200px;
+  transition: max-height 0.3s ease-out;
+}
+.input[type="text"][disabled]{background-color: transparent;}
+
+/* DEMO */
+.expand-item {
+color: red;
+margin-top: 10px;
+}
+
+.expand-item i {
+margin-right: 10px;
+}
+
+</style>

@@ -1,0 +1,234 @@
+[
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_share_via_barcode.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable\\share_via_barcode.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-land_share.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\layout-land\\share.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_encode.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\layout\\encode.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_ic_action_next_item.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\ic_action_next_item.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_ic_action_next_item.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-mdpi\\ic_action_next_item.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\menu_encode.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\menu\\encode.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-hdpi_screen.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-land-hdpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-mdpi_screen.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-land-mdpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-mdpi_screen.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-port-mdpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_ic_action_previous_item.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_action_previous_item.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_ic_action_previous_item.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-mdpi\\ic_action_previous_item.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_share.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\layout\\share.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-xxxhdpi_screen.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-port-xxxhdpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-land_encode.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\layout-land\\encode.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\xml_camera_provider_paths.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\xml\\camera_provider_paths.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\menu_capture.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\menu\\capture.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_search_book_contents_header.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\layout\\search_book_contents_header.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_ic_action_next_item.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_next_item.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_ic_action_remove.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-mdpi\\ic_action_remove.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_bookmark_picker_list_item.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\layout\\bookmark_picker_list_item.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\xml_config.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\xml\\config.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_ic_action_remove.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_action_remove.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-hdpi_screen.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-port-hdpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-ldpi_screen.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-port-ldpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-xxxhdpi_screen.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-land-xxxhdpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\xml_sharing_paths.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\xml\\sharing_paths.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_search_book_contents.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\layout\\search_book_contents.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_launcher_icon.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\launcher_icon.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-xxhdpi_screen.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-land-xxhdpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-xhdpi_screen.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-port-xhdpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_launcher_icon.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\launcher_icon.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\xml_localnotification_provider_paths.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\xml\\localnotification_provider_paths.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_capture.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\layout\\capture.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-ldpi_capture.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\layout-ldpi\\capture.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-ldpi_ic_launcher.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\mipmap-ldpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_history_list_item.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\layout\\history_list_item.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\raw_beep.ogg.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\raw\\beep.ogg"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_ic_action_remove.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\ic_action_remove.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_shopper_icon.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\shopper_icon.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_ic_action_next_item.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_action_next_item.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_launcher_icon.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable\\launcher_icon.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_help.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\layout\\help.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-ldpi_screen.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-land-ldpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\menu_history.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\menu\\history.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_ic_action_remove.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_remove.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_launcher_icon.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\launcher_icon.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_search_book_contents_list_item.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\layout\\search_book_contents_list_item.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-xhdpi_screen.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-land-xhdpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_ic_action_previous_item.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\ic_action_previous_item.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\xml_preferences.xml.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\xml\\preferences.xml"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_shopper_icon.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable\\shopper_icon.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_ic_action_previous_item.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_previous_item.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-xxhdpi_screen.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\drawable-port-xxhdpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp\\platforms\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    }
+]

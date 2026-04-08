@@ -1,0 +1,117 @@
+<ion-view>
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+<ion-content ng-controller="noChangeUserDetailCTRL" class="HomeBackground">
+  <form name="userDetailForm">
+    <div class="headingDiv">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="NOCHANGEDETAILS"></h3>
+    </div>
+
+    <div class="list">
+      <table class="gridtable">
+        <tr ng-if="ownerShipType">
+          <th translate="OWNERSHIPTYPE"></th>
+          <td>{{ ownerShipType }}</td>
+        </tr>
+      </table>
+
+      <table class="gridtable" ng-repeat="item in detailsList">
+        <tr><th class="head" width="100%" colspan="4">
+          <div align="center" translate="OWNERSHIPDETAILS"><b></b></div></th>
+        </tr>
+        <tr ng-if="item.ownerShipType">
+          <th translate="OWNERSHIPTYPE"></th>
+          <td>{{ item.ownerShipType }}</td>
+        </tr>
+        <tr ng-if="item.ownerName">
+          <th  translate="NAME"></th>
+          <td>{{ item.ownerName }}</td>
+        </tr>
+        <tr ng-if="item.contactPerson">
+          <th translate="CONTACTPERSON"></th>
+          <td>{{ item.contactPerson }}</td>
+        </tr>
+        <tr ng-if="item.mobileNumber">
+          <th  translate="MOBILENO"></th>
+          <td>{{ item.mobileNumber }}</td>
+        </tr>
+        <tr ng-if="item.panNumber">
+          <th translate="PANNO"></th>
+          <td>{{ item.panNumber }}</td>
+        </tr>
+      </table>
+
+      <table class="gridtable">
+        <tr><th class="head" width="100%" colspan="4">
+          <div align="center" translate="PROPERTYADDRESSD"><b></b></div></th>
+        </tr>
+        <tr ng-if="propertyAddress">
+          <th translate="PROPERTYADDRESS"></th>
+          <td>{{ propertyAddress }}</td>
+        </tr>
+        <tr ng-if="location">
+          <th  translate="LOCATION"></th>
+          <td>{{ location }}</td>
+        </tr>
+        <tr ng-if="pincode">
+          <th translate="PINCODE"></th>
+          <td>{{ pincode }}</td>
+        </tr>
+        <tr ng-if="eMail">
+          <th  translate="EMAIL"></th>
+          <td>{{ eMail }}</td>
+        </tr>
+      </table>
+
+      <!--<div class="headingDiv">-->
+        <!--<h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading">Document Upload</h3>-->
+      <!--</div>-->
+      <!--<table class="gridtable" ng-repeat = "item in uploadDocument">-->
+        <!--<tr>-->
+          <!--<th>Sr.No</th>-->
+          <!--<td >{{$index + 1}}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<th>Document Name</th>-->
+          <!--<td>{{ item.docDesceng }}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<th>Status</th>-->
+          <!--<td>{{ item.docMandatory }}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<th class="required">Upload</th>-->
+          <!--<td ><input type="file" class="filecss" id="{{ item.docID }}"-->
+           <!--ng-model="docUploaded" onchange="angular.element(this).scope().imageupload(this)"/></td>-->
+        <!--</tr>-->
+      <!--</table>-->
+
+      <button class="rightcss customButtonSmall" ng-click="taxDetail()" translate="VIEWBILLDETAILS"></button><br/>
+
+      <div class="headingDiv" style="margin:3% 1% !important;" >
+        <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="PAYMENT"></h3>
+      </div>
+      <table class="gridtable">
+        <tr>
+          <th translate="PAYMENTAMOUNT"></th>
+          <td>{{ totalPayableAmt }}</td>
+        </tr>
+      </table>
+
+      <div class="padding">
+        <button ng-disabled="!userDetailForm.$valid" ng-click="pay()"
+          class="button button-block  customBgColor">
+          <span translate="PROCEED_TO_PAY"></span></button>
+      </div>
+    </div>
+  </form>
+</ion-content>
+</ion-view>
+

@@ -1,0 +1,148 @@
+<!-- <ion-view  class="titlecss">
+  <ion-nav-bar class="bar-dark" align-title="center">
+    <ion-nav-back-button class="button-clear">
+      <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"
+        style="background: transparent;border: none;"></button>
+      <img style="right: 46%;
+      position: absolute;
+      margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+
+ 
+  <ion-content ng-controller="knowYourCTRL" class="HomeBackground">
+    <form name="knowYourForm">
+ 
+      <div class="headingDiv" >
+        <h3 class="heading">Know Your Ward/Zone</h3>
+      </div>
+ 
+      <div class="list">
+         <label class="input-label padding-left-15 required" >Select Location</label>
+          <select class="select-dropdown" name="knowYour" data-ng-model="knowYour"  ng-change="knowYourChange(knowYour)"
+             ng-options="o.id as o.name for o in allLocationOptions"   required>
+            <option value="">Select</option>
+          </select><label class="item item-input item-floating-label"></label>
+      </div>
+ 
+ 
+     <div >
+       <ion-list>
+         <ion-item class="listTableItem">
+           <table class="gridtable" ng-repeat="electroalitem in electroalDetailsList">
+             <tr >
+               <th width="50%">Department Name</th>
+               <td>{{ electroalitem.name }}</td>
+             </tr>
+
+             <tr >
+              <th width="50%">Address</th>
+              <td>{{ electroalitem.address }}</td>
+            </tr>
+
+            <tr >
+              <th width="50%">Address</th>
+              <td>{{ electroalitem.address }}</td>
+            </tr>
+
+             <tr >
+               <th width="50%">Zone</th>
+               <td>{{ electroalitem.zone_name }}</td>
+             </tr>
+
+             <tr >
+              <th width="50%">Ward</th>
+              <td>{{ electroalitem.ward_name }}</td>
+            </tr>
+
+            <tr >
+              <th width="50%">Zone No</th>
+              <td>{{ electroalitem.zone_no }}</td>
+            </tr>
+
+            <tr >
+             <th width="50%">Ward No</th>
+             <td>{{ electroalitem.ward_no }}</td>
+           </tr>
+
+             <tr >
+               <th width="50%">Latitude</th>
+               <td>{{ electroalitem.latitude }}</td>
+             </tr>
+
+             <tr >
+              <th width="50%">Longtitude</th>
+              <td>{{ electroalitem.longitude }}</td>
+            </tr>
+           </table>
+         </ion-item>
+       </ion-list>
+     </div>
+ 
+     <!-- <div ng-if="revenueWard">
+        <ion-list>
+          <ion-item class="listTableItem">
+            <table class="gridtable"  ng-repeat="revnueitem in revenueDetailsList">
+              <tr ng-if="revnueitem.departmentName">
+                <th width="50%">Department Name</th>
+                <td>{{ revnueitem.departmentName }}</td>
+              </tr>
+              <tr ng-if="revnueitem.zoneName">
+                <th width="50%">Zone</th>
+                <td>{{ revnueitem.zoneName }}</td>
+              </tr>
+              <tr ng-if="revnueitem.wardName">
+                <th width="50%">Ward</th>
+                <td>{{ revnueitem.wardName }}</td>
+              </tr>
+            </table>
+          </ion-item>
+        </ion-list>
+      </div>  -->
+ 
+      <!-- <div ng-if="operationWard">
+        <ion-list>
+          <ion-item class="listTableItem">
+            <table class="gridtable" ng-repeat="opeartionalitem in operationalDetailsList">
+              <tr ng-if="opeartionalitem.departmentName">
+                <th width="50%">Department Name</th>
+                <td>{{ opeartionalitem.departmentName }}</td>
+              </tr>
+              <tr ng-if="opeartionalitem.zoneName">
+                <th width="50%">Zone</th>
+                <td>{{ opeartionalitem.zoneName }}</td>
+              </tr>
+              <tr ng-if="opeartionalitem.wardName">
+                <th width="50%">Ward</th>
+                <td>{{ opeartionalitem.wardName }}</td>
+              </tr>
+            </table>
+          </ion-item>
+        </ion-list>
+      </div>  -->
+ 
+     <!-- </form>
+ 
+  </ion-content>
+  </ion-view>  -->
+ 
+ 
+ 
+
+  <ion-view  >
+    <ion-nav-bar class="bar-dark" align-title="center">
+      <ion-nav-back-button class="button-clear">
+        <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"
+          style="background: transparent;border: none;"></button>
+        <img style="right: 46%;
+        position: absolute;
+        margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content ng-controller="knowYourCTRL" class="HomeBackground mapStyle">
+      <div id="map" style="width: 600px; height: 800px;"></div>
+     
+     
+     
+  </ion-content>
+  </ion-view> 

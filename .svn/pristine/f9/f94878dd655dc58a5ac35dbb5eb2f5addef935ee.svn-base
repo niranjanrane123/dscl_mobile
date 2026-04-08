@@ -1,0 +1,222 @@
+.bar-subheader.bar-so-subheader {
+    height: 55px;
+    padding: 0;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.has-so-subheader {
+    top: 99px;
+}
+
+.bar-so-subheader .row {
+    height: 100%;
+    padding: 0;
+}
+
+.bar-so-subheader .row .col {
+    padding: 0;
+    height: inherit;
+}
+
+.bar-so-subheader .button {
+    font-size: 15px;
+    border-radius: 0;
+    line-height: 55px;
+}
+
+.button-so-tab {
+    height: inherit;
+    width: inherit;
+    /* border-color: #F6F6F6;
+    border-bottom-color: #0097A7;
+    background-color: #0097A7; 
+    color: #fff; */             /* New Theme Change */
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000 !important;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.button-so-tab.activated {
+    background-color: #F6F6F6;
+    border-color: #F6F6F6;
+}
+
+.button-so-tab:hover {
+    color: #FFF;
+}
+
+.button-so-tab.active-tab {
+    
+    /*font-weight: bold!important;
+     background-color: #F6F6F6;
+    border-color: #2ACEF3; 
+    border-width: 0px 0px 2px 0px !important; */      /* New Theme Change */
+    background-color: #d74701;
+    border: 1px solid #000;
+    color: #fff !important;
+    font-size: 15px;
+}
+
+.so-list .list {
+    margin-top: 2px;
+}
+
+.so-item {
+    border-bottom-width: 3px !important;
+}
+
+.so-col-icon {
+    margin-left: 5px;
+}
+
+.so-col-icon img {
+    width: 100%;
+}
+
+.so-col-text {
+    margin-right: 10px;
+}
+
+.so-col-text p {
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.so-col-text h5 {
+    margin-left: 12px;
+    font-size: 13px;
+}
+
+.so-col-text h6 {
+    text-align: right;
+    margin: 5% auto 10px auto !important;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 11px;
+}
+
+.so-no-items {
+    margin-top: 20%;
+}
+
+.so-no-items h4 {
+    color: #26A69A !important;
+    font-size: 20px;
+    text-align: center;
+}
+
+.so-no-items .button.icon:before {
+    font-size: 40px;
+    color: #26A69A;
+}
+
+.so-no-items a {
+    display: block;
+    margin: 15px auto;
+}
+
+.so-due-before {
+    color: #F63209;
+}
+
+.so-due-after {
+    color: #F8BD1F;
+}
+
+.so-spinner .spinner svg {
+    stroke: #26a69a;
+    fill: #26a69a;
+}
+
+.bold-dark {
+    color: grey;
+    font-weight: bold;
+}
+
+.so-due-before-bg {
+    background-color: #ff8585;
+}
+
+.so-due-after-bg {
+    background-color: #a2cf6e;
+}
+
+.top-border {
+    border-top: 2px solid #b2b7b7;
+}
+
+
+.Installation-Report{
+ /*color: #6b46e5;*/
+}
+.Pre-Delivery-Inspection{
+/*color: #0D660F;*/
+}
+.Preventive-Maintenance-Check-List{
+ /*color: #AF0E0E;*/
+}
+
+.searchJobTypeName{
+    background: transparent url(../img/service-order/funnel.png) no-repeat;
+    border: 0;
+    width:35px;
+    background-size: 45px 30px;
+    margin-top: 5px;
+    z-index:1;
+    text-indent: -9999px;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+}
+
+.icon, .ionicons, .ion-funnel:before{
+    font-size: 25px;
+}
+.textbox-background{
+    background: #F6F6F6 !important;
+}
+.pm-search-button {
+    width: 60%!important;
+    margin-left: 20%;
+    margin-top: 5%!important;
+    border-radius: 5px;
+    font-size: large;
+}
+.white-content{
+    background: #fff!important;
+}
+.pm-checkbox label{
+    margin-top: 1px;
+    height: 20px;
+    width: 20px;
+    background: transparent;
+}
+
+.pm-checkbox label.item.item-checkbox.ng-valid {
+    background: transparent;
+}
+.pm-sync-button{
+    background:#a2cf6e;
+    margin-top: 0 !important;
+    margin-bottom: 0!important;
+}
+
+.color-green{
+    color: #008000;
+}
+
+.color-yellow{
+    color:#b89e13;
+}
+
+.color-red{
+    color:#ff0000;
+}
+.font-14{
+    font-size: 14px;
+}
+.font-12{
+    font-size: 12px;
+}

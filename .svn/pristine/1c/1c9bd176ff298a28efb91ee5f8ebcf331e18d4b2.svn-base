@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\Project\\Latest_Working_Code\\DOON\\CitizenApkNew\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\asmita.trivedi\\.gradle\\caches\\transforms-2\\files-2.1\\b22064e2d0ba1e077bc06beadaeb558b\\jetified-pushbots-lib-3.3.4-c\\res\\values-v11\\values-v11.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "580"
+                    }
+                }
+            ]
+        }
+    ]
+}

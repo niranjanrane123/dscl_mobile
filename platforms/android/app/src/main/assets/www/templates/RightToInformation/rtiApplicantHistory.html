@@ -1,0 +1,174 @@
+<ion-view class="titlecss" >
+	<!-- title="{{'ECHATTISGARH' | translate}}" -->
+	<ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+<ion-content ng-controller="rtiApplicantHistoryCtrl" class="HomeBackground">
+   <!-- <h3 class="heading" translate="COMPLSTATUS"></h3>-->
+   <div class="headingDiv" ng-if="data">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="APPLICANTINFORMATION"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+  </div>
+  <table class="gridtable" ng-if="data">
+  		<tr ng-if="data.apmApplicationId">
+			<th translate="APPLICATIONNO"></th>
+			<td>{{ data.apmApplicationId }}</td>
+		</tr>
+		<tr ng-if="data.apmApplicationDate">
+			<th translate="APPLICATIONDATE"></th>
+			<td>{{ data.apmApplicationDate | date:'dd MMM yyyy'}}</td>
+		</tr>
+		<tr ng-if="data.applicationType">
+			<th translate="APPLICATIONTYPE"></th>
+			<td ng-repeat="rowData in $root.aptoptions" ng-if="rowData.value==data.applicationType">{{ rowData.name}}</td>
+		</tr>
+		<tr ng-if="data.title">
+			<th translate="TITLE"></th>
+			<td ng-repeat="rowData in $root.ttloptions" ng-if="rowData.value==data.title">{{ rowData.name}}</td>
+		</tr>
+		<tr ng-if="data.fName">
+			<th translate="FNAME"></th>
+			<td>{{ data.fName }}</td>
+		</tr>
+		<tr ng-if="data.mName">
+			<th translate="MNAME"></th>
+			<td>{{ data.mName }} </td>
+		</tr>
+		<tr ng-if="data.lName">
+			<th translate="LNAME"></th>
+			<td>{{ data.lName }}</td>
+		</tr>
+		<tr ng-if="data.title">
+			<th translate="GENDER"></th>
+			<td ng-repeat="rowData in $root.genoptions" ng-if="rowData.value==data.gender">{{ rowData.name}}</td>
+		</tr>
+		<tr ng-if="data.email">
+			<th translate="EMAIL"></th>
+			<td>{{data.email }}</td>
+		</tr>
+	    <tr ng-if="data.mobileNo">
+	      <th translate="MOBILENO"></th>
+	      <td>{{ data.mobileNo }}</td>
+	    </tr>
+		<tr ng-if="data.address">
+			<th translate="ADDRESS"></th>
+			<td>{{ data.address }}</td>
+		</tr>
+		<tr ng-if="data.pincodeNo">
+			<th translate="PINCODE"></th>
+			<td>{{ data.pincodeNo }}</td>
+		</tr>
+		<tr ng-if="data.applicantDTO.aadharNo">
+			<th translate="ADHARNO"></th>
+			<td>{{ data.applicantDTO.aadharNo}}</td>
+		</tr>
+		
+		<tr ng-if="data.isBPL">
+			<th translate="Is_BPL"></th>
+			<td>{{ data.isBPL | translate }}</td>
+		</tr>
+		<tr ng-if="data.bplNo">
+			<th translate="BPLNO"></th>
+			<td>{{ data.bplNo }}</td>
+		</tr>
+		<tr ng-if="data.yearOfIssue">
+			<th translate="YEAROFISSUE"></th>
+			<td>{{ data.yearOfIssue }}</td>
+		</tr>
+		<tr ng-if="data.bplIssuingAuthority">
+			<th translate="ISSUINGAUTHORITY"></th>
+			<td>{{ data.bplIssuingAuthority }}</td>
+		</tr>
+
+		<tr ng-if="data.applicant">
+			<th translate="SEL_APPLT_TYPE"></th>
+			<td ng-repeat="rowData in $root.aptoptions" ng-if="rowData.value==data.applicationType">{{ rowData.name}}</td>
+		</tr>
+		<tr ng-if="data.locationName && lang =='1'">
+			<th translate="LOCATION"></th>
+			<td>{{ data.locationName }}</td>
+		</tr>
+		<tr ng-if="data.locRegName && lang =='2'">
+		    <th translate="LOCATION"></th>
+		    <td>{{ data.locRegName }}</td>
+		</tr>
+		<tr ng-if="data.isCorrespondingAddress">
+			<th translate="CORROSPONDENCESAME"></th>
+			<td>{{'YES' | translate}}</td>
+		</tr>
+		
+		<tr ng-if="data.corrAddrsAreaName && !data.isCorrespondingAddress">
+			<th translate="CORROSPONDENCE"></th>
+			<td>{{ data.corrAddrsAreaName }}</td>
+		</tr>
+		<tr ng-if="!data.isCorrespondingAddress && data.corrAddrsPincodeNo">
+			<th translate="PINCODE"></th>
+			<td>{{ data.corrAddrsPincodeNo }}</td>
+		</tr>
+		
+		<tr>
+			<th translate="STATUS"></th>
+			<td ng-if = "vieHistoryData.status == 'PENDING'">Pending</td>
+			<td ng-if = "vieHistoryData.status == 'DRAFT'">Draft</td>
+			<td ng-if = "vieHistoryData.status == 'CLOSED'">Closed</td>
+			<td ng-if = "vieHistoryData.status != 'PENDING' && vieHistoryData.status != 'DRAFT' && vieHistoryData.status != 'CLOSED'">{{rowData.status}}</td>
+		</tr>
+		</table>
+		
+			 <div class="headingDiv" ng-if="data">
+			    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="REFERENCEDETAILS"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+			  </div>
+		<table class="gridtable">
+			<tr ng-if="data.applReferenceMode">
+				<th translate="REFERENCEMODE"></th>
+				<td ng-repeat="rowData in refernecModeOptions" ng-if="rowData.value==data.applReferenceMode">{{ rowData.name }}</td>
+			</tr>
+			<tr ng-if="data.applReferenceMode">
+				<th translate="INWARDTYPE"></th>
+				<td ng-repeat="rowData in refernecInwardOptions" ng-if="rowData.value==data.inwardType">{{ rowData.name }}</td>
+			</tr>
+			<tr ng-if="data.stampNo">
+				<th translate="STAMPANUMBER"></th>
+				<td >{{ data.stampNo }}</td>
+			</tr>
+			<tr ng-if="data.stampAmt">
+				<th translate="STAMPAMOUNT"></th>
+				<td >{{ data.stampAmt }}</td>
+			</tr>
+		</table>
+	
+		 <div class="headingDiv" ng-if="data">
+		    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="RTI"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+		  </div>
+		 <table class="gridtable">
+			 <tr ng-if="data.rtiDeptId">
+				<th translate="DEPARTMENTNAME"></th>
+				<td ng-repeat="rowData in departmentList" ng-if="rowData.value==data.rtiDeptId">{{ rowData.name }}</td>
+			</tr>
+			 <tr ng-if="data.locationName && lang =='1'">
+				 <th translate="LOCATION"></th>
+				 <td>{{ data.locationName }}</td>
+			 </tr>
+			 <tr ng-if="data.locRegName && lang =='2'">
+				 <th translate="LOCATION"></th>
+				 <td>{{ data.locRegName }}</td>
+			 </tr>
+			<tr ng-if="data.rtiSubject">
+				<th translate="SUBJECT"></th>
+				<td>{{ data.rtiSubject }}</td>
+			</tr>
+			<tr>
+				<th class="description-data-title" translate="TEXTFORRTIAPPLICATION"></th>
+				<td class="ng-binding">{{ data.rtiDesc }}</td>
+			</tr>
+			
+
+		 </table>
+		 
+  </ion-content>
+</ion-view>
+

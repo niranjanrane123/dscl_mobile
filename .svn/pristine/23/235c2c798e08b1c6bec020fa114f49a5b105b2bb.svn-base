@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "applicationId": "com.doon.doonproduct",
+  "variantType": "BASE_APK",
+  "elements": [
+    {
+      "outputType": {
+        "type": "PROCESSED_RES"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 250107,
+        "versionName": "25.1.7",
+        "outputFile": "app-release.apk",
+        "fullName": "release",
+        "baseName": "release",
+        "dirName": ""
+      },
+      "path": "resources-release.ap_",
+      "properties": {
+        "packageId": "com.doon.doonproduct",
+        "split": "",
+        "minSdkVersion": "22"
+      }
+    }
+  ]
+}

@@ -1,0 +1,753 @@
+<ion-view class="titlecss" hide-back-button="true" title="{{ 'FIX_HEADER' | translate}}">
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+    <img style="right: 5px;
+    position: absolute;
+    margin-top: 1px;" src="./img/Dehradun_Logo.jpg" width=30px; height=30px;>
+  </ion-nav-buttons>
+
+  <ion-content class="HomeBackground" style="margin-bottom: 70px;" ng-controller="HomeCtrl">
+
+    <div style="width:100%;text-align:center;">
+      <h6 style="letter-spacing: 3px;
+    padding: 5px;
+    font-size: 1em;font-weight: 800;">{{'Welcome' | translate}}, {{loginUSername}}</h6>
+    </div>
+    <!--<div class="bar row-no-padding header-bg">-->
+    <!--<div class="col"><img src="./img/chattisghah.png" width=55px; height=55px;></div>-->
+    <!--<div class="col col-75"><h3>Discover All Citizen Services Here</h3></div>-->
+    <!--</div>-->
+
+    <div>
+      <ion-item class="module">
+        <a class=" gridnopadding" ui-sref="app.applicationList">
+          <img src="./img/applicationStatusIcon.png" width="30" height="30">
+          <span style="color: #013561;font-size: 14px;font-weight: bold;"
+            translate="StatusofServiceApplications"></span>
+        </a>
+
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-item class="module">
+        <a class=" gridnopadding" ui-sref="app.applicationPaymentStatus">
+          <img src="./img/spotBill.png" width="30" height="30">
+          <span style="color: #013561;font-size: 14px;font-weight: bold;" translate="StatusofPayments"></span>
+        </a>
+      </ion-item>
+
+    </div>
+
+
+    <!--QUICK Service-->
+
+    <div ng-repeat="group in groups">
+      <ion-item class="module" ng-click="toggleGroup(group)">
+        <img ng-src="{{group.img}}" width="30" height="30">
+        <i ng-if="group.name != 'COMPL_SERVICE && check'" style="float:right" class="icon"
+          ng-class="isGroupShown(group) ? 'ion-arrow-up-b' : 'ion-arrow-down-b'"></i>
+        &nbsp;
+        <span style="color: #013561;font-size: 14px;font-weight: bold;" translate="{{group.name}}"></span>
+      </ion-item>
+      <ion-item class="item-accordion" ng-if="isGroupShown(group) || group.name == default">
+
+        <div ng-if="group.name == 'Property'">
+          <div>
+            <div class="row margin-0">
+              <div class="col col-33">
+                <div class="list text-center">
+                  <a class=" gridnopadding" ng-click="comingSoon()">
+                    <img src="./img/propertyBillIcon.png" height="40" width="40">
+                    <h5 style="font-size:13px;" translate="BILLPAYMENT">Bill Payment</h5>
+                  </a>
+                </div>
+              </div>
+
+              <!--              <div class="col col-33">-->
+              <!--                <div class="list text-center">-->
+              <!--                  <a class=" gridnopadding" ui-sref="app.noChangeValidate">-->
+              <!--                    <img src="./img/noChangeAssmIcon.png" height="40" width="40">-->
+              <!--                    <h5 style="font-size:13px;" translate="NOCHANGE" style="font-size: 9px;">NoChange Assessment</h5></a>-->
+              <!--                </div>-->
+              <!--              </div>-->
+              <!--              <div class="col col-33">-->
+              <!--                <div class="list text-center">-->
+              <!--                  <a class=" gridnopadding" ui-sref="app.propertySearch">-->
+              <!--                    <img src="./img/propertyMutation.png" height="40" width="40">-->
+              <!--                    <h5 style="font-size:13px;" translate="PROPERTYMUTATION" style="font-size: 9px;">Mutation</h5></a>-->
+              <!--                </div>-->
+              <!--              </div>-->
+            </div>
+          </div>
+        </div>
+        <div ng-if="group.name == 'LANDANDINSPECTION'">
+          <div>
+            <div class="row margin-0">
+              <div class="col col-33">
+                <div class="list text-center">
+                  <a class=" gridnopadding" ng-click="comingSoon()">
+                    <img src="./img/landinspection.png" height="40" width="40">
+                    <h5 style="font-size:13px;" translate="LANDANDINSPECTION"></h5>
+                  </a>
+                </div>
+              </div>
+
+              <!--              <div class="col col-33">-->
+              <!--                <div class="list text-center">-->
+              <!--                  <a class=" gridnopadding" ui-sref="app.noChangeValidate">-->
+              <!--                    <img src="./img/noChangeAssmIcon.png" height="40" width="40">-->
+              <!--                    <h5 style="font-size:13px;" translate="NOCHANGE" style="font-size: 9px;">NoChange Assessment</h5></a>-->
+              <!--                </div>-->
+              <!--              </div>-->
+              <!--              <div class="col col-33">-->
+              <!--                <div class="list text-center">-->
+              <!--                  <a class=" gridnopadding" ui-sref="app.propertySearch">-->
+              <!--                    <img src="./img/propertyMutation.png" height="40" width="40">-->
+              <!--                    <h5 style="font-size:13px;" translate="PROPERTYMUTATION" style="font-size: 9px;">Mutation</h5></a>-->
+              <!--                </div>-->
+              <!--              </div>-->
+            </div>
+          </div>
+        </div>
+        <div ng-if="group.name == 'WATER'">
+          <div class="row margin-0">
+            <div class="col col-33">
+              <div class="list text-center">
+                <a class=" gridnopadding" ng-click="comingSoon()">
+                  <img src="./img/waterBillIcon.png" height="40" width="40">
+                  <h5 style="font-size:13px" translate="BILLPAYMENT">Bill Payment</h5>
+                </a>
+              </div>
+            </div>
+            <!-- 
+            <div ng-if="group.name == 'SWM'">
+              <div class="row margin-0">
+                <div class="col col-33">
+                  <div class="list text-center">
+                    <a class=" gridnopadding" ng-click="comingSoon()">
+                      <img src="./img/waterBillIcon.png" height="40" width="40">
+                      <h5 style="font-size:13px" translate="BILLPAYMENT">Bill Payment</h5>
+                    </a>
+                  </div>
+                </div>
+                <!--            <div class="col col-33">-->
+            <!--              <div class="list text-center">-->
+            <!--                <a class=" gridnopadding" ng-click="appltype()">-->
+            <!--                  <img src="./img/newWaterConnectionIcon.png"  height="40" width="40">-->
+            <!--                  <h5 style="font-size:13px" translate="NEWWATER" style="font-size: 9px;">New Water Connection</h5></a>-->
+            <!--              </div>-->
+            <!--            </div>-->
+            <!--            <div class="col col-33">-->
+            <!--              <div class="list text-center">-->
+            <!--                <a class=" gridnopadding" ui-sref="app.ChangeofUsage">-->
+            <!--                  <img src="./img/changeOfUsageIcon.png"  height="40" width="40">-->
+            <!--                  <h5 style="font-size:13px" translate="CHANGHEOFUSAGE" style="font-size: 9px;">Change of Usage</h5></a>-->
+            <!--              </div>-->
+            <!--            </div>-->
+          </div>
+
+          <!--          <div class="row margin-0">-->
+          <!--            <div class="col col-33">-->
+          <!--              <div class="list text-center">-->
+          <!--                <a class=" gridnopadding" ui-sref="app.ChangeofOwner">-->
+          <!--                  <img src="./img/changeOfOwnerIcon.png" height="40" width="40">-->
+          <!--                  <h5 style="font-size:13px" translate="CHANGEOFOWNER" style="font-size: 9px;">Change of Owner</h5></a>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <div class="col col-33">-->
+          <!--              <div class="list text-center">-->
+          <!--                <a class=" gridnopadding" ui-sref="app.waterConnectionDetails">-->
+          <!--                  <img src="./img/noDuesCertificateIcon.png" height="40" width="40">-->
+          <!--                   <h5 style="font-size:13px" translate="NODUESCERTIFICATE" style="font-size:9px;"></h5>-->
+          <!--                </a>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <div class="col col-33">-->
+          <!--              <div class="list text-center">-->
+          <!--                <a class=" gridnopadding" ui-sref="app.PLLicence">-->
+          <!--                  <img src="./img/plumberIcon.png" height="40" width="40">-->
+          <!--                  <h5 style="font-size:13px" translate="PLUMBERLICENSE" style="font-size: 9px;">Plumber Licence</h5></a>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--&lt;!&ndash;            <div class="col col-33">&ndash;&gt;-->
+          <!--&lt;!&ndash;              <div class="list text-center">&ndash;&gt;-->
+          <!--&lt;!&ndash;                <a class=" gridnopadding" ui-sref="app.PLLicence">&ndash;&gt;-->
+          <!--&lt;!&ndash;                  <img src="./img/plumberIcon.png" height="40" width="40">&ndash;&gt;-->
+          <!--&lt;!&ndash;                  <h5 style="font-size:13px" translate="RENEWPLUMBERLICENSE" style="font-size: 9px;">Renewal of Plumber Licence</h5></a>&ndash;&gt;-->
+          <!--&lt;!&ndash;              </div>&ndash;&gt;-->
+          <!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+          <!--          </div>-->
+          <!--          <div class="row margin-0">-->
+          <!--            <div class="col col-33">-->
+          <!--              <div class="list text-center">-->
+          <!--                <a class=" gridnopadding" ui-sref="app.waterDisconnection">-->
+          <!--                  <img src="./img/waterDisconnIcon.png" height="40" width="40">-->
+          <!--                  <h5 style="font-size:13px" translate="WATERDISCONNECTION" style="font-size: 9px;">Water Disconnection</h5></a>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--          </div>-->
+        </div>
+
+        <div ng-if="group.name == 'SWM'">
+          <div class="row margin-0">
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ng-click="navigatecomplaint(true)">
+                  ui-sref="app.swmHome"
+                 <img src="./img/fileComplainIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px; " translate="LODGECOMPL">Register Complaint</h5>
+            </div> --> 
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.swmcompainlist">
+                  <img src="./img/complaintStatusIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="COMPLSTATUS">Citizen Complaint List</h5>
+            </div>
+          </div>
+        </div>
+
+
+        <div ng-if="group.name == 'QUICK_SERVICES'">
+          <div class="row margin-0">
+            
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.helpLine">
+                  <img src="./img/helpLineIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px;" translate="CITIZENHELPLINE">Citizen HelpLine</h5>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.knowYour">
+                  <img src="./img/wardZoneIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="KNOWWARDZONE"></h5>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.applicationStatus">
+                  <img src="./img/applicationStatusIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="APPLICATIONSTATUS">Application Status</h5>
+            </div>
+          </div>
+
+          <div class="row margin-0">
+            <!--              <div class="col col-33">-->
+            <!--                <div class="list text-center">-->
+            <!--                  <a class=" gridnopadding" ui-sref="app.nearBy">-->
+            <!--                    <img src="./img/nearbyIcon.png" height="40" width="40">-->
+            <!--                    <h5 style="font-size:13px" translate="NEARBY">NearBy</h5></a>-->
+            <!--                </div>-->
+            <!--              </div>-->
+
+            <div class="col col-33">
+              <div class="list list-icon text-center" ng-click="inappbrowserlinnk(dashBoardURL)">
+                <a class=" gridnopadding">
+                  <img src="./img/dashBoradIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="DASHBOARD">DashBoard</h5>
+            </div>
+            <div class="col col-33">
+              <div class="list list-icon text-center" ng-click="inappbrowserlinnk(portalURL)">
+                <a class=" gridnopadding">
+                  <img src="./img/protalIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="PORTAL"></h5>
+            </div>
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.trafficlist">
+                  <img src="./img/traffic.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="TRAFFIC"></h5>
+            </div>
+            <!--              <div class="col col-33">-->
+            <!--                <div class="list list-icon text-center" ng-click="inappbrowserlinnk('https://edistrict.cgstate.gov.in')">-->
+            <!--                  <a class=" gridnopadding">-->
+            <!--                    <img src="./img/deathBirthCertificateIcon.png" height="40" width="40">-->
+            <!--                    <h5 style="font-size:13px" translate="BIRTHDEATHMARRAIGE"></h5></a>-->
+            <!--                </div>-->
+            <!--              </div>-->
+          </div>
+
+          <div class="row margin-0">
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.environment">
+                  <img src="./img/environment.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="ENVIRONMENT">Environment </h5>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.echallan">
+                  <img src="./img/echallan.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="ECHALLAN">EChallan </h5>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.itshome">
+                  <img src="./img/echallan.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="ITS">ITS </h5>
+            </div>
+          </div>
+          <!--            <div class="row margin-0">-->
+          <!--              <div class="col col-33">-->
+          <!--                <div class="list list-icon text-center" ng-click="inappbrowserlinnk('https://cggrievance.cgg.gov.in/')">-->
+          <!--                  <a class=" gridnopadding">-->
+          <!--                    <img src="./img/grivenceIcon.png" height="40" width="40">-->
+          <!--                    <h5 style="font-size:13px" translate="GRIEVANCE"></h5></a>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--              <div class="col col-33">-->
+          <!--                <div class="list list-icon text-center" ng-click="inappbrowserlinnk('https://edistrict.cgstate.gov.in')">-->
+          <!--                  <a class=" gridnopadding">-->
+          <!--                    <img src="./img/tradeLicense.png" height="40" width="40">-->
+          <!--                    <h5 style="font-size:13px" translate="TRADELICENSE"></h5></a>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--              <div class="col col-33">-->
+          <!--                <div class="list list-icon text-center" ng-click="inappbrowserlinnk('http://eproc.cgstate.gov.in')">-->
+          <!--                  <a class=" gridnopadding">-->
+          <!--                    <img src="./img/eProcurment.png" height="40" width="40">-->
+          <!--                    <h5 style="font-size:13px" translate="EPROCUREMENT"></h5></a>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <div class="row margin-0">-->
+          <!--              <div class="col col-33">-->
+          <!--                <div class="list list-icon text-center" ng-click="inappbrowserlinnk('https://bpms.sudacg.in/')">-->
+          <!--                  <a class=" gridnopadding">-->
+          <!--                    <img src="./img/buildingPermission.png" height="40" width="40">-->
+          <!--                    <h5 style="font-size:13px" translate="BUILDINGPERMISSION"></h5></a>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </div>-->
+        </div>
+
+        <div ng-if="group.name == 'NEARBY'">
+
+          <!--            <div class="col col-33" ng-repeat="location in locationGroup">-->
+          <!--              <div class="list text-center">-->
+          <!--                <a class=" gridnopadding"  ng-click="filecomplaint()">-->
+          <!--                <img src="./img/fileComplainIcon.png"  height="40" width="40">-->
+          <!--                <h5 style="font-size:13px" translate="LODGECOMPL" ></h5></a>-->
+          <!--              </div>-->
+          <!--            </div>-->
+
+
+          <div class="row margin-0" ng-repeat="location in locationGroup" ng-if="$index % 24 === 0">
+            <!--            <div class="row margin-0">-->
+            <!--<div class="col col-33" >
+                <div class="list list-icon text-center"  ng-click="openLocation(locationGroup[2].id)">
+                  <a class=" gridnopadding">
+                  <img src="./img/school.png"   height="40" width="40">
+                  </a>
+                </div>
+                <h5 style="font-size:13px" >{{locationGroup[2].name}}</h5>
+              </div>
+
+
+              <div class="col col-33" >
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding" ng-click="openLocation(locationGroup[4].id)">
+                  <img src="./img/hospital.png"  height="40" width="40">
+                  </a>
+                </div>
+                <h5 style="font-size:13px" >{{locationGroup[4].name}}</h5>
+              </div>
+
+
+              <div class="col col-33" >
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding" ng-click="openLocation(locationGroup[6].id)">
+                  <img src="./img/police-station.png"  height="40" width="40">
+                  </a>
+                </div>
+                <h5 style="font-size:13px" >{{locationGroup[6].name}}</h5>
+              </div>-->
+
+
+            <!--              <div class="col col-25" >-->
+            <!--                <div class="list text-center">-->
+            <!--                  <a class=" gridnopadding" ng-click="openLocation(locationGroup[$index + 3].id)">-->
+            <!--                  <img src="./img/nearbyIcon.png"  ng-if="$index + 3 < locationGroup.length" height="40" width="40">-->
+            <!--                  <h5 style="font-size:13px"  >{{locationGroup[$index + 3].name}}</h5></a>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--            </div>-->
+          </div>
+          <div class="row margin-0">
+            <!--            <div class="row margin-0">-->
+            <div class="col col-33">
+              <div class="list list-icon text-center"
+                ng-click="inappbrowserlinnk('http://sc2.sgligis.com:1213/dehradun_intergration_wd/')">
+                <a class=" gridnopadding">
+                  <img src="./img/placeholder.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="GIS"></h5>
+            </div>
+
+          </div>
+        </div>
+
+        <div ng-if="group.name == 'COMPL_SERVICE'">
+          <div class="row margin-0">
+            <div class="col col-33">
+              <div class="list list-icon text-center" ng-click="navigatecomplaint(false)">
+                <a class=" gridnopadding">
+                  <!-- ui-sref="app.complaintrefrence" -->
+
+                  <img src="./img/fileComplainIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px; " translate="LODGECOMPL">File Complaint</h5>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.complaintstatus">
+                  <img src="./img/complaintStatusIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="COMPLSTATUS"></h5>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ng-click="reopen()">
+                  <img src="./img/reopenComplaintIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="REOPENCOMPLAINT"></h5>
+            </div>
+          </div>
+          <!--          <div class="row margin-0">-->
+          <!--            <div class="col col-33">-->
+          <!--              <div class="list list-icon text-center">-->
+          <!--                <a class=" gridnopadding" on-tap="callNumber('1100')">-->
+          <!--                <img src="./img/callIcon.png" height="40" width="40">-->
+          <!--                </a>-->
+          <!--              </div>-->
+          <!--              <h5 style="font-size:14px" translate="CALL1100">Call 1100</h5>-->
+          <!--            </div>-->
+
+          <!--&lt;!&ndash;             <div class="col col-33">&ndash;&gt;-->
+          <!--&lt;!&ndash;              <div class="list text-center">&ndash;&gt;-->
+          <!--&lt;!&ndash;                <a class="item gridnopadding" ui-sref="app.newComplaint">&ndash;&gt;-->
+          <!--&lt;!&ndash;                <img src="./img/know-your-ward-zone-48x48.png" >&ndash;&gt;-->
+          <!--&lt;!&ndash;                <h5 translate="">View All Complaint</h5></a>&ndash;&gt;-->
+          <!--&lt;!&ndash;              </div>&ndash;&gt;-->
+          <!--&lt;!&ndash;            </div>&ndash;&gt;-->
+          <!--          </div>-->
+        </div>
+
+
+        <div ng-if="group.name == 'MUNCIPLEPROPERTY'">
+          <div class="row margin-0">
+            <div class="col col-33">
+              <div class="list text-center">
+                <a class=" gridnopadding" ui-sref="app.estateBooking">
+                  <img src="./img/muncipalBookingIcon.png" height="40" width="40">
+                  <h5 style="font-size:13px" translate="ESTATEBOOKING">Estate booking</h5>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="col col-33">-->
+        <!--<div class="list text-center">-->
+        <!--<a class="item gridnopadding" ui-sref="app.qrCode">-->
+        <!--<img src="./img/property-bill-payment-32x32.png">-->
+        <!--<h5>Get QR Code</h5></a>-->
+        <!--</div>-->
+
+        <!--        <div ng-if="group.name == 'SOCIALSECURITY'">-->
+        <!--          <div class="row margin-0">-->
+        <!--            <div class="col col-33">-->
+        <!--              <div class="list text-center">-->
+        <!--                <a class=" gridnopadding" ui-sref="app.SSApplicationForm">-->
+        <!--                  <img src="./img/applicationFormIcon.png" height="40" width="40">-->
+        <!--                  <h5 style="font-size:14px">Application form</h5></a>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+
+        <div ng-if="group.name == 'RIGHTTOINFORMATION'">
+          <div>
+            <div class="row margin-0">
+              <div class="col col-33">
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding" ui-sref="app.rtiApplicantDetial">
+                    <img src="./img/rtiIcon.png" width="60" height="55">
+                  </a>
+                </div>
+                <h5 style="font-size:13px" translate="RTI"></h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ion-item>
+    </div>
+
+
+  </ion-content>
+  <div class="footer">
+    <div class="row margin-00">
+      <div class="col col-33 divv">
+        <a class="footerButton" ui-sref="app.home">
+          <img src="./img/house.png" width="20" height="20">
+          <h5 style="color: #013561;font-weight: bold;" translate="HOME"></h5>
+        </a>
+      </div>
+      <div class="col col-33 divv">
+        <a class="footerButton"
+          ng-click="inappbrowserlinnk('https://weather.com/en-IN/weather/tenday/l/Mussoorie+Uttarakhand?canonicalCityId=75477fb197f4895cb58ac1d71b03f6988492750d947d47538c7e81330623e805')">
+          <img src="./img/cloudy.png" width="20" height="20" />
+          <h5 style="color: #013561;font-weight: bold;" translate="CITYWEATHER">City weather</h5>
+        </a>
+      </div>
+      <div class="col col-33 divv">
+        <a class="footerButton" ui-sref="app.AboutUs">
+          <img src="./img/about.png" width="20" height="20" />
+          <h5 style="color: #013561;font-weight: bold;" translate="ABOUTUS"></h5>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</ion-view>
+<style>
+  .footerButton {
+    color: #fff !important;
+    height: 50px;
+  }
+
+  .divv {
+    text-align: center;
+  }
+
+  a:focus,
+  a:hover {
+    color: #fff !important;
+    text-decoration: none;
+  }
+
+  .divv:active {
+    background-color: #00aa55;
+    box-shadow: 0px 5px #00aa55;
+    transform: translateY(4px);
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 10px;
+    width: 100%;
+    height: 70px;
+    border-color: #111;
+    background: linear-gradient(to bottom, #0ac969 0%, #00aa55 100%) !important;
+    color: #fff;
+  }
+
+  .module {
+    background: #fff;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-left: none;
+    border-right: none;
+    border-top-color: #A1887F;
+    border-bottom-color: #A1887F;
+  }
+
+  .slider {
+    height: 86% !important;
+  }
+
+  .slider-box-height-84 {
+    height: 84%;
+  }
+
+  .slider-box-height-90 {
+    height: 90%;
+  }
+
+  .item-expand {
+    position: relative;
+    width: 100%;
+    max-height: 60px;
+    transition: max-height 0.1s ease-out;
+    overflow: hidden;
+  }
+
+  .item-expand.inactive:after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    display: block;
+    background-image: -webkit-gradient(linear,
+        left top,
+        left bottom,
+        color-stop(0, rgba(255, 255, 255, 0)),
+        color-stop(1, rgba(255, 255, 255, 1)));
+    background-image: -o-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background-image: -moz-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background-image: -ms-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  }
+
+  .item-expand.active {
+    max-height: 200px;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .input[type="text"][disabled] {
+    background-color: transparent;
+  }
+
+  /* DEMO */
+  .expand-item {
+    color: red;
+    margin-top: 10px;
+  }
+
+  .expand-item i {
+    margin-right: 10px;
+  }
+
+  .item-accordion {
+    margin-left: 5px;
+    margin-right: 5px;
+    border-left: none;
+    border-right: none;
+    border-top-color: #A1887F;
+    border-bottom-color: #A1887F;
+  }
+
+  .list .item.item-accordion {
+    line-height: 38px;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: 0.09s all linear;
+  }
+
+  .list .item.item-accordion.ng-hide {
+    line-height: 0px;
+  }
+
+  .list .item.item-accordion.ng-hide-add,
+  .list .item.item-accordion.ng-hide-remove {
+    display: block !important;
+  }
+
+  .item.item-stable {
+    border-radius: 8px;
+    margin: 6px;
+    background-color: #00aa55;
+    color: inherit;
+  }
+
+
+  .gridtable tbody tr th,
+  .gridtable tbody tr td {
+    border: none !important;
+    border-color: transparent !important;
+  }
+
+  .button{
+    border-radius: 0px !important;
+    padding: 10px 30px;
+  }
+
+  .margin-0 {
+    margin: 0px !important;
+  }
+
+  .padding-0 {
+    padding: 0px !important;
+  }
+
+  .margin-top-10 {
+    margin-top: 10px !important;
+  }
+
+  .margin-top-50 {
+    margin-top: 50px !important;
+  }
+
+  .card-box-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .item.active.item-stable,
+  .item.activated.item-stable,
+  .item-complex.active .item-content.item-stable,
+  .item-complex.activated .item-content.item-stable,
+  .item .item-content.active.item-stable,
+  .item .item-content.activated.item-stable {
+    border-color: transparent !important;
+    background-color: #00aa55 !important;
+  }
+
+  .gridtable th {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .gridtable td {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .module.item.active {
+    background: #fff;
+  }
+
+  .has-header {
+    top: 43px;
+  }
+
+  .list-icon {
+    width: 100px;
+    height: 80px;
+    padding-top: 20px;
+    border-radius: 8px 8px 8px 8px;
+    bottom: 1px;
+
+    box-shadow: 0px 0px 8px 2px #ccc;
+    background: whitesmoke;
+  }
+</style>

@@ -1,0 +1,63 @@
+<ion-view>
+  <!-- title="{{'ECHATTISGARH' | translate}}"
+  <ion-nav-back-button></ion-nav-back-button> -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+  <ion-content ng-controller="TrafficListPageCtrl" class="HomeBackground">
+    <div>
+      <div>
+        <div class="row margin-0">
+          <div class="table-outer">
+            <table class="complaintTable" ng-if="mysearch.length<1 || !mysearch">
+              <tr class="table-heading">
+                <td translate="INDEXNO">Index No</td>
+                <td translate="JUNCTION">Junction</td>
+                <td translate="CONGESTION">Congestion</td>
+                <td translate="STATUS">Status</td>
+              </tr>
+              <tr ng-repeat="rowData in getDashBoardDataPage track by $index">
+                <td>
+                  {{ calculateIndex($index)}}
+                <td>{{rowData.ShortDescription}}</td>
+                <td ng-if="rowData.Congestion<40">{{rowData.Congestion}}</td>
+                <td ng-if="rowData.Congestion>40 && rowData.Congestion<75">{{rowData.Congestion}}
+                </td>
+                <td ng-if="rowData.Congestion>75">{{rowData.Congestion}} </td>
+
+                <td ng-if="rowData.Congestion<40" style="color:#0fc22d;">Low
+                </td>
+                <td ng-if="rowData.Congestion>40 && rowData.Congestion<75" style="color:#FFBF00;">Medium
+                </td>
+                <td ng-if="rowData.Congestion>75" style="color:#ff0000;">High
+                </td>
+              </tr>
+            </table>
+            <div>
+              <span style="color:#0fc22d;margin: 3px; font-size: 10px;">Low (0 to 40)</span>
+              <span style="color:#FFBF00;margin: 3px;font-size: 10px;">Medium (40 to 75)</span>
+              <span style="color:#ff0000;margin: 3px;font-size: 10px;">High(75 >)</span>
+            </div>
+            <div class="pagination" ng-if="mysearch.length<1 || !mysearch">
+              <span class="page-num {{$index==currentPagination?'activepage':''}}"
+                ng-repeat="i in currentPaginationArray" ng-if="$index<11"
+                ng-click="getDashBoardDataPageData({{$index}},'fix')">{{$index+1}}</span>
+              <select ng-if="currentPaginationArray.length>11" ng-model="$parent.pagginationSelect"
+                ng-change="getDashBoardDataPageData(pagginationSelect,'select')">
+                <option value="{{$index}}" ng-repeat="i in currentPaginationArray" ng-if="$index>=11">{{$index+1}}
+                </option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

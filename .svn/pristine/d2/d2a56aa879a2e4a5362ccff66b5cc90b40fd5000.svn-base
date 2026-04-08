@@ -1,0 +1,126 @@
+<ion-view class="" hide-back-button="true">
+
+<ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+ <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
+
+<!-- <div id="slides_control" class="bar animated">
+      <carousel interval="myInterval">
+        <slide ng-repeat="slide in slides" active="slide.active">
+          <img class="imgcss" ng-src="{{slide.image}}">
+          <div class="carousel-caption">
+            <h4>Slide {{$index+1}}</h4>
+          </div>
+        </slide>
+      </carousel>
+</div>  style="padding-top:195px;" -->
+
+<ion-content class="" ng-controller="HomeCtrl" id="iWantToScrollHere">
+<!--<div class="bar row-no-padding header-bg animated slideInDown">
+	 <div class="header-content">
+	  <h2 translate="ONLINE_SERVICES"></h2>
+	  <p translate="ONL_SERTEXT"></p>
+	</div>
+</div>-->
+
+<div class="row margin-0">
+   <div class="col col-33 animated fadeInLeft">
+         <div class="list text-center">
+             <a class="item gridnopadding1" ui-sref="app.WaterModule1">
+             <img src="./img/Water_Connection.png" width=55px; height=55px;>
+	         <h5 translate="WATER_SERVICE"></h5></a>
+        </div>
+    </div>
+
+	 <div class="col col-33 animated fadeInRight">
+    	<div class="list text-center">
+             <a class="item gridnopadding1" ui-sref="app.complaintPage">
+             <img src="./img/contact-us-icon.png" width=55px; height=55px;>
+	         <h5 translate="COMPL_SERVICE"></h5></a>
+        </div>
+    </div>
+   <div class="col col-33 animated fadeInLeft">
+    <div class="list text-center">
+      <a class="item gridnopadding1" ui-sref="app.estateBooking"><img src="./img/loi-rent-lease48X48.png" width=55px" height=55px">
+        <h5>Rent & Lease</h5></a>
+    </div>
+  </div>
+
+</div>
+
+ <div class="row margin-0">
+
+
+   <div class="col col-33 animated fadeInRight">
+     <div class="list text-center">
+       <a class="item gridnopadding1" ui-sref="app.citizencharter"><img src="./img/contact-us-icon.png" width=55px height=55px>
+         <h5>Citizen Charter</h5></a>
+     </div>
+   </div>
+
+    <div class="col col-33 animated fadeInLeft">
+         <div class="list text-center">
+             <a class="item gridnopadding1" ui-sref="app.StatusOfService"><img src="./img/contact-us-icon.png" width=55px height=55px>
+	         <h5>Status of Service</h5></a>
+        </div>
+    </div>
+   <div class="col col-33 animated fadeInRight">
+     <div class="list text-center" ng-click="inappbrowserlinnk('https://www.facebook.com/RaipurCity/')">
+       <a class="item gridnopadding1" ><img src="./img/ic_facebook.png" width=55px height=55px>
+         <h5>Facebook</h5></a>
+     </div>
+   </div>
+
+ </div>
+
+  <div class="row margin-0">
+
+    <div class="col col-33 animated fadeInLeft">
+      <div class="list text-center" ng-click="inappbrowserlinnk('https://twitter.com/RaipurSmartCity')">
+        <a class="item gridnopadding1" >
+          <img src="./img/ic_twitter.png" width=55px; height=55px;>
+          <h5>Twitter</h5></a>
+      </div>
+    </div>
+    <div class="col col-33 animated fadeInRight">
+      <div class="list text-center" ng-click="inappbrowserlinnk('https://www.facebook.com/RaipurCity/')">
+        <a class="item gridnopadding1" ><img src="./img/ic_facebook.png" width=55px height=55px>
+          <h5>Facebook</h5></a>
+      </div>
+    </div>
+    <div class="col col-33 animated fadeInLeft">
+      <div class="list text-center" ng-click="inappbrowserlinnk('https://twitter.com/RaipurSmartCity')">
+        <a class="item gridnopadding1" >
+          <img src="./img/ic_twitter.png" width=55px; height=55px;>
+          <h5>Twitter</h5></a>
+      </div>
+    </div>
+
+  </div>
+
+  </ion-content>
+
+<!--  <ion-footer-bar class="bar bar-footer bar-balanced headercolor">
+    <div class = "tabs">
+      <a class = "tab-item">
+        News
+      </a>
+
+      <a class = "tab-item">
+        Notifications
+      </a>
+
+      <a class = "tab-item">
+        Notices
+      </a>
+    </div>
+  </ion-footer-bar>-->
+
+</ion-view>
+

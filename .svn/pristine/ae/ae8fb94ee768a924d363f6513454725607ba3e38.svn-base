@@ -1,0 +1,77 @@
+<ion-view >
+  <!-- title="{{'ECHATTISGARH' | translate}}"
+  <ion-nav-bar class="bar-dark" align-title="center">  <ion-nav-back-button></ion-nav-back-button></ion-nav-bar> -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+    <ion-nav-back-button class="button-clear">
+      <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+      <img style="right: 46%;
+      position: absolute;
+      margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+    </ion-nav-back-button>
+    </ion-nav-bar>
+<ion-content ng-controller="helpLineCTRL">
+
+  <form name="helpLineForm">
+    <div class="headingDiv">
+      <h3 class="heading" translate="HELPLINESERVICES"></h3>
+    </div>
+    <div class="list list-inset">
+      <!-- <a class="item item-icon-left item-icon-right anchor" ng-click="callNumber('155300')" >
+        <i class="icon ion-chatbubble-working"></i>
+        <div translate="CITIZENCALLCENTER"></div>
+        <i class="icon ion-ios-telephone-outline"></i>
+      </a> -->
+
+      <!-- <a class="item item-icon-left item-icon-right anchor" ng-click="callNumber('1098')">
+        <i class="icon ion-chatbubble-working"></i>
+        <div translate="CHILDCALLCENTER"></div>
+        <i class="icon ion-ios-telephone-outline"></i>
+      </a> -->
+
+      <!-- <a class="item item-icon-left item-icon-right anchor" ng-click="callNumber('1091')">
+        <i class="icon ion-chatbubble-working"></i>
+        <div translate="WOMENHELPLINE"></div>
+        <i class="icon ion-ios-telephone-outline"></i>
+      </a> -->
+
+      <!-- <a class="item item-icon-left item-icon-right anchor" ng-click="callNumber('2418201')">
+        <i class="icon ion-chatbubble-working"></i>
+        <div translate="AIRPORTCALL"></div>
+        <i class="icon ion-ios-telephone-outline"></i>
+      </a> -->
+
+      <a class="item item-icon-left item-icon-right anchor" ng-click="callNumber('1905')">
+        <i class="icon ion-chatbubble-working"></i>
+        <div translate="CMHELPLINE"></div>
+        <i class="icon ion-ios-telephone-outline"></i>
+      </a>
+
+      <a class="item item-icon-left item-icon-right anchor" ng-click="callNumber('112')">
+        <i class="icon ion-chatbubble-working"></i>
+        <div translate="EMERGENCYHELPLINE"></div>
+        <i class="icon ion-ios-telephone-outline"></i>
+      </a>
+
+      <a class="item item-icon-left item-icon-right anchor" ng-click="callNumber('139')">
+        <i class="icon ion-chatbubble-working"></i>
+        <div translate="RAILWAYCALL"></div>
+        <i class="icon ion-ios-telephone-outline"></i>
+      </a>
+
+      <a class="item item-icon-left item-icon-right anchor" ng-click="callNumber('102')">
+        <i class="icon ion-chatbubble-working"></i>
+        <div translate="AMBULANCECALL"></div>
+        <i class="icon ion-ios-telephone-outline"></i>
+      </a>
+      <a class="item item-icon-left item-icon-right anchor" ng-click="callNumber('18001802525')">
+        <i class="icon ion-chatbubble-working"></i>
+        <div translate="SADEV_DOON"></div>
+        <i class="icon ion-ios-telephone-outline"></i>
+      </a>
+    </div>
+
+
+  </form>
+
+</ion-content>
+</ion-view>

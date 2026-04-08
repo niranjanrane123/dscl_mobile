@@ -1,0 +1,190 @@
+<ion-view >
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+<ion-content ng-controller="waterConnectionDetails" class="HomeBackground" >
+  <!--<h3 class="heading"  translate="WATER_BILL_PAYMENT"></h3>-->
+
+  <form name="waterConnectionDetails" novalidate>
+    <div class="headingDiv">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="APPLIATIONINFORMATION"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+    </div>
+    <label class="input-label padding-left-15 required" >Title</label>
+    <select class="select-dropdown" name="title" ng-model="title"
+            ng-options="o.value as o.name for o in ttloptions" required>
+      <option value="" >Select</option>
+    </select>
+    <label class="item item-input item-floating-label" ></label>
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="FNAME"> </span>
+        <input type="text" placeholder="{{'FNAME' | translate}}*" name="AppFname" ng-model="AppFname"  required/>
+        <span class="errorMessage" ng-show="waterConnectionDetails.AppFname.$error.pattern">Please Enter Valid First Name</span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label" translate="MNAME"> </span>
+        <input type="text" placeholder="{{'MNAME' | translate}}" name="AppMname" ng-model="AppMname"/>
+        <span class="errorMessage" ng-show="waterConnectionDetails.AppMname.$error.pattern">Please Enter Valid Middle Name</span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="LNAME"></span>
+        <input type="text" placeholder="{{'LNAME' | translate}}*" name="AppLname" ng-model="AppLname"  required/>
+        <span class="errorMessage" ng-show="waterConnectionDetails.AppLname.$error.pattern">Please Enter Valid Last Name</span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="MOBILENO"></span>
+        <input type="number" placeholder="{{'MOBILENO' | translate}}*" name="Appmobile" ng-model="Appmobile" ng-trim="false"
+               id="Appmobile" ng-keyup="onlyNumericSixLimitInput()" ng-pattern="/^[0-9]{10,10}$/" required/>
+        <span class="errorMessage" ng-show="waterConnectionDetails.Appmobile.$error.pattern">Please Enter Valid Mobile No.</span>
+      </label>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label" translate="EMAILID"></span>
+          <input type="text" placeholder="{{'EMAILID' | translate}}" ng-pattern="/^[A-Za-z0-9/s,.'-@]{1,50}$/" name="Appemail" ng-model="Appemail" ng-trim="false" />
+          <span class="errorMessage" ng-show="waterConnectionDetails.Appemail.$error.pattern">Please Enter Valid Email Id</span>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="ADDRESSLINE1"> </span>
+          <input type="text" placeholder="{{'ADDRESSLINE1' | translate}}*" name="Appddress1" ng-model="Appddress1" required/>
+          <span class="errorMessage" ng-show="waterConnectionDetails.Appddress1.$error.pattern">Please Enter Valid Address</span>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" translate="ADDRESSLINE2"></span>
+          <input type="text" placeholder="{{'ADDRESSLINE2' | translate}}" name="Appddress2" ng-model="Appddress2" />
+          <span class="errorMessage" ng-show="waterConnectionDetails.Appddress2.$error.pattern">Please Enter Valid Address2</span>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" translate="ADDRESSLINE3"></span>
+          <input type="text" placeholder="{{'ADDRESSLINE3' | translate}}" name="Appddress3" ng-model="Appddress3" id="Appddress2"   />
+          <span class="errorMessage" ng-show="waterConnectionDetails.Appddress3.$error.pattern">Please Enter Valid Address2</span>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="PINCODE"></span>
+          <input type="number" placeholder="{{'PINCODE' | translate}}*" name="Apppincode" ng-model="Apppincode" ng-trim="false"
+                 id="addpincode" ng-keyup="onlyNumericSixLimitInput()" ng-pattern="/^[1-9]\d{5,5}$/" required/>
+          <span class="errorMessage" ng-show="waterConnectionDetails.Apppincode.$error.pattern">Please Enter Valid PinCode</span>
+        </label>
+        <label class="item item-input item-floating-label" >
+          <span class="input-label" translate="AADHARNO"  ></span>
+          <input type="number" placeholder="{{'AADHARNO' | translate}}" ng-pattern="/^[0-9]{12,12}$/" name="Appaadharno" ng-model="Appaadharno" id="appaadharno"
+                 ng-trim="false" />
+          <span class="errorMessage" ng-show="waterConnectionDetails.Appaadharno.$error.pattern" translate="VALIDAADHAR"></span>
+        </label>
+        <label class="input-label padding-left-15 required">Is below poverty line</label>
+        <select ng-hide="organisation" class="select-dropdown" name="povertyLevel" data-ng-model="povertyLineValue" id="povertyLine"
+                ng-options="o.value as o.name for o in povertyLine" ng-change="changePoverty()" required>
+          <option value="">Select</option>
+        </select>
+
+        <!--<div style="height: 52px;" class="search_categories">-->
+          <!--<div class="select">-->
+            <!--<select class="search_categories" name="Apppropertyzone" ng-model="Apppropertyzone"  id="Apppropertyzone"-->
+                    <!--ng-options="o.value as o.name for o in propertyZone" required  ng-change="fetchWard()">-->
+              <!--<option value="" translate="PROPERTYZONE" required></option>-->
+            <!--</select>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div style="height: 52px;" class="search_categories">-->
+          <!--<div class="select">-->
+            <!--<select class="search_categories" name="Appdepropertyward" ng-model="Appdepropertyward"  id="Appdepropertyward"-->
+                    <!--ng-options="o.value as o.name for o in propertyZoneWard" required ng-change="fetchZoneWard()">-->
+              <!--<option value="" translate="PROPERTYWARD" required></option>-->
+            <!--</select>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <label class="input-label padding-left-15 required" translate="ZONE"></label>
+        <select class="select-dropdown" name="Apppropertyzone" ng-model="Apppropertyzone"
+                ng-options="o.value as o.name for o in propertyZone" required ng-change="fetchWard()">
+          <option value="" >Select</option>
+        </select>
+        <label class="item item-input item-floating-label" ></label>
+
+        <label class="input-label padding-left-15 required" translate="WARD"></label>
+        <select class="select-dropdown" name="Appdepropertyward" ng-model="Appdepropertyward"
+                ng-options="o.value as o.name for o in propertyZoneWard" required>
+          <option value="" >Select</option>
+        </select>
+        <label class="item item-input item-floating-label" ></label>
+
+        <label class="item item-input item-floating-label" ng-if="belowPoverty">
+          <span class="input-label required" >BPLNo</span>
+          <input type="number" placeholder="BPLNO" name="AppbplNo" ng-model="AppbplNo"
+                 required/>
+          <span class="errorMessage" ng-show="waterConnectionDetails.bplno.$error.pattern">Please Enter Valid bpl Number</span>
+        </label>
+      <!--<div class="padding">-->
+        <!--<button ng-disabled="!NWCinfoFormAddress.$valid" ng-click="applicantinfoaddress()" class="button button-block-->
+		     <!-- customBgColor">-->
+          <!--<span translate="WATERCONN_NEXT"></span></button>-->
+      <!--</div>-->
+    </div>
+  </form>
+  <form name="noDuesCertificate">
+    <div class="headingDiv">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="NO_DUES_CERTIFICATE"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+    </div>
+    <span ng-if="!showDues" style="padding-right: 6px;padding-left: 6px;;color:RED">{{label}}</span>
+    <div class="list">
+      <label class="item item-input item-floating-label">
+         <span class="input-label required" translate="CONNECTION_NUMBER"></span>
+          <input type="text" placeholder="{{'CONNECTION_NUMBER' | translate}}*" name="search" ng-model="search" id="connectionNosearch"
+             required/>
+         <span class="errorMessage" ng-show="noDuesCertificate.search.$error.pattern">Please Enter Valid Connection Number</span>
+      </label>
+      <div class="padding">
+        <button ng-disabled="!noDuesCertificate.$valid" ng-click="viewDues()" id="btn1"
+         class="button button-block  customBgColor"><i class="icon ion-search fonth3"></i>
+        <span translate="VIEWDUES"></span></button>
+      </div>
+    </div>
+  </form>
+  <form name="consumerDetails"  ng-if="showDues">
+    <label class="item item-input item-floating-label">
+      <span class="input-label required" translate="CONSUMERNAME"> </span>
+      <input type="text" placeholder="{{'CONSUMERNAME' | translate}}*" name="Consumername" ng-model="data.Consumername" disabled  required/>
+    </label>
+    <label class="item item-input item-floating-label">
+      <span class="input-label required" translate="CONSUMERADDRESS"></span>
+      <input type="text" placeholder="{{'CONSUMERADDRESS' | translate}}*" name="Consumeraddress" ng-model="data.ConsumerAddress"  required/>
+      <span class="errorMessage" ng-show="consumerDetails.ConsumerAddress.$error.pattern">Please Enter Valid Consumer Address</span>
+    </label>
+    <label class="item item-input item-floating-label">
+      <span class="input-label required" translate="NOOFCOPIES"></span>
+      <input type="number" placeholder="{{'NOOFCOPIES' | translate}}*" name="Noofcopies" ng-model="data.NoOfCopies"
+             id="Noofcopies"   required/>
+      <span class="errorMessage" ng-show="consumerDetails.Noofcopies.$error.pattern">Please Enter Valid Copies</span>
+    </label>
+    <label class="item item-input item-floating-label">
+      <span class="input-label required" translate="DUEAMOUNT"></span>
+      <input type="number" placeholder="{{'DUEAMOUNT' | translate}}*" name="Dueamount" ng-model="data.Dueamount"
+             id="Dueamount" ng-keyup="onlyNumericSixLimitInput()"  required disabled/>
+    </label>
+
+    <div class="padding">
+      <button ng-disabled="consumerDetails.Noofcopies.$error.pattern" ng-click="forgotmobilesubmit()" id="genrateOtp"
+              class="button button-block  customBgColor"><i class="icon ion-search fonth3"></i>
+        <span translate="GENERATEOTP"></span></button>
+    </div>
+    <span  style="padding-right: 6px;padding-left: 6px;;color:RED">{{otpError}}</span>
+    <label class="item item-input item-floating-label">
+      <span class="input-label required" translate="ENTEROTP"></span>
+      <input type="tel" placeholder="{{'ENTEROTP' | translate}}" ng-pattern="[0-9]*" name="Enterotp" ng-model="data.Enterotp" id="Enterotp"
+             ng-trim="false"/>
+      <span class="errorMessage" ng-show="consumerDetails.Enterotp.$error.pattern" translate="VALIDOTP">Enter valid otp</span>
+    </label>
+    <div class="padding">
+      <button ng-disabled="!consumerDetails.$valid" ng-click="otpVerify()" id="submit"
+              class="button button-block  customBgColor"><i class="icon ion-search fonth3"></i>
+        <span translate="SUBMIT"></span></button>
+    </div>
+  </form>
+
+    </ion-content>
+</ion-view>

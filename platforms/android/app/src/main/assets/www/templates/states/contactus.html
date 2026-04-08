@@ -1,0 +1,153 @@
+<ion-view>
+	<!-- title="{{'ECHATTISGARH' | translate}}" -->
+	<ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+	  
+	 
+
+		<ion-content ng-controller="ContactusCtrl" class="HomeBackground">
+	
+			<form name="contact">
+				<div class="headingDiv">
+					<h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="CONTACT_US"><img
+							src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+				</div>
+	
+				<div class="list">
+					<!-- <p class="card padding" translate="CONTACTTEXT"></p> -->
+
+					<div class="card padding" >
+						<span class="input-label" translate="ADDRESS"></span>
+						<div class="inputlabel" translate="DABOUTADDRESS"></div>
+						<div  translate="DABOUTSUBADDRESS"></div>
+						<span class="input-label" translate="PHONED"></span>
+						<div>91-135-2750984
+							91-135-2750817
+						   </div>
+						   <span class="input-label" translate="EMAILID"></span> 
+						   <div>smartcityddn@gmail.com</div>  
+					</div>
+					
+					<!-- <h3 class="input-label padding " style = "font-size: 16px;" translate="DCONTACT"></h3> -->
+
+					<div style="padding-left: 15px; padding-bottom: 5px; font-weight: bold;" translate="DDETAILCONTACT"></div>
+
+					<label class="item item-input item-floating-label">
+						<span class="input-label required" translate="MOBILENO"></span>
+						<!-- <input type="number" placeholder="{{'MOBILENO' | translate}}*" name="mobileno" ng-model="mobileno"
+							ng-keyup="onlyNumericTenLimitInput()" ng-trim="false" ng-pattern="/^[0-9]{10,10}$/" required /> -->
+							<input type="number" placeholder="{{'MOBILENO' | translate}}*" name="mobileno" ng-model="mobileno"
+							ng-keyup="onlyNumericTenLimitInput()"   maxlength="10" ng-trim="false" ng-pattern="/^[1-9]{1}[0-9]{9}$/" ng-pattern-restrict required />
+						<span class="errorMessage" ng-show="contact.mobileno.$error.pattern" translate="VALIDMOBILE"></span>
+					</label>
+	<!-- 
+					<label class="item item-input item-floating-label">
+						<span class="input-label required" translate="TELEPHONENO"></span>
+						
+							<input type="number" placeholder="{{'TELEPHONENO' | translate}}*" name="tellno" ng-model="tellno"
+							ng-keyup="onlyNumericTenLimitInput()"   maxlength="12" ng-trim="false" ng-pattern="/^[1-9]{1}[0-11]{11}$/" ng-pattern-restrict required />
+						<span class="errorMessage" ng-show="contact.mobileno.$error.pattern" translate="VALIDMOBILE"></span>
+					</label>
+					
+					<label class="item item-input item-floating-label">
+						<span class="input-label required" translate="ADD"></span>
+						<input type="text" placeholder="{{'ADD' | translate}}*" name="address" ng-model="address"
+						pattern="^[A-Za-z]+$" ng-pattern-restrict required />
+						<span class="errorMessage" ng-show="contact.address.$error.pattern"
+							translate="VALIDFIRSTNAME"></span>
+					</label> -->
+	
+					<label class="item item-input item-floating-label">
+						<span class="input-label required" translate="FIRSTNAME"></span>
+						<input type="text" placeholder="{{'FIRSTNAME' | translate}}*" name="firstname" ng-model="firstname"
+						pattern="^[A-Za-z]+$" ng-pattern-restrict required />
+						<span class="errorMessage" ng-show="contact.firstname.$error.pattern"
+							translate="VALIDFIRSTNAME"></span>
+					</label>
+					<label class="item item-input item-floating-label">
+						<span class="input-label required" translate="LASTNAME"></span>
+						<input type="text" placeholder="{{'LASTNAME' | translate}}*" name="lastname" ng-model="lastname"
+						pattern="^[A-Za-z]+$" ng-pattern-restrict required />
+						<span class="errorMessage" ng-show="contact.lastname.$error.pattern"
+							translate="VALIDLASTNAME"></span>
+					</label>
+					<label class="item item-input item-floating-label">
+						<span class="input-label required" translate="EMAILID"></span>
+						<input type="text" placeholder="{{'EMAILID' | translate}}*" name="EmailD" ng-model="EmailID"
+							ng-trim="false" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" ng-pattern-restrict required />
+						<span class="errorMessage" ng-show="contact.EmailD.$error.pattern" translate="VALIDEMAIL"></span>
+					</label>
+					
+					<div class = "textarea-border item">
+						<span class="input-label required " translate="DESCRIPTIONOFQUERY"></span>
+						<textarea class = "textareabg" rows="5"  type="text" maxlength="1000"
+							name="desc" ng-model="desc" pattern="^[A-Za-z0-9 ]+$" rows="5" ng-pattern-restrict placeholder="{{'DESCRIPTIONOFQUERRY' | translate}}" required ></textarea>
+						<span class="errorMessage" ng-show="lodgeComplaintForm.desc.$error.pattern"
+							translate="VALIDDESC"></span>
+						<span class="errorMessage" ng-show="lodgeComplaintForm.desc.$error.max"
+							translate="VALIDDESC"></span>
+							<span class="errorMessage" ng-show="contact.desc.$error.pattern"
+							translate="VALIDDESC"></span>
+					</div>
+					<hr>
+					
+					  <div ng-if="desc.length>0" class="limit-count {{desc.length>1000?'error':''}}">
+						{{desc.length}} / 1000</div>
+	
+					<!-- <label class="input-label padding-left-15 required" translate="CONTACTUS"></label>
+					<select class="select-dropdown required" data-ng-model="contactPerson" class="search_categories"
+						name="contactPerson" ng-change="fetchSelected()" required>
+						<option value="" required translate="SELECT"></option>
+						<option value="{{item}}" ng-repeat="item in response">
+							{{ item }}
+						</option>
+					</select> -->
+	
+					<!-- <table class="gridtable">
+						<tr>
+						  <th class="required"  translate="UPLOAD"></th>
+						  <td><input type="file" class="filecss " id="plbImg"
+									 ng-model="plbmg" onchange="angular.element(this).scope().imageupload2(this)"/>
+							<div class="note-for-fileupload">{{'Onlyjpgpngpdfdoc' | translate}}</div>
+							<div class="note-for-fileupload">{{'validdocumentSize' | translate}}</div></td>
+						  </td>
+						</tr>
+					  </table> -->
+					  
+					<div class="padding">
+						<button ng-click="save()" ng-disabled="!contact.$valid"
+							class="button button-block button-positive customBgColor">
+							<span translate="SUBMIT"></span></button>
+					</div>
+				</div>
+			</form>
+		</ion-content>
+	</ion-view>
+	
+	
+	<style>
+		.green {
+			background-color: #68C39F !important;
+			/*#68C39F*/
+		}
+		.textareabg{
+			background-color: transparent;
+			min-width: 100%;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		.textarea-border{
+			margin-top: 10px;
+		}
+		.inputlabel{
+			font-weight: bold;
+			margin-top: 10;
+		}
+	
+	</style>

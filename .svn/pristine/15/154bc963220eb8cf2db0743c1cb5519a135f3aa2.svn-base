@@ -1,0 +1,58 @@
+<ion-modal-view class="transparent">
+ <!--  <ion-header-bar class="bar bar-header headercolor">
+    <h1 class="title">MaiNet</h1>
+    <div class="buttons"><button class="button button-clear" ng-click="close()">
+    <i class="icon ion-close"></i></button></div>
+  </ion-header-bar> -->
+  
+  <ion-content class="modal image-modal transparent bg" ng-click="closeModal()">
+	
+	 <div>
+		 <img data-ng-src="data:image/png;base64,{{imagedoc}}"  class="fullscreen-image transparent" />
+    </div>
+	 
+  </ion-content>
+</ion-modal-view>
+
+<style>
+
+.transparent {
+  background: transparent !important;
+}
+
+.bg{
+background-color: rgba(0,0,0,0.5) !important;
+display:none;
+}
+.image-modal {
+  width: 100% !important;
+  height: 100%;
+  top: 0 !important;
+  left: 0 !important;
+}
+.fullscreen-image {
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+/* Fix modal backdrop for smaller devices */
+@media (max-width: 679px) {
+  .active .modal-backdrop-bg {
+    opacity: .5;
+  }
+  .modal-backdrop-bg {
+    -webkit-transition: opacity 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out;
+    background-color: #000;
+    opacity: 0;
+  }
+}
+
+</style>

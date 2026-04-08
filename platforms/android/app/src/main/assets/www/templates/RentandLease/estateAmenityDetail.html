@@ -1,0 +1,57 @@
+<ion-view title="e-Chhattisgarh">
+<ion-content ng-controller="EstateAmenityDetail" class="HomeBackground">
+  <div class="headingDiv">
+    <h3 class="heading" translate="AMENITIESFACILITY"></h3>
+    <ion-list>
+      <div style="color: #000080;font-weight: bold;font-size: larger;padding-left: 15px;" translate="DETAILOFAMENITY"> </div>
+      <table class="gridtable1">
+        <tr>
+          <td style="border: 1px solid #bbb !important; font-weight: bold;width: 20%;">Sr.No</td>
+          <td style=" border: 1px solid #bbb !important; font-weight: bold; text-align: center;">Description Of Amenities</td>
+        </tr>
+      </table>
+      <ion-list style="padding-top: 0px !important;">
+        <div ng-repeat="item in eventResponse.amenityDTOsList" ng-click="showDetail(item.propId)">
+          <table class="gridtable1">
+            <tr>
+              <td style="border: 1px solid #bbb !important;width: 20%;">{{$index+1}}</td>
+              <td style="border: 1px solid #bbb !important;text-align: center;">{{item.propAmtFacilityDesc }}</td>
+            </tr>
+
+          </table>
+        </div>
+
+      </ion-list>
+
+    </ion-list>
+   </div>
+  <div style="color: #000080;font-weight: bold;font-size: larger;padding-left: 15px;" translate="DETAILOFFACILITY"> </div>
+  <table class="gridtable">
+    <tr>
+      <td style="border: 1px solid #bbb !important; font-weight: bold;width: 20%;text-align: center;">Sr.No</td>
+      <td style=" border: 1px solid #bbb !important; font-weight: bold; text-align: center;width: 55%;">Description Of Facilities</td>
+      <td style=" border: 1px solid #bbb !important; font-weight: bold; text-align: center;">Quantity</td>
+    </tr>
+  </table>
+  <ion-list style="padding-top: 0px !important;">
+    <div ng-repeat="item in eventResponse.facilityDtoList" ng-click="showDetail(item.propId)">
+      <table class="gridtable">
+        <tr >
+          <td style="border: 1px solid #bbb !important;width: 20%;text-align: center;">{{$index+1}}</td>
+          <td style="border: 1px solid #bbb !important;text-align: center;width: 55%;">{{item.propAmtFacilityDesc }}</td>
+          <td style="border: 1px solid #bbb !important;text-align: center;">{{item.propQuantity }}</td>
+        </tr>
+
+      </table>
+    </div>
+
+  </ion-list>
+
+  </ion-list>
+  </div>
+  <div class="padding" style="text-align: center !important;margin-top:10px;">
+    <button  class="button customBgColor" ng-click="back()">
+      <span translate="BACK"></span></button>
+  </div>
+</ion-content>
+ </ion-view>

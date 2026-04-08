@@ -1,0 +1,91 @@
+<ion-view>
+
+ <ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<!--<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>-->
+
+<ion-content ng-controller="nidanReceiptctrl" class="animated zoomIn backgroundimage">
+<h1 class="heading" translate="COMPLRECIDETS"></h1>
+<form name="complaintreceipt">
+<div class="list">
+	<table class="gridtable">
+
+		<tr>
+			<th>Complaint No</th>
+			<td>{{ ReceiptToken }}</td>
+		</tr>
+		<tr>
+			<th>Complaint Date</th>
+			<td>{{ date }}</td>
+		</tr>
+		<tr>
+			<th>Applicant Name</th>
+			<td>{{ ReceiptapplName }}</td>
+		</tr>
+		<tr>
+			<th>Department</th>
+			<td>{{ ReceiptCompdept }}</td>
+		</tr>
+		<tr>
+			<th>Complaint Type</th>
+			<td>{{ CompltypeReceipt }}</td>
+		</tr>
+		<tr>
+			<th>Location</th>
+			<td>{{ LocationReceipt  }}</td>
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td>{{ ReceiptDescrition  }}</td>
+		</tr>
+	</table>
+		<div ng-if="esctable">
+<h3 class="heading" translate="COMPLESCDETS" ></h3>
+  <table class="gridtable" ng-repeat="subject in escalDetailsList" >
+
+		<tr>
+			<th width="50%">Level</th>
+			<td>{{ subject.level }}</td>
+		</tr>
+		<tr>
+			<th width="50%">Duration(D.H.M)</th>
+			<td>{{ subject.duration }}</td>
+		</tr>
+		<tr>
+			<th width="50%">Employee Name</th>
+			<td>{{ subject.empName }}</td>
+		</tr>
+		<tr>
+			<th width="50%">Designation</th>
+			<td>{{ subject.designation }}</td>
+		</tr>
+		<tr>
+			<th width="50%">Department</th>
+			<td>{{ subject.department }}</td>
+		</tr>
+		<tr ng-if="subject.email">
+			<th width="50%">Email</th>
+			<td>{{ subject.email }}</td>
+		</tr>
+
+	</table>
+
+</div>
+
+		<div class="padding">
+			<button ng-click="homepage()" class="button button-block  customBgColor">
+			<span translate="">Done</span></button>
+		</div>
+
+	</div>
+</form>
+</ion-content>
+</ion-view>
+
+

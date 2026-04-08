@@ -1,0 +1,122 @@
+<ion-view>
+ <ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<!--<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>-->
+
+<ion-content ng-controller="nidanStatusDetailctrl" class="animated zoomIn backgroundimage">
+
+<form name="tableform" class="animated zoomIn">
+  <h3 class="heading" translate="">Details of the Complaint</h3>
+	<table class="gridtable" ng-if="tokenstatus">
+		<tr>
+			<th>Complaint No</th>
+			<td>{{ tokenNo }}</td>
+		</tr>
+		<tr>
+			<th>Complaint Date</th>
+			<td>{{ date }}</td>
+		</tr>
+    <tr>
+      <th>Applicant Name </th>
+      <td>{{ complainantName }}</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <td>{{ status }}</td>
+    </tr>
+		<tr>
+			<th>Department Type</th>
+			<td>{{ complaintType }}</td>
+		</tr>
+		<tr>
+			<th>Complaint Type </th>
+			<td>{{ complaintSubType }}</td>
+		</tr>
+		<tr>
+			<th>Location</th>
+			<td>{{ ward }} </td>
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td>{{ description }}</td>
+		</tr>
+	</table>
+<!-- MOBILE NO TABLE   -->
+
+  <table class="gridtable" ng-repeat="status in mobileStatus" ng-if="mobilestatus" ng-click="selectedToken(status.tokenNo)" >
+    <tr ng-if="status.tokenNo">
+      <th>Complaint No</th>
+      <td>{{ status.tokenNo }}</td>
+    </tr>
+    <tr ng-if="status.date">
+      <th>Complaint Date</th>
+      <td>{{ status.date }}</td>
+    </tr>
+    <tr ng-if="status.complaintType">
+      <th>Department Type</th>
+      <td>{{ status.complaintType }}</td>
+    </tr>
+    <tr ng-if="status.complaintSubType">
+      <th>Complaint Type </th>
+      <td>{{ status.complaintSubType }}</td>
+    </tr>
+    <tr ng-if="status.ward">
+      <th>Location</th>
+      <td>{{ status.ward }} </td>
+    </tr>
+    <tr ng-if="status.description">
+      <th>Description</th>
+      <td>{{ status.description }}</td>
+    </tr>
+  </table>
+  <!-- END TABLE   -->
+
+
+<div ng-if="esctable">
+<h3 class="heading" translate="">Action History</h3>
+  <table class="gridtable" ng-repeat="subject in escalDetailsList" >
+		<tr ng-if="subject.datetime">
+			<th width="50%">Date & Time</th>
+			<td>{{ subject.datetime }}</td>
+		</tr>
+		<tr ng-if="subject.action">
+			<th width="50%">Action</th>
+			<td>{{ subject.action }}</td>
+		</tr>
+		<tr ng-if="subject.empName">
+			<th width="50%">Employee Name</th>
+			<td>{{ subject.empName }}</td>
+		</tr>
+		<tr ng-if="subject.Email">
+			<th width="50%" >Email</th>
+			<td>{{ subject.Email }}</td>
+		</tr>
+		<tr ng-if="subject.designation">
+			<th width="50%" >Designation</th>
+			<td>{{ subject.designation }}</td>
+		</tr>
+		<tr ng-if="subject.remarks">
+			<th width="50%" >Remarks</th>
+			<td>{{ subject.remarks }}</td>
+		</tr>
+
+	</table>
+
+</div>
+
+		<div class="padding">
+			<button ng-click="homepage()" class="button button-block  customBgColor">
+			<span translate="">Done</span></button>
+		</div>
+
+</form>
+
+  </ion-content>
+</ion-view>
+

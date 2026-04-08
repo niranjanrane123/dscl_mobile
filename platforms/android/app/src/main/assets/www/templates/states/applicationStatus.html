@@ -1,0 +1,37 @@
+<ion-view  class="titlecss">
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+<ion-content ng-controller="applicationStatusCTRL" class="HomeBackground">
+  <form name="applicationStatusForm">
+
+    <div class="headingDiv">
+      <h3 class="heading" translate="APPLICATIONSTATUS"></h3>
+    </div>
+
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="APLICATIONNO"></span>
+        <input type="tel" maxlength="14" placeholder="{{ 'APLICATIONNO' | translate }}*" name="applicationNumber" ng-model="applicationNumber"
+         ng-trim="false" ng-pattern="/^[0-9]{1,25}$/" required/>
+        <span class="errorMessage" ng-show="applicationStatusForm.applicationNumber.$error.pattern">{{'VALIDTOKEN' | translate}}</span>
+      </label>
+
+      <div class="padding">
+        <button ng-disabled="!applicationStatusForm.$valid" ng-click="applicationsearch()" class="button button-block  customBgColor"><i class="icon ion-search fonth3"></i>
+        <span translate="SEARCH"></span></button>
+      </div>
+    </div>
+
+  </form>
+
+</ion-content>
+</ion-view>
+
+

@@ -1,0 +1,87 @@
+<ion-view  class="titlecss">   
+
+  <ion-nav-bar class="bar-dark" align-title="center">
+    <ion-nav-back-button class="button-clear">
+      <!-- <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button> -->
+      <button class="icon ion-chevron-left" ng-click="myGoBack()" style="background: transparent;border: none;"></button>
+      <img style="right: 46%; position: absolute; margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  
+  <ion-content delegate-handle="so-handle" has-bouncing="false">
+    <div class="headingDiv">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading">{{heading}}</h3>
+    </div>
+
+    <ion-list class="fsa-list so-list">
+      <!-- <ion-item class="item-text-wrap card so-item" ng-repeat="job in timeTableData track by $index">
+        <div class="row">
+          <div class="col padding">
+            <h2 class="text-left">{{job.RouteName}}</h3>
+          </div>
+        </div>
+      </ion-item> -->
+      <div ng-show="ByRoute">
+      <ion-item class="item-text-wrap card so-item" ng-repeat="job in routetimingsData track by $index" >
+        <div class="row">
+          <div class="col padding">
+            <h3><b>ETA Details:</b></h3>
+            <h3 class="text-left">Route No: {{job.RouteName}}</h3>
+            <h3 class="text-left">{{job.SourceName}} -> {{job.DestinationName}}</h3>
+          </div>
+        </div>
+      </ion-item>
+
+      <table class="gridtable item card" style="display: block !important; overflow-x: auto !important; padding: 0px !important;">
+        <tr>
+           <th class="boTh" style="width:20% !important">Sr No.</th>
+           <th class="boTh" style="width:60% !important">Stop Name</th>
+           <th class="boTh" style="width:20% !important">Arrival Time</th>
+           <!-- <th class="boTh"></th> -->
+        </tr>
+        <tr ng-repeat = "job in routeDetailsData" class="lastRowBold">
+          <td class="boTd">{{ $index }}</td>
+          <td class="boTd" style="text-align: left;">{{ job.StopName }}</td>
+          <td class="boTd" style="text-align: left;">{{ job.arrivalTime }}</td>
+          <!-- <td class="boTd" style="text-align: left;">{{ subject.total }}</td> -->
+        </tr>
+       </table>
+      </div>
+       
+       <ion-item class="item-text-wrap card so-item" ng-show="!ByRoute">
+        <div class="row">
+          <div class="col padding">
+            <h3><b>ETA Details:</b></h3>
+          <h3 class="text-left "> Source Stop Name : {{sourceStop}} </h3>
+            <h3 class="text-left ">Departure Time : {{sourceStopTime}} </h3>
+            <h3 class="text-left" style="padding: 5px;"></h3>
+            
+            <h3 class="text-left">Destination Stop Name : {{destinationStop}}</h3>
+            <h3 class="text-left"> Arrival Time  : {{destinationStopTime}}</h3>
+          </div>
+        </div>
+      </ion-item>
+    
+    </ion-list>
+
+    <p class="redNote" translate="TIMETABLENOTE"></p>
+
+    <div></div>
+  </ion-content>
+</ion-view>
+
+<style>
+  .gridtable th,td{
+    border-bottom: 1px solid #004c8f !important;
+  }
+
+  .makeBorder, .boTh, .boTd{
+    border: 1px solid #004c8f;
+    border-collapse: collapse;
+  }
+
+  .makeBorder, .boTh, .boTd{
+    border: 1px solid #004c8f;
+    border-collapse: collapse;
+  }
+</style>

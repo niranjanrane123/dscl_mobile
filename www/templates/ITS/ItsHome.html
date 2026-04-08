@@ -1,0 +1,232 @@
+<ion-view>
+  <!-- <ion-nav-bar class="bar-dark" align-title="center">
+    <ion-nav-back-button class="button-clear">
+      <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="ItsHomeCTRL" style="background: transparent; border: none;"></button>
+      <img style="right: 46%; position: absolute; margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width="38px" height="35px" />
+    </ion-nav-back-button>
+  </ion-nav-bar> -->
+
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+
+   
+<ion-content  delegate-handle="so-handle" has-bouncing="false">
+ 
+    <div class="headingDiv">
+      <h3 class="heading">{{ "EBUSNEARBYSTOPS" | translate}}</h3>
+    </div>
+    <div class="row" style="width: 94%; margin-left: 3%;" ng-click="getNearByStopsFun()">
+      <div class="col">
+        <a class="button button-so-tab active-tab">
+          {{"LocateMyBus" | translate}}
+        </a>
+      </div>
+    </div>
+        <!-- <div class="row" style="width: 94%; margin-left: 3%;" >
+      <input
+        type="search"
+        id="searchinput"
+        ng-trim="false"
+        limit="20"
+        ng-change="searchOtherBusStops(mysearch1)"
+        data-ng-model="mysearch1"
+        class="searchBox"
+        placeholder="{{ 'SEARCHBYSTOPS' | translate }}"
+      />
+    </div> -->
+ 
+
+      <div class="subhead" ng-if="noBusStopNearBy">
+        <!-- <h4 ng-if="noBusStopNearBy">{{'NOBUSSTOPNEARBYU' | translate}}</h4>
+          -->
+        <marquee ng-show="noBusStopNearBy" style="top: 8px; color:red; font-weight: bold;"  direction="left" class="marquee-style">
+	 {{'NOBUSSTOPNEARBYU' | translate}};
+			</marquee>
+      </div>
+
+ 
+    <ion-list class="fsa-list so-list">
+      <div
+        ng-repeat="job in nearByStopsList"
+        ng-click="view.onJobClickDirect(job);"
+        class="card"
+      >
+       <div class="card-content">
+  <div class="bus-image-container">
+    <img src="./img/ebus.png" alt="Bus" class="bus-image" />
+  </div>
+  <div class="left-details">
+    <div class="bus-stop-name">{{job.stopName}}</div>
+    <div class="bus-stop-address scrollable-address">{{job.address}}</div>
+  </div>
+  <div class="right-icons">
+    <div class="men-emoji">👤</div>
+    <div class="distance-icon">
+      <i class="iconD">|</i>
+      <div class="distance" style="margin-left: -38px;">{{job.distance}}({{job.direction}})</div>
+      <i class="iconD">|</i>
+    </div>
+    <div class="location-emoji">📍</div>
+  </div>
+</div>
+
+      </div>
+      <!-- <div class="subhead">
+        <h4 ng-if="!nearByStopsList">{{'NoBusTopRange' | translate}}</h4>
+        <h4 ng-if="nearByStopsList">{{'BUSSTOPOTHER' | translate}}</h4>
+    </div> -->
+      <!-- <div
+        ng-repeat="job in allBusStopList | filter:mysearch1 track by $index"
+        ng-click="view.onJobClickDirect(job);"
+        class="card"
+      >
+        <div class="card-content">
+          <div class="left-details">
+            <div class="bus-stop-name">{{job.PoiName}}</div>
+            <div class="bus-stop-address">{{job.PoiAddress}}</div>
+          </div>
+        </div>
+      </div> -->
+    </ion-list>
+   
+  </ion-content>
+</ion-view>
+
+<style>
+  .scrollable-address {
+  max-height: 60px;         /* Adjust height as needed */
+  overflow-y: auto;         /* Vertical scroll if content too long */
+  white-space: normal;      /* Allow line wrap */
+  word-wrap: break-word;    /* Break long words */
+  padding-right: 5px;       /* Some padding for scrollbar */
+  border: 1px solid #ddd;   /* Optional: border to show scroll area */
+  background-color: #fafafa;
+  font-size: 0.95em;
+  line-height: 1.2em;
+}
+
+    .iconD {
+    font-size: 12px !important;
+    color: #3880ff !important;
+    margin-bottom: -4px !important;
+}
+  .searchBox {
+    width: 94%;
+    margin: 10px 3%;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .card {
+    width: 95%;
+    height: 15vh;
+    background: #fff;
+    border-radius: 8px;
+    margin: 10px 10px;
+    box-shadow: 6px 6px 3px 9px rgba(0, 0, 0, 0.1);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+}
+.men-emoji, .location-emoji {
+  font-size: 18px;       /* Controls the size of the emoji */
+  width: 30px;           /* Custom width */
+  height: 30px;          /* Custom height */
+  line-height: 2px;     /* Vertically center the emoji */
+  text-align: center;    /* Horizontally center */
+}
+
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
+
+  .left-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .bus-stop-name {
+    font-weight: bold;
+    font-size: 18px;
+    color: #222;
+  }
+
+  .bus-stop-address {
+    width: 90%;
+    font-size: 14px;
+    color: #666;
+    margin-top: 6px;
+  }
+
+  .right-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding-left: 10px;
+  }
+
+
+  .distance-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px -3px;
+  }
+
+  .distance-icon i {
+    font-size: 20px;
+    color: #3880ff;
+    margin-bottom: 4px;
+  }
+
+  .distance {
+    font-weight: 600;
+    font-size: 12px;
+    color: #333;
+  }
+    .float{
+    position: sticky !important;
+    bottom: 6rem ;
+    left: 30rem;
+}
+.subhead{    
+    color: #e42112;
+    padding: 0 30px;
+    margin-top: 19rem;
+    /* border-bottom: 1px solid black; */
+    /* border-top: 1px solid black; */
+}
+    .bus-image-container {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10px;
+}
+
+/* .bus-image {
+  width: 100%;
+  max-width: 50px;
+  height: auto;
+} */
+.bus-image{
+    height: 10rem;
+    width: 8rem;
+    margin-left: -5rem;
+}
+
+</style>

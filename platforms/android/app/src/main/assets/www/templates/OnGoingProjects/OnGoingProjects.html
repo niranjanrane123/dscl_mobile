@@ -1,0 +1,13 @@
+<!-- Header -->
+<!-- <ion-view title="{{'ECHATTISGARH' | translate}}">  -->
+    <!-- <ion-view title="On Going Projects">  -->
+    <ion-view ng-controller="OnGoingProjectsCtrl" title={{pageTitle}}> 
+    <ion-nav-bar class="bar-dark" align-title="center"> 
+    <ion-nav-back-button></ion-nav-back-button></ion-nav-bar>
+
+    <ion-content  class="HomeBackground">
+
+        <div class= "on-going-projects-section" ng-bind-html = "projects" ></div>
+
+        
+    </ion-content>

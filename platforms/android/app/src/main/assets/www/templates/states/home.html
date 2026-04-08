@@ -1,0 +1,768 @@
+<ion-view class="titlecss" hide-back-button="true" >
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+    <!-- <div side="center">
+      <img src="./img/doon1-3d-test_13-10-2021.png" style="margin-left: 118px;
+      height: 30px;
+      width: 40px;">
+      </div> -->
+      <img style="right: 46%;
+     position: absolute;
+     margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+    <!-- <img style="right: 5px;
+    position: absolute;
+    margin-top: 1px;" src="./img/Dehradun_Logo.jpg" width=30px; height=30px;> -->
+  </ion-nav-buttons>
+
+  <ion-content class="HomeBackground" style="margin-bottom: 70px;" ng-controller="HomeCtrl">
+
+    <div style="width:100%;text-align:center;">
+      <h6 style="letter-spacing: 3px;
+    padding: 5px;
+    font-size: 1em;font-weight: 800;">{{'Welcome' | translate}}, {{loginUSername}}</h6>
+    </div>
+    <!--<div class="bar row-no-padding header-bg">-->
+    <!--<div class="col"><img src="./img/chattisghah.png" width=55px; height=55px;></div>-->
+    <!--<div class="col col-75"><h3>Discover All Citizen Services Here</h3></div>-->
+    <!--</div>-->
+
+    <div>
+      <ion-item class="module">
+        <a class=" gridnopadding" ui-sref="app.applicationList">
+          <img src="./img/applicationStatusIcon.png" width="30" height="30">
+          <span style="color: #013561;font-size: 14px;font-weight: bold;"
+            translate="StatusofServiceApplications"></span>
+        </a>
+
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-item class="module">
+        <a class=" gridnopadding" ui-sref="app.applicationPaymentStatus">
+          <img src="./img/spotBill.png" width="30" height="30">
+          <span style="color: #013561;font-size: 14px;font-weight: bold;" translate="StatusofPayments"></span>
+        </a>
+      </ion-item>
+
+    </div>
+
+
+    <!--QUICK Service-->
+
+    <div ng-repeat="group in groups">
+      <ion-item class="module" ng-click="toggleGroup(group)">
+        <img ng-src="{{group.img}}" width="30" height="30">
+        <i ng-if="group.name != 'COMPL_SERVICE && check'" style="float:right" class="icon"
+          ng-class="isGroupShown(group) ? 'ion-arrow-up-b' : 'ion-arrow-down-b'"></i>
+        &nbsp;
+        <span style="color: #013561;font-size: 14px;font-weight: bold;" translate="{{group.name}}"></span>
+      </ion-item>
+      <ion-item class="item-accordion" ng-if="isGroupShown(group) || group.name == default">
+
+        <div ng-if="group.name == 'Property'">
+          <div>
+            <div class="row margin-0">
+              <div class="col col-33">
+                <div class="list text-center">
+                  <a class=" gridnopadding" ng-click="comingSoon()">
+                    <img src="./img/propertyBillIcon.png" height="40" width="40">
+                    <h5 style="font-size:13px;" translate="BILLPAYMENT">Bill Payment</h5>
+                  </a>
+                </div>
+              </div>
+
+              <!--              <div class="col col-33">-->
+              <!--                <div class="list text-center">-->
+              <!--                  <a class=" gridnopadding" ui-sref="app.noChangeValidate">-->
+              <!--                    <img src="./img/noChangeAssmIcon.png" height="40" width="40">-->
+              <!--                    <h5 style="font-size:13px;" translate="NOCHANGE" style="font-size: 9px;">NoChange Assessment</h5></a>-->
+              <!--                </div>-->
+              <!--              </div>-->
+              <!--              <div class="col col-33">-->
+              <!--                <div class="list text-center">-->
+              <!--                  <a class=" gridnopadding" ui-sref="app.propertySearch">-->
+              <!--                    <img src="./img/propertyMutation.png" height="40" width="40">-->
+              <!--                    <h5 style="font-size:13px;" translate="PROPERTYMUTATION" style="font-size: 9px;">Mutation</h5></a>-->
+              <!--                </div>-->
+              <!--              </div>-->
+            </div>
+          </div>
+        </div>
+        <div ng-if="group.name == 'LANDANDINSPECTION'">
+          <div>
+            <div class="row margin-0">
+              <div class="col col-33">
+                <div class="list text-center">
+                  <a class=" gridnopadding" ng-click="comingSoon()">
+                    <img src="./img/landinspection.png" height="40" width="40">
+                    <h5 style="font-size:13px;" translate="LANDANDINSPECTION"></h5>
+                  </a>
+                </div>
+              </div>
+
+              <!--              <div class="col col-33">-->
+              <!--                <div class="list text-center">-->
+              <!--                  <a class=" gridnopadding" ui-sref="app.noChangeValidate">-->
+              <!--                    <img src="./img/noChangeAssmIcon.png" height="40" width="40">-->
+              <!--                    <h5 style="font-size:13px;" translate="NOCHANGE" style="font-size: 9px;">NoChange Assessment</h5></a>-->
+              <!--                </div>-->
+              <!--              </div>-->
+              <!--              <div class="col col-33">-->
+              <!--                <div class="list text-center">-->
+              <!--                  <a class=" gridnopadding" ui-sref="app.propertySearch">-->
+              <!--                    <img src="./img/propertyMutation.png" height="40" width="40">-->
+              <!--                    <h5 style="font-size:13px;" translate="PROPERTYMUTATION" style="font-size: 9px;">Mutation</h5></a>-->
+              <!--                </div>-->
+              <!--              </div>-->
+            </div>
+          </div>
+        </div>
+        <!-- <div ng-if="group.name == 'WATER'">
+          <div class="row margin-0">
+            <div class="col col-33">
+              <div class="list text-center">
+                <a class=" gridnopadding" ng-click="comingSoon()">
+                  <img src="./img/waterBillIcon.png" height="40" width="40">
+                  <h5 style="font-size:13px" translate="BILLPAYMENT">Bill Payment</h5>
+                </a>
+              </div>
+            </div>
+           
+          </div>
+
+        
+        </div> -->
+
+        <div ng-if="group.name == 'SWM'">
+          <div class="row margin-0">
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ng-click="navigatecomplaint(true)">
+                  ui-sref="app.swmHome"
+                 <img src="./img/fileComplainIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px; " translate="LODGECOMPL">Register Complaint</h5>
+            </div> --> 
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.swmcompainlist">
+                  <img src="./img/complaintStatusIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="COMPLSTATUS">Citizen Complaint List</h5>
+            </div>
+          </div>
+        </div>
+        
+
+
+        <div ng-if="group.name == 'QUICK_SERVICES'">
+          <div class="row margin-0">
+            
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.helpLine">
+                  <img src="./img/helpLineIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px;" translate="CITIZENHELPLINE">Citizen HelpLine</h5>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.knowYour">
+                  <img src="./img/wardZoneIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="KNOWWARDZONE"></h5>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.applicationStatus">
+                  <img src="./img/applicationStatusIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="APPLICATIONSTATUS">Application Status</h5>
+            </div>
+          </div>
+
+          <div class="row margin-0">
+            <!--              <div class="col col-33">-->
+            <!--                <div class="list text-center">-->
+            <!--                  <a class=" gridnopadding" ui-sref="app.nearBy">-->
+            <!--                    <img src="./img/nearbyIcon.png" height="40" width="40">-->
+            <!--                    <h5 style="font-size:13px" translate="NEARBY">NearBy</h5></a>-->
+            <!--                </div>-->
+            <!--              </div>-->
+
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center" ng-click="inappbrowserlinnk(dashBoardURL)">
+                <a class=" gridnopadding">
+                  <img src="./img/dashBoradIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="DASHBOARD">DashBoard</h5>
+            </div> -->
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center" ng-click="inappbrowserlinnk(portalURL)">
+                <a class=" gridnopadding">
+                  <img src="./img/protalIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="PORTAL"></h5>
+            </div> -->
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.trafficlist">
+                  <img src="./img/traffic.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="TRAFFIC"></h5>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.environment">
+                  <img src="./img/environment.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="ENVIRONMENT">Environment </h5>
+            </div>
+            <!--              <div class="col col-33">-->
+            <!--                <div class="list list-icon text-center" ng-click="inappbrowserlinnk('https://edistrict.cgstate.gov.in')">-->
+            <!--                  <a class=" gridnopadding">-->
+            <!--                    <img src="./img/deathBirthCertificateIcon.png" height="40" width="40">-->
+            <!--                    <h5 style="font-size:13px" translate="BIRTHDEATHMARRAIGE"></h5></a>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.echallan">
+                  <img src="./img/echallan.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="ECHALLAN">EChallan </h5>
+            </div>
+          </div>
+
+          <div class="row margin-0">
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.environment">
+                  <img src="./img/environment.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="ENVIRONMENT">Environment </h5>
+            </div> -->
+
+          
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.itshome">
+                  <img src="https://cdn2.iconfinder.com/data/icons/moscow-transport/100/__-512.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="ITS">ITS </h5>
+            </div>
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ng-click='callSOS()'>
+                  <img src="data:image/png;base64,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" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="EMERGENCY_CALL_112">Emergency Call 112</h5>
+            </div>
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.propertytax">
+                  <img src="img/propertyBillIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="PROPERTYTAXBILLPAYMENT">PROPERTYTAXBILLPAYMENT</h5>
+            </div>
+          </div>
+
+<!-- SOS Calling start 112 -->
+            <div class="row margin-0">
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ng-click='callSOS()'>
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAkFBMVEXkHib////iAADlJy/kFh/97+/oT1T529vjAA7kGSLjAAbjEx3jABHjAArjChfjDxr1xMXseHvwm5340NH+9vb86urypqjpXGDzsLHwl5nseXzrbnH3ysvui431vL7519jtgYToU1fuiIvlMTfqYmbnQ0jzr7D1vr/oVlryqKnmPELlLjTqaGznQUblJCv409SzzrHQAAAPHElEQVR4nO1d63qqOhDFKSrITa13q9t6qVatff+32yACCTDJBFspfK5/x9NsskgymcysDFojB//WL1r1cFr8yyOjZX+anMAru7eF4MJmSWC4NDtm2V0tDBO0DMcUw+EXVJdfABN2QxHDPuhld/Fu6DDCGb5D2d37EcAYYTjUqmlgsnBfmnkM2071Z2gE3R5mGQ4rbmJ4mM4wzbBp14mgT9EapBhu6jNFQ1hHnuHZLbtHPw67xzJc1mOb4AH7hOGgjgQ1zRnEDOd12Qh5uLOIYbueQ+jP0+GN4dgquyu/BGsbMqztEIaD6DOc1XMVBnDXV4b1HUJ/EAOGS6fsbvwioOszrOlWEcLr+QzrPEl9362h1diSBoChtjTK7sSvwtlr0/qdKli4fW1eV4cmhDXTWvU626ehj7VN2X34XZi7snvw6ziV3YFfRxWzaGp4Mqw+ngyrjyfD6uPJsPp4Mqw+ngyrjyfD6uPJsPp4Mqw+ngyrjyfD6uPJsPp4Mqw+ngz/Ckzd8qEXyHXewdCFLMQtLCfbQtxn03Ltjv9X1vF9ez6fD0f/oYanxLMoQws6q9d2Bh28hW7AtpttgaagTc/w+Y/Xn902c7WgMWhPVhq4dJKFGPqdPXcbORhig2jasPsY5DXJlZdbNsBx9fGd2yKQi049h8pRnSHe2UZjny8gc+EyHea3yKqTdZ/duP+KcIsxuRBVMqoM/c72kc76mNrZFsF8zr0XeMU3z9Bfqa0+/tcc+rQLIkoMLXAEnfVxTitX0PkcYcKNhDdfYhMzB8MLRShDZ6g7ks76OHFv1Z/PrYmkx2tWr+T16PSu+CKIDokMr52VP5Gdci68COZzhANraeyR9O9TINyDITE04UToLCenBmNNWk6c5AzeVBkO5OaGwtDctWnPS7S4BrGvTc7QAOU18uhKlZUUhu6U+LhYBGge5X98xSvXQUeZIOGeAYWhk3NBOhfb6Glkk/HBzjL9vQBDqTyWwhCIk7RxiUyp3Se2WLHrMBDWq6MlMTYkhsRnJf5JR7at5HbPIFjrLCYSY0NgaL4Qn5VMGLLJ4HoHRGeGR1MyTQkMrTPxWYkppY56ypQq+DMMLmLnjcDQpprSRbSo9B2xxRvL0MwpYEFBxlVUZujsiY9KTOmM2OKT9dTJcyWFhVioTmBINqVabEqp3teK9SvJcyWFUc6BRpEh8UmJKSV7XzvWlJLnSgofYmMqZ2huiE/6lzBsyv/6Ct7QUOfKTzP05sQnJRuTQWzBBz2oc+XHGZL9k8SUtogt3tjAVb4v23xdjkZL4ej2712HZP8k9oHdFbEFZyOyBnj4MdcBHNt24PSN/yvre20p2T+J7aLxQWzR40wpb4Db0xMTGTUBp7i9dz8sYEqlgbIbvlhvhDXAw+lLKiSq4/buXp+GXx7fPXRb/s43pcOpi/aNNzRRq8HHDrJlSNCpJKuWIGXIHPWGUw0A3cwTk+YlT5/soDPGWvCm9GaAu2cw8s5D6B77716G8fKYtII3i2/m8YLXD7df3uZBZ/EIQZc1pbr/IobLOQCyqlCDJ3Fp5Aw7b7fOhhWI8M38PXrz4UG2vbDDqm+4q8KZefMw08DBo4Po0UrieMsZ+pTaCzcuUWdh3W3E3fUPsoPRBqIhxW0xZ0o1U5xSQg3e3VEMd3KEZMO5lmHIRXLUc/tb1lLgtviokCXzMAv3fX+chjNruP/PRM1cdt4IzooqV6xRp1VydlLOzOCL6hPxDnEHB03F5cBGT5yWbCIoMsQX1Qp5l7iDg6Ti8mCh+/3bj0SEGeCLCgvq4eElicfMwNLQCI7EZdNUGQpODVh+Gw8vkatVeC/ov0GY6WoM8UWFxfQEocgN0ZQ6gsMYtjYYqDHEY7bYehCcn2mGxoQFTlAWKw2gxhBfVJ/IosLPz7R6HJ4tivlQJroiQ/RZWJ2iDtpBkimFrShKLHO6r1BiaJ7Qh+0wU4r6sXmqhhQ8EGe9SCtZiWGBRWWjLWQec1BoVRzmX5D0JkoM8UgvZrUt9HDYeJEMgNeRpC1faaZKiSF+OHxDtkMXN4SS/olXoI8BsRypGkN0UWHHUDx9LDallmQF+jgSq84oMcQjLj3ElOJxbGGFMXiXJtoO1MJBKgwFi+oLmTH49iIobWTiwaAYY7JTq8JQoMnAfLYvtAXuMrsXeQKDTlCJIb6oMFPq4dFvDbMTgIYREuwUalupMMQXVRcxpfjhEI1ygjxNolZ3XIkh+kzsqIfH4hGHyySkHidqZbkVGAoiLqgpRU3iJNeUWqY8SXJWrKCnwFCQUkKiZgLtQW4AydtIN4muq1peToGhIKWE+Wy4H5snR3OlEo7mWL1wvAJDfFFhplSQXM25OSEnuMBC/j/FEJ1CXcQ/wZOrOabUkukZRwZ9EyzEUBBxQU0pajeykWpTF6/BiVmwkCydoeBwiAUTOnh/M0c7sRJjeSn88Rs6Q8GiQs7aAr1oJvcOosz4/nTHlynoDAWKBcTQCA6Hh1TQw8Od+sbr8a4vb9AZ4odD7Kgn0BZnhhBdhM3tnR/3UZilaHexox6+tNJxzg46Rz/v/rgWmaF1wDqBRs1wPzYVYsGFZdv7ixyTGQoWFRI1Ewj2U0It1N3+KrQD8iAzFCwqRNAiUJny6QYdOye3fqLEMZmhYL/CfLZPtAWfigPESi+gE8OJYQSwA9D40xmi3cVMqUAaxU1S1FladhMsA+wnIT4+RqN+f0qrYk1lKIi4oKYU3wG4d6J+n+sG2rdjqAwFiwp5laaOtuBTcQUl+tTsFZWhgS8qJGqGC1NSAnZC5Ckf8hy+CkOB+tHMN6UCYTonYCffqspAdltGkSE6lbDVIBCmc6a0qPiZlJ+jMzQv6HNQU4oHldgWAl9JBiz+VYih4LZHftRMNDZc0KOwJZXfWlNiKDgcIrIrgTCFS8UVvYPQYGTXP8FQcDhELnEKLhNyqbjiy5D4KTUiQ8GiQt6k4DIhq2og31zIgqRTIDPEb+hib1Iw+9hUnODIIgPxG0c0hoKIC/YmBbOPbeEUujd6hVR3qcJQ8KaRbVdwW4ozpcXujV7xTotu0BgK/A7kxorgNjeXiiNfAsuCePynMRQsqnTU7AbBNtf/GVNK/YoTkSH+ICxGg+cBWVdEoLKSAVPSFWIoiLhg6kDB7GNTcYWKDISgfrSRxFBwOMSESR7agvdKC979Vfh0KomhIOKCXG8UHPo4U6pckSYG7ehEZSiIuCAiXYEwhVNdCsQaEpyokX4aQ/xBiH/v4IaGM6Veb9AsgsH6ZxVD5nsLwTvyJs0d2oJ/+V5OWTsK6JFUoteGAn0paItHfwStKnUTi+PJsPp4Mqw+ngyrjyfD6qNEhiaS0rE818v1lbAGYpTE0OsAXDYvAJ1UuNUFezxb9w7pygNBWeaXzQXAUZUnlsLQgl43jAE0uzPWifZgHUWEXreMEsqD1VuY/Gruz4oSzDIY2geuuPMsKRnC3QR6daO5CnP292ZWZCOKK5bA0E6LHKMKnWmZ/uB2YyFzi/QzRdE9CEIaj2eoZ8NaIcXsTZkwzJUTERlxjKz3xh4vJP54hnn58iDA6OaEbCYBk7ywHZ9FHja6G/RI/HCGSbh/NO9FSYsBMLr+wWgax0BOJjOE0/ksypyz2RJ73WhAe4lN1IczjPOKI/A8OPkmZPC28IcEos63wbDjlTeyk+j5OmgQJOMG3TWTvjLtRmMxx+/pPpxh3OFusE24vX4LwDeaSfD7EvQ0yle2IVE8XIWYxmJxhA5bQwom/nod4Mm2xzOMDWZ7ZfujctsS4pDs/jrbOhEthmHjX8/f793URwOCmzzvwVvDrkQ8nCEXP+/OwbjtCFGSOVTFx8mui8lJCJZjSIUR/YZv7m0t5+LxtjR1EfXDCqxgYmdCAnFiZ2OmFHWDfofzafRWW78GrLEMyuMZGmlZx7zD3B+65cziId2YiQ2KOLa4YdThyLbMoASfJpN4W9lJkvlmL+Ioe/CfmezlmHfXw///ZyyNFnhhKQnZUY8tbCh0TC4CBgOTvRfMFxYKfQgsrV/K2cKGFTcseydmGKZP403zNvUMg/8CCH8NKdTcYXW1SjofuvDFfOdkALHBDKWc8WYRJ3pdeGe0BO1sDhIt5PJ4htcv5ITf9ogHEuJ1GDKMl2GgtzDdsIEDvWggOTrhMsQqcT2aoQVwnH1+h7uzFxOBWKF4lXa40Z45BA/gazVph36orcW/M/9k6LdiFQEezNCKhm0Phus5l6TDEdk2WLrrRBN41YkW7AhsN/RKA7C59XBjwZUZj2WYbOzN0WrWj4hMjMSJed3uZtFxaQiJ7G3oN4hNKmM3jTDbjFcbevAszWz3V/hnpFwN1U7PbPchkvPuTdorqPn1aEuTpz2aBkbCyGb+V9ffc86/1wELPfabxEBQMOrRDE0nI2S7RV0ydywX199NLSP8vP4PaxzcKjVCb08kxCwhipEarDjUBrzmNqoskPZoBttgjppuo3kEeA9/ExWMKiPW5izicWxPjcRo2C/Jpv7JVBZwrGk8t9vr8EIiLP1NcXgb3qlIaVqKT+MC7OazVe/g8qc903Hmo+V+Mh1Hx8bb7zY4rflq1Ws5t/hx4Li2orEVi4XLylvoluflZSc823EMOyeqrXtsA99gdSNhWVNcMKqauafA6YmFWiexkraaDP3TRP92+3uwubdS8l+EPfGPI+E+2dZ+4otWfw764d/5amaaK/lV/Uoy1HQwev3RokWRt71ol9/v0G/Asm2XJNbfaOjBqh4wW9r4vqIMfx36WVvdW5bhb8Nba7JvC1Qc9qeGFeasCeBVI8v6qwkYaHTVexVhfjU06i23asLu+wyJdzGrCf+YpclrFlcYwY0tLSj1VnZHfg3BFdUgRlvfaRp8YilgSCu/UEEYoxvDRk2nqXkN5VwZTuo5T8Oi4GGupFWgbOafxy1lFzKkfAqjcrhVnLnlu/b1oxiVEIsyeou6UYzzI3HO8lwvg+rEctWkXPO2ThSdRGrNFKSe12eiAiM4Zktu12YtcjlKrqj4vkg56T8Hi1fO8WXTm627Ktr+BZhw4GVz6cLwS7faBsfw0pVmsqXv+x2nquNoOka2akxecf+PTep7w5WAacMxryZT/ucL2tMNdGzv4eUBisHUPbsDx2l+nSD0Aw2Dt9FqfCy78yQcx6vRG1rY8T/4pcsbYaR37AAAAABJRU5ErkJggg==" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="EMERGENCY_CALL_112">Emergency Call 112</h5>
+            </div> -->
+         
+
+            <!-- <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.propertytax">
+                  <img src="img/propertyBillIcon.png" height="40" width="40">
+                </a>
+                <h5 style="font-size:12px;padding: 5px;" translate="PROPERTYTAXBILLPAYMENT">PROPERTYTAXBILLPAYMENT </h5>
+              </div>
+              
+            </div> -->
+            </div>
+<!-- SOS Calling End 112 -->
+
+          <!--            <div class="row margin-0">-->
+          <!--              <div class="col col-33">-->
+          <!--                <div class="list list-icon text-center" ng-click="inappbrowserlinnk('https://cggrievance.cgg.gov.in/')">-->
+          <!--                  <a class=" gridnopadding">-->
+          <!--                    <img src="./img/grivenceIcon.png" height="40" width="40">-->
+          <!--                    <h5 style="font-size:13px" translate="GRIEVANCE"></h5></a>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--              <div class="col col-33">-->
+          <!--                <div class="list list-icon text-center" ng-click="inappbrowserlinnk('https://edistrict.cgstate.gov.in')">-->
+          <!--                  <a class=" gridnopadding">-->
+          <!--                    <img src="./img/tradeLicense.png" height="40" width="40">-->
+          <!--                    <h5 style="font-size:13px" translate="TRADELICENSE"></h5></a>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--              <div class="col col-33">-->
+          <!--                <div class="list list-icon text-center" ng-click="inappbrowserlinnk('http://eproc.cgstate.gov.in')">-->
+          <!--                  <a class=" gridnopadding">-->
+          <!--                    <img src="./img/eProcurment.png" height="40" width="40">-->
+          <!--                    <h5 style="font-size:13px" translate="EPROCUREMENT"></h5></a>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <div class="row margin-0">-->
+          <!--              <div class="col col-33">-->
+          <!--                <div class="list list-icon text-center" ng-click="inappbrowserlinnk('https://bpms.sudacg.in/')">-->
+          <!--                  <a class=" gridnopadding">-->
+          <!--                    <img src="./img/buildingPermission.png" height="40" width="40">-->
+          <!--                    <h5 style="font-size:13px" translate="BUILDINGPERMISSION"></h5></a>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </div>-->
+        </div>
+
+        <div ng-if="group.name == 'NEARBY'">
+
+          <!--            <div class="col col-33" ng-repeat="location in locationGroup">-->
+          <!--              <div class="list text-center">-->
+          <!--                <a class=" gridnopadding"  ng-click="filecomplaint()">-->
+          <!--                <img src="./img/fileComplainIcon.png"  height="40" width="40">-->
+          <!--                <h5 style="font-size:13px" translate="LODGECOMPL" ></h5></a>-->
+          <!--              </div>-->
+          <!--            </div>-->
+
+
+          <div class="row margin-0" ng-repeat="location in locationGroup" ng-if="$index % 24 === 0">
+            <!--            <div class="row margin-0">-->
+            <!--<div class="col col-33" >
+                <div class="list list-icon text-center"  ng-click="openLocation(locationGroup[2].id)">
+                  <a class=" gridnopadding">
+                  <img src="./img/school.png"   height="40" width="40">
+                  </a>
+                </div>
+                <h5 style="font-size:13px" >{{locationGroup[2].name}}</h5>
+              </div>
+
+
+              <div class="col col-33" >
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding" ng-click="openLocation(locationGroup[4].id)">
+                  <img src="./img/hospital.png"  height="40" width="40">
+                  </a>
+                </div>
+                <h5 style="font-size:13px" >{{locationGroup[4].name}}</h5>
+              </div>
+
+
+              <div class="col col-33" >
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding" ng-click="openLocation(locationGroup[6].id)">
+                  <img src="./img/police-station.png"  height="40" width="40">
+                  </a>
+                </div>
+                <h5 style="font-size:13px" >{{locationGroup[6].name}}</h5>
+              </div>-->
+
+
+            <!--              <div class="col col-25" >-->
+            <!--                <div class="list text-center">-->
+            <!--                  <a class=" gridnopadding" ng-click="openLocation(locationGroup[$index + 3].id)">-->
+            <!--                  <img src="./img/nearbyIcon.png"  ng-if="$index + 3 < locationGroup.length" height="40" width="40">-->
+            <!--                  <h5 style="font-size:13px"  >{{locationGroup[$index + 3].name}}</h5></a>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--            </div>-->
+          </div>
+          <div class="row margin-0">
+            <!--            <div class="row margin-0">-->
+              <div class="col col-33">
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding" ui-sref="app.nearBy">
+                    <img src="./img/placeholder.png" height="40" width="40">
+                  </a>
+                </div>
+                <h5 style="font-size:13px" translate="GIS"></h5>
+              </div>
+
+          </div>
+        </div>
+
+        <div ng-if="group.name == 'COMPL_SERVICE'">
+          <div class="row margin-0">
+            <div class="col col-33">
+              <div class="list list-icon text-center" ng-click="navigatecomplaint(false)">
+                <a class=" gridnopadding">
+                  <!-- ui-sref="app.complaintrefrence" -->
+
+                  <img src="./img/fileComplainIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px; " translate="LODGECOMPL">File Complaint</h5>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ui-sref="app.complaintstatus">
+                  <img src="./img/complaintStatusIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="COMPLSTATUS"></h5>
+            </div>
+
+            <div class="col col-33">
+              <div class="list list-icon text-center">
+                <a class=" gridnopadding" ng-click="reopen()">
+                  <img src="./img/reopenComplaintIcon.png" height="40" width="40">
+                </a>
+              </div>
+              <h5 style="font-size:13px" translate="REOPENCOMPLAINT"></h5>
+            </div>
+          </div>
+          <!--          <div class="row margin-0">-->
+          <!--            <div class="col col-33">-->
+          <!--              <div class="list list-icon text-center">-->
+          <!--                <a class=" gridnopadding" on-tap="callNumber('1100')">-->
+          <!--                <img src="./img/callIcon.png" height="40" width="40">-->
+          <!--                </a>-->
+          <!--              </div>-->
+          <!--              <h5 style="font-size:14px" translate="CALL1100">Call 1100</h5>-->
+          <!--            </div>-->
+
+          <!--&lt;!&ndash;             <div class="col col-33">&ndash;&gt;-->
+          <!--&lt;!&ndash;              <div class="list text-center">&ndash;&gt;-->
+          <!--&lt;!&ndash;                <a class="item gridnopadding" ui-sref="app.newComplaint">&ndash;&gt;-->
+          <!--&lt;!&ndash;                <img src="./img/know-your-ward-zone-48x48.png" >&ndash;&gt;-->
+          <!--&lt;!&ndash;                <h5 translate="">View All Complaint</h5></a>&ndash;&gt;-->
+          <!--&lt;!&ndash;              </div>&ndash;&gt;-->
+          <!--&lt;!&ndash;            </div>&ndash;&gt;-->
+          <!--          </div>-->
+        </div>
+
+
+        <div ng-if="group.name == 'MUNCIPLEPROPERTY'">
+          <div class="row margin-0">
+            <div class="col col-33">
+              <div class="list text-center">
+                <a class=" gridnopadding" ui-sref="app.estateBooking">
+                  <img src="./img/muncipalBookingIcon.png" height="40" width="40">
+                  <h5 style="font-size:13px" translate="ESTATEBOOKING">Estate booking</h5>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="col col-33">-->
+        <!--<div class="list text-center">-->
+        <!--<a class="item gridnopadding" ui-sref="app.qrCode">-->
+        <!--<img src="./img/property-bill-payment-32x32.png">-->
+        <!--<h5>Get QR Code</h5></a>-->
+        <!--</div>-->
+
+        <!--        <div ng-if="group.name == 'SOCIALSECURITY'">-->
+        <!--          <div class="row margin-0">-->
+        <!--            <div class="col col-33">-->
+        <!--              <div class="list text-center">-->
+        <!--                <a class=" gridnopadding" ui-sref="app.SSApplicationForm">-->
+        <!--                  <img src="./img/applicationFormIcon.png" height="40" width="40">-->
+        <!--                  <h5 style="font-size:14px">Application form</h5></a>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+
+        <div ng-if="group.name == 'RIGHTTOINFORMATION'">
+          <div>
+            <div class="row margin-0">
+              <div class="col col-33">
+                <div class="list list-icon text-center">
+                  <a class=" gridnopadding" ui-sref="app.rtiApplicantDetial">
+                    <img src="./img/rtiIcon.png" width="60" height="55">
+                  </a>
+                </div>
+                <h5 style="font-size:13px" translate="RTI"></h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ion-item>
+    </div>
+    <div>
+      <ion-item class="module">
+        <a class=" gridnopadding"  ng-click="apuniSarkar()">
+          <img src="./img/apnisarkarlogo.png" width="30" height="30">
+          <span style="color: #013561;font-size: 14px;font-weight: bold; margin-left: 10px;"
+            translate="APNISARKAR"></span>
+        </a>
+
+      </ion-item>
+    </div>
+    <br/>
+    <!-- <div class="row margin-0">
+      <div class="col col-33">
+        <div class="list text-center">
+          <a class=" gridnopadding"  href="https://eservices.uk.gov.in/#/apuni-sarkar" target="_blank">
+            <img src="./img/apnisarkarlogo.png" height="40" width="40">
+            <h5 style="font-size:13px" translate="APNISARKAR..">Bill Payment</h5>
+          </a>
+        </div>
+      </div>
+    </div> -->
+
+  </ion-content>
+  <div class="footer">
+    <div class="row margin-00" style="margin-left: 0px !important;">
+      <div class="col col-6 divv">
+        <a class="footerButton" ui-sref="app.helpLine">
+          <img src="./img/footer_call_line.png" width="20" height="20">
+          <h5 style="color: #013561;font-weight: bold;" translate="CITIZENHELPLINE"></h5>
+        </a>
+      </div>
+      <!-- <div class="col col-33 divv">
+        <a class="footerButton"
+        ui-sref="app.Metrological">
+        <img src="./img/cloudy.png" width="20" height="20" />
+        <h5 style="color: #013561;font-weight: bold;" translate="CITYWEATHER">City weather</h5>
+      </a>
+      </div> -->
+      <div class="col col-6 divv" id="tollFree">
+        <a class="footerButton">
+          <img src="./img/toll_free_icon.png" width="20" height="20" />
+          <h5 style="color: #013561;font-weight: bold;" translate="TOLLFREENO"></h5>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</ion-view>
+<style>
+  .footerButton {
+    color: #fff !important;
+    height: 50px;
+  }
+
+  .divv {
+    text-align: center;
+  }
+
+  a:focus,
+  a:hover {
+    color: #fff !important;
+    text-decoration: none;
+  }
+
+  .divv:active {
+    background-color: #00aa55;
+    box-shadow: 0px 5px #00aa55;
+    transform: translateY(4px);
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 10px;
+    width: 100%;
+    height: 70px;
+    border-color: #111;
+    background: linear-gradient(to bottom, #0ac969 0%, #00aa55 100%) !important;
+    color: #fff;
+  }
+
+  .module {
+    background: #fff;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-left: none;
+    border-right: none;
+    border-top-color: #A1887F;
+    border-bottom-color: #A1887F;
+  }
+
+  .slider {
+    height: 86% !important;
+  }
+
+  .slider-box-height-84 {
+    height: 84%;
+  }
+
+  .slider-box-height-90 {
+    height: 90%;
+  }
+
+  .item-expand {
+    position: relative;
+    width: 100%;
+    max-height: 60px;
+    transition: max-height 0.1s ease-out;
+    overflow: hidden;
+  }
+
+  .item-expand.inactive:after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    display: block;
+    background-image: -webkit-gradient(linear,
+        left top,
+        left bottom,
+        color-stop(0, rgba(255, 255, 255, 0)),
+        color-stop(1, rgba(255, 255, 255, 1)));
+    background-image: -o-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background-image: -moz-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background-image: -ms-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  }
+
+  .item-expand.active {
+    max-height: 200px;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .input[type="text"][disabled] {
+    background-color: transparent;
+  }
+
+  /* DEMO */
+  .expand-item {
+    color: red;
+    margin-top: 10px;
+  }
+
+  .expand-item i {
+    margin-right: 10px;
+  }
+
+  .item-accordion {
+    margin-left: 5px;
+    margin-right: 5px;
+    border-left: none;
+    border-right: none;
+    border-top-color: #A1887F;
+    border-bottom-color: #A1887F;
+  }
+
+  .list .item.item-accordion {
+    line-height: 38px;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: 0.09s all linear;
+  }
+
+  .list .item.item-accordion.ng-hide {
+    line-height: 0px;
+  }
+
+  .list .item.item-accordion.ng-hide-add,
+  .list .item.item-accordion.ng-hide-remove {
+    display: block !important;
+  }
+
+  .item.item-stable {
+    border-radius: 8px;
+    margin: 6px;
+    background-color: #00aa55;
+    color: inherit;
+  }
+
+
+  .gridtable tbody tr th,
+  .gridtable tbody tr td {
+    border: none !important;
+    border-color: transparent !important;
+  }
+
+  .button {
+    border-radius: 0px !important;
+    padding: 10px 30px;
+  }
+
+  .margin-0 {
+    margin: 0px !important;
+  }
+
+  .padding-0 {
+    padding: 0px !important;
+  }
+
+  .margin-top-10 {
+    margin-top: 10px !important;
+  }
+
+  .margin-top-50 {
+    margin-top: 50px !important;
+  }
+
+  .card-box-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .item.active.item-stable,
+  .item.activated.item-stable,
+  .item-complex.active .item-content.item-stable,
+  .item-complex.activated .item-content.item-stable,
+  .item .item-content.active.item-stable,
+  .item .item-content.activated.item-stable {
+    border-color: transparent !important;
+    background-color: #00aa55 !important;
+  }
+
+  .gridtable th {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .gridtable td {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .module.item.active {
+    background: #fff;
+  }
+
+  .has-header {
+    top: 43px;
+  }
+
+  .list-icon {
+    width: 100px;
+    height: 80px;
+    padding-top: 20px;
+    border-radius: 8px 8px 8px 8px;
+    bottom: 1px;
+
+    box-shadow: 0px 0px 8px 2px #ccc;
+    background: whitesmoke;
+  }
+</style>

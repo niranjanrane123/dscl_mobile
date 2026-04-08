@@ -1,0 +1,167 @@
+<ion-view   hide-back-button="true">
+  <ion-nav-view name=“menuContent” animation=“slide-left-right”></ion-nav-view>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+    <!-- <button class="languagebuttton" ng-controller="LoginPageCtrl" ng-click="changeText(myText)" align="center">{{ myText }}</button> -->
+    <!-- <div side="center">
+      <img src="./img/doon1-3d-test_13-10-2021.png" style="margin-left: 153px;
+      width: 45px;">
+      </div> -->
+      <!-- <table style="margin-left: 153px;">
+        <tr width="100%;">
+           <td width="50%;" valign="bottom">
+           <img style="width:100%" src="https://s.w.org/images/home/screen-themes.png?1"/> </td>
+           <td width="50%;" align="center" valign="center">  text dddddddddddd  
+           </td>
+        </tr>
+     </table> -->
+     <!-- <img style="right: 45%;
+     position: absolute;
+     margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png.png" width=30px; height=30px;> -->
+     <img style="right: 46%;
+     position: absolute;
+     margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+     <!-- <img style="right: 45.5%;
+     position: absolute;
+     margin-top: 1px;" src="./img/ne_doon1_logo.svg" width=44px; height=44px;> -->
+    <!-- <img style="left: 197px; position: absolute; margin-top: 1px;" src="./img/Dehradun_Logo.jpg" width=30px; height=30px;> -->
+  </ion-nav-buttons>
+  
+
+<ion-content ng-controller="LoginPageCtrl"><br>
+
+  
+
+<form name="loginForm" style="padding-top: 65px;
+          margin-top: 12px;
+          padding-bottom: 2px;">
+
+  <!--<div class="list list-inset borderradius">
+    <select class="select-dropdown" name="ULBid" ng-model="data_.ULBid"
+      ng-options="o.name for o in ULBoptions track by o.id" required>
+      <option value="" translate="SELORG"></option>
+    </select>
+  </div>-->
+
+<!--  <ui-select ng-model="data_.ULBid" class="borderradiusselect">-->
+<!--    <ui-select-match placeholder="{{'SEARCHORSELECT' | translate}}">{{$select.selected.name}}</ui-select-match>-->
+<!--    <ui-select-choices repeat="item in ULBoptions | filter: $select.search">-->
+<!--      <div ng-bind-html="item.name | highlight: $select.search"></div>-->
+<!--    </ui-select-choices>-->
+<!--  </ui-select>-->
+
+  <div class="list  borderradius" style="padding: 10px !important">
+    <label class="item item-input item-floating-label">
+			<input type="tel" placeholder="{{ 'MOBILENO' | translate}}" name="loginmobileNo" ng-model="loginmobileNo" ng-trim="false"
+			maxlength="10" ng-keydown="onlyNumericTenLimitInput()" id="mobileNo" required>
+    </label>
+<!--    <div style="margin: 20px; max-width: 500px;">-->
+
+<!--      &lt;!&ndash; show password as type="password" &ndash;&gt;-->
+<!--      <div ng-if="!showPassword"-->
+<!--           class="form-group has-feedback">-->
+<!--        <label translate="PASSWORD"></label>-->
+<!--        <input type="password"-->
+<!--               ng-model="params.password"-->
+<!--               class="form-control"-->
+<!--               placeholder="{{ 'PASSWORD' | translate}}">-->
+
+<!--        <span ng-if="params.password"-->
+<!--              ng-click="toggleShowPassword()"-->
+<!--              class="glyphicon glyphicon-eye-open form-control-feedback"-->
+<!--              style="cursor: pointer; pointer-events: all;">-->
+<!--        </span>-->
+<!--        </label>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; show password as type="text" &ndash;&gt;-->
+<!--      <div ng-if="showPassword"-->
+<!--           class="form-group has-feedback">-->
+<!--        <label translate="PASSWORD"></label>-->
+<!--        <input type="text"-->
+<!--               ng-model="params.password"-->
+<!--               placeholder="{{ 'PASSWORD' | translate}}">-->
+<!--        <span ng-if="params.password"-->
+<!--              ng-click="toggleShowPassword()"-->
+<!--              class="glyphicon glyphicon-eye-close form-control-feedback"-->
+<!--              style="cursor: pointer; pointer-events: all;">-->
+<!--        </span>-->
+<!--      </div>-->
+
+<!--    </div>-->
+    <label class="item item-input item-floating-label">
+      <input type="{{inputType}}" placeholder="{{'PASSWORD' | translate}}" name="loginPassword"
+             ng-model="loginPassword"  ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/"  limit-character limit="15" ng-trim="false" ng-model-options="{ allowInvalid: true}"  required>
+             <span class="errorMessage" ng-show="loginForm.loginPassword.$error.pattern" translate="VALIDPASS"></span>
+    </label>
+    <div class="password-hide-show">
+    <i class="icon ion-eye eye-icon" ng-if="inputType=='password'" ng-click="hideShowPassword()"></i>
+    <i class="icon ion-eye-disabled eye-icon" ng-if="inputType=='text'" ng-click="hideShowPassword()"></i>
+  </div>
+   </div>
+  <ion-icon ios="ios-home" md="md-home"></ion-icon>
+    <div class="list  borderradius">
+      <button ng-click="login()" class="button  customBgColor circlebtn">
+      <span translate="SIGN_TEXT" style="color:#fff"></span></button>
+    </div>
+
+    <div style="margin: 0px 10px;padding: 5px;">
+      <a  ui-sref="app.Register" >
+      <span translate="REG_PAGE" style="color:black"></span> | </a>
+
+			<a ui-sref="app.forgotpassword">
+			<span translate="FORGOT" style="color:black"></span></a>
+    </div>
+    
+ <!-- <div class="comp">
+    <button ng-click="nidan()" class="button button-positive customBgColor">
+     <span translate="MAKEACOMP"></span> <i class="icon ion-chevron-right fonth3"></i></button>
+  </div>-->
+
+</form>
+
+</ion-content>
+<!--  <div class="bar bar-footer bar-balanced" style="position: fixed !important;">
+    <div class="title">Footer</div>
+  </div>-->
+ <!-- <div id="footer">Footer - Just scroll...</div>-->
+</ion-view>
+
+<style>
+
+.circlebtn {
+  display:block;
+  margin:0px auto;
+  height: 35px;
+  width: 100%;
+  position:relative;
+  text-align:center;
+}
+.comp{
+  text-align: center;
+  padding: 30px;
+  color:#36979e;
+  font-size: 15px;
+  line-height: 25px;
+  margin-top: 60px
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#footer {
+    background: #0070FF;
+    line-height: 2;
+    text-align: center;
+    color: #042E64;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #84BAFF;
+    box-shadow: 0 0 15px #00214B
+}
+
+</style>

@@ -1,0 +1,82 @@
+<ion-view>
+   <ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<!--<ion-nav-buttons side="left">
+   <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>-->
+
+<ion-content ng-controller="nidanApplicationDetailCTRL" class="animated zoomIn backgroundimage">
+
+	<form name="nidanApplicationInfoForm">
+		<div class="list">
+		    <h3 class="heading" translate="APPLICANTINFO"></h3>
+        <label class="input-label padding-left-15 required" translate="SEL_TITLE"></label>
+					<select class="select-dropdown" name="nidantitle" ng-model="nidantitle" ng-click="ttlprefix()"
+					ng-options="o.value as o.name for o in ttloptions" id="appTTlID" required>
+					<option value="" >Select</option>
+				</select><label class="item item-input item-floating-label" ></label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label required" translate="FNAME"></span>
+					<input type="text" placeholder="{{'FNAME' | translate}}*" name="nidanFirstname" ng-model="nidanFirstname"  required/>
+					<span class="errorMessage" ng-show="nidanApplicationInfoForm.nidanFirstname.$error.pattern">Please Enter Valid First Number</span>
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label" translate="MNAME"> </span>
+					<input type="text" placeholder="{{'MNAME' | translate}}" name="nidanMiddlename" ng-model="nidanMiddlename"/>
+					<span class="errorMessage" ng-show="nidanApplicationInfoForm.nidanMiddlename.$error.pattern">Please Enter Valid Middle Number</span>
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label required" translate="LNAME"></span>
+					<input type="text" placeholder="{{'LNAME' | translate}}*" name="nidanLastname" ng-model="nidanLastname"  required/>
+					<span class="errorMessage" ng-show="nidanApplicationInfoForm.nidanLastname.$error.pattern">Please Enter Valid Last Number</span>
+				</label>
+			 	 <label class="input-label padding-left-15 required" translate="GENDER"></label>
+				 <select class="select-dropdown" name="nidangender" ng-model="nidangender" ng-click="Genprefix()" id="wncgender"
+					ng-options="o.value as o.name for o in genoptions" required>
+					<option value="" translate="">Select</option>
+				</select><label class="item item-input item-floating-label" ></label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label required" translate="MOBILENO"></span>
+					<input type="number" placeholder="{{'MOBILENO' | translate}}*" name="nidanmobile" ng-model="nidanmobile" id="mobileno"
+					ng-keyup="tenLimitInputBpl()" ng-trim="false" ng-pattern="/^\+?\d{10}$/" required/>
+					<span class="errorMessage" ng-show="nidanApplicationInfoForm.nidanmobile.$error.pattern">Please Enter Valid Mobile Number</span>
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label" translate="EMAILID"> </span>
+					<input type="text" placeholder="{{'EMAILID' | translate}}" name="nidanemailid" ng-model="nidanemailid" id="wncEmailID" ng-trim="false"
+					 ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"/>
+					<span class="errorMessage" ng-show="nidanApplicationInfoForm.nidanemailid.$error.pattern">Please Enter Valid Email ID</span>
+				</label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="AREANAME"></span>
+          <input type="text" placeholder="{{'AREANAME' | translate}}*"  name="nidanAreName" ng-model="nidanAreName"
+             required/>
+          <span class="errorMessage" ng-show="nidanApplicationInfoForm.nidanAreName.$error.pattern">Please Enter Valid Area Name</span>
+        </label>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label required" translate="VTCITY"></span>
+          <input type="text" placeholder="{{'VTCITY' | translate}}*"  name="nidanVillage" ng-model="nidanVillage"
+             required/>
+          <span class="errorMessage" ng-show="nidanApplicationInfoForm.nidanVillage.$error.pattern">Please Enter Valid Village/Town/City</span>
+        </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="PINCODE"></span>
+        <input type="number" placeholder="{{'PINCODE' | translate}}" name="nidanPincode" ng-model="nidanPincode" id="pincodelim"
+          ng-change="locationperfix()" ng-keyup="onlyNumericSixLimitInput()" ng-trim="false" ng-pattern="/^[1-9]\d{5,5}$/"required/>
+        <span class="errorMessage" ng-show="nidanApplicationInfoForm.nidanPincode.$error.pattern">Please Enter Valid Pincode</span>
+      </label>
+
+			  <div class="padding">
+			     <button ng-disabled="!nidanApplicationInfoForm.$valid" ng-click="saveApplicantDetail()" class="button button-block  customBgColor">
+				 <span translate="SUBMIT"></span></button>
+			 </div>
+	   </div>
+</form>
+
+ </ion-content>
+</ion-view>

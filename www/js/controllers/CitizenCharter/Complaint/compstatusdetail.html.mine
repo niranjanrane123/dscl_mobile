@@ -1,0 +1,174 @@
+<ion-view class="titlecss" >
+	<!-- title="{{'ECHATTISGARH' | translate}}" -->
+	<ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+<!-- <ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>-->
+
+<ion-content ng-controller="ComplaintstatusDetailctrl" class="HomeBackground">
+   <!-- <h3 class="heading" translate="COMPLSTATUS"></h3>-->
+   <div class="headingDiv" ng-if="data">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="COMPLDET">
+		<!-- <img src="./img/quick-services-32x32.png" width="32" height="32"> -->
+	</h3>
+  </div>
+  <table class="gridtable" ng-if="data">
+		<tr ng-if="data.complainantName">
+			<th translate="APPLICANTNAME"></th>
+			<td>{{ data.complainantName }}</td>
+		</tr>
+		<tr ng-if="complaintType">
+			<th translate="DEPTYPE"></th>
+			<td>{{ complaintType }}</td>
+		</tr>
+
+		<tr ng-if="data.complainantEmail">
+			<th translate="EMAIL"></th>
+			<td>{{data.complainantEmail }}</td>
+		</tr>
+    <tr ng-if="data.complainantMobileNo">
+      <th translate="MOBILENO"></th>
+      <td>{{ data.complainantMobileNo }}</td>
+    </tr>
+  
+		<tr ng-if="data.address">
+			<th translate="ADDRESS"></th>
+			<td>{{ data.address }}</td>
+		</tr>
+		
+		<tr ng-if="data.organizationName">
+			<th translate="ORG"></th>
+			<td>{{ data.organizationName }} </td>
+		</tr>
+		<tr ng-if="data.department">
+			<th translate="DEPART"></th>
+			<td>{{ data.department }}</td>
+		</tr>
+
+		<tr ng-if="data.complaintType">
+			<th translate="SERVICEREQUESTCOMPLAINTTYPE"></th>
+			<td>{{ data.complaintType }}</td>
+		</tr>
+		<tr ng-if="data.complaintSubType">
+			<th translate="SERVICEREQUESTCOMPLAINTTYPE"></th>
+			<td>{{ data.complaintSubType }}</td>
+		</tr>
+		
+		<tr ng-if="data.ward">
+			<th translate="WARD"></th>
+			<td>{{ data.ward }}</td>
+		</tr>
+		<tr ng-if="data.landmark">
+			<th translate="LANDMARK"></th>
+			<td>{{ data.landmark }}</td>
+		</tr>
+		
+		<tr ng-if="description">
+			<th translate="COMPLDESC"></th>
+			<td>{{ data.description }} </td>
+		</tr>
+	</table>
+	<!-- <div class="description-data-title" translate="COMPLDESC"></div>
+	<div class="description-data">{{ data.description }}</div> -->
+
+  <div class="headingDiv">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="COMPLSTATUS.."><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+  </div>
+<form name="tableform" class="animated zoomIn">
+	<table class="gridtable">
+		<tr ng-if="tokenNo">
+			<th translate="COMPLAINTNO"></th>
+			<td>{{ tokenNo }}</td>
+		</tr>
+		<tr ng-if="date">
+			<th translate="COMPLAINTDATE"></th>
+			<td>{{ date }}</td>
+		</tr>
+    <tr ng-if="complainantName">
+      <th translate="APPLICANTNAME"></th>
+      <td>{{ complainantName }}</td>
+    </tr>
+	<tr ng-if="department">
+		<th translate="DEPART"></th>
+		<td>{{department }}</td>
+	</tr>
+    <tr ng-if="status">
+      <th translate="STATUS"></th>
+      <td>{{ status | translate }}</td>
+    </tr>
+		<tr ng-if="complaintType">
+			<th translate="DEPTYPE"></th>
+			<td>{{ complaintType }}</td>
+		</tr>
+		<tr ng-if="complaintSubType">
+			<th translate="COMPLTYPE"></th>
+			<td>{{ complaintSubType }}</td>
+		</tr>
+		<tr ng-if="ward">
+			<th translate="LOCATION"></th>
+			<td>{{ ward }} </td>
+		</tr>
+		<tr ng-if="description">
+			<th translate="COMPLDESC"></th>
+			<td>{{ description }} </td>
+		</tr>
+	</table>
+	<!-- <div class="description-data-title" translate="DESCRIPTION"></div>
+	<div class="description-data">{{ description }}</div> -->
+<div ng-if="esctable">
+<!--<h3 class="heading" translate="COMPLESCDETS" ></h3>-->
+  <div class="headingDiv">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="COMPLESCDETS"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+  </div>
+  <table class="gridtable" ng-repeat="subject in escalDetailsList" >
+		<tr ng-if="subject.datetime">
+			<th width="50%" translate="DATEANDTIME"></th>
+			<td>{{ subject.datetime }}</td>
+		</tr>
+		<tr ng-if="subject.action">
+			<th width="50%" translate="ACTION"></th>
+			<td>{{ subject.action }}</td>
+		</tr>
+		<tr ng-if="subject.empName">
+			<th width="50%" translate="EMPNAME"></th>
+			<td>{{ subject.empName }}</td>
+		</tr>
+	<!--	<tr ng-if="subject.Email">
+			<th width="50%">Email</th>
+			<td>{{ subject.Email }}</td>
+		</tr>-->
+		<tr ng-if="subject.designation">
+			<th width="50%" translate="DESIGNATION"></th>
+			<td>{{ subject.designation }}</td>
+		</tr>
+		<tr ng-if="subject.remarks">
+			<th width="50%" translate="REMARKS"></th>
+			<td>{{ subject.remarks }}</td>
+		</tr>
+
+	</table>
+
+</div>
+
+		<div class="padding">
+			<button ng-click="homepage()" class="button button-block  customBgColor">
+			<span translate="HOMEPAGE"></span></button>
+		</div>
+
+</form>
+
+  </ion-content>
+</ion-view>
+

@@ -1,0 +1,220 @@
+<!--
+<ion-view>
+
+<ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>
+
+<ion-content ng-controller="CCofficeCtrl" class="animated zoomIn backgroundimage">
+  <h3 class="heading">Office Location Details</h3>
+
+  &lt;!&ndash;<div class="list card animated bounceInLeft">
+    <div class="item item-text-wrap">
+      <table class="gridtable">
+        <tr>
+          <th width="50%">Location Name</th>
+          <td>Agarkar Chawk</td>
+        </tr>
+        <tr>
+          <th width="50%">Location Area</th>
+          <td>Andheri</td>
+        </tr>
+        <tr>
+          <th width="50%">Address</th>
+          <td>AgarKar Chawk,Andheri</td>
+        </tr>
+        <tr>
+          <th width="50%">Pincode</th>
+          <td>3244234234</td>
+        </tr>
+        <tr>
+          <th width="50%">Landmark</th>
+          <td>Andheri</td>
+        </tr>
+      </table>
+    </div>
+    <a class="item item-icon-right assertive rightcss" href="#">
+      <i class="icon ion-android-locate "></i>
+      Map
+    </a>
+  </div>
+  &ndash;&gt;
+
+
+  <div class="card">
+    <div class="item item-divider">
+      <b> Share this app</b>
+    </div>
+    <ul class="list">
+      <li class="item" id="displayLabel1">
+        <div class="item item-text-wrap">
+          <button class="button button-block button-royal item-icon-left" ng-click="whatsappShare()">
+            <i class="icon ion-social-whatsapp"></i>
+            WhatsApp
+          </button>
+        </div>
+      </li>
+    </ul>
+
+  &lt;!&ndash;    <ul class="list">
+        <li class="item" id="displayLabel2">
+          <div class="item item-text-wrap">
+            <button class="button button-block button-royal item-icon-left" ng-click="twitterShare()">
+              <i class="icon ion-social-twitter"></i>
+              twitter
+            </button>
+          </div>
+        </li>
+      </ul>
+&ndash;&gt;
+
+        <li class="item" id="displayLabel3">
+          <div class="item item-text-wrap">
+            <button class="button button-block button-royal item-icon-left" ng-click="OtherShare(this)">
+              <i class="icon ion-android-share-alt"></i>
+              Other
+            </button>
+          </div>
+        </li>
+      </ul>
+
+  </div>
+  </div>
+
+  <div>
+    <h2 class="heading"></h2>
+
+    <ul class="list">
+      <li class="item" id="displayLabel2">
+        <div class="item item-text-wrap">
+          <button class="button button-block button-royal item-icon-left" ng-click="createContact()">
+            <i class="icon ion-android-contact"></i>
+            Save Contact
+          </button>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+  <div>
+    <h2 class="heading"></h2>
+
+    <ul class="list">
+      <li class="item" id="displayLabel2">
+        <div class="item item-text-wrap">
+          <button class="button button-block button-royal item-icon-left" ng-click="email()">
+            <i class="icon ion-android-contact"></i>
+            Email
+          </button>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+  </ion-content>
+</ion-view>
+-->
+
+<ion-view>
+
+  <ion-nav-title>
+    <div class="bar bar-header headercolor">
+      <h1 class="title">MaiNet</h1>
+    </div>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content ng-controller="ContactusCtrl" class="">
+    <!-- <h3 class="heading">Contact Us.</h3>-->
+    <h3 class="customheading">Key Contacts</h3>
+    <div class="itemtext paddingleft">
+      <span class="rightc">designation</span>
+      <p class="cuname" id="n1">M.N. Thakur </p>
+      <p class="cuitems" id="a1"> <i class="icon ion-android-pin iconcss"></i> Raipur </p>
+      <p class="cuitems listitemstext" id="p1"> <i class="icon ion-ios-telephone i concss"></i> <a ng-click="CallNumber('p1')">1234567890</a></p>
+      <p class="cuitems listitemstext" id="e1"> <i class="icon ion-email iconcss" ></i> <a ng-click="mail('e1')"> mn@gmail.com</a> <i class="icon ion-android-share-alt rightcs" ng-click="ShareContact('n1','p1','e1','a1')"></i> <i class="icon  ion-ios-personadd rightcs" ng-click="SaveContact('n1','p1','e1')"></i></p>
+    </div>
+    <form name="contact">
+      <div class="list padding-all">
+
+        <!-- <p>Thank you for your interest in service of <strong>Raipur Municipal Corporation</strong> Please provide the following
+                  information about your needs in order to help us serve you better.This information will enable us to route your
+                  request to appropriate person</p>-->
+        <!--
+          <input type="text" placeholder="Name:*"  name="firstname" ng-model="firstname" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+          <input type="text" placeholder="Name:*"  name="lastname" ng-model="lastname" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+  -->
+
+        <!--firstname-->
+        <label class="item item-input item-floating-label">
+          <span class="input-label required">First Name</span>
+          <input type="text" placeholder="First Name*" name="firstname" ng-model="firstname" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+          <span class="errorMessage" ng-show="contact.firstname.$error.pattern">Please Enter Valid Name</span>
+        </label>
+
+        <!--lastname-->
+        <label class="item item-input item-floating-label">
+          <span class="input-label required">Last Name</span>
+          <input type="text" placeholder="Last Name*"  name="lastname" ng-model="lastname" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+          <span class="errorMessage" ng-show="contact.lastname.$error.pattern">Please Enter Valid Name</span>
+        </label>
+
+        <!--mobile number-->
+        <label class="item item-input item-floating-label">
+          <span class="input-label required">Mobile No</span>
+          <input type="number"  placeholder="Mobile No*"  name="mobileno" ng-model="mobileno" ng-keyup="onlyNumericTenLimitInput()" ng-trim="false" ng-pattern="/^[0-9]{10,10}$/" required/>
+          <span class="errorMessage" ng-show="contact.mobileno.$error.pattern">Please Enter Valid Mobile Number</span>
+        </label>
+
+        <!--email address-->
+        <label class="item item-input item-floating-label">
+          <span class="input-label required">Email ID</span>
+          <input type="text" placeholder="Email ID*" name="EmailID" ng-model="EmailID" ng-trim="false" ng-pattern="/^[A-Za-z0-9/s,.'-@]{1,50}$/" required/>
+          <span class="errorMessage" ng-show="contact.EmailID.$error.pattern">Please Enter Valid Email Address</span>
+        </label>
+
+        <!--description-->
+
+        <span class="input-label required">Description of Query</span>
+        <input class="textarea"   name="desc" ng-model="desc" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+        <span class="errorMessage" ng-show="contact.desc.$error.pattern">Please Enter Valid Name</span>
+
+        <!--upload documents-->
+        <!-- <span class="input-label required">Upload Documents</span>
+        <input  type="file" id="att" width=35px; height=35px; ng-click="angular.element(this).scope().attach(this)"> attachment image -->
+        <table class="gridtable">
+					<tr>
+					  <th class="required"  translate="UPLOAD"></th>
+					  <td><input type="file" class="filecss " id="plbImg"
+								 ng-model="plbmg" onchange="angular.element(this).scope().imageupload2(this)"/>
+						<div class="note-for-fileupload">{{'Onlyjpgpngpdfdoc' | translate}}</div>
+						<div class="note-for-fileupload">{{'validdocumentSize' | translate}}</div></td>
+					  </td>
+					</tr>
+				  </table>
+        <div class="padding">
+          <button ng-click="save()" ng-disabled="!contact.$valid" class="button button-block button-positive green">
+            <span>Submit</span></button>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
+
+
+<style>
+.green{
+	background-color: #68C39F !important; /*#68C39F*/
+}</style>

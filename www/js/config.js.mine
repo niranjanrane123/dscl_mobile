@@ -1,0 +1,86 @@
+//"use strict";
+
+angular.module("starter")
+  .constant("ENV", {
+    name: "production",
+    //
+            //  eipURL: "https://manacamp.urbanecg.gov.in",         //portal
+            //  baseURL: "https://manacamp.urbanecg.gov.in",        //service
+            //  brmsURL: "https://manacamp.urbanecg.gov.in",        //brms
+            //   dashBoardURL: "https://urbanecg.gov.in/dashboard/",
+              // Production
+
+            // eipURL: "http://dsclegov.uk.gov.in",
+            // baseURL: "http://dsclegov.uk.gov.in",
+            // brmsURL: "http://dsclegov.uk.gov.in",
+            // dashBoardURL: "http://dsclegov.uk.gov.in/DashboardDun/",
+
+
+            // dashBoardURL: "http://dsclegov.uk.gov.in/DashboardDun/",
+           // dashBoardURL: "http://dsclegov.uk.gov.in/dashboard/",
+           // dashBoardURL: "http://103.116.27.197/dscl/DashboardDun/",
+    //
+    //      	 eipURL: "http://192.168.100.230:8080",         //portal
+    //       	 baseURL: "http://192.168.100.230:8080",
+    //       	 brmsURL: "http://192.168.100.230:8080",
+    //       	 dashBoardURL: "http://192.168.100.230:8050/dashboard/",
+
+    //          eipURL: "http://103.122.200.99:8080",         //portal
+    //          baseURL: "http://103.122.200.99:8080",        //service
+    //          brmsURL: "http://103.122.200.99:8080",        //brms
+
+    //        eipURL: "http://103.199.131.197:8080",         //portal
+    //    	  baseURL: "http://103.199.131.197:8080",        //service
+
+    //          eipURL: "http://103.127.157.208:8080",               //portal
+    //          baseURL: "http://103.127.157.208:8080",              //service
+    //          brmsURL: "http://103.127.157.208:8080",              //brms
+    //          dashBoardURL: "http://103.127.157.208:8050/dashboard/",              //brms
+
+    //           eipURL: "http://192.168.100.59:8081",               //portal
+    //           baseURL: "http://192.168.100.59:8072",             //service
+    //           brmsURL: "http://192.168.100.59:8072",
+
+    //          eipURL: "http://10.67.169.17:8065",               //portal
+    //          baseURL: "http://10.67.169.17:8065",              //service
+    //          brmsURL: "http://10.67.169.17:8065",              //brms
+    //          dashBoardURL: "http://10.67.169.17:8065/dashboard/",
+     // UAT
+    eipURL: "http://103.116.27.197/dscl",               //portal
+    baseURL: "http://103.116.27.197/dscl",  
+    brmsURL: "http://103.116.27.197/dscl",                 //service
+    // baseURL: "http://192.168.100.59:8072", 
+    // eipURL: "http://192.168.100.59:8072", 
+    // brmsURL: "http://192.168.100.59:8072",              //brms
+    dashBoardURL: "http://103.116.27.197/dscl/DashboardDun/",
+    swMURL: "http://103.116.27.194:8283/",
+    enviornmentURL: "http://103.116.27.194:8283/",
+    // ITSURL: "http://103.116.27.194:8283/",
+    swmAdminName: "admin",
+    swmAdminPassword: "admin",
+
+
+    //       eipURL: "http://192.168.100.157:8090",               //portal
+    //       baseURL: "http://192.168.100.157:8090",              //service
+    //       brmsURL: "http://192.168.100.157:8090",              //brms
+    //
+    //     eipURL: "http://192.168.100.77:8090",         //portal
+    //     baseURL: "http://192.168.100.77:8080",        //service
+    //     //rmsURL: "http://192.168.100.22:8080",
+    //     brmsURL: "http://192.168.100.157:8090",
+    //
+    //       eipURL: "http://182.18.168.246",         //portal
+    //       baseURL: "http://182.18.168.246",
+    //       brmsURL: "http://182.18.168.246",
+    //       dashBoardURL: "http://182.18.168.246:8050/dashboard/",
+
+    /*eipURL: "eip:",
+      baseURL: "base:",
+      brmsURL: "brms:", */
+
+    PUSHBOTS_APP_ID: "56779c061779594a6d8b456f",
+    GCM_SENDER_ID: "1084889111210"
+
+  });
+
+

@@ -1,0 +1,290 @@
+<ion-view  class="titlecss" ng-controller="sourcetodestination">
+    <!-- title="{{'ITS' | translate}}.." -->
+    <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()"   style="background: transparent;border: none;"></button>
+		  <img style="right: 46%; position: absolute; margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	</ion-nav-bar>
+    
+    <div style="margin-top: 25% !important;">
+        <div class="headingDiv">
+            <h3 class="heading">{{heading}}</h3>
+          </div>
+        <div class="row" style="width: 94%; margin-left: 3%;">
+            <div class="col" ng-if="userType != 1">
+                <a class="button button-so-tab" ng-class="(view.tabs.byAtoB) ? 'active-tab' : ''" ng-click="view.onTabClick('byAtoB');" style="font-size: 15px !important;">
+                    {{"SOURCEDESTINATION" | translate}}
+                </a>
+            </div>
+        </div>
+    </div>
+    <ion-content class="has-so-subheader" style="margin-top: 30%;" delegate-handle="so-handle" has-bouncing="false">
+        <!-- <div class="row margin-0">
+            <div class="col-md-3 col-sm-12 order-4" ng-click="view.onMapClicl(true);">
+                <div class="list list-icon">
+                    <a class=" gridnopadding">
+                        <img src="./img/wardZoneIcon.png" height="20" width="20">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-12 order-4">
+                <div class="list list-icon" ng-click="view.onMapClicl(false);">
+                    <a class=" gridnopadding">
+                        <img src="./img/report.png" height="20" width="20">
+                    </a>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div ng-if="view.mapVisible==true" id="map" style="width: 100%; height: 400px;"></div> -->
+        <ion-list ng-if="view.mapVisible==false && view.tabs.bystop==true" class="fsa-list so-list">
+            
+            <div><input type="search" id="searchinput" ng-trim="false" limit="20" ng-change="searchOtherBusStops(mysearch1)" data-ng-model="mysearch1" class="searchBox" placeholder="{{ 'SEARCHBYSTOPS' | translate }}"></div>
+
+            <div class="headingDiv" ng-if="nearByStopsCheck">
+                <h3 class="heading secondHeader" >{{"BUSSTOPSNEARYOU" | translate}}</h3>
+            </div>
+
+            <ion-list class="fsa-list so-list" ng-if="nearByStopsCheck">
+                <ion-item ng-click="view.onJobClickDirect(job);" class="item-text-wrap card so-item" ng-repeat="job in nearByStopsList track by $index">
+                    <div class="row">
+                        <div class="col padding">
+                            <h2 class="text-left">{{job.stopName}}</h3>
+                        </div>
+                    </div>
+                    <div class="col padding">
+                        <h3 class="fsa-bold" ng-click="view.onJobClickDirect(job);">
+                            {{job.address}}
+                        </h3>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <div class="headingDiv">
+                <h3 class="heading secondHeader" >{{"BUSSTOPOTHER" | translate}}</h3>
+            </div>
+
+            <ion-item ng-click="view.onJobClick(job);" class="item-text-wrap card so-item" ng-repeat="job in respcompainList | filter: mysearch1">
+                <div class="row">
+                    <div class="col padding">
+                        <h2 class="text-left">{{job.PoiName}}</h2>
+                    </div>
+                </div>
+                <div class="col padding">
+                    <h3 class="fsa-bold" ng-click="view.onJobClick(job);">{{job.PoiAddress}}</h3>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <ion-list ng-if="view.mapVisible==false && view.tabs.byroute==true" class="fsa-list so-list">
+
+            <div><input type="search" id="searchinput" ng-trim="false" limit="8" ng-model-options="{ allowInvalid: true}" ng-model="mysearch2" class="searchBox" placeholder="{{ 'SEARCHBYROUTE' | translate }}"></div>
+
+            <ion-item class="item-text-wrap card so-item" ng-repeat="job in resproutecompainList | filter: mysearch2">
+                <div ng-click="view.onJob2Click(job);">
+                    <div class="row" style="width: 50% !important;">
+                        <div class="col padding" style="display: inline-flex;">
+                            <h2 class="text-left">{{job.RouteName}}</h2>
+                            <h2 class="fsa-bold routeNameCSS">{{job.RouteViaName}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="showTimings && rId==job.RouteId" style="margin:0% 0% 5% 6%;">
+                    <ion-item ng-click="view.onTimingClick(rowData)" class="item-text-wrap card so-item itemClass" ng-repeat="rowData in arrivalTimeArr track by $index">
+                        <button class="btn btn-outline-dark mb-2 btnClass redButton" ng-if="rowData < currentTime">{{rowData}}</button>
+                        <button class="btn btn-outline-dark mb-2 btnClass greenButton" ng-if="rowData > currentTime">{{rowData}}</button>
+                    </ion-item>
+                </div>
+                <div ng-if="showTimings && rId==job.RouteId" style="margin: -2% 0% 0% 6%;">
+                    <div style="font-size: 13px;"><button class="btn btn-outline-dark mb-2 btnClass redButton" style="width: 102px !important;">{{"BUSTIME" | translate}}</button>{{"BUSPASSED" | translate}}</div>
+                    <div style="font-size: 13px;"><button class="btn btn-outline-dark mb-2 btnClass greenButton" style="width: 102px !important;">{{"BUSTIME" | translate}}</button>{{"BUSYETTOPASS" | translate}}</div>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <ion-list ng-if="view.mapVisible==false && view.tabs.byAtoB==true" class="fsa-list so-list">
+<!-- 
+n                <input type="search" id="inputSourceId" ng-trim="false" limit="8" ng-model-options="{ allowInvalid: true}" ng-model="sourceStop" class="searchBox" placeholder="{{ 'SOURCE' | translate }}">
+                <button ng-click="crossBtn('source')" class="crossBtnClass">
+                    <img src="./img/cancel.png" class="imgClass">
+                </button>
+            </div>
+
+            <div style="flex: 1; flex-direction: row; display: flex;">
+                <input type="search" id="inputDestId" ng-trim="false" limit="8" ng-model-options="{ allowInvalid: true}" ng-model="destinationStop" class="searchBox" placeholder="{{ 'DESTINATION' | translate }}">
+                <button ng-click="crossBtn('dest')" class="crossBtnClass">
+                    <img src="./img/cancel.png" class="imgClass">
+                </button>
+            </div> -->
+
+               <!-- Source -->
+                <div class="inputWrapper">
+                    <i class="icon ion-android-locate inputIcon"></i>
+                    <input type="search"
+                           id="inputSourceId"
+                           ng-trim="false"
+                           style="font-weight: 600;"
+                           limit="8"
+                           ng-model-options="{ allowInvalid: true }"
+                           ng-model="sourceStop"
+                           class="searchInput"
+                           placeholder="{{ 'SOURCE' | translate }}" />
+                    <button ng-if="sourceStop.length > 0"
+                            ng-click="crossBtn('source')"
+                            class="clearBtn">
+                        <i class="icon ion-close-circled"></i>
+                    </button>
+                </div>
+
+                <!-- Destination -->
+                <div class="inputWrapper">
+                    <i class="icon ion-flag inputIcon"></i>
+                    <input type="search"
+                           id="inputDestId"
+                           ng-trim="false"
+                        style="font-weight: 600;"
+                           limit="8"
+                           ng-model-options="{ allowInvalid: true }"
+                           ng-model="destinationStop"
+                           class="searchInput"
+                           placeholder="{{ 'DESTINATION' | translate }}" />
+                    <button ng-if="destinationStop.length > 0"
+                            ng-click="crossBtn('dest')"
+                            class="clearBtn">
+                        <i class="icon ion-close-circled"></i>
+                    </button>
+                </div>
+
+            <div class="headingDiv" style="margin-top: 10px !important;">
+                <h3 class="heading secondHeader">{{ 'STARTTYPING' | translate }}</h3>
+            </div>
+
+            <ion-item ng-click="view.onJob3Click(job);" class="item-text-wrap card so-item" ng-repeat="job in respcompainList | filter: sourceStop" ng-show="showSource" ng-if="sourceStop.length>=1">
+                <div class="row">
+                    <div class="col padding">
+                        <h2 class="text-left">{{job.PoiName}}</h3>
+                    </div>
+                </div>
+                <div class="col padding">
+                    <h3 class="fsa-bold" ng-click="view.onJob3Click(job);">{{job.PoiAddress}}</h3>
+                </div>
+            </ion-item>
+
+            <ion-item ng-click="view.onJob4Click(job);" class="item-text-wrap card so-item" ng-repeat="job in respcompainList | filter: destinationStop" ng-show="showDestination" ng-if="destinationStop.length>=1">
+                <div class="row">
+                    <div class="col padding">
+                        <h2 class="text-left">{{job.PoiName}}</h2>
+                    </div>
+                </div>
+                <div class="col padding">
+                    <h3 class="fsa-bold" ng-click="view.onJob4Click(job);">{{job.PoiAddress}}</h3>
+                </div>
+            </ion-item>
+
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>
+
+<style>
+    .itemClass{
+        flex: 1;
+        flex-direction: row;
+        display: contents;
+    }
+    
+    .detailsBtn{
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        height: 60%;
+    }
+    
+    
+</style>
+<style>
+.itemClass {
+    flex: 1;
+    flex-direction: row;
+    display: contents;
+}
+
+.detailsBtn {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    height: 60%;
+}
+
+/* UI Enhancements */
+.searchCard {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin: 15px 10px;
+}
+
+/* .inputWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    background-color: #f7f7f7;
+    transition: border 0.3s ease, background-color 0.3s ease;
+} */
+
+.inputWrapper:focus-within {
+    border-color: #007bff;
+    background-color: #fff;
+}
+
+.searchInput {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+}
+
+.inputIcon {
+    font-size: 20px;
+    color: #888;
+    margin-right: 10px;
+}
+
+.clearBtn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clearBtn:hover {
+    color: #e74c3c;
+}
+.inputWrapper {
+    margin-left: 1.5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 15px;
+    background-color: #f7f7f7;
+    transition: border 0.3s ease, background-color 0.3s ease;
+    width: 93%;
+}
+</style>

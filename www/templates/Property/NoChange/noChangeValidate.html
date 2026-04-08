@@ -1,0 +1,75 @@
+<ion-view >
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+<ion-content ng-controller="noChangeValidateCTRL1" class="HomeBackground">
+  <form name="noChangeValidateForm">
+    <div style="margin: 1% 1%;">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="NOCHANGEIN"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+    </div>
+    <div ng-if="!mobileNumberValidated" class="list" style="padding-left: 10px; padding-right: 10px;">
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="PROPERTYNO"></span>
+        <input type="text" placeholder="{{'PROPERTYNO' | translate}}" name="property" ng-model="propertyNumber"         />
+     <!--   <span class="errorMessage" ng-show="noChangeValidateForm.property.$error.pattern" translate="PLEASEENTERVALIDPROPERTY"></span>-->
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="OLD_PID"></span>
+        <input type="text" placeholder="{{'OLD_PID' | translate}}" name="assoldpropno" ng-model="assOldpropno" />
+        <!--<span class="errorMessage" ng-show="noChangeValidateForm.assoldpropno.$error.pattern" translate="PLEASEENTERVALIDOLDPROPERTY"></span>-->
+      </label>
+      <div style="padding-top: 10px;">
+        <button  ng-click="validateProperty(propertyNumber,assOldpropno)"
+          class="button button-block  customBgColor"><i class="icon ion-search fonth3"></i>
+        <span translate="SEARCH"></span></button>
+      </div>
+    </div>
+
+    <div ng-if="mobileNumberValidated" style="padding-left: 10px; padding-right: 10px;">
+    <div class="app-button">
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="OTP_NO"></span>
+        <input type="tel" placeholder="{{ 'OTP_NO' | translate}}" name="OTP_NO" ng-model="otpNo"
+          ng-pattern="[0-9]*" required/>
+        <span class="errorMessage" ng-show="noChangeValidateForm.OTP_NO.$error.pattern" >Please Enter Valid OTP</span>
+      </label>
+    </div>
+      <div class="app-button1"><span >OTP sent to mobile number</span></div>
+        <button ng-disabled="!noChangeValidateForm.$valid" ng-click="otpSubmit(otpNo)"
+          class="button button-block  customBgColor1">
+          <span translate="SUBMIT"></span></button>
+        <button ng-click="resendProperty()" class="button button-block  customBgColor1">
+        <span translate="RESENDOTP"></span></button>
+
+
+    </div>
+  </form>
+
+</ion-content>
+</ion-view>
+
+<style>
+.app-button{
+    width: 45%;
+    display:inline-block;
+    vertical-align: middle;
+}
+.app-button1{
+    width: 45%;
+    display:inline-block;
+    vertical-align: middle;
+}
+.customBgColor1 {
+    display: inline-block;
+    width: 48% !important;
+    vertical-align: inherit;
+    background-color: #68C39F;
+}
+</style>

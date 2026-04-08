@@ -1,0 +1,124 @@
+<ion-modal-view>
+
+  <ion-header-bar class="bar-dark">
+    <h1 class="title logo-app">Upload Documents</h1>
+    <button class="button button-icon button-clear ion-ios-close-empty" ng-click="closeModal()"></button>
+  </ion-header-bar>
+
+<ion-content ng-controller="uploadmodalCtrl">
+<form name="docfrom"><br>
+    <div class="container">
+      <div class="col col-50">
+         <button type="button" class="button  customBgColor"
+         ng-model="opengallery"  ng-click="gallery()">
+         <i class="icon ion-document fonth3"></i>Open Gallery</button>
+      </div>
+
+      <div class="col col-50" >
+        <button type="button" class="button  customBgColor"
+         ng-model="takephoto" ng-click="getPhoto()"><i class="icon ion-ios-camera-outline fonth3"></i>
+         Take Photo</button>
+      </div>
+
+    </div><br>
+
+<div ng-if="uploadtableshow"> <h3 class="heading">Gallery Image</h3>
+  <!--<div class="padding-left-15" style="color: red;" ></div>-->
+
+  <table class="gridtableimg" id="myTableID">
+    <tr>
+      <th>Upload</th>
+      <td><input data-max-size="5000000" type="file" class="filecss" id="cpic"
+           onchange="angular.element(this).scope().imageupload(this)"/></td>
+      <td ng-click="removeimages($index)">Remove</td>
+    </tr>
+    <tr>
+      <th>Upload</th>
+      <td><input data-max-size="5000000" type="file" class="filecss "
+            onchange="angular.element(this).scope().imageupload(this)"/></td>
+      <td ng-click="removeimages($index)">Remove</td>
+    </tr>
+    <tr>
+      <th>Upload</th>
+      <td><input data-max-size="5000000" type="file" class="filecss"
+           onchange="angular.element(this).scope().imageupload(this)" /></td>
+      <td ng-click="removeimages($index)">Remove</td>
+    </tr>
+    <tr>
+      <th>Upload</th>
+      <td><input data-max-size="5000000" type="file" class="filecss"
+           onchange="angular.element(this).scope().imageupload(this)"/></td>
+      <td ng-click="removeimages($index)">Remove</td>
+    </tr>
+    <tr>
+      <th>Upload</th>
+      <td><input data-max-size="5000000" type="file" class="filecss "
+           onchange="angular.element(this).scope().imageupload(this)"/></td>
+      <td ng-click="removeimages($index)">Remove</td>
+    </tr>
+
+  </table>
+
+</div><br>
+
+<div ng-if="takephotoshow">
+  <h3 class="heading">Camera Image</h3>
+  <!--<img id="myImage"  data-ng-src="{{ lastPhoto }}" style="max-width: 100%;text-align: center">-->
+  <img ng-src="{{ myImgUrl }}" class="center" />
+</div>
+
+  <div class="padding" ng-if="showbutton">
+    <button  ng-click="uploadmodal()" class="button button-block  customBgColor">
+      <span translate="SUBMIT"></span></button>
+  </div>
+
+</form>
+
+  </ion-content>
+
+</ion-modal-view>
+
+
+<style>
+
+.gridtableimg{
+ 	width:96%!important;
+ 	margin:0% 2% 2% 2%;
+    font-size: 14px;
+	color: #333333;
+	border-collapse: collapse;
+	overflow-x: auto;
+	text-align: center;
+}
+.gridtableimg th {
+	font-size:14px;
+	font-weight:bold;
+	padding:5px 10px;
+	background-color: rgba(81, 81, 81, 0.1);
+	border:1px solid rgba(81, 81, 81, 0.4);
+	text-align: left;
+	vertical-align: top;
+}
+
+.gridtableimg td {
+	font-size: 14px;
+	padding: 5px 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 1px solid rgba(81, 81, 81, 0.4);
+	text-align: left;
+	vertical-align: middle;
+}
+
+.gridtableimg td input.filecss{
+	position:relative !important;
+	width: 100% !important;
+	}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+</style>

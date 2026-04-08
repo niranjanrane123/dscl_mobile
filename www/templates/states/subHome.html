@@ -1,0 +1,138 @@
+<ion-view class="titlecss" hide-back-button="true" > 
+	<ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+  
+	<ion-content class="HomeBackground" style="margin-bottom: 70px;" ng-controller="subHomeCtrl">
+		<div class="services" style="margin-bottom: 22px;">
+			<div class="" >
+				<div class="box-heading font-grey col-sm-12 cardTitle" ng-show="complaintTask && !RTItask" >
+					<span class="cardTitleSpan">{{'COMPLAINT' | translate}}</span>
+					<div class="row"> 		
+						<div class="col-xs-4 letter-box" ng-click="openCompliant()" >   
+							<div class="sr-card"> 
+							  <img class="quick-services-img" src="img/fileComplainIcon.png">
+							</div>
+							<h2>{{'COMPLAINT_REGISTRATION' | translate}}</h2>
+						  </div>
+						  <div class="col-xs-4 letter-box" ui-sref="app.complaintstatus">   
+							<div class="sr-card" >
+							  <img class="quick-services-img" src="img/complaintStatusIcon.png">
+							</div>
+							<h2>{{'COMPLSTATUS' | translate}}</h2>
+						  </div>
+						  <div class="col-xs-4 letter-box" ng-click="openReopen()">   
+							<div class="sr-card">
+							  <img class="quick-services-img" src="img/reopenComplaintIcon.png">
+							</div>
+							<h2>{{'REOPENCOMPLAINT' | translate}}</h2>
+						  </div>
+				</div>
+			</div>
+			<div class="box-heading font-grey col-sm-12 cardTitle" ng-show="!complaintTask && RTItask" >
+				<span class="cardTitleSpan">{{'RTI' | translate}}</span>
+				<div class="row"> 		
+					<div class="col-xs-4 letter-box" ng-click="openRti()" >   
+						<div class="sr-card"> 
+						  <img class="quick-services-img" src="img/rtiIcon.png">
+						</div>
+						<h2>{{'RTI' | translate}}</h2>
+					  </div>
+					  <div class="col-xs-4 letter-box" ng-click="rtiFirstappeal()">   
+						<div class="sr-card">
+						  <img class="quick-services-img" src="img/rtiIcon.png">
+						</div>
+						<h2>{{'RTIFIRSTAPPEAL' | translate}}</h2>
+					  </div>
+			</div>
+		</div>
+
+		<!-- -----------------------------------EBUS---------------------------------------- -->
+
+				<div class="box-heading font-grey col-sm-12 cardTitle" ng-show="!complaintTask && !RTItask && ebusPage" >
+					<span class="cardTitleSpan">{{'EBUS' | translate}}</span>
+					<div class="row"> 		
+						<div class="col-xs-4 letter-box" ng-click="callEbus()"  >   
+							<div class="sr-card"> 
+							  <img class="quick-services-img" src="img/ITS_bus_route.png">
+							</div>
+							<h2>{{'LOCATEMYBUE' | translate}}</h2>
+						  </div>
+						  <div class="col-xs-4 letter-box" >   
+							<div class="sr-card" ui-sref="app.sourcetodestination" >
+							  <img class="quick-services-img" src="img/transport.png">
+							</div>
+							<h2>{{'SOURCEDESTINATION' | translate}}</h2>
+						  </div>
+						  <div class="col-xs-4 letter-box" ng-click="ebusComplaint()">   
+							<div class="sr-card" >
+							  <img class="quick-services-img" src="img/complaintStatusIcon.png">
+							</div>
+							<h2>{{'EBUSCOMPLAINT' | translate}}</h2>
+						  </div>
+			
+					</div>
+					<div class="row" style="margin-top: 10px;" >
+						 <div class="col-xs-4 letter-box" ng-click="callService('BUSROUTE')">   
+							<div class="sr-card">
+							  <img class="quick-services-img" src="img/bus-route.png">
+							</div>
+							<h2>{{'BUSROUTE' | translate}}</h2>
+						  </div>
+						<div class="col-xs-4 letter-box" ng-click="callService('BUSFARE')">   
+							<div class="sr-card">
+							  <img class="quick-services-img" src="img/bus-fare.png">
+							</div>
+							<h2>{{'BUSFARE' | translate}}</h2>
+						  </div>
+
+						<div class="col-xs-4 letter-box" ng-click="popup('helpline')">  
+							<div class="sr-card">
+							  <img class="quick-services-img" src="img/helpline.png">
+							</div>
+							<h2>{{'HELPLINE' | translate}}</h2>
+						  </div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<marquee ng-show="!complaintTask && !RTItask && !ebusPage" style="top: 8px; color:red; font-weight: bold;"  direction="left" class="marquee-style">
+			&#128591; {{'COMMINGSOON' | translate}} &#128591;
+			</marquee>
+		
+	</ion-content>
+</ion-view>
+<style>
+	h2 {
+    font-family: 'Poppins-SemiBold';
+    color: #000;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    word-wrap: initial;
+    margin-right: 2em;
+}
+.row {
+    margin-right: 0px;
+    margin-left: 8px;
+}
+.services .sr-card {
+    margin-left: 0.1em;
+    /* margin-top: 12px;
+    display: flow-root;
+    position: relative;
+    height: 4em;
+    width: 4em;
+    text-align: center;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 15%;
+    border: 1px solid gray; */
+}
+</style>

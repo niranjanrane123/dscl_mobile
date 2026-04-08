@@ -1,0 +1,169 @@
+<ion-view class="titlecss">
+	<!-- title="{{'ECHATTISGARH' | translate}}" -->
+	<ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+<ion-content ng-controller="rtiReceiptctrl" class="HomeBackground">
+	<div class="headingDiv">
+		<h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="RTIRECEIPT" >RTI Receipt</h3>
+	  </div>
+	  <form name="complaintreceipt">
+		<div class="list">
+			  <div style = "background-color: 00aa55;"class="headingDiv">
+				<b class="alignleft" translate="RTIRECEIPT" >RTI Receipt</b>
+				<img src="./../www/img/share-flat.png" ng-click="takeScreenShot()" width=35px; height=35px;>
+		
+				<!--        <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="COMPLRECIDETS">-->
+		<!--         <img  src="../../www/img/share-flat.jpg" width=30px; height=30px;>-->
+		<!--        </h3>-->
+			  </div>
+			  <h4 style="margin-left: 15px;"> {{ 'APPLICATIONREFNO' | translate }}:{{ order_number}}</h4>
+			  <h6 style="margin-left:25px;font-weight: bold;" translate="PAYMENT_SUCCESS" >Payment Received Succsesfully</h6>
+			<div id="target" style="background-color: #ffffff;">
+				<table class="gridtable">
+					<tr >
+						<th translate="SERVICEINFO">Service Info</th>
+						<td>{{ service_information }}</td>
+					</tr>
+					<tr >
+						<th translate="APPLICANTNAME">Applicant Name</th>
+						<td>{{ applicant_name }}</td>
+					</tr>
+					<tr >
+						<th translate="MOBILENO">Mobile No</th>
+						<td>{{ contact_number }}</td>
+					</tr>
+					<tr >
+						<th translate="EMAILID">Email Id</th>
+						<td>{{ email_id }}</td>
+					</tr>
+					<tr >
+						<th translate="AMOUNT">Amount</th>
+						<td>{{ payment_amount }}</td>
+					</tr>
+					<tr >
+						<th translate="ORDERNUMBER">Order Number</th>
+						<td>{{ order_number  }}</td>
+					</tr>
+					<tr >
+					
+						<th translate="TRANSACTIONDATE">Transaction Date</th>
+						<td>{{ transaction_date_time | date:'dd/MM/yyyy' }}</td>
+					</tr>
+					<!-- <tr >
+					  <th>Label Name</th>
+					  <td>{{ labelName  }}</td>
+				  </tr> -->
+				  <tr >
+					  <th translate="TRANSACTIONSTATUS">Transaction Status</th>
+					  <td>{{ status  }}</td>
+				  </tr>
+				</table>
+			</div>
+			<!-- <div style="background-color: #ffffff; height: 45%;">
+			  <div ng-if="esctable">
+				<div class="headingDiv" style="padding: 0px 0px 0px 0px !important;">
+				   <h3 style="height:32px;" class="heading" translate="COMPLESCDETS"></h3>
+				</div>
+				<table class="gridtable" ng-repeat="subject in escalDetailsList">
+				<tr ng-if="subject.level">
+				  <th width="50%" translate="LEVEL"></th>
+				  <td>{{ subject.level }}</td>
+				</tr>
+				<tr ng-if="subject.duration">
+				  <th width="50%" translate="DURATION"></th>
+				  <td>{{ subject.duration }}</td>
+				</tr>
+				<tr ng-if="subject.empName">
+				  <th width="50%" translate="EMPNAME"> </th>
+				  <td>{{ subject.empName }}</td>
+				</tr>
+				<tr ng-if="subject.designation">
+				  <th width="50%" translate="DESIGNATION"> </th>
+				  <td>{{ subject.designation }}</td>
+				</tr>
+				<tr ng-if="subject.department">
+				  <th width="50%" translate="DEPARTMENT"></th>
+				  <td>{{ subject.department }}</td>
+				</tr>
+				<tr ng-if="subject.email">
+				  <th width="50%" translate="EMAIL"></th>
+				  <td >{{ subject.email }}</td>
+				</tr>
+			  </table>
+		
+			</div>
+		   </div> -->
+		  <div style="padding :10px;">
+			<button ng-click="homepage()" class="button button-block  customBgColor">
+			  <span translate="HOMEPAGE"></span></button>
+		  </div>
+		</div>
+		
+		</form>
+<!-- <form name="complaintreceipt">
+	<div class="list" >
+	
+		<div style = "background-color: 00aa55;"class="headingDiv">
+			<b class="alignleft" translate="COMPLRECIDETS"></b>
+			<img src="./../www/img/share-flat.png" ng-click="takeScreenShot()" width=35px; height=35px;>
+	
+		
+		  </div>
+		  <div id="target" style="background-color: #ffffff;">
+		  <table class="gridtable">
+			  <tr >
+				  <th>Service Info</th>
+				  <td>{{ service_information }}</td>
+			  </tr>
+			  <tr >
+				  <th>Applicant Name</th>
+				  <td>{{ applicant_name }}</td>
+			  </tr>
+			  <tr >
+				  <th>Mobile No</th>
+				  <td>{{ contact_number }}</td>
+			  </tr>
+			  <tr >
+				  <th>Email Id</th>
+				  <td>{{ email_id }}</td>
+			  </tr>
+			  <tr >
+				  <th>Amount</th>
+				  <td>{{ payment_amount }}</td>
+			  </tr>
+			  <tr >
+				  <th>Order Number</th>
+				  <td>{{ order_number  }}</td>
+			  </tr>
+			  <tr >
+				  <th>Transaction Date</th>
+				  <td>{{ transaction_reference_number  }}</td>
+			  </tr>
+			  <tr >
+				<th>Label Name</th>
+				<td>{{ labelName  }}</td>
+			</tr>
+			<tr >
+				<th>Transaction Status</th>
+				<td>{{ status  }}</td>
+			</tr>
+		  </table>
+	   
+		</div>
+			  <div class="padding">
+				  <button ng-click="homepage()" class="button button-block  customBgColor">
+				  <span translate="HOMEPAGE"></span></button>
+			  </div>
+	  
+		  </div>
+</form> -->
+</ion-content>
+</ion-view>
+
+

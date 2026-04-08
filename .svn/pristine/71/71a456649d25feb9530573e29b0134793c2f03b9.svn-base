@@ -1,0 +1,17 @@
+<ion-view title="{{'ITS' | translate}}" class="titlecss">
+    <ion-content delegate-handle="so-handle" has-bouncing="false">
+        <ion-list class="fsa-list so-list">
+            <ion-item class="item-text-wrap card so-item" ng-click="view.onJobClick(job);"
+                ng-repeat="job in respcompainList track by $index">
+                <div class="row">
+                    <div class="col padding">
+                        <h2 ng-if="job.directRouteDet.SourceName" class="text-left">{{job.directRouteDet.SourceName}}
+                            </h3>
+                            <h2 ng-if="job.SourceName" class="text-left">{{job.SourceName}}</h3>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

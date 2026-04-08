@@ -1,0 +1,680 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.doon.doonproduct"
+4    android:hardwareAccelerated="true"
+5    android:versionCode="250106"
+6    android:versionName="25.1.6" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="22"
+9-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml
+10        android:targetSdkVersion="31" />
+10-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml
+11
+12    <supports-screens
+12-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:3:5-191
+13        android:anyDensity="true"
+13-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:3:23-48
+14        android:largeScreens="true"
+14-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:3:49-76
+15        android:normalScreens="true"
+15-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:3:77-105
+16        android:resizeable="true"
+16-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:3:106-131
+17        android:smallScreens="true"
+17-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:3:132-159
+18        android:xlargeScreens="true" />
+18-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:3:160-188
+19
+20    <uses-permission android:name="android.permission.INTERNET" />
+20-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:4:5-67
+20-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
+21    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+21-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:109:5-76
+21-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:109:22-73
+22    <uses-permission android:name="android.permission.WAKE_LOCK" />
+22-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:110:5-68
+22-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:110:22-65
+23    <uses-permission android:name="android.permission.CALL_PHONE" />
+23-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:111:5-69
+23-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:111:22-66
+24
+25    <uses-feature
+25-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:112:5-88
+26        android:name="android.hardware.telephony"
+26-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:112:19-60
+27        android:required="false" />
+27-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:112:61-85
+28
+29    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+29-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:113:5-81
+29-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:113:22-78
+30    <uses-permission android:name="android.permission.READ_CONTACTS" />
+30-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:114:5-72
+30-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:114:22-69
+31    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+31-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:115:5-73
+31-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:115:22-70
+32    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+32-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:116:5-71
+32-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:116:22-68
+33    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+33-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:117:5-81
+33-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:117:22-78
+34    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+34-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:118:5-79
+34-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:118:22-76
+35
+36    <uses-feature android:name="android.hardware.location.gps" />
+36-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:119:5-66
+36-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:119:19-63
+37
+38    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+38-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:120:5-74
+38-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:120:22-71
+39    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+39-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:121:5-81
+39-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:121:22-78
+40    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+40-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:122:5-79
+40-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:122:22-76
+41    <uses-permission android:name="android.permission.CAMERA" />
+41-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:123:5-65
+41-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:123:22-62
+42    <uses-permission android:name="android.permission.FLASHLIGHT" />
+42-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:124:5-69
+42-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:124:22-66
+43
+44    <uses-feature
+44-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:125:5-85
+45        android:name="android.hardware.camera"
+45-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:125:19-57
+46        android:required="false" />
+46-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:125:58-82
+47    <!-- for android -->
+48    <!-- <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/> -->
+49    <!-- <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/> -->
+50    <!-- <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /> -->
+51    <!-- <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" /> -->
+52    <!-- for Samsung -->
+53    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+53-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:19:5-86
+53-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:19:22-83
+54    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" /> <!-- for htc -->
+54-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:20:5-87
+54-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:20:22-84
+55    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+55-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:23:5-81
+55-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:23:22-78
+56    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" /> <!-- for sony -->
+56-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:24:5-83
+56-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:24:22-80
+57    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+57-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:27:5-88
+57-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:27:22-85
+58    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" /> <!-- for apex -->
+58-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:28:5-92
+58-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:28:22-89
+59    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" /> <!-- for solid -->
+59-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:31:5-84
+59-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:31:22-81
+60    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" /> <!-- for huawei -->
+60-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:34:5-83
+60-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:34:22-80
+61    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+61-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:37:5-91
+61-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:37:22-88
+62    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+62-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:38:5-92
+62-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:38:22-89
+63    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" /> <!-- for ZUK -->
+63-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:39:5-93
+63-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:39:22-90
+64    <uses-permission android:name="android.permission.READ_APP_BADGE" /> <!-- for OPPO -->
+64-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:42:5-73
+64-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:42:22-70
+65    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+65-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:45:5-82
+65-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:45:22-79
+66    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" /> <!-- for EvMe -->
+66-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:46:5-83
+66-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:46:22-80
+67    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+67-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:49:5-88
+67-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:49:22-85
+68    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+68-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:50:5-89
+68-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\082ad5759b40f8bf3a0f7b5ffef2c36e\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:50:22-86
+69
+70    <queries>
+70-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:11:5-37:15
+71        <intent>
+71-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:12:9-18:18
+72            <action android:name="android.intent.action.VIEW" />
+72-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:50:17-69
+72-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:50:25-66
+73
+74            <data
+74-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:15:13-17:38
+75                android:mimeType="*/*"
+75-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:16:17-39
+76                android:scheme="*" />
+76-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:17:17-35
+77        </intent>
+78        <intent>
+78-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:12:9-18:18
+79            <action android:name="android.intent.action.VIEW" />
+79-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:50:17-69
+79-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:50:25-66
+80
+81            <category android:name="android.intent.category.BROWSABLE" />
+82
+83            <data
+83-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:15:13-17:38
+84                android:host="pay"
+85                android:mimeType="*/*"
+85-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:16:17-39
+86                android:scheme="upi" />
+86-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:17:17-35
+87        </intent>
+88        <intent>
+88-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:12:9-18:18
+89            <action android:name="android.intent.action.MAIN" />
+89-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:8:17-69
+89-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:8:25-66
+90        </intent>
+91        <intent>
+91-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:12:9-18:18
+92            <action android:name="android.intent.action.SEND" />
+92-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:30:17-69
+92-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:30:25-66
+93
+94            <data android:mimeType="*/*" />
+94-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:15:13-17:38
+94-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:16:17-39
+95        </intent>
+96    </queries>
+97
+98    <uses-feature
+98-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\1dbb20eb6933eb07748a054a7fd4a195\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+99        android:glEsVersion="0x00020000"
+99-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\1dbb20eb6933eb07748a054a7fd4a195\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+100        android:required="true" />
+100-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\1dbb20eb6933eb07748a054a7fd4a195\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+101
+102    <application
+102-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:5:5-108:19
+103        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+103-->[androidx.core:core:1.2.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\f194e2b9adf551cecfc2f8d237e2c3c5\core-1.2.0\AndroidManifest.xml:24:18-86
+104        android:debuggable="true"
+105        android:hardwareAccelerated="true"
+105-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
+106        android:icon="@mipmap/ic_launcher"
+106-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:5:53-87
+107        android:label="@string/app_name"
+107-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:5:88-120
+108        android:supportsRtl="true"
+108-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:5:121-147
+109        android:testOnly="true"
+110        android:usesCleartextTraffic="true" >
+110-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:5:148-183
+111        <activity
+111-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
+112            android:name="com.doon.doonproduct.MainActivity"
+112-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:6:229-256
+113            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+113-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:6:19-135
+114            android:exported="true"
+114-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:6:136-159
+115            android:label="@string/activity_name"
+115-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:6:160-197
+116            android:launchMode="singleTop"
+116-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:6:198-228
+117            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+117-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:6:257-319
+118            android:windowSoftInputMode="adjustResize" >
+118-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:6:320-362
+119            <intent-filter android:label="@string/launcher_name" >
+119-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:7:13-10:29
+119-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:7:28-65
+120                <action android:name="android.intent.action.MAIN" />
+120-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:8:17-69
+120-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:8:25-66
+121
+122                <category android:name="android.intent.category.LAUNCHER" />
+122-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:9:17-77
+122-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
+123            </intent-filter>
+124        </activity>
+125
+126        <service android:name="de.appplant.cordova.plugin.background.ForegroundService" />
+126-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:12:9-91
+126-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:12:18-88
+127
+128        <provider
+129            android:name="org.apache.cordova.camera.FileProvider"
+129-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:13:127-180
+130            android:authorities="com.doon.doonproduct.provider"
+130-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:13:19-66
+131            android:exported="false"
+131-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:13:67-91
+132            android:grantUriPermissions="true" >
+132-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:13:92-126
+133            <meta-data
+133-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:14:13-123
+134                android:name="android.support.FILE_PROVIDER_PATHS"
+134-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:14:24-74
+135                android:resource="@xml/camera_provider_paths" />
+135-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:14:75-120
+136        </provider>
+137        <provider
+138            android:name="de.appplant.cordova.plugin.notification.util.AssetProvider"
+138-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:16:127-200
+139            android:authorities="com.doon.doonproduct.provider"
+139-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:16:19-66
+140            android:exported="false"
+140-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:16:67-91
+141            android:grantUriPermissions="true" >
+141-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:16:92-126
+142            <meta-data
+142-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:14:13-123
+143                android:name="android.support.FILE_PROVIDER_PATHS"
+143-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:14:24-74
+144                android:resource="@xml/localnotification_provider_paths" />
+144-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:14:75-120
+145        </provider>
+146
+147        <receiver
+147-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:19:9-122
+148            android:name="de.appplant.cordova.plugin.localnotification.TriggerReceiver"
+148-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:19:44-119
+149            android:exported="false" />
+149-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:19:19-43
+150        <receiver
+150-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:20:9-120
+151            android:name="de.appplant.cordova.plugin.localnotification.ClearReceiver"
+151-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:20:44-117
+152            android:exported="false" />
+152-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:20:19-43
+153
+154        <activity
+154-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:21:9-205
+155            android:name="de.appplant.cordova.plugin.localnotification.ClickReceiver"
+155-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:21:80-153
+156            android:exported="false"
+156-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:21:19-43
+157            android:launchMode="singleInstance"
+157-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:21:44-79
+158            android:theme="@android:style/Theme.Translucent" />
+158-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:21:154-202
+159
+160        <receiver
+160-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:22:9-27:20
+161            android:name="de.appplant.cordova.plugin.localnotification.RestoreReceiver"
+161-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:22:75-150
+162            android:directBootAware="true"
+162-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:22:19-49
+163            android:exported="false" >
+163-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:22:50-74
+164            <intent-filter>
+164-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:23:13-26:29
+165                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+165-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:24:17-86
+165-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:24:25-83
+166                <action android:name="android.intent.action.BOOT_COMPLETED" />
+166-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:25:17-79
+166-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:25:25-76
+167            </intent-filter>
+168        </receiver>
+169        <receiver
+169-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:9-32:20
+170            android:name="nl.xservices.plugins.ShareChooserPendingIntent"
+170-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:67-128
+171            android:enabled="true"
+171-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:19-41
+172            android:exported="false" >
+172-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:42-66
+173            <intent-filter>
+173-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:29:13-31:29
+174                <action android:name="android.intent.action.SEND" />
+174-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:30:17-69
+174-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:30:25-66
+175            </intent-filter>
+176        </receiver>
+177
+178        <provider
+179            android:name="nl.xservices.plugins.FileProvider"
+179-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:33:135-183
+180            android:authorities="com.doon.doonproduct.sharing.provider"
+180-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:33:19-74
+181            android:exported="false"
+181-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:33:75-99
+182            android:grantUriPermissions="true" >
+182-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:33:100-134
+183            <meta-data
+183-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:14:13-123
+184                android:name="android.support.FILE_PROVIDER_PATHS"
+184-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:14:24-74
+185                android:resource="@xml/sharing_paths" />
+185-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:14:75-120
+186        </provider>
+187
+188        <activity
+188-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:36:9-41:20
+189            android:name="com.google.zxing.client.android.CaptureActivity"
+189-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:36:128-190
+190            android:clearTaskOnLaunch="true"
+190-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:36:19-51
+191            android:configChanges="orientation|keyboardHidden"
+191-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:36:52-102
+192            android:exported="false"
+192-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:36:103-127
+193            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+193-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:36:191-249
+194            android:windowSoftInputMode="stateAlwaysHidden" >
+194-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:36:250-297
+195            <intent-filter>
+195-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:37:13-40:29
+196                <action android:name="com.google.zxing.client.android.SCAN" />
+196-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:38:17-79
+196-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:38:25-76
+197
+198                <category android:name="android.intent.category.DEFAULT" />
+198-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:17-76
+198-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:27-73
+199            </intent-filter>
+200        </activity>
+201        <activity
+201-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:9-47:20
+202            android:name="com.google.zxing.client.android.encode.EncodeActivity"
+202-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:79-147
+203            android:exported="false"
+203-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:19-43
+204            android:label="@string/share_name" >
+204-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:44-78
+205            <intent-filter>
+205-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:43:13-46:29
+206                <action android:name="com.phonegap.plugins.barcodescanner.ENCODE" />
+206-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:44:17-85
+206-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:44:25-82
+207
+208                <category android:name="android.intent.category.DEFAULT" />
+208-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:17-76
+208-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:27-73
+209            </intent-filter>
+210        </activity>
+211        <activity
+211-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:9-53:20
+212            android:name="com.google.zxing.client.android.HelpActivity"
+212-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:78-137
+213            android:exported="true"
+213-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:19-42
+214            android:label="@string/share_name" >
+214-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:43-77
+215            <intent-filter>
+215-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:49:13-52:29
+216                <action android:name="android.intent.action.VIEW" />
+216-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:50:17-69
+216-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:50:25-66
+217
+218                <category android:name="android.intent.category.DEFAULT" />
+218-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:17-76
+218-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:27-73
+219            </intent-filter>
+220        </activity>
+221        <activity
+221-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:9-47:20
+222            android:name="com.google.zxing.client.android.encode.EncodeActivity"
+222-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:79-147
+223            android:exported="false"
+223-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:19-43
+224            android:label="@string/share_name" >
+224-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:44-78
+225            <intent-filter>
+225-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:43:13-46:29
+226                <action android:name="com.phonegap.plugins.barcodescanner.ENCODE" />
+226-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:44:17-85
+226-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:44:25-82
+227
+228                <category android:name="android.intent.category.DEFAULT" />
+228-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:17-76
+228-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:27-73
+229            </intent-filter>
+230        </activity>
+231        <activity
+231-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:9-53:20
+232            android:name="com.google.zxing.client.android.HelpActivity"
+232-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:78-137
+233            android:exported="true"
+233-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:19-42
+234            android:label="@string/share_name" >
+234-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:43-77
+235            <intent-filter>
+235-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:49:13-52:29
+236                <action android:name="android.intent.action.VIEW" />
+236-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:50:17-69
+236-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:50:25-66
+237
+238                <category android:name="android.intent.category.DEFAULT" />
+238-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:17-76
+238-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:27-73
+239            </intent-filter>
+240        </activity>
+241
+242        <receiver
+242-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:9-32:20
+243            android:name="nl.xservices.plugins.ShareChooserPendingIntent"
+243-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:67-128
+244            android:enabled="true"
+244-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:19-41
+245            android:exported="false" >
+245-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:42-66
+246            <intent-filter>
+246-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:29:13-31:29
+247                <action android:name="android.intent.action.SEND" />
+247-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:30:17-69
+247-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:30:25-66
+248            </intent-filter>
+249        </receiver>
+250
+251        <activity
+251-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:9-47:20
+252            android:name="com.google.zxing.client.android.encode.EncodeActivity"
+252-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:79-147
+253            android:exported="false"
+253-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:19-43
+254            android:label="@string/share_name" >
+254-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:44-78
+255            <intent-filter>
+255-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:43:13-46:29
+256                <action android:name="com.phonegap.plugins.barcodescanner.ENCODE" />
+256-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:44:17-85
+256-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:44:25-82
+257
+258                <category android:name="android.intent.category.DEFAULT" />
+258-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:17-76
+258-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:27-73
+259            </intent-filter>
+260        </activity>
+261        <activity
+261-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:9-53:20
+262            android:name="com.google.zxing.client.android.HelpActivity"
+262-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:78-137
+263            android:exported="true"
+263-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:19-42
+264            android:label="@string/share_name" >
+264-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:43-77
+265            <intent-filter>
+265-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:49:13-52:29
+266                <action android:name="android.intent.action.VIEW" />
+266-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:50:17-69
+266-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:50:25-66
+267
+268                <category android:name="android.intent.category.DEFAULT" />
+268-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:17-76
+268-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:27-73
+269            </intent-filter>
+270        </activity>
+271
+272        <receiver
+272-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:9-32:20
+273            android:name="nl.xservices.plugins.ShareChooserPendingIntent"
+273-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:67-128
+274            android:enabled="true"
+274-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:19-41
+275            android:exported="false" >
+275-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:42-66
+276            <intent-filter>
+276-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:29:13-31:29
+277                <action android:name="android.intent.action.SEND" />
+277-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:30:17-69
+277-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:30:25-66
+278            </intent-filter>
+279        </receiver>
+280
+281        <activity
+281-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:9-47:20
+282            android:name="com.google.zxing.client.android.encode.EncodeActivity"
+282-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:79-147
+283            android:exported="false"
+283-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:19-43
+284            android:label="@string/share_name" >
+284-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:42:44-78
+285            <intent-filter>
+285-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:43:13-46:29
+286                <action android:name="com.phonegap.plugins.barcodescanner.ENCODE" />
+286-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:44:17-85
+286-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:44:25-82
+287
+288                <category android:name="android.intent.category.DEFAULT" />
+288-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:17-76
+288-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:27-73
+289            </intent-filter>
+290        </activity>
+291        <activity
+291-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:9-53:20
+292            android:name="com.google.zxing.client.android.HelpActivity"
+292-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:78-137
+293            android:exported="true"
+293-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:19-42
+294            android:label="@string/share_name" >
+294-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:48:43-77
+295            <intent-filter>
+295-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:49:13-52:29
+296                <action android:name="android.intent.action.VIEW" />
+296-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:50:17-69
+296-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:50:25-66
+297
+298                <category android:name="android.intent.category.DEFAULT" />
+298-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:17-76
+298-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:39:27-73
+299            </intent-filter>
+300        </activity>
+301
+302        <receiver
+302-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:9-32:20
+303            android:name="nl.xservices.plugins.ShareChooserPendingIntent"
+303-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:67-128
+304            android:enabled="true"
+304-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:19-41
+305            android:exported="false" >
+305-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:28:42-66
+306            <intent-filter>
+306-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:29:13-31:29
+307                <action android:name="android.intent.action.SEND" />
+307-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:30:17-69
+307-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:30:25-66
+308            </intent-filter>
+309        </receiver>
+310        <receiver
+310-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:40:9-46:20
+311            android:name="com.razorpay.RzpTokenReceiver"
+311-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:41:13-57
+312            android:exported="false" >
+312-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:42:13-37
+313            <intent-filter>
+313-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:43:13-45:29
+314                <action android:name="rzp.device_token.share" />
+314-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:44:17-65
+314-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:44:25-62
+315            </intent-filter>
+316        </receiver>
+317
+318        <activity
+318-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:48:9-60:20
+319            android:name="com.razorpay.CheckoutActivity"
+319-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:49:13-57
+320            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+320-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:50:13-83
+321            android:exported="true"
+321-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:51:13-36
+322            android:theme="@style/CheckoutTheme" >
+322-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:52:13-49
+323            <intent-filter>
+323-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:53:13-59:29
+324                <action android:name="android.intent.action.MAIN" />
+324-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:8:17-69
+324-->D:\Project-backup-10-jun\Project\DSCL\SmartCityMobileApp\platforms\android\app\src\main\AndroidManifest.xml:8:25-66
+325
+326                <data
+326-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:15:13-17:38
+327                    android:host="rzp.io"
+328                    android:scheme="io.rzp" />
+328-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:17:17-35
+329            </intent-filter>
+330        </activity>
+331
+332        <meta-data
+332-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:62:9-64:58
+333            android:name="com.razorpay.plugin.googlepay_all"
+333-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:63:13-61
+334            android:value="com.razorpay.RzpGpayMerged" />
+334-->[com.razorpay:checkout:1.6.19] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\0040914e2bbf76e4d0ad9408b77474eb\jetified-checkout-1.6.19\AndroidManifest.xml:64:13-55
+335
+336        <activity
+336-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\898707ed9f7d91f6fad08a246d5c79f2\jetified-play-services-auth-17.0.0\AndroidManifest.xml:23:9-27:75
+337            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+337-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\898707ed9f7d91f6fad08a246d5c79f2\jetified-play-services-auth-17.0.0\AndroidManifest.xml:24:13-93
+338            android:excludeFromRecents="true"
+338-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\898707ed9f7d91f6fad08a246d5c79f2\jetified-play-services-auth-17.0.0\AndroidManifest.xml:25:13-46
+339            android:exported="false"
+339-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\898707ed9f7d91f6fad08a246d5c79f2\jetified-play-services-auth-17.0.0\AndroidManifest.xml:26:13-37
+340            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+340-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\898707ed9f7d91f6fad08a246d5c79f2\jetified-play-services-auth-17.0.0\AndroidManifest.xml:27:13-72
+341        <!--
+342            Service handling Google Sign-In user revocation. For apps that do not integrate with
+343            Google Sign-In, this service will never be started.
+344        -->
+345        <service
+345-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\898707ed9f7d91f6fad08a246d5c79f2\jetified-play-services-auth-17.0.0\AndroidManifest.xml:33:9-36:110
+346            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+346-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\898707ed9f7d91f6fad08a246d5c79f2\jetified-play-services-auth-17.0.0\AndroidManifest.xml:34:13-89
+347            android:exported="true"
+347-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\898707ed9f7d91f6fad08a246d5c79f2\jetified-play-services-auth-17.0.0\AndroidManifest.xml:35:13-36
+348            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" /> <!-- Needs to be explicitly declared on P+ -->
+348-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\898707ed9f7d91f6fad08a246d5c79f2\jetified-play-services-auth-17.0.0\AndroidManifest.xml:36:13-107
+349        <uses-library
+349-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\1dbb20eb6933eb07748a054a7fd4a195\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+350            android:name="org.apache.http.legacy"
+350-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\1dbb20eb6933eb07748a054a7fd4a195\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+351            android:required="false" />
+351-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\1dbb20eb6933eb07748a054a7fd4a195\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+352
+353        <activity
+353-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\f9d262d020419a715d3e6b5f96faae74\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+354            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+354-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\f9d262d020419a715d3e6b5f96faae74\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+355            android:exported="false"
+355-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\f9d262d020419a715d3e6b5f96faae74\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+356            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+356-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\f9d262d020419a715d3e6b5f96faae74\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+357
+358        <meta-data
+358-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\4420e718aee2c4a208b60b21539a02eb\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+359            android:name="com.google.android.gms.version"
+359-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\4420e718aee2c4a208b60b21539a02eb\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+360            android:value="@integer/google_play_services_version" />
+360-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\4420e718aee2c4a208b60b21539a02eb\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+361    </application>
+362
+363</manifest>

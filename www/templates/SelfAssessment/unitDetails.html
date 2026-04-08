@@ -1,0 +1,99 @@
+<ion-view class="home-page">
+	<ion-nav-title>
+		<div class="bar bar-header headercolor">
+			<h1 class="title">MaiNet</h1>
+		</div>
+	</ion-nav-title>
+	<ion-nav-buttons side="left">
+		<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+		</button>
+	</ion-nav-buttons>
+	<ion-content scroll="true" class="animated zoomIn" ng-controller="unitDetailsCtrl">
+	<h3 class="heading">Unit Details</h3>
+		<form name="unitDetailsForm" >
+				  <div class="padding-left-15 customBgColor">All fields marked asterisk(<span class="required"></span>) are mandatory</div>
+					<div class="list">
+						<label class="input-label padding-left-15 required" >Unit No</label>
+						<select class="select-dropdown" name="unitNo" ng-model="unitNo" required>
+							<option value="">Select</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+						</select>
+						<label class="input-label padding-left-15 required" >Unit Type</label>
+						<select class="select-dropdown" name="unitType" ng-model="unitType" required>
+							<option value="">Select</option>
+							<option value="">1</option>
+							<option value="">2</option>
+						</select>
+						<label class="input-label padding-left-15 required" >Floor No</label>
+						<select class="select-dropdown" name="floorNo" ng-model="floorNo" required>
+							<option value="">Select</option>
+							<option value="">1</option>
+							<option value="">2</option>
+						</select>
+						<label class="item item-input item-floating-label">
+							<span class="input-label required">Construction Completion Date</span> 
+							<input type="date" placeholder="Construction Completion Date*" name="compledate" ng-model="compledate"  required/>
+							<span class="errorMessage" ng-show="unitDetailsForm.compledate.$error.pattern">Please Enter Valid Construction Completion Date</span>
+						</label>
+						<label class="input-label padding-left-15 required" >Usage Type</label>
+						<select class="select-dropdown" name="usageType" ng-model="usageType"  required>
+							<option value="">Select</option>
+							<option value="">1</option>
+							<option value="">2</option>
+						</select>
+						<label class="input-label padding-left-15 required" >Usage SubType</label>
+						<select class="select-dropdown" name="usageSubType" ng-model="usageSubType"  required>
+							<option value="">Select</option>
+							<option value="">1</option>
+							<option value="">2</option>
+						</select>
+						<label class="input-label padding-left-15 required" >Construction Type</label>
+						<select class="select-dropdown" name="constructionType" ng-model="constructionType"  required>
+							<option value="">Select</option>
+							<option value="">1</option>
+							<option value="">2</option>
+						</select>
+						<label class="input-label padding-left-15 required" >Occupancy Type</label>
+						<select class="select-dropdown" name="occupancyType" ng-model="occupancyType"required>
+							<option value="">Select</option>
+							<option value="">1</option>
+							<option value="">2</option>
+						</select>
+						<label class="input-label padding-left-15 required" >Road Type</label>
+						<select class="select-dropdown" name="roadType" ng-model="roadType" required>
+							<option value="">Select</option>
+							<option value="">1</option>
+							<option value="">2</option>
+						</select>
+						<label class="item item-input item-floating-label">
+							<span class="input-label">Taxable Area</span> 
+							<input type="text" placeholder="Taxable Area*" name="taxableArea" ng-model="taxableArea" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+							<span class="errorMessage" ng-show="unitDetailsForm.taxableArea.$error.pattern">Please Enter Valid Taxable Area</span>
+						</label>
+						<label class="item item-input item-floating-label">
+							<span class="input-label required">Monthly Rent</span> 
+							<input type="text" placeholder="Monthly Rent*" name="monthlyRent" ng-model="monthlyRent" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+							<span class="errorMessage" ng-show="unitDetailsForm.monthlyRent.$error.pattern">Please Enter Valid Monthly Rent</span>
+						</label>
+				
+						<label class="item item-input item-floating-label">
+							<span class="input-label required">Occupier Name</span> 
+							<input type="tel" placeholder="Occupier Name" name="occupierName" ng-model="occupierName" ng-trim="false" ng-pattern="/^[0-9]{10,10}$/" />
+							<span class="errorMessage" ng-show="unitDetailsForm.occupierName.$error.pattern">Please Enter Valid Occupier Name</span>
+						</label>
+						<label class="item item-input item-floating-label">
+							<span class="input-label required">Count</span> 
+							<input type="tel" placeholder="Count*" name="count" ng-model="count" ng-trim="false" ng-pattern="/^[0-9]{10,10}$/" />
+							<span class="errorMessage" ng-show="unitDetailsForm.count.$error.pattern">Please Enter Valid Count</span>
+						</label>
+						
+						</div>
+						<div class="padding">
+							<button ng-disabled="unitDetailsForm.$invalid" class="button button-block button-positive customBgColor">
+								<span translate="">Save</span>
+							</button>
+						</div>
+		</form>
+    </ion-content>
+</ion-view>

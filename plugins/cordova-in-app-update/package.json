@@ -1,0 +1,72 @@
+{
+  "_from": "git+https://github.com/Fasal-Tech/cordova-app-update-plugin.git",
+  "_id": "cordova-in-app-update@2.0.2",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-in-app-update",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "git+https://github.com/Fasal-Tech/cordova-app-update-plugin.git",
+    "rawSpec": "git+https://github.com/Fasal-Tech/cordova-app-update-plugin.git",
+    "saveSpec": "git+https://github.com/Fasal-Tech/cordova-app-update-plugin.git",
+    "fetchSpec": "https://github.com/Fasal-Tech/cordova-app-update-plugin.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "git+https://github.com/Fasal-Tech/cordova-app-update-plugin.git#a8ae40da70e9bbb89be10f1f2af37bf169f6bc4b",
+  "_spec": "git+https://github.com/Fasal-Tech/cordova-app-update-plugin.git",
+  "_where": "D:\\Project-backup-10-jun\\Project\\HtmlToImage",
+  "author": {
+    "name": "Dhaval Chaudhary",
+    "email": "mr.spark2591@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Fasal-Tech/cordova-app-update-plugin/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-in-app-update",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "An Android Cordova plugin that allows users to update app to letest version without leaving the application",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=6.0.0"
+    }
+  ],
+  "homepage": "https://github.com/Fasal-Tech/cordova-app-update-plugin/",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova",
+    "android",
+    "playstore",
+    "update",
+    "autoupdate",
+    "In app update",
+    "Stalness days",
+    "Priority update",
+    "Flexible update",
+    "Immediate update"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "cordova-in-app-update",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fasal-Tech/cordova-app-update-plugin.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "2.0.2"
+}

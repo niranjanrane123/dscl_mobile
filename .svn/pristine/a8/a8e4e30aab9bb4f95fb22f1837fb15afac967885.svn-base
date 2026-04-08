@@ -1,0 +1,82 @@
+<ion-view  class="titlecss">
+    <!-- title="{{'ITS' | translate}}.." -->
+    <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+    <div class="bar bar-subheader bar-so-subheader fsa-bg">
+        <div class="headingDiv">
+            <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="ITS"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+          </div>
+        <div class="row">
+            <div class="col">
+                <a class="button button-so-tab" ng-class="(view.tabs.bystop) ? 'active-tab' : ''"
+                    ng-click="view.onTabClick('bystop');">
+                    By Stops
+                </a>
+            </div>
+            <div class="col" ng-if="userType != 1">
+                <a class="button button-so-tab" ng-class="(view.tabs.byroute) ? 'active-tab' : ''"
+                    ng-click="view.onTabClick('byroute');">
+                    By Route
+                </a>
+            </div>
+        </div>
+    </div>
+    <ion-content class="has-so-subheader" delegate-handle="so-handle" has-bouncing="false">
+        <div class="row margin-0">
+            <div class="col-md-3 col-sm-12 order-4" ng-click="view.onMapClicl(true);">
+                <div class="list list-icon">
+                    <a class=" gridnopadding">
+                        <img src="./img/wardZoneIcon.png" height="20" width="20">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-12 order-4">
+                <div class="list list-icon" ng-click="view.onMapClicl(false);">
+                    <a class=" gridnopadding">
+                        <img src="./img/report.png" height="20" width="20">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div ng-if="view.mapVisible==true" id="map" style="width: 100%; height: 400px;"></div>
+        <ion-list ng-if="view.mapVisible==false && view.tabs.bystop==true" class="fsa-list so-list">
+            <ion-item ng-click="view.onJobClick(job);" class="item-text-wrap card so-item"
+                ng-repeat="job in respcompainList track by $index">
+                <div class="row">
+                    <div class="col padding">
+                        <h2 class="text-left">{{job.PoiName}}</h3>
+                    </div>
+                </div>
+                <div class="col padding">
+                    <h3 class="fsa-bold" ng-click="view.onJobClick(job);">
+                        {{job.PoiAddress}}
+                    </h3>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <ion-list ng-if="view.mapVisible==false && view.tabs.byroute==true" class="fsa-list so-list">
+            <ion-item ng-click="view.onJobClick(job);" class="item-text-wrap card so-item"
+                ng-repeat="job in resproutecompainList track by $index">
+                <div class="row">
+                    <div class="col padding">
+                        <h2 class="text-left">{{job.RouteName}}</h3>
+                    </div>
+                </div>
+                <div class="col padding">
+                    <h3 class="fsa-bold" ng-click="view.onJobClick(job);">
+                        {{job.RouteViaName}}
+                    </h3>
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,260 @@
+<ion-view >
+    <!-- title="{{'ECHATTISGARH' | translate}}" -->
+    <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+    <ion-content ng-controller="PLLicenceCTRL" class="HomeBackground">
+
+        <form name="plbForm">
+            <div class="headingDiv">
+                <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="APPLICANTINFO"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+            </div>
+            <div class="list">
+                <label class="input-label padding-left-15 required" translate="TITLE"></label>
+                <select class="select-dropdown" name="plbTitle" ng-model="plbTitle"
+                        ng-options="obj.id as obj.value for obj in titleResponse2" required>
+                    <option value="" translate="SELECT">Select</option>
+                </select>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label required" translate="FIRSTNAME"></span>
+                    <input type="text" placeholder="{{'FIRSTNAME' | translate}}*" name="plbFirstName" ng-model="plbFirstName" required/>
+                    <span class="errorMessage" ng-show="plbForm.plbFirstName.$error.pattern" translate="PLEASEENTERVALIDNAME"></span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" translate="MIDDLENAME"></span>
+                    <input type="text" placeholder="{{'MIDDLENAME' | translate}}" name="plbMiddleName" ng-model="plbMiddleName" />
+                    <span class="errorMessage" ng-show="plbForm.plbMiddleName.$error.pattern" translate="PLEASEENTERVALIDMIDDLENAME"></span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label required" translate="LASTNAME"></span>
+                    <input type="text" placeholder="{{'LASTNAME' | translate}}*" name="plbLastName" ng-model="plbLastName"  required/>
+                    <span class="errorMessage" ng-show="plbForm.plbLastName.$error.pattern" translate="PLEASEENTERVALIDLASTNAME"></span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label required" translate="MOBILENO"></span>
+                    <input type="number" placeholder="{{'MOBILENO' | translate}}*" name="plbMobileNo" ng-model="plbMobileNo" ng-trim="false" ng-pattern="/^[0-9]{10,10}$/" required/>
+                    <span class="errorMessage" ng-show="plbForm.plbMobileNo.$error.pattern" translate="VALIDMOBILE"></span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label required" translate="EMAILID"></span>
+                    <input type="text" placeholder="{{'EMAILID' | translate}}" name="plbEmail" ng-model="plbEmail" ng-trim="false" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" />
+                    <span class="errorMessage" ng-show="plbForm.plbEmail.$error.pattern" translate="VALIDEMAIL"></span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label required" translate="ADDRESSLINE1"></span>
+                    <input type="text" placeholder="{{'ADDRESSLINE1' | translate}}*" name="plbAddress1" ng-model="plbAddress1"  required/>
+                    <span class="errorMessage" ng-show="plbForm.plbAddress1.$error.pattern" translate="VALIDADDRESS"></span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" translate="ADDRESSLINE2"></span>
+                    <input type="text" placeholder="{{'ADDRESSLINE2' | translate}}" name="plbAddress2" ng-model="plbAddress2"   />
+                    <span class="errorMessage" ng-show="plbForm.plbAddress2.$error.pattern" translate="VALIDADDRESS"></span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" translate="ADDRESSLINE3"></span>
+                    <input type="text" placeholder="{{'ADDRESSLINE3' | translate}}" name="plbAddress3" ng-model="plbAddress3"  />
+                    <span class="errorMessage" ng-show="plbForm.plbAddress3.$error.pattern" translate="VALIDADDRESS"></span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label required" translate="PINCODE"></span>
+                    <input type="number" placeholder="{{'PINCODE' | translate}}*" name="plbPinCode" ng-model="plbPinCode" ng-trim="false" ng-pattern="/^[1-9]\d{5,5}$/" required/>
+                    <span class="errorMessage" ng-show="plbForm.plbPinCode.$error.pattern" translate="VALIDPINCODE"></span>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" translate="ADHARNO"></span>
+                    <input type="number" placeholder="{{'ADHARNO' | translate}}" name="plbAdharNumber" ng-model="plbAdharNumber" ng-trim="false" ng-pattern="/^[0-9]{12,12}$/"/>
+                    <span class="errorMessage" ng-show="plbForm.plbAdharNumber.$error.pattern" translate="VALIDAADHAR"></span>
+                </label>
+                <label class="input-label padding-left-15 required" translate="ISBELOWPOVERTYLINE"></label>
+                <select class="select-dropdown"  name="plbPovertyLine" ng-model="plbPovertyLine"
+                        ng-options="obj.id as obj.value for obj in bplResponse2" required>
+                    <option value="" translate="SELECT">Select</option>
+                </select>
+                <div id="isbpl" ng-if="plbPovertyLine == 'Y'">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label required" translate="BPLNO"></span>
+                        <input type="number" placeholder="{{'BPLNO' | translate}}*" name="plbBplno" ng-model="data_.plbBplno" id="bplNumber"
+                               ng-keyup="sixteenLimitBpl()" ng-pattern="/^[0-9]{6,6}$/" ng-trim="false"  required/>
+                        <span class="errorMessage" ng-show="plbForm.plbBplno.$error.pattern" translate="VALIDBPL"></span>
+                    </label>
+                </div>
+
+                <!--            <div style="height: 52px;" class="search_categories">-->
+                <!--              <div class="select">-->
+                <!--                <select class="search_categories" name="plbZone" ng-model="plbZone"  id="plbZone"-->
+                <!--                        ng-options="o.value as o.name for o in Zone" required  ng-change="fetchWard()">-->
+                <!--                  <option value="" translate="ZONE" required></option>-->
+                <!--                </select>-->
+                <!--              </div>-->
+                <!--            </div>-->
+
+                <!--            <div style="height: 52px;" class="search_categories">-->
+                <!--              <div class="select">-->
+                <!--                <select class="search_categories" name="plbWard" ng-model="plbWard"  id="plbWard"-->
+                <!--                        ng-options="o.value as o.name for o in ZoneWard" required>-->
+                <!--                  <option value="" translate="WARD" required></option>-->
+                <!--                </select>-->
+                <!--              </div>-->
+                <!--            </div>-->
+
+                <div style="height: 52px;" class="search_categories" ng-if="ward1">
+                    <div class="select">
+                        <select class="search_categories" name="propertyzone" ng-model="plbZone"  id="complaintReferenceone"
+                                ng-options="o.value as o.name for o in ward1" ng-change="fetchZone(2,plbZone)" required >
+                            <option value=""  required>{{allWard[0].comDesc}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="height: 52px;" class="search_categories" ng-if="ward2">
+                    <div class="select">
+                        <select class="search_categories" name="propertyztwo" ng-model="plbWard"  id="complaintReferencetwo"
+                                ng-options="o.value as o.name for o in wardSec" ng-change="fetchZone(3,plbWard)" required >
+                            <option value=""  required>{{allWard[1].comDesc}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="height: 52px;" class="search_categories" ng-if="ward3">
+                    <div class="select">
+                        <select class="search_categories" name="propertyzthree" ng-model="wardTwo"  id="complaintReferencethree"
+                                ng-options="o.value as o.name for o in wardTh" ng-change="fetchZone(4,wardTwo)" required >
+                            <option value=""  required>{{allWard[2].comDesc}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="height: 52px;" class="search_categories" ng-if="ward4">
+                    <div class="select">
+                        <select class="search_categories" name="propertyzfour" ng-model="wardThree"  id="complaintReferencefour"
+                                ng-options="o.value as o.name for o in wardFor" ng-change="fetchZone(5,wardThree)" required >
+                            <option value=""  required>{{allWard[3].comDesc}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="height: 52px;" class="search_categories" ng-if="ward5">
+                    <div class="select">
+                        <select class="search_categories" name="propertyzfive" ng-model="wardFour"  id="complaintReferencefive"
+                                ng-options="o.value as o.name for o in wardFiv" ng-change="fetchZone(6,wardFour)" required >
+                            <option value=""  required>{{allWard[4].comDesc}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <table class="gridtable">
+                    <tr>
+                        <th  translate="UPLOAD"></th>
+                        <td><input type="file" class="filecss " id="plbImg"
+                                   ng-model="plbImg" onchange="angular.element(this).scope().imageupload(this)"/></td>
+                    </tr>
+                </table>
+                <ion-checkbox name="cb" ng-model="addinfochecked" ng-change="openModal('new','','','','','','')" >
+                    <span class="input-label" translate="ADDQUALIFICATION"></span></ion-checkbox>
+
+
+                <ion-list can-swipe="true" class="list-categories">
+                    <ion-item ng-repeat="item in receiptCollections | filter:search track by $index"  class="">
+
+                        <table class="gridtable">
+                            <tr>
+                                <th translate="QUALIFICATION"></th>
+                                <td>{{filterQualification(item.plumQualification)}}</td>
+                            </tr>
+                            <tr>
+                                <th translate="DATEOFPASSING"></th>
+                                <td>{{item.plumPassMonth | date:'dd/MM/yyyy' }}</td>
+                            </tr>
+                            <tr>
+                                <th translate="GRADE/PERCENT"></th>
+                                <td>{{item.plumPercentGrade}}</td>
+                            </tr>
+                            <tr>
+                                <th translate="INSTITUTENAME"></th>
+                                <td>{{item.plumInstituteName}}</td>
+                            </tr>
+                            <tr>
+                                <th translate="INSTITUTEADDRESS"></th>
+                                <td>{{item.plumInstituteAddress}}</td>
+                            </tr>
+                        </table>
+                        <button class="remove" ng-click="removeReceiptHead($index)">-</button>
+                        </button>
+                    </ion-item>
+                </ion-list>
+
+                <ion-checkbox name="cb2" ng-model="addinfochecked2" ng-change="openModal2('new','','','','','','')" >
+                    <span class="input-label" translate="ADDEXPERIENCE"></span></ion-checkbox>
+
+
+                <ion-list can-swipe="true" class="list-categories">
+                    <ion-item ng-repeat="item in receiptCollections2 | filter:search track by $index"  class="">
+
+                        <table class="gridtable">
+                            <tr>
+                                <th translate="EMPLOYERSNAME"></th>
+                                <td>{{item.plumCompanyName}}</td>
+                            </tr>
+                            <tr>
+                                <th translate="EMPLOYERSADDRESS"></th>
+                                <td>{{item.plumCompanyAddress}}</td>
+                            </tr>
+                            <tr>
+                                <th translate="FROMDATE"></th>
+                                <td>{{item.expFromDate | date:'dd/MM/yyyy'}}</td>
+                            </tr>
+                            <tr>
+                                <th translate="TODATE"></th>
+                                <td>{{item.expToDate | date:'dd/MM/yyyy'}}</td>
+                            </tr>
+                            <tr>
+                                <th translate="EXPERIENCE"></th>
+                                <td>{{item.experience}}</td>
+                            </tr>
+                            <tr>
+                                <th translate="firmType"></th>
+                                <td>{{firmType(item.firmType)}}</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <th translate="total experience"></th>
+                                <td ng-init="itemTotal = item.experience + item.experience">{{itemTotal}}</td>
+                            </tr>
+                        </table>
+                        <button class="remove" ng-click="removeReceiptHead2($index)">-</button>
+                        </button>
+                    </ion-item>
+                </ion-list>
+
+                <div class="padding ">
+
+
+                    <button  ng-disabled="!plbForm.$valid" ng-click="savePlumberLicence()" class="button button-block  customBgColor">
+                        <span translate="PROCEED"></span></button>
+
+                </div>
+            </div>
+
+        </form>
+
+    </ion-content>
+</ion-view>
+
+<style>
+
+.remove{
+    background: #C76868;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 24px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 9px;
+    vertical-align: top;
+    line-height: 100%;
+}
+
+</style>

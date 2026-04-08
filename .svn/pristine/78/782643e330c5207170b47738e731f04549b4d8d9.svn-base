@@ -1,0 +1,211 @@
+<ion-view>
+
+    <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+      <img style="right: 46%;
+          position: absolute;
+          margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+
+<ion-content ng-controller="ApplicationPaymentStatusPageCtrl" class="HomeBackground">
+<div class="headingDiv">
+        <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="StatusofPayments">
+        <img src="./img/quick-services-32x32.png" width="32" height="32"></h3> 
+</div>
+<!-- Tab code started -->
+
+  <div class="row" style="margin-left: 0%;">
+    <div class="col" style="width: 14rem;">
+      <a class="button tabBtn" ng-class="(viewLOI) ? 'activated-tab' : ''" ng-click="showTab('false')" translate="LOI_TO_BE_PAID">
+        LOI To Be Paid
+      </a>
+    </div>
+    <div class="col" ng-if="userType != 1" style="margin-right: 1.6rem; width: 25rem;">
+      <a class="button tabBtn" ng-class="(viewAppl) ? 'activated-tab' : ''" ng-click="showTab('true')" translate="APPLICATION_PAYMENT_PENDING">
+        Application Payment Pending
+      </a>
+    </div>
+  </div>
+<!-- Tab code end -->
+<!-- Application Pending Payment -->
+ <div ng-if="showApplication == 'true'">
+          <div>
+            <!-- <div class="headingDiv">
+              <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="StatusofPayments"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+            </div> -->
+
+             <input ng-if="getPaymentDashBoardData.length>0" type="search" id="home-payment-search" ng-pattern="/^[0-9a-zA-Z]{0,20}$/" class="mysearch" name="search" ng-model="$parent.Paymentmysearch" alpha-numeric-only limit="20" ng-trim="false" ng-model-options="{ allowInvalid: true}" style="font-family: 'Poppins-Regular';" placeholder="{{'SEARCH' | translate}}" />
+            <div class="row margin-0">
+
+             <div class="table-outer">
+            
+               <table class="complaintTable fontRegular"><!-- ng-if="Paymentmysearch.length<1 || !Paymentmysearch" -->
+                 <tr class="table-heading">
+                   <td  translate="APPLICATIONNO">Application No</td>
+                   <!--<td translate="APPLICATIONDATE">Application Date</td>-->
+                   <!--<td translate="DEPARTMENTNAME">Department Name</td>-->
+                   <td translate="ServiceName" ng-if="langID=='1' || langID==1">Service Name</td>
+                   <td translate="ServiceNameReg" ng-if="langID=='2' || langID==2">Service Name Reg</td>
+                   <td translate="STATUS">Status</td>
+                   <td translate="ACTION">Action</td>
+                 </tr>
+                  <tr ng-repeat="rowData in getPaymentDashBoardDataPage | filter:Paymentmysearch">
+                   <td>{{rowData.refId}}</td>
+                   <!--<td>{{rowData.appDate}}</td>-->
+                   <!--<td>{{rowData.deptName}}</td>-->
+                   <td ng-if="langID=='1' || langID==1">{{rowData.serviceName}}</td>
+                   <td ng-if="langID=='2' || langID==2">{{rowData.smServiceNameMar}}</td>
+                   <!-- <td ng-if="langID== '1' || langID==1" >{{rowData.status | translate}} </td> -->
+                   <!-- <td ng-if="langID== '2' || langID==2">{{rowData.statusDesc}}</td> -->
+                   <td>{{rowData.status | translate}} </td>
+                  <td>
+                    <i class="icon ion-card"  title="Payment" ng-click="Payment(rowData, 'APPLICATION_PAYMENT_PENDING','application')"></i>
+                  </td>
+                 </tr>
+               </table>
+               <div class="pagination"> <!-- ng-if="Paymentmysearch.length<1" -->
+                 <span class="page-num {{$index==PaymentcurrentPagination?'activepage':''}}" ng-repeat="i in PaymentcurrentPaginationArray" ng-if="$index<11" ng-click="getPaymentDashBoardDataPageData({{$index}},'fix')">{{$index+1}}</span>
+                  <select ng-if="PaymentcurrentPaginationArray.length>11" ng-model="$parent.pagginationSelect1" ng-change="getPaymentDashBoardDataPageData(pagginationSelect1,'select')">
+                   <option value="{{$index}}" ng-repeat="i in PaymentcurrentPaginationArray" ng-if="$index>=11">{{$index+1}}</option>
+                 </select>
+               </div>
+               <!-- <table class="complaintTable" ng-if="Paymentmysearch.length>=1">
+                 <tr class="table-heading">
+                   <td  translate="APPLICATIONNO">Application No</td>
+                   <td translate="APPLICATIONDATE">Application Date</td>
+                   <td translate="DEPARTMENTNAME">Department Name</td>
+                   <td translate="ServiceName">Service Name</td>
+                   <td translate="ServiceNameReg">Service Name Reg</td>
+                   <td translate="STATUS">Status</td>
+                   <td translate="ACTION">Action</td>
+                 </tr>
+                  <tr ng-repeat="rowData in getPaymentDashBoardData | filter:Paymentmysearch">
+                   <td>{{rowData.refId}}</td>
+                   <td>{{rowData.appDate}}</td>
+                   <td>{{rowData.deptName}}</td>
+                   <td>{{rowData.serviceName}}</td>
+                   <td>{{rowData.smServiceNameMar}}</td>
+                   <td ng-if="langID== '1' || langID==1">{{rowData.status | translate}}</td>
+                   <td ng-if="langID== '2' || langID==2">{{rowData.statusDesc}}</td>
+                   <td>
+                    <i class="icon ion-card" title="Payment"></i><!-- ng-click="Payment(rowData, 'APPLICATION_PAYMENT_PENDING', 'application')" -->
+                   
+                   </td>
+                   <td>
+
+                  </td>
+                 </tr>
+               </table>
+
+             </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+ <!-- LOI to be Paid -->
+ <div ng-if="showApplication == 'false'">
+  <div>
+    <!-- <div class="headingDiv">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="StatusofPayments"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+    </div> -->
+
+     <input ng-if="getLOIData.length>0" type="search" id="home-loi-search" ng-pattern="/^[0-9a-zA-Z]{0,20}$/" class="mysearch" name="search" ng-model="$parent.LOImysearch" alpha-numeric-only limit="20" ng-trim="false" ng-model-options="{ allowInvalid: true}" style="font-family: 'Poppins-Regular';" placeholder="{{'SEARCH' | translate}}" />
+    <div class="row margin-0">
+
+     <div class="table-outer">
+    
+       <table class="complaintTable fontRegular"><!--ng-if="LOImysearch.length<1 || !LOImysearch"   -->
+         <tr class="table-heading">
+           <td  translate="APPLICATIONNO">Application No</td>
+           <!--<td translate="APPLICATIONDATE">Application Date</td>-->
+           <!--<td translate="DEPARTMENTNAME">Department Name</td>-->
+           <td translate="ServiceName" ng-if="langID=='1' || langID==1">Service Name</td>
+           <td translate="ServiceNameReg" ng-if="langID=='2' || langID==2">Service Name Reg</td>
+           <td translate="LOI_NO">LOI No</td>
+           <td translate="LOI_REF_NO">LOI Ref No</td>
+           <td translate="LOI_AMOUNT">LOI Amount</td>
+           <td translate="STATUS">Status</td>
+           <td translate="ACTION">Action</td>
+
+         </tr>
+          <tr ng-repeat="rowData in getLOIDataPage | filter:LOImysearch">
+           <td>{{rowData.loiApplicationId}}</td>
+           <td ng-if="langID=='1' || langID==1">{{rowData.serviceName}}</td>
+           <td ng-if="langID=='2' || langID==2">{{rowData.serviceNameMar}}</td>
+           <td>{{rowData.loiNo}}</td>
+           <td>{{rowData.loiRefId}}</td>
+           <td>{{rowData.loiAmount}}</td>         
+           <td>{{rowData.loiPaid | translate}}</td>
+           <td>
+            <i class="icon ion-card" ng-click="Payment(rowData, 'LOI_TO_BE_PAID', 'loi')" title="Payment"></i>
+           </td>
+           <td>
+          </td>
+         </tr>
+       </table>
+       <div class="pagination" ><!-- ng-if="LOImysearch.length<1" -->
+         <span class="page-num {{$index==PaymentcurrentPagination?'activepage':''}}" ng-repeat="i in LOIcurrentPaginationArray" ng-if="$index<11" ng-click="getLOIPageData({{$index}},'fix')">{{$index+1}}</span>
+          <select ng-if="LOIcurrentPaginationArray.length>11" ng-model="$parent.pagginationSelect1" ng-change="getLOIPageData(pagginationSelect1,'select')">
+           <option value="{{$index}}" ng-repeat="i in LOIcurrentPaginationArray" ng-if="$index>=11">{{$index+1}}</option>
+         </select>
+       </div>
+       <!-- <table class="complaintTable" ng-if="LOImysearch.length>=1">
+         <tr class="table-heading">
+          <td  translate="APPLICATIONNO">Application No</td>
+          <!--<td translate="APPLICATIONDATE">Application Date</td>-->
+          <!--<td translate="DEPARTMENTNAME">Department Name</td>--
+          <td translate="ServiceName" ng-if="langID=='1' || langID==1">Service Name</td>
+          <td translate="ServiceNameReg" ng-if="langID=='2' || langID==2">Service Name Reg</td>
+          <td translate="LOI_NO">LOI No</td>
+          <td translate="LOI_REF_NO">LOI Ref No</td>
+          <td translate="LOI_AMOUNT">LOI Amount</td>
+          <td translate="STATUS">Status</td>
+          <td translate="ACTION">Action</td>
+         </tr>
+          <tr ng-repeat="rowData in getLOIData | filter:LOImysearch">
+            <td>{{rowData.loiApplicationId}}</td>
+            <td ng-if="langID=='1' || langID==1">{{rowData.serviceName}}</td>
+            <td ng-if="langID=='2' || langID==2">{{rowData.serviceNameMar}}</td>
+            <td>{{rowData.loiNo}}</td>
+            <td>{{rowData.loiRefId}}</td>
+            <td>{{rowData.loiAmount}}</td>         
+            <td>{{rowData.loiPaid | translate}}</td>
+             <td>
+              <i class="icon ion-card" title="Payment"></i> <!-- ng-click="Payment(rowData, 'LOI_TO_BE_PAID', 'loi')" -->
+            
+            </td>
+         </tr>
+       </table>
+
+     </div>
+    </div>
+  </div>
+</div>       
+
+</ion-content>
+</ion-view>
+
+<style>
+  .tabBtn {
+    height: inherit;
+    width: inherit;
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000 !important;
+    font-size: 13px;
+  }
+
+  .tabBtn.activated-tab {
+    background-color: #d74701;
+    border: 1px solid #000;
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: bold;
+  }
+</style>
+

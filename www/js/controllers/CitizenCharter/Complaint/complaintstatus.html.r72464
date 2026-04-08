@@ -1,0 +1,88 @@
+<ion-view class="titlecss"  cache-view="true">
+
+  <!-- <ion-nav-buttons side="left">
+  <button class="button button-icon button-clear ion-navicon" menu-toggle="left"> </button>
+</ion-nav-buttons>-->
+
+  
+<ion-nav-bar class="bar-dark" align-title="center">
+  <ion-nav-back-button class="button-clear">
+    <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+    <img style="right: 46%;
+    position: absolute;
+    margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+  </ion-nav-back-button>
+  </ion-nav-bar>
+
+  <ion-content ng-controller="Complaintstatusctrl" class="HomeBackground">
+
+
+
+    <div class="headingDiv">
+      <h3 style="height:32px;" class="heading" translate="EXTCOMPLDET"></h3>
+    </div>
+
+    <div class="list" style="padding-top: 0px;">
+      <span class="item item-input" style="padding: 0 0 0 0px;display: block;">
+        <div class="headingDiv" style="margin-top: 10px;">
+          <h3 style="height:32px;margin: 0px 3px 0px 0px;" class="heading" translate="EXTCOMPLDET"></h3>
+        </div>
+        <input alpha-numeric-only limit="15" style="padding-left: 15px;" type="text" ng-model="search" class="textcss"
+          placeholder="{{ 'SEARCHBYTOKENNO' | translate }}">
+      </span>
+    </div>
+    <!-- <form name="complaintstatusform"> -->
+
+    <!-- <div class="headingDiv">
+    <h3 style="height:32px;" class="heading" translate="COMPLSTATUS"><img src="../www/img/quick-services-32x32.png" width="32" height="32"></h3>
+  </div> -->
+
+    <!-- <div class="list">
+    <label class="item item-input item-stacked-label">
+      <span class="input-label required" translate="TOKENNO"></span>
+      <input alpha-numeric-only limit="15" type="text" maxlength="20" placeholder="{{ 'TOKENNO' | translate }}*" name="tokennumber" ng-model="tokennumber" id="tokennumberid"
+         ng-keyup="eighteendigit()" required/>
+      <span class="errorMessage" ng-show="complaintstatusform.tokennumber.$error.pattern">Please Enter Valid Token Number</span>
+    </label>
+
+    <div class="padding">
+      <button ng-disabled="!complaintstatusform.$valid" ng-click="applicationstatussearch()" class="button button-block  customBgColor"><i class="icon ion-search fonth3"></i>
+      <span translate="SEARCH"></span></button>
+    </div>
+  </div> -->
+<div style="margin-top: 95px;">
+    <div ng-if="allComplaints" class="card list" ng-repeat="subject in allComplaints | filter: {complaintId: search}"
+      ng-click="applicationstatussearch(subject.complaintId)">
+      <div class="item item-divider dividerbar" style="font-family: 'Open Sans';
+                                                      font-weight: 600;
+                                                      background: linear-gradient(#28a54c,#28a54c) !important;
+                                                      color: #fff;">
+        <p style="color:#fff;">{{ 'TOKENNO' | translate }}: {{ subject.complaintId }}</p>
+        <!-- <i class="icon ion-ios-arrow-right"></i> -->
+      </div>
+      <div class="item item-text-wrap textcolor">
+        <p><b>{{'STATUS' | translate}}</b>: <spna style="font-weight: 500" ng-class="changeColor(subject.status)">{{ subject.status }}</spna>
+        </p>
+        <p><b>{{ 'COMPLTYPE' | translate }}</b>: <span style="font-weight: 500">{{
+            langID==2?subject.departmentComplaintDescReg:subject.departmentComplaintDesc }}</span></p>
+        <p><b>{{ 'COMPLDESC' | translate }}</b>: <span style="font-weight: 500">{{
+            langID==2?subject.complaintTypeDescReg:subject.complaintTypeDesc }}</span></p>
+      </div>
+    </div>
+    <div ng-if="recordNotAvailable" style="text-align: center;margin-top: 24px;">
+      {{'NODATAFOUND'|translate}}
+    </div>
+  </div>
+    <!-- </form> -->
+
+  </ion-content>
+</ion-view>
+
+<style>
+  .redColorStatus{
+    color: red;
+  }
+  .greenColorSta{
+    color:green
+  }
+</style>

@@ -1,0 +1,105 @@
+<ion-view >
+	<!-- title="{{'ECHATTISGARH' | translate}}" -->
+	<ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+<!-- <ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet<sup>&reg;</sup></h1>
+ </div>
+</ion-nav-title>
+
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>-->
+
+<ion-content ng-controller="ChangeofOwnerCTRL" class="HomeBackground">
+	<!--<h3 class="heading" translate="CHANGE_OF_OWNER"></h3>-->
+	<form name="changeOwnerForm">
+    <div class="headingDiv">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="CHANGE_OF_OWNER"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+    </div>
+		<div class="list">
+
+      <!--<ui-select ng-model="changeowner" class="borderradiusselect">-->
+        <!--<ui-select-match placeholder="{{'ENTER OR SELECT' | translate}}">{{$select.selected.number}}</ui-select-match>-->
+        <!--<ui-select-choices repeat="item in waterConnections | filter: $select.search">-->
+          <!--<div ng-bind-html="item.number | highlight: $select.search"></div>-->
+        <!--</ui-select-choices>-->
+      <!--</ui-select>-->
+
+       <label class="item item-input item-floating-label">
+				<span class="input-label required" translate="CONNECTION_NUMBER"></span>
+				<input type="text" placeholder="{{'CONNECTION_NUMBER' | translate}}*" ng-change="Change()" name="changeowner" ng-model="changeowner" id="connectionNosearch"
+			     ng-keyup="eighteendigit()"   required/>
+				<span class="errorMessage" ng-show="changeOwnerForm.changeowner.$error.pattern" translate="PLEASEENTERVALIDCONNECTION"></span>
+       </label>
+
+        <ion-list ng-if="!hide">
+          <ion-item ng-repeat="item in waterConnections" item="item" ng-click="getdetails(item.number)">
+            {{ item.number }}
+          </ion-item>
+        </ion-list>
+
+			 <div class="padding">
+				<button ng-disabled="!changeOwnerForm.$valid" ng-click="searchchangeowner()" class="button button-block  customBgColor"><i class="icon ion-search fonth3"></i>
+				<span translate="SEARCH"></span></button>
+		 	</div>
+		</div>
+	</form>
+
+  <!-- <button class="button button-block "  ng-click="openModal('new','','','','','','')">
+    <span class="share-button">Click Open Modal</span>
+  </button>
+	 -->
+		<ion-list can-swipe="true" class="list-categories">
+			<ion-item ng-repeat="item in receiptCollections | filter:search track by $index"  class="">
+
+			<table class="gridtable">
+				<tr>
+					<th translate="TITLE"></th>
+					<td>{{item.ownerTitle}}</td>
+				</tr>
+				<tr>
+					<th translate="FIRSTNAME"></th>
+					<td>{{item.ownerFirstName}}</td>
+				</tr>
+				<tr>
+					<th translate="MIDDLENAME"></th>
+					<td>{{item.ownerMiddleName}}</td>
+				</tr>
+				<tr>
+					<th translate="LASTNAME"></th>
+					<td>{{item.ownerLastName}}</td>
+				</tr>
+				<tr>
+					<th translate="GENDER"></th>
+					<td>{{item.gender}}</td>
+				</tr>
+				<!-- <tr>
+					<th>Gender</th>
+					<td>{{item.gender}}</td>
+				</tr> -->
+			</table>
+
+
+			<!-- <strong translate="">Title</strong>: <span>{{item.ownerTitle}}</span>
+			<strong translate="">FirstNAme</strong>: <span>{{item.ownerFirstName}}</span>
+			<strong translate="">MiddleName</strong>: <span>{{item.ownerMiddleName}}</span>
+			<strong translate="">LastName</strong>: <span>{{item.ownerLastName}}</span>
+			<strong translate="">Gender</strong>: <span>{{item.gender}}</span> -->
+				<button style="font-size: 24px;" class="button-assertive button ion-ios-trash"
+				 ng-click="removeReceiptHead($index)">
+			 </button>
+		 </ion-item>
+	</ion-list>
+
+
+    </ion-content>
+</ion-view>

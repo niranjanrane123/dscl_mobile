@@ -1,0 +1,82 @@
+<ion-view>
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+ <ion-content ng-controller="waterConnectionRecieptDetails" class="HomeBackground" >
+
+   <!-- Start Content here -->
+   <!-- ============================================================== -->
+   <div class="content">
+     <!-- Start info box -->
+     <div class="widget" id="exportthis">
+       <div class="widget-content padding">
+         <div id="now">
+           <div class="row">
+             <div class="col-xs-3 text-left"><img src="./img/chattisghah.png"></div>
+             <div class="col-xs-6 text-center">
+               <h4 class="margin-bottom-0">{{orgName}}</h4>
+               <p>Water Department</p>
+               <p class="margin-top-5"><strong>{{certificateData.serviceName}}</strong></p>
+             </div>
+             <div class="col-xs-3 text-right"><img src="./img/chattisghah.png"></div>
+           </div>
+           <p class="text-right">{{certificateData.noDuesCertiDate}}</p>
+           <p class="text-right">Certificate No. {{certificateData.certificateNo}}</p>
+           <div class="form-group clearfix margin-top-15">
+             <div class="col-xs-6">
+               <p>To,</p>
+             </div>
+           </div>
+           <div class="row clearfix margin-top-10">
+             <div class="col-xs-3 col-xs-push-1">Name:</div>
+             <div class="col-xs-9 col-xs-push-1">{{certificateData.applicantName}}</div>
+           </div>
+           <div class="row clearfix margin-top-10">
+             <div class="col-xs-3 col-xs-push-1">Subject:</div>
+             <div class="col-xs-9 col-xs-push-1">{{certificateData.serviceName}}</div>
+           </div>
+           <div class="row clearfix margin-top-10">
+             <div class="col-xs-4 col-xs-push-1">Reference:</div>
+             <div class="col-xs-8 col-xs-push-1">
+               <div class="row clearfix margin-top-10">1) Application No. {{certificateData.applicationId}} Dated  {{certificateData.applicantDate}}</div>
+               <div class="row clearfix margin-top-15">2) Water Connection Inspection</div>
+               <div class="row clearfix margin-top-15">
+                 <p>Ward Division: {{certificateData.ward}}</p>
+               </div>
+               <div class="row clearfix margin-top-15">
+               <p>Block Division: {{certificateData.block}}</p></div>
+               <div class="row clearfix margin-top-15">
+                <p>Zone Division: {{certificateData.zone}}</p></div>
+             </div>
+           </div>
+
+
+           <p class="margin-top-20">Sir/Madam,</p>
+           <p class="margin-top-5">This is to certify that the connection no. {{certificateData.connectionNo}} Address {{certificateData.applicantAdd}} India stands in the name of {{certificateData.applicantName}}.</p>
+           <p>The water tax for the said premised has been paid for the year {{certificateData.fromDate}} - {{certificateData.toDate}} as record maintained by Municipal Corporation.</p>
+           <div class="row margin-top-25">
+             <div class="col-xs-5 col-xs-push-7 text-center">
+               <p>Munciple Engineer</p>
+               <p><strong>{{orgName}}</strong></p>
+             </div>
+           </div>
+         </div>
+<!--         <div class="text-center">-->
+<!--            <button ng-click="printContent('receipt')" style="background: #158b42;color: #fff;margin-top: 10px;" translate="PRINT" class="btn hidden-print"><i class="icon-print-2"></i></button>-->
+<!--          </div>-->
+         <div class="text-center">
+           <button ng-click="goHome()" style="background: #158b42;color: #fff;margin-top: 10px;"  translate="HOMEPAGE" class="btn hidden-print"><i class="icon-print-2"></i></button>
+         </div>
+       </div>
+     </div>
+   </div>
+
+
+ </ion-content>
+</ion-view>

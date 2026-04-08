@@ -1,0 +1,66 @@
+<ion-view >
+	<!-- title="{{'ECHATTISGARH' | translate}}" -->
+	<ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+<!--
+<ion-nav-title>
+ 	 <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet<sup>&reg;</sup></h1>
+ </div>
+</ion-nav-title>
+
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+-->
+
+<ion-content ng-controller="NewWaterconnPayCTRL" class="HomeBackground">
+<!--<h3 class="heading" translate="PAYMENT"></h3>-->
+<form name="NWCPayForm">
+  <div class="headingDiv">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="PAYMENT"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+  </div>
+	<div class="list">
+	      <label class="item item-input item-floating-label">
+					<span class="input-label" translate="TOTAL_AMOUNT"></span>
+					<input type="text" placeholder="{{'TOTAL_AMOUNT' | translate}}" name="FlatRate" ng-model="FlatRate"
+					 disabled/>
+				</label>
+      <label class="item item-input item-floating-label">
+					<span class="input-label required" translate="APPL_NAME"></span>
+					<input type="text" placeholder="{{'APPL_NAME' | translate}}" name="finalAppName" ng-model="loginUSername" required />
+					<span class="errorMessage"  ng-show="NWCPayForm.finalAppName.$error.pattern" translate="VALIDAPPLICANT"></span>
+				</label>
+	             <label class="item item-input item-floating-label">
+					<span class="input-label required" translate="MOBILENO"></span>
+					<input type="tel" placeholder="{{'MOBILENO' | translate}}" name="finalAppMobile" ng-model="LoginMobileNo"  ng-pattern="/^[0-9]{10,10}$/" required/>
+					<span class="errorMessage" ng-show="NWCPayForm.finalAppMobile.$error.pattern" translate="VALIDMOBILE"></span>
+				</label>
+	            <label class="item item-input item-floating-label">
+					<span class="input-label" translate="EMAILID"></span>
+					<input type="email" placeholder="{{'EMAILID' | translate}}" name="finalAppEmail" ng-model="emailId" ng-trim="false" ng-pattern="/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/" />
+					<span class="errorMessage" ng-show="NWCPayForm.finalAppEmail.$error.pattern" translate="VALIDEMAIL"></span>
+				</label>
+
+        <label class="input-label padding-left-15 required" translate="PAYGATEWAY"></label>
+				<select class="select-dropdown" name="data_.paymentGateway" data-ng-model="data_.paymentGateway"
+					ng-options="o.id as o.name for o in options" required>
+					<option value="" translate="PAYGATEWAY"></option>
+				</select>
+
+				<div class="padding">
+	                <button class="button button-block  customBgColor" ng-click="savedata()" ng-disabled="!NWCPayForm.$valid">
+	                <span translate="PAY"></span></button>
+	            </div>
+	</div>
+</form>
+
+    </ion-content>
+ </ion-view>

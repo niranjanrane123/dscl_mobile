@@ -1,0 +1,43 @@
+<ion-view title="{{'ECHATTISGARH' | translate}}">
+
+<ion-content ng-controller="qrCodeCtrl" class="HomeBackground" >
+
+  <form name="qrCodeForm">
+    <div class="headingDiv">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="">Qr Code</h3>
+    </div>
+
+	<div class="list">
+
+    <label class="item item-input item-floating-label">
+		<span class="input-label required" translate="PROPERTYNO"></span>
+		<input type="number" placeholder="{{'PROPERTYNO' | translate}}*" name="qrCode" ng-model="propertyNo"
+	   ng-pattern="/^[0-9]{1,9}$/" required/>
+		<span class="errorMessage" ng-show="qrCodeForm.qrCode.$error.pattern">Please Enter Valid Property Number</span>
+	 </label>
+
+	 <div class="padding">
+      <button ng-disabled="!qrCodeForm.$valid" ng-click="generate()"
+       class="button button-block button-positive customBgColor"><i class="icon ion-search fonth3"></i>
+      <span translate="">Generate QR CODE</span></button>
+
+     <div ng-if="qrcode" class="">
+       <qr type-number="8" correction-level="'M'" size="200" input-mode="ALPHA_NUM" text="qrCodevalue" image="true"></qr>
+     </div>
+
+ 	</div>
+
+  </div>
+</form>
+
+    </ion-content>
+</ion-view>
+
+<style>
+  .divcennter{
+    margin: auto;
+    width: 90%;
+    border: 1px solid#013561;
+    padding: 10px;
+}
+</style>

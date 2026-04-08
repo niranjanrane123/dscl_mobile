@@ -1,0 +1,115 @@
+<ion-view>
+  <!-- title="{{'ECHATTISGARH' | translate}}"
+  <ion-nav-bar class="bar-dark" align-title="center"><ion-nav-back-button></ion-nav-back-button></ion-nav-bar> -->
+  <!-- <ion-nav-bar class="bar-dark" align-title="center"><ion-nav-back-button></ion-nav-back-button></ion-nav-bar> -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+    <ion-nav-back-button class="button-clear">
+      <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+      <img style="right: 46%;
+      position: absolute;
+      margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+    </ion-nav-back-button>
+    </ion-nav-bar>
+<ion-content ng-controller="rtiReferenceCtrl" class="animated zoomIn">
+  <form name="rtiReferenceForm">
+    <div class="list">
+      <h3 class="heading" translate="REFERENCEDETAILS"></h3>
+      <div class="rti-steps">2 of 4</div>
+      <!--<label class="input-label padding-left-15 required" translate="REFERENCEMODE" required></label>
+      <select class="select-dropdown" name="referenceMode" data-ng-model="referenceMode"
+        ng-options="r.id as r.name for r in refernecModeOptions" ng-change="referenceModeChange()" required>
+        <option value="" translate="SELECT"></option>
+      </select>-->
+
+      <label  class="input-label padding-left-15 required" translate="REFERENCEMODE"></label>
+      <select   class="select-dropdown" name="referenceMode"data-ng-model="referenceMode" 
+        id="povertyLine"
+        ng-options="r.id as r.name for r in refernecModeOptions" ng-change="referenceModeChange()" required>
+        <option value="" translate="SELECT"></option>
+      </select>
+      <label  class="item item-input item-floating-label"></label>
+
+
+      <!--<label class="input-label padding-left-15 required" translate="INWARDTYPE"></label>
+      <select class="select-dropdown" name="inWardType" data-ng-model="inWardType"
+         ng-options="o.value as o.name for o in inwardTypeoptions" required>
+        <option value="" translate="SELECT"></option>
+      </select>-->
+
+
+      <label  class="input-label padding-left-15 required" translate="INWARDTYPE"></label>
+      <select  class="select-dropdown" name="inWardType"data-ng-model="inWardType" 
+        id="povertyLine"
+        ng-options="o.value as o.name for o in inwardTypeoptions"  required>
+        <option value="" translate="SELECT"></option>
+      </select>
+      <label  class="item item-input item-floating-label"></label>
+
+    </div>
+
+    <div ng-if="formE">
+      <label class="item item-input item-floating-label"></label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="AUTHORITYNAME"></span>
+        <input type="text" id="AUTHORITYNAME" ng-pattern="/^[a-zA-Z ]*$/" placeholder="{{'AUTHORITYNAME' | translate}}*" name="authorityName" ng-model="authorityName" alphabet-only limit="30" ng-model-options="{ allowInvalid: true}" ng-trim="false"  required/>
+        <span class="errorMessage" ng-show="rtiReferenceForm.authorityName.$error.pattern" translate="VALIDAUTHORITY"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="DEPARTMENT"></span>
+        <input type="text" id="DEPARTMENTNAME" ng-pattern="/^[a-zA-Z ]*$/" placeholder="{{'DEPARTMENT' | translate}}*" name="department" ng-model="department" alphabet-only limit="30" ng-trim="false" ng-model-options="{ allowInvalid: true}"    required/>
+        <span class="errorMessage" ng-show="rtiReferenceForm.department.$error.pattern" translate="VALIDDEPARTMENT"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="ADDRESS"></span>
+        <input type="text" placeholder="{{'ADDRESS' | translate}}*" name="address" ng-model="address"   limit-character ng-trim="false" limit="100" ng-model-options="{ allowInvalid: true}" required/>
+        <span class="errorMessage" ng-show="rtiReferenceForm.address.$error.pattern" translate="VALIDADDRESS"></span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label" translate="REFERENCENO"></span>
+        <input type="tel" id="REFERENCENO-input" maxlength="8" placeholder="{{'REFERENCENO' | translate}}" name="referenceNo" ng-model="referenceNo" ng-pattern="/^[0-9]{8,1}$/" numbers-only limit="8" ng-trim="false" ng-model-options="{ allowInvalid: true}" />
+        <span class="errorMessage" ng-show="rtiReferenceForm.referenceNo.$error.pattern" translate="VALIDREFERENCE"></span>
+      </label>
+
+      <label class="input-label padding-left-15" translate="DATE"></label>
+      <input type="date" max="{{maxDate}}"   name="date" ng-model="date" style="width:100%; background: #fff; height: 50px!important;border-bottom: 2px solid #dde4dc;padding: 10px 10px !important;font-size: 16px;"/>
+      <span class="errorMessage" ng-show="rtiReferenceForm.date.$error.max" translate="VALIDATE"></span>
+<!--      <label class="item item-input item-floating-label">-->
+<!--        <span class="input-label" translate="DATE"></span>-->
+<!--        <input type="date" max="{{maxDate | date: 'yyyy-MM-dd'}}"   name="date" ng-model="date" required/>-->
+<!--      </label>-->
+    </div>
+
+    <div ng-if="stamp">
+      <label class="item item-input item-floating-label"></label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="STAMPNO" required></span>
+        <input type="tel" maxlength="8" placeholder="{{'STAMPNO' | translate}}*" id="stampId" name="stampNo" ng-model="$parent.stampNo" numbers-only limit="8" ng-trim="false" ng-model-options="{ allowInvalid: true}" ng-pattern="/^[0-9]{8,8}$/" required/>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="STAMPAMOUNT" required></span>
+        <input type="tel" placeholder="{{'STAMPAMOUNT' | translate}}*" id="stampAmm" name="stampAmount" ng-model="$parent.stampAmount" limit-character limit="10" ng-trim="false" ng-model-options="{ allowInvalid: true}" ng-pattern="/^[1-9]\d*(\.\d{1,2})?$/" required/>
+        <span class="errorMessage" ng-show="rtiReferenceForm.stampAmount.$error.pattern" translate="VALIDSTAMPAMOUNT"></span>
+      </label>
+      <table class="gridtable">
+        <tr>
+        <th class="required"  translate="UPLOAD"></th>
+          <td><input type="file" class="filecss " id="verfiyFile"
+              ng-model="uploadfile" onchange="angular.element(this).scope().imageupload(this)" />
+              <div class="note-for-fileupload">{{'Onlyjpgpdfdoc' | translate}}</div>
+              <div class="note-for-fileupload">{{'validdocumentSize' | translate}}</div>
+            </td>
+            
+              
+        </tr>
+      </table>
+    </div>
+
+    <div class="padding">
+      <button ng-disabled="!rtiReferenceForm.$valid" class="button button-block  customBgColor" on-tap="next()">
+        <span style="color:#fff" translate="NEXT"></span></button>
+    </div>
+  </form>
+</ion-content>
+</ion-view>
+
+

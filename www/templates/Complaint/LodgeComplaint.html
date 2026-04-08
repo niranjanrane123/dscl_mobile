@@ -1,0 +1,114 @@
+<ion-view>
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+<ion-content ng-controller="LodgeComplaintCtrl" class="HomeBackground">
+
+ <form  name="lodgeComplaintForm">
+    <div class="list">
+      <div class="headingDiv">
+        <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="COMPLDET"></h3>
+      </div>
+
+      <div class="divcennter" ng-click="takeimage()">
+        <img ng-src="./img/camimage.png" class="center"  ng-show="defaultimage"/>
+        <img ng-src="{{ myImgUrl }}" data-ng-model="cameraImg" class="camerImage" ng-show="cameraImage"/>
+        <div style="text-align: center;"><i class="icon ion-camera fonth3"></i><span translate="">Click Complaint Image</span></div>
+      </div>
+
+      <label class="input-label padding-left-15 required" translate="DEPTYPE"></label>
+		    <select class="select-dropdown" name="NewCompDeptdetails" ng-model="NewCompDeptdetails"
+		    ng-change="selectAction()" ng-options="o.deptid as o.deptname for o in deptoptions" required>
+			    <option value="">Select </option>
+      </select><label class="item item-input item-floating-label"></label>
+
+		  <label class="input-label padding-left-15 required" translate="COMPLTYPE"></label>
+       <select class="select-dropdown" name="NewCompType" ng-model="NewCompType"
+         ng-options ="o.comptypeID as o.comptypeDesc for o in compltypeoption" ng-change="deptloc()" required>
+        <option value="">Select</option>
+      </select><label class="item item-input item-floating-label"></label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="COMPLDESC"></span>
+        <input type="text" placeholder="{{'COMPLDESC' | translate}}*"  name="NewCompDescription" ng-model="NewCompDescription" ng-trim="false"  required/>
+
+      </label>
+      <!--<span class="errorMessage" ng-show="lodgeComplaintForm.NewCompDescription.$error.pattern">Please Enter Valid Complaint Description</span>-->
+		 <label class="input-label padding-left-15 required" translate="COMPLOCATION"></label>
+		  <select class="select-dropdown" name="NewCompLocation" ng-model="NewCompLocation"
+		   ng-options="o.locationid as o.locationname for o in locationoptions" ng-change="locationpincode()" required>
+			<option value="">Select</option>
+		  </select><label class="item item-input item-floating-label"></label>
+
+		  <label class="item item-input item-floating-label">
+        <span class="input-label " translate="PINCODE"></span>
+        <input type="number" placeholder="{{'PINCODE' | translate}}" name="NewCompPincode" ng-model="NewCompPincode" id="pincodelim"
+        ng-change="locationperfix()" ng-keyup="onlyNumericSixLimitInput()" ng-trim="false" ng-pattern="/^[0-9]{1,6}$/" />
+        <span class="errorMessage" ng-show="lodgeComplaintForm.NewCompPincode.$error.pattern">Please Enter Valid Pincode</span>
+      </label>
+
+	 	  <label class="item item-input item-floating-label">
+        <span class="input-label " translate="LANDMARK"></span>
+        <input type="text" placeholder="{{'LANDMARK' | translate}}"  name="NewCompLandmark" ng-model="NewCompLandmark" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" />
+        <span class="errorMessage" ng-show="lodgeComplaintForm.NewCompLandmark.$error.pattern">Please Enter Valid Landmark</span>
+		  </label>
+
+		<!--<label class="item item-input item-floating-label">
+			<span class="input-label required" translate="AREANAME"></span>
+			<input type="text" placeholder="{{'AREANAME' | translate}}*"  name="NewCompAreName" ng-model="NewCompAreName"
+			ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+			<span class="errorMessage" ng-show="lodgeComplaintForm.NewCompAreName.$error.pattern">Please Enter Valid Area Name</span>
+		</label>
+
+		<label class="item item-input item-floating-label">
+			<span class="input-label required" translate="VTCITY"></span>
+			<input type="text" placeholder="{{'VTCITY' | translate}}*"  name="NewCompVillage" ng-model="NewCompVillage" ng-trim="false"
+			ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+			<span class="errorMessage" ng-show="lodgeComplaintForm.NewCompVillage.$error.pattern">Please Enter Valid Village/Town/City</span>
+		</label>-->
+
+	 	<div class="padding">
+			<button ng-disabled="!lodgeComplaintForm.$valid"  ng-click="savecomplaint()" class="button button-block  customBgColor">
+			<span translate="SUBMIT"></span></button>
+		</div>
+	</div>
+</form>
+
+
+  </ion-content>
+</ion-view>
+
+
+<style>
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+
+.divcennter{
+    margin: auto;
+    width: 90%;
+    height:40%;
+    border: 1px solid#013561;
+    padding: 10px;
+}
+
+
+.camerImage {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 200px;
+height: 175px;
+}
+</style>
+

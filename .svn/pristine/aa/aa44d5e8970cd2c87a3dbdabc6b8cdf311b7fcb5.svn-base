@@ -1,0 +1,53 @@
+{
+  "_from": "com-badrit-macaddress@^0.2.0",
+  "_id": "com-badrit-macaddress@0.2.0",
+  "_inBundle": false,
+  "_integrity": "sha512-pDGQDdI5lNxgudRPrKgVF6byZCECQPNDm6ozIQov0VG3tjXq5vmooUKKjpOegdAAv2oEuPZQM81RuEokkJ9AjQ==",
+  "_location": "/com-badrit-macaddress",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "com-badrit-macaddress@^0.2.0",
+    "name": "com-badrit-macaddress",
+    "escapedName": "com-badrit-macaddress",
+    "rawSpec": "^0.2.0",
+    "saveSpec": null,
+    "fetchSpec": "^0.2.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/com-badrit-macaddress/-/com-badrit-macaddress-0.2.0.tgz",
+  "_shasum": "0cd1c309cc895b600d65044593a8d12f5e8a55cf",
+  "_spec": "com-badrit-macaddress@^0.2.0",
+  "_where": "D:\\Project-backup-10-jun\\Project\\DSCL\\SmartCityMobileApp",
+  "bugs": {
+    "url": "https://github.com/mohamed-salah/MacAddress/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "com-badrit-macaddress",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova MacAddress Plugin",
+  "homepage": "https://github.com/mohamed-salah/MacAddress#readme",
+  "keywords": [
+    "cordova",
+    "macaddress",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "com-badrit-macaddress",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamed-salah/MacAddress.git"
+  },
+  "version": "0.2.0"
+}

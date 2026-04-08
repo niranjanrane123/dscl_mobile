@@ -1,0 +1,108 @@
+<!-- <ion-view class="titlecss" view-cache="false" hide-back-button="false" title="{{'EDITPROFILE' | translate}}">
+
+    
+    <ion-nav-back-button></ion-nav-back-button> -->
+    <ion-view  >
+    <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		     <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;">
+             </button> 
+          <img style="right: 46%;
+          position: absolute;
+          margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+<ion-content class="HomeBackground" ng-controller="EditProfileController">
+ <form name="registerForm">
+    <div class="headingDiv">
+        <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="EDITPROFILE">
+            <img src="./img/quick-services-32x32.png" width="32" height="32">
+        </h3> 
+    </div>
+    
+      <label class="input-label padding-left-15 required" translate="TITLE">Title</label>
+            <select class="select-dropdown" name="edigender" data-ng-model="edittitle"
+                    ng-options="o.value as o.name for o in ttloptions"
+                    ng-change="isValueChange()" required style="font-size:14px;">
+                <option value="" translate="SELECT" disabled>Select</option>
+            </select><label class="item item-input item-floating-label"></label>
+      
+      
+    <label class="item item-input item-stacked-label">
+        <span class="input-label required" translate="FNAME"></span>
+        <input alphabet-only type="text" placeholder="{{ 'FNAME' | translate}}*"  name="edifirstname" ng-model="editfirstname" ng-trim="false" ng-change="isValueChange()" required/>
+        <span class="errorMessage" ng-show="registerForm.edifirstname.$error.pattern" translate="VALIDFIRSTNAME"></span>
+    </label>
+
+    <label class="item item-input item-stacked-label">
+        <span class="input-label" translate="MNAME"></span>
+        <input alphabet-only type="text"  placeholder="{{ 'MNAME' | translate}}"  name="edimiddlename" ng-model="editmiddlename" ng-trim="false" ng-change="isValueChange()" />
+        <span class="errorMessage" ng-show="registerForm.edimiddlename.$error.pattern" translate="VALIDMIDDLENAME"></span>
+    </label>
+
+    <label class="item item-input item-stacked-label">
+        <span class="input-label required" translate="LNAME"></span>
+        <input alphabet-only type="text"  placeholder="{{ 'LNAME' | translate}}*"  name="edilastname" ng-model="editlastname" ng-trim="false" ng-change="isValueChange()" required/>
+        <span class="errorMessage" ng-show="registerForm.edilastname.$error.pattern" translate="VALIDLASTNAME"></span>
+    </label>
+
+    <label class="input-label padding-left-15 required" translate="GENDER"></label>
+    <select class="select-dropdown" name="edigenderr" data-ng-model="editgender" ng-options="o.value as o.name for o in genoptions" ng-change="isValueChange()" 
+    required style="font-size:14px;">
+        <option value="" translate="SELECT" disabled>Select</option>
+    </select><label class="item item-input item-floating-label"></label>
+
+    
+     <label class="input-label padding-left-15 required" translate="DOB"></label>
+		<div class="newDateDiv" >
+			<p ng-click="openCalender()" id="dateEdit" 
+			   ng-style="editdob ?{'color':'#000'} : {'color': '#afafaf'}"
+			   style="height: 10px;margin: 0px;">{{editdob?(editdob |date:'dd/MM/yyyy'):'DOB'|translate}}</p>
+		</div>
+
+    <label class="item item-input item-stacked-label">
+        <span class="input-label required" translate="EMAILID"> </span>
+        <input type="email" placeholder="{{ 'EMAILID' | translate}}*"  ng-model="editemailid" ng-trim="false" ng-pattern="/^[A-Za-z0-9/s,.'-@]{1,50}$/" ng-change="isValueChange()" required/>
+    </label>
+
+    <label class="item item-input item-stacked-label">
+        <span class="input-label required" translate="MOBILENO"></span>
+        <input type="number" placeholder="{{ 'MOBILENO' | translate}}" name="edimobile" ng-model="editmobilenum"
+               ng-trim="false" ng-pattern="/^[0-9]{10,10}$/" readonly/>
+    </label>
+
+    
+    <label class="item item-input item-stacked-label">
+        <span class="input-label required" translate="PERADDRESS"></span>
+        <textarea class="addressField" type="text"   placeholder="{{ 'PERADDRESS' | translate}}*"  name="editadd" ng-model="editAddress" ng-trim="false" ng-change="isValueChange()" required></textarea>
+        <span class="errorMessage" ng-show="registerForm.editadd.$error.pattern" translate="VALIDADDRESS"></span>
+    </label>
+     <label class="item item-input item-stacked-label">
+         <span class="input-label padding-left-15 required" translate="TALUKATTOWNCITYDISTRICT"></span>
+         <input class="addressField" placeholder="{{ 'TALUKATTOWNCITYDISTRICT' | translate}}"  name="editTown" ng-model="townCityDistrict" ng-trim="false" ng-change="isValueChange()" required/>
+         <span class="errorMessage" ng-show="registerForm.editTown.$error.pattern" translate="VALIDVILLAGETOWN"></span>
+     </label>
+     <label class="item item-input item-stacked-label">
+         <span class="input-label required" translate="PINCODE"></span>
+         <input numbers-only limit="6" inputmode="numeric" type="text" minlength="6" maxlength="6" placeholder="{{ 'PINCODE' | translate}}*"  name="editPin" ng-model="pincode" ng-trim="false" ng-change="isValueChange()" required/>
+         <span class="errorMessage" ng-show="registerForm.editPin.$error.pattern" translate="VALIDPINCODE"></span>
+     </label>
+
+    <div class="padding">
+    <button ng-disabled="isEnableButton(!registerForm.$valid) && gender != 'undefined'" ng-click="regsubmit()" class="button button-block  customBgColor">
+      <span translate="SUBMIT"></span></button>
+      <!-- <button ng-click="regsubmit()" class="button button-block  customBgColor">
+        <span translate="SUBMIT"></span></button> -->
+    </div>
+   
+    </form>
+</ion-content>
+
+</ion-view>
+<style>
+    .addressField{
+        padding-left: 5px! important; 
+        font-weight: normal; 
+        font-size:14px;
+    }
+</style>

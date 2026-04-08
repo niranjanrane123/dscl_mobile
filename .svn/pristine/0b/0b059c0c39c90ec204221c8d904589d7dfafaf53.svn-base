@@ -1,0 +1,53 @@
+<ion-view >
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+<ion-content ng-controller="noChangeUserDetailCTRL" class="HomeBackground">
+	<form name="taxForm">
+
+   <div class="list">
+     <div class="headingDiv">
+       <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="PROPERTYBILLDETAILS"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+     </div>
+     <div class="padding-left-15" style="color: red;" ng-if="amtzero" translate="SINCENODEUSAREPENDING"></div>
+
+     <div class="headingDiv">
+       <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="TAXDETAILS"></h3>
+     </div>
+    <table class="gridtable" >
+			<tr>
+			   <th translate="TAXDESC"></th>
+			   <th translate="ARREAR"></th>
+			   <th translate="CURTAMT"></th>
+			   <th translate="TOTAL_AMOUNT"></th>
+			</tr>
+			<tr ng-repeat = "subject in taxDetails">
+				<td>{{ subject.taxdesc }}</td>
+				<td>{{ subject.arrear }}</td>
+				<td>{{ subject.curtamt }}</td>
+				<td>{{ subject.total }}</td>
+			</tr>
+		 </table >
+
+     <table class="gridtable">
+       <tr ng-if="totalPayableAmt">
+         <th colspan="2" translate="TOTALTAXPAYBLE"></th>
+         <td colspan="2">{{ totalPayableAmt }}</td>
+       </tr>
+     </table>
+
+		<!--	 <div class="padding">
+         <button class="button button-block  customBgColor" ng-click="pay()">
+         <span translate="PROCEED_TO_PAY"></span></button>
+       </div>-->
+   </div>
+</form>
+
+    </ion-content>
+</ion-view>

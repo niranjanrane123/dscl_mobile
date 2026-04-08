@@ -1,0 +1,630 @@
+<ion-view >
+  <!-- title="{{'ECHATTISGARH' | translate}}"
+
+  <ion-nav-bar class="bar-dark" align-title="center"><ion-nav-back-button></ion-nav-back-button></ion-nav-bar> -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+  <ion-content class="backgroundimage" ng-controller="PlumberLicenseView"  style="margin-left: 4px;
+    margin-right: 4px;">
+
+    <ion-slide-box>
+
+      <ion-slide>
+
+        <div class="height-32">
+          <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="OwnerShipDetails"></h3>
+        </div>
+
+        <div ng-if="showJoint" class="slider-box-height-84 border-radius-0066 background-off-white">
+
+          <table class="gridtable" ng-repeat="item in arrayShow1">
+            <tr>
+              <th style="width: 50%;" translate="OwnerShipType"></th>
+              <td>{{ item.ownerType }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="OwnersName"> </th>
+              <td>{{ item.ownersName }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="GENDER"> </th>
+              <td>{{ item.gender }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="RELATION"></th>
+              <td>{{ item.relation }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="GURDIANNAME"> </th>
+              <td>{{ item.gurdian }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="PROPERTYSHARE"></th>
+              <td>{{ item.propertyShare }}</td>
+            </tr>
+
+            <tr>
+              <th style="width: 50%;" translate="MOBILENO"></th>
+              <td>{{ item.mobile }}</td>
+            </tr>
+          </table>
+
+        </div>
+        <div ng-if="showSingle" class="slider-box-height-84 border-radius-0066 background-off-white" >
+
+          <table class="gridtable">
+            <tr>
+              <th style="width: 50%;" translate="OwnerShipType"></th>
+              <td>{{ typeO }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="OwnersName"> </th>
+              <td>{{ nameowner }}</td>
+            </tr>
+            <tr >
+              <th style="width: 50%;" translate="GENDER"> </th>
+              <td>{{ pdegender }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="RELATION"></th>
+              <td>{{ PDErelation }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="GURDIANNAME"> </th>
+              <td>{{ PDEgurdian }}</td>
+            </tr>
+
+            <tr >
+              <th style="width: 50%;" translate="MOBILENO"></th>
+              <td>{{ PDEmobile }}</td>
+            </tr>
+          </table>
+        </div>
+        <div ng-if="showOther" class="slider-box-height-84 border-radius-0066 background-off-white">
+
+          <table class="gridtable">
+            <tr >
+              <th style="width: 50%;" translate="OwnerShipType"></th>
+              <td>{{ typeO }}</td>
+            </tr>
+            <tr >
+              <th style="width: 50%;">{{nameOfLabel}}</th>
+              <td>{{ PDEnameof }}</td>
+            </tr>
+            <tr >
+              <th style="width: 50%;" translate="CONTACTPERSON"> </th>
+              <td>{{ PDEcontactperson }}</td>
+            </tr>
+            <tr >
+              <th style="width: 50%;" translate="MOBILENO"></th>
+              <td>{{ PDEmobile }}</td>
+            </tr>
+          </table>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slider-box-height-90 border-radius-0066 background-off-white">
+          <div class="height-32">
+            <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="LANDDETAILS"></h3>
+          </div>
+          <span ng-if="landData.assLandType == undefined"> No Land Details Available</span>
+          <table class="gridtable">
+            <tr  ng-if="landData.oldAsses != undefined">
+              <th style="width: 50%;" translate="PROPERTYADDRESS"></th>
+              <td>{{ propertyAddress }}</td>
+            </tr>
+            <tr  ng-if="landData.assLandType != undefined">
+              <th style="width: 50%;" translate="LANDTYPE"></th>
+              <td>{{ landData2.assLandType }}</td>
+            </tr>
+            <tr  ng-if="landData.assDistrict != undefined">
+              <th style="width: 50%;" translate="DISTRICT"> </th>
+              <td>{{ landData2.assDistrict }}</td>
+            </tr>
+            <tr  ng-if="landData.assTahasil != undefined">
+              <th style="width: 50%;" translate="TEHSIL"></th>
+              <td>{{ landData2.assTahasil }}</td>
+            </tr>
+            <tr  ng-if="landData.tppVillageMauja != undefined">
+              <th style="width: 50%;" translate="VILLAGE"></th>
+              <td>{{ landData2.tppVillageMauja }}</td>
+            </tr>
+            <tr  ng-if="landData.tppPlotNo">
+              <th style="width: 50%;" translate="NAJOOLNO"></th>
+              <td>{{ landData2.tppPlotNo }}</td>
+            </tr>
+            <tr  ng-if="landData.tppPlotNoCs">
+              <th style="width: 50%;" translate="KHASRANOORNajool"></th>
+              <td>{{ landData2.tppPlotNoCs }}</td>
+            </tr>
+            <tr  ng-if="landData.mohalla != undefined || landData.mohalla != null">
+              <th style="width: 50%;" translate="MOHALLA"></th>
+              <td>{{ landData2.mohalla }}</td>
+            </tr>
+            <tr  ng-if="landData.assStreetNo != undefined">
+              <th style="width: 50%;" translate="STREET"></th>
+              <td>{{ landData2.assStreetNo }}</td>
+            </tr>
+          </table>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slider-box-height-90 border-radius-0066 background-off-white">
+          <div class="height-32">
+            <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="PROPERTYADDRESSDETAILS"></h3>
+          </div>
+          <table class="gridtable">
+            <tr>
+              <th style="width: 50%;" translate="PROPERTYADDRESS"></th>
+              <td>{{ address.assAddress }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="LOCATION"></th>
+              <td>{{ getData.getLocation(address.locId) }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="PINCODE"> </th>
+              <td>{{ address.assPincode }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="CORROSPONDENCE"></th>
+              <td>{{ address.assCorrAddress }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="PROPERTYZONE"></th>
+              <td>{{ address.assWard1 }}</td>
+            </tr>
+
+            <tr>
+              <th style="width: 50%;" translate="PROPERTYWARD"></th>
+              <td>{{ address.assWard2 }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="ROADTYPE"></th>
+              <td>{{ address.propLvlRoadType }}</td>
+            </tr>
+
+          </table>
+          <table class="gridtable">
+            <div class="headingDiv">
+              <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="BUILDINGDETAILS"></h3>
+            </div>
+            <tr>
+              <th style="width: 50%;" translate="YEAROFACQUISITION"></th>
+              <td>{{ yearOfAqa | date:'dd/MM/yyyy' }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="TOTALPLOTAREA"></th>
+              <td>{{ address.assPlotArea }}</td>
+            </tr>
+          </table>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class=" border-radius-0066 background-off-white">
+          <div class="height-32">
+            <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="FLOORDETAILS"></h3>
+          </div>
+          <table class="gridtable" ng-repeat="item in assesArray">
+            <tr >
+              <th style="width: 50%;" translate="YEAR"></th>
+              <td>{{ factorS.getYear(yearFllor) }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="SRNO"></th>
+              <td>{{ item.srno }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="FLOORNO"> </th>
+              <td>{{ item.floorno }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="CONSTRUCTIONCOMPLETION"></th>
+              <td>{{ item.constrComplDate | date:'dd/MM/yyyy' }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="PROPERTYTYPE"></th>
+              <td>{{ item.natureOfProperty }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="BUILTUPAREA"></th>
+              <td>{{ item.builtArea }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="OCCUPANCYTYPE"></th>
+              <td>{{ item.occupancyType }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="NAMEOFOCCUPIER"></th>
+              <td>{{ item.nameOfOccupier }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;" translate="NATUREOFPROPERTY"></th>
+              <td>{{ item.propertyType }}</td>
+            </tr>
+            <tr>
+              <th style="width: 50%;">--------------------------------</th>
+              <td>--------------------------</td>
+            </tr>
+          </table>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="slider-box-height-90 border-radius-0066 background-off-white">
+          <div class="height-32">
+            <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="FLOORSPECIFICINFO"></h3>
+          </div>
+        <!--<div>-->
+          <!--<label class="col-xs-6 control-label padding-top-0">{{'ISWATERCONNECTIONAVAILABLE' | translate}}</label>-->
+        <!--</div>-->
+
+        <div ng-if="!isWater">
+          <label class="col-xs-6 control-label padding-top-0">{{'NOWATERCONNECTION' | translate}}</label>
+        </div>
+        <!--<div ng-if="isWater">-->
+          <!--<label class="col-xs-6 control-label padding-top-0">{{'YES' | translate}}</label>-->
+        <!--</div>-->
+
+        <div class="slider-box-height-90 border-radius-0066 background-off-white" ng-if="isWater">
+          <div ng-repeat="item in waterArray">
+            <table class="gridtable" ng-repeat="item2 in item.provisionalAssesmentFactorDtlDtoList">
+              <tr >
+                <th style="width: 50%;" translate="SEATAPPLICATIONUNIT"></th>
+                <td>{{ item2.unitNoFact }}</td>
+              </tr>
+              <tr>
+                <th style="width: 50%;" translate="FACTORVALUE"></th>
+                <td>{{ factorS.factorDescr(item2.assfFactorValueId) }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+
+
+
+    <!--<div class="form-background-border">-->
+    <!--<div class="headingDiv">-->
+    <!--<h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="FLOORDETAILS"></h3>-->
+    <!--</div>-->
+
+
+
+    <!--<ion-item ng-repeat="item in assesArray" class="background-off-white">-->
+    <!--<div style="background: darkgrey;-->
+    <!--border-radius: 8px;">-->
+    <!--<div  class="row">-->
+    <!--<div class="col-xs-5">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'YEAR' | translate}}</b>: {{ item.year }}</h2>-->
+    <!--</div>-->
+    <!--<div class="col-xs-6">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'SRNO' | translate}}</b>: {{ item.srno }}</h2>-->
+    <!--</div>-->
+    <!--<div class="col-xs-1 padding-left-20 padding-right-0">-->
+    <!--<input type="button"  class="btn btn-xs btn-danger" ng-click="remove($index)" value="-" />-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div  class="row" style="margin-top: 4px;-->
+    <!--margin-bottom: 4px;">-->
+    <!--<div class="col-xs-5">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'FLOORNO' | translate}}</b>: {{ item.floorno }}</h2>-->
+    <!--</div>-->
+    <!--<div class="col-xs-7">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'CONSTRUCTIONCOMPLETION' | translate}}</b>: {{ item.constrComplDate }}</h2>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div  class="row" style="margin-top: 4px;-->
+    <!--margin-bottom: 4px;">-->
+    <!--<div class="col-xs-5">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'CONSTRUCTIONTYPE' | translate}}</b>: {{ item.constrcutType }}</h2>-->
+    <!--</div>-->
+    <!--<div class="col-xs-7">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'PROPERTYTYPE' | translate}}</b>: {{ item.propertyType }}</h2>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div  class="row" style="margin-top: 4px;">-->
+    <!--<div class="col-xs-5">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'BUILTUPAREA' | translate}}</b>: {{ item.builtArea }}</h2>-->
+    <!--</div>-->
+    <!--<div class="col-xs-7">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'OCCUPANCYTYPE' | translate}}</b>: {{ item.occupancyType }}</h2>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div  class="row" style="margin-top: 4px;">-->
+    <!--<div class="col-xs-5">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'MONTHLYRENT' | translate}}</b>: {{ item.monthlyRent }}</h2>-->
+    <!--</div>-->
+    <!--<div class="col-xs-7">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'NAMEOFOCCUPIER' | translate}}</b>: {{ item.nameOfOccupier }}</h2>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div  class="row" style="margin-top: 4px;">-->
+    <!--<div class="col-xs-5">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'NATUREOFPROPERTY' | translate}}</b>: {{ item.natureOfProperty }}</h2>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</ion-item>-->
+    <!--</div>-->
+    <!--<div class="form-background-border">-->
+    <!--<div class="headingDiv">-->
+    <!--<h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="FLOORSPECIFICINFO"></h3>-->
+    <!--</div>-->
+
+    <!--<div class="clear"></div>-->
+    <!--<div class="form-group margin-top-20" style="margin-top:10px;">-->
+    <!--<label class="col-xs-6 control-label padding-top-0">{{'ISREBATEAPPLICABLE' | translate}}</label>-->
+
+
+    <!--<div class="col-xs-6 factorQes">-->
+    <!--<label for="yesR" class="radio-inline">-->
+    <!--<input id="yesR" name="yesR" class="factorSet selectFactor" ng-click="showR('yes')" ng-model="ISREBATEVALUE" type="radio" value="RY" disabled>-->
+    <!--{{'YES' | translate}}</label>-->
+    <!--<label for="noR" class="radio-inline">-->
+    <!--<input id="noR" name="noR" class="factorStatus selectFactor"  ng-click="showR('no')" ng-model="ISREBATEVALUE" type="radio" value="RN">-->
+    <!--{{'NO' | translate}}</label>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="clear"></div>-->
+    <!--<div ng-hide="!showRdiv">-->
+    <!--<div style="height: 52px;" class="search_categories">-->
+    <!--<div class="select">-->
+    <!--<select class="search_categories" name="showRdiv" ng-model="showRdiv"  id="showRdiv"-->
+    <!--ng-options="o.id for o in bindArrayFloor"  >-->
+    <!--<option value="" translate="SEATAPPLICATIONUNIT"></option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div style="height: 52px;" class="search_categories">-->
+    <!--<div class="select">-->
+    <!--<select class="search_categories" name="showRdiv2" ng-model="showRdiv2"  id="showRdiv2"-->
+    <!--ng-options="o.value as o.name for o in factors"  >-->
+    <!--<option value="" translate="FACTORVALUE"></option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="padding">-->
+    <!--<button ng-click="addR()" id="btnAddR"-->
+    <!--class="btn btn-success">-->
+    <!--<span>+</span></button>-->
+    <!--</div>-->
+    <!--<div class="clear"></div>-->
+
+    <!--</div>-->
+
+
+    <!--<ion-item ng-repeat="item in rebeatDetails" ng-if="specialR" class="background-off-white ">-->
+    <!--<div style="background: darkgrey;-->
+    <!--border-radius: 8px;">-->
+    <!--<div  class="row">-->
+    <!--<div class="col-xs-5">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'SEATAPPLICATIONUNIT' | translate}}</b>: {{ item.showRdiv.id }}</h2>-->
+    <!--</div>-->
+    <!--<div class="col-xs-5">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'FACTORVALUE' | translate}}</b>: {{ item.showRdiv2 }}</h2>-->
+    <!--</div>-->
+    <!--<div class="col-xs-2">-->
+    <!--<input type="button"  class="btn btn-xs btn-danger" ng-click="removeR($index)" value="-" />-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</ion-item>-->
+
+    <!--<div class="clear"></div>-->
+    <!--<div class="form-group margin-top-20">-->
+
+    <!--<label class="col-xs-6 control-label padding-top-0">{{'ISWATERCONNECTIONAVAILABLE' | translate}}</label>-->
+
+
+    <!--<div class="col-xs-6 factorQes">-->
+    <!--<label for="yesW" class="radio-inline">-->
+    <!--<input id="yesW" name="yesW" class="factorSet selectFactor"  ng-click="showW('yes')" ng-model="ISWATERVALUE" type="radio" value="WY" disabled>-->
+    <!--{{'YES' | translate}}</label>-->
+    <!--<label for="noW" class="radio-inline">-->
+    <!--<input id="noW" name="noW" class="factorStatus selectFactor"  ng-click="showW('no')" ng-model="ISWATERVALUE" type="radio" value="WN" disabled>-->
+    <!--{{'NO' | translate}}</label>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="clear"></div>-->
+
+    <!--<div ng-hide="!showWdiv">-->
+    <!--<div style="height: 52px;" class="search_categories">-->
+    <!--<div class="select">-->
+    <!--<select class="search_categories" name="showWdiv" ng-model="showWdivvalue"  id="showWdiv"-->
+    <!--ng-options="o.id for o in bindArrayFloor"  disabled>-->
+    <!--<option value="" translate="SEATAPPLICATIONUNIT"></option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div style="height: 52px;" class="search_categories">-->
+    <!--<div class="select">-->
+    <!--<select class="search_categories" name="showWdiv2" ng-model="showWdiv2value"  id="showWdiv2"-->
+    <!--ng-options="o.value as o.name for o in factors"  disabled>-->
+    <!--<option value="" translate="FACTORVALUE" ></option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="padding">-->
+    <!--<button ng-click="addW()" id="btnAddW"-->
+    <!--class="btn btn-success">-->
+    <!--<span>+</span></button>-->
+    <!--</div>-->
+    <!--<div class="clear"></div>-->
+
+    <!--</div>-->
+    <!--<ion-item ng-repeat="item in waterArray"  class="background-off-white ">-->
+    <!--<div style="background: darkgrey;-->
+    <!--border-radius: 8px;">-->
+    <!--<div  class="row">-->
+    <!--<div class="col-xs-5">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'SEATAPPLICATIONUNIT' | translate}}</b>: {{ item.showWdiv }}</h2>-->
+    <!--</div>-->
+    <!--<div class="col-xs-5">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'FACTORVALUE' | translate}}</b>: {{ item.showWdiv2 }}</h2>-->
+    <!--</div>-->
+    <!--<div class="col-xs-2">-->
+    <!--<input type="button"  class="btn btn-xs btn-danger" ng-click="removeW($index)" value="-" />-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</ion-item>-->
+    <!--<div class="clear"></div>-->
+    <!--<div class="form-group margin-top-20">-->
+
+    <!--<label class="col-xs-6 control-label padding-top-0">{{'ISEXCEMPTIONAPPLICABLE' | translate}}</label>-->
+
+
+    <!--<div class="col-xs-6 factorQes">-->
+    <!--<label for="isExcemY" class="radio-inline">-->
+    <!--<input id="isExcemY" name="isExcemY" class="factorSet selectFactor" ng-click="showEx('yes')" ng-model="ISEXCEMTIONVALUE" type="radio" value="EY" disabled>-->
+    <!--{{'YES' | translate}}</label>-->
+    <!--<label for="isExcemN" class="radio-inline">-->
+    <!--<input id="isExcemN" name="isExcemN" class="factorStatus selectFactor" checked="checked" ng-click="showEx('no')" ng-model="ISEXCEMTIONVALUE" type="radio" value="EN" checked>-->
+    <!--{{'NO' | translate}}</label>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="clear"></div>-->
+    <!--<div ng-hide="!showExdiv">-->
+    <!--<div style="height: 52px;" class="search_categories">-->
+    <!--<div class="select">-->
+    <!--<select class="search_categories" name="showExdiv" ng-model="showExdiv"  id="showExdiv"-->
+    <!--ng-options="o.id for o in bindArrayFloor"  >-->
+    <!--<option value="" translate="SEATAPPLICATIONUNIT"></option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div style="height: 52px;" class="search_categories">-->
+    <!--<div class="select">-->
+    <!--<select class="search_categories" name="showExdiv2" ng-model="showExdiv2"  id="showExdiv2"-->
+    <!--ng-options="o.value as o.name for o in factors"  >-->
+    <!--<option value="" translate="FACTORVALUE"></option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="padding">-->
+    <!--<button ng-click="addEx()" id="btnAddEx"-->
+    <!--class="btn btn-success">-->
+    <!--<span>+</span></button>-->
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--<div class="clear"></div>-->
+    <!--<ion-item ng-repeat="item in exemptionDetails" ng-if="specialEx" class="background-off-white ">-->
+    <!--<div style="background: darkgrey;-->
+    <!--border-radius: 8px;">-->
+    <!--<div  class="row">-->
+    <!--<div class="col-xs-5">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'SEATAPPLICATIONUNIT' | translate}}</b>: {{ item.showExdiv }}</h2>-->
+    <!--</div>-->
+    <!--<div class="col-xs-5">-->
+    <!--<h2 style="font-size: 12px;"><b>{{'FACTORVALUE' | translate}}</b>: {{ item.showExdiv2 }}</h2>-->
+    <!--</div>-->
+    <!--<div class="col-xs-2">-->
+    <!--<input type="button"  class="btn btn-xs btn-danger" ng-click="removeEx($index)" value="-" />-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</ion-item>-->
+    <!--</div>-->
+    <!--<div class="clear"></div>-->
+    <!--<div class="form-background-border">-->
+    <!--<div class="headingDiv">-->
+    <!--<h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="ULBADMINISTRATDETAILS"></h3>-->
+    <!--</div>-->
+
+    <!--<div style="height: 52px;" class="search_categories">-->
+    <!--<div class="select">-->
+    <!--<select class="search_categories" name="taxAssignee" ng-model="taxAssignee"  id="showExdiv4"-->
+    <!--ng-options="o.value as o.name for o in Assignee" disabled >-->
+    <!--<option value="" translate="TAXCOLLECTORASSIGN"></option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</form>-->
+
+    <!--</div>-->
+    <div class="padding">
+      <button  type="button" class="button button-block  customBgColor"
+               ng-model="submit" ng-click="sbmit()"  translate="SUBMIT"></button>
+    </div>
+
+
+  </ion-content>
+</ion-view>
+<style>
+
+.slider{
+  height: 86% !important;
+}
+
+.slider-box-height-84{
+  height: 84%;
+}
+
+.slider-box-height-90{
+  height: 90%;
+}
+
+.item-expand {
+position: relative;
+width: 100%;
+max-height: 60px;
+transition: max-height 0.1s ease-out;
+overflow: hidden;
+}
+
+.item-expand.inactive:after {
+content: "";
+position: absolute;
+bottom: 0px;
+left: 0;
+height: 2px;
+width: 100%;
+display: block;
+background-image: -webkit-gradient(
+linear,
+left top,
+left bottom,
+color-stop(0, rgba(255, 255, 255, 0)),
+color-stop(1, rgba(255, 255, 255, 1))
+);
+background-image: -o-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+background-image: -moz-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+background-image: -ms-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.item-expand.active {
+max-height: 200px;
+transition: max-height 0.3s ease-out;
+}
+.input[type="text"][disabled]{background-color: transparent;}
+
+/* DEMO */
+.expand-item {
+color: red;
+margin-top: 10px;
+}
+
+.expand-item i {
+margin-right: 10px;
+}
+
+</style>

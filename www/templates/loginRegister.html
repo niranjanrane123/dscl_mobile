@@ -1,0 +1,105 @@
+<ion-view  hide-nav-bar="true">
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+<ion-content ng-controller="LoginRegCtrl" class="HomeBackground">
+
+  <div class="container">
+    <button class="languagebuttton" ng-click="changeText(myText)" align="center">{{ myText }}</button>
+    <img src="./img/backgroudLogin.png" alt="Snow">
+    <div class="btn">
+      <img src="./img/Dehradun_Logo.jpg" style="height:250px; width:250px;margin-top: 100px;">
+      <div class="list  borderradius1">
+        <button ng-click="login()" class="button  customBgColor circlebtn">
+          <span translate="LOGIN" style="color:#fff"></span></button>
+        <button ng-click="register()" class="button  customBgColor circlebtn">
+          <span translate="REGISTER" style="color:#fff"></span></button>
+      </div>
+      <!--<h5 style="font-size: 25px; color: #000; margin-top:12px; width:100%" >NEXT ></h5>-->
+    </div>
+  </div>
+
+</ion-content>
+
+</ion-view>
+
+<style>
+.borderradius{
+   padding: 0px !important;
+}
+.borderradius1{
+   margin-top : 50px;
+   padding: 0px !important;
+}
+.customBgColor{background-color:  #0093dd;}
+.circlebtn {
+  display:block;
+  margin:0px auto;
+  height: 35px;
+  width: 100%;
+  margin-top: 10px;
+  position:relative;
+  text-align:center;
+}
+.comp{
+  text-align: center;
+  padding: 30px;
+  color:#36979e;
+  font-size: 15px;
+  line-height: 25px;
+  margin-top: 60px
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#footer {
+    background: #0070FF;
+    line-height: 2;
+    text-align: center;
+    color: #042E64;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #84BAFF;
+    box-shadow: 0 0 15px #00214B
+}
+.container {
+  position: relative;
+  width: 100%;
+  padding: 0px !important;
+}
+
+/* Make the image responsive */
+.container img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  border: none;
+  padding: 0px !important;
+}
+
+
+</style>
+
+

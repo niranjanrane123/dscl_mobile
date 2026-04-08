@@ -1,0 +1,32 @@
+<!-- <ion-view title="{{'ITS' | translate}}..1" class="titlecss"> -->
+    <ion-view  class="titlecss">   
+    <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+    <ion-content delegate-handle="so-handle" has-bouncing="false">
+        <div class="headingDiv">
+            <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="ITS"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+          </div>
+        <ion-list class="fsa-list so-list">
+            <ion-item ng-click="view.onJobClick(job);" class="item-text-wrap card so-item"
+                ng-repeat="job in respcompainList track by $index">
+                <div class="row">
+                    <div class="col padding">
+                        <h2 class="text-left">{{job.stopName}}</h3>
+                    </div>
+                </div>
+                <div class="col padding">
+                    <h3 class="fsa-bold" ng-click="view.onJobClick(job);">
+                        {{job.address}}
+                    </h3>
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

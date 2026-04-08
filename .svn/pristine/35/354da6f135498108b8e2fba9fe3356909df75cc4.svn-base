@@ -1,0 +1,33 @@
+<ion-view title="{{'ECHATTISGARH' | translate}}">
+  <ion-nav-back-button></ion-nav-back-button>
+
+<ion-content ng-controller="ApplicationHistoryPageCtrl" class="HomeBackground">
+
+ <div class="table-outer table-outer-1">
+               <table id="complainTab">
+                 <tr>
+                   <th  translate="SRNO"></td>
+                   <th translate="DATE"></td>
+                   <th translate="TaskName"></td>
+                   <th translate="STATUS"></td>
+                   <th translate="EMPNAME"></td>
+                   <th translate="EMAIL"></td>
+                   <th translate="DESIGNATION"></td>
+                   <th translate="REMARKS"></td>
+                 </tr>
+                  <tr ng-repeat="rowData in historydata;">
+                   <td>{{$index+1}}</td>
+                   <td>{{rowData.dateOfAction | date:'medium'}}</td>
+                   <td>{{rowData.taskName}}</td>
+                   <td>{{rowData.decision}}</td>
+                   <td>{{rowData.empName}}</td>
+                   <td>{{rowData.empEmail}}</td>
+                   <td ng-if="langID=='1' || langID==1">{{rowData.empGroupDescEng}}</td>
+                   <td ng-if="langID=='2' || langID==2">{{rowData.empGroupDescReg}}</td>
+                   <td>{{rowData.comments}}</td>
+                 </tr>
+               </table>
+             </div>
+</ion-content>
+</ion-view>
+

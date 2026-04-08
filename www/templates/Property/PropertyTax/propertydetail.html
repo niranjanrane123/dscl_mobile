@@ -1,0 +1,62 @@
+<ion-view >
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+		</ion-nav-bar>
+<ion-content ng-controller="propertyDetailsCtrl" class="HomeBackground">
+	<form name="propertyDetailForm"  class="animated zoomIn">
+    <div class="headingDiv">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate=""><img src="./img/quick-services-32x32.png" width="32" height="32">Property Payment Details</h3>
+    </div>
+
+     <div class="padding-left-15" style="color: red;" ng-if="amtzero" translate="SINCENODEUSAREPENDING"></div>
+
+     <table class="gridtable">
+       <tr>
+         <th translate="PRIMARYOWNER"></th>
+         <td>{{primaryOwnerName}}</td>
+       </tr>
+       <tr>
+         <th translate="PROPERTYADDRESS"></th>
+         <td>{{address}}</td>
+       </tr>
+       <tr>
+         <th translate="LOCATION"></th>
+         <td>{{location}}</td>
+       </tr>
+       <tr>
+         <th translate="PINCODE"></th>
+         <td>{{pinCode}}</td>
+       </tr>
+       <tr>
+         <th translate="MOBILENO"></th>
+         <td>{{primaryOwnerMobNo}}</td>
+       </tr>
+     </table>
+
+  <div class="list">
+    <!--<a class="rightcss" style="margin-right: 10px !important;" ng-click="billdetail()"><u>View Bill Details</u></a>-->
+    <button class="rightcss customButtonSmall" ng-if="amtzerobtn" ng-click="billdetail()" translate="VIEWBILLDETAILS"></button>
+      <label class="item item-input item-floating-label"> </label>
+        <label class="item item-input item-floating-label">
+				<span class="input-label" translate="TOTAL_AMOUNT"> </span>
+				<input type="text" placeholder="{{'TOTAL_AMOUNT' | translate}}" name="totalPayableAmount" ng-model="totalPayableAmount"
+				 ng-trim="false" ng-pattern="/^[0-9.]{1,50}$/" disabled/>
+			</label>
+
+			<!-- <a ui-sref="app.taxdetail" class="rightcss"><b>Tax Details</b></a> -->
+			      <div class="padding">
+               <button class="button button-block  customBgColor"
+                ng-click="paypropertyBill()">
+               <span translate="NEXT"></span></button>
+            </div>
+        </div>
+   </form>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,182 @@
+<ion-view class="titlecss" >
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <!-- <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar> -->
+		<ion-nav-buttons side="left" >
+			<div class="title title-center header-item" style="font-weight: bold; color: #fff; left: 48px; right: 48px; font-size: 21px; text-align: center; top: 0px;">
+				<!-- {{'ECHATTISGARH' | translate}} -->
+				</div>
+				<img style="right: 46%;
+				position: absolute;
+				margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>	 
+		 </ion-nav-buttons>
+<ion-content ng-controller="reopenTokenCtrl" class="backgroundimage">
+
+  <div class="headingDiv">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="COMPLDET"></h3>
+  </div>
+	 <table class="gridtable fontRegular">
+		   <tr>
+            <th width="50%" translate="TOKENNO"></th>
+            <td style="text-align: left;">{{ complaintID }}</td>
+           </tr>
+           <tr>
+            <th width="50%" translate="DEPARTMENT"></th>
+            <td style="text-align: left;">{{ department }}</td>
+           </tr>
+           <tr>
+            <th width="50%" translate="COMPLTYPE"></th>
+            <td style="text-align: left;">{{ complainttype }}</td>
+           </tr>
+           
+           <tr>
+            <th width="50%" translate="STATUS"></th>
+            <td style="text-align: left;">{{ status | translate}}</td>
+           </tr>
+
+           <tr>
+            <th width="50%" translate="COMPLDESC"></th>
+            <td style="text-align: left;"> {{ compdesc }}</td>
+           </tr>
+   </table>
+
+<br>
+
+  <div class="headingDiv">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="ACTIONHISTORY"></h3>
+  </div>
+ 	<!-- <div id="ReplyDocIDData"></div> -->
+  <table class="gridtable fontRegular" style="border-top: 2px #095788 solid;" ng-repeat="subject in actionhistory" >
+    <tr>
+      <th width="50px" translate="SRNO"></th>
+      <td>{{ $index+1 }}</td>
+    </tr>
+    <tr>
+			<th width="50px" translate="DATEANDTIME"></th>
+			<td>{{ subject.datetime }}</td>
+		</tr>
+		<tr>
+			<th width="50px" translate="ACTION"></th>
+			<td>{{ subject.action | translate}}</td>
+		</tr>
+		<tr>
+			<th width="50%" translate="EMPNAME"></th>
+			<td>{{ subject.empName }}</td>
+		</tr>
+		<!--<tr>
+			<th width="50%">Email</th>
+			<td>{{ subject.Email }}</td>
+		</tr>-->
+		<tr>
+			<th width="50%" translate="DESIGNATION"></th>
+			<td>{{ subject.designation }}</td>
+		</tr>
+		<tr>
+			<th width="50%" translate="REMARKS"></th>
+			<td>{{ subject.remarks }}</td>
+		</tr>
+		<tr ng-if="subject.actionAttachements.length>0">
+			<th>{{'ATTACHMENTS'|translate}}</th>
+			<td><button ng-click="openDeptDoc(showDeptDoc, $index)" class="button button-block customBgColor buttondesign" ng-model="showDeptDoc">{{'CLICKTOVIEW'|translate}}</button></td>
+		</tr>
+		<tr ng-if="showDeptDoc && $index==indexValue" >
+			<td colspan="2">
+				<div style="margin: 16px;" ng-repeat="obj in subject.actionAttachements track by $index">
+					<div class="col-xs-4" ng-click="zoomPicStatus(obj.attachmentId, obj.documentType, obj.docDes,obj.documentName,obj.documentByteCode)">
+						<!-- <img ng-src="{{ 'data:image/jpeg;base64,'+ obj.documentByteCode }}" data-ng-model="cameraDeptImg" class="camerImage" /> -->
+						<img ng-if="obj.documentType=='png' || obj.documentType=='jpeg' || obj.documentType=='jpg'" ng-src="{{ 'data:image/jpeg;base64,'+ obj.documentByteCode }}" class="camerImage"/>
+						<img ng-if="obj.documentType=='pdf'" src="./img/pdf.png" class="camerImage"/>
+						<img ng-if="obj.documentType=='doc' || obj.documentType=='docx'" src="./img/docx.png" class="camerImage"/>
+						<p style="font-size: 12px; margin-top: 2px; text-align: center;">{{obj.documentName}}</p>
+					</div>
+				</div>
+				<div ng-show="zoomedInStatus" class="zoom-container">
+					<span class="closeBtn" ng-click="zoomPicCloseStatus()">&times;</span>
+					<img ng-src="{{ 'data:image/jpeg;base64,'+ imageZoomedStatus }}" class="zoomed-image"/>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+  <div class="padding">
+      <button ng-click="reopencomplaint()" class="button button-block  customBgColor ">
+      <span translate="REOPENCOMPLAINT"></span></button>
+	 </div>
+
+
+<form name="reopenForm" ng-if="compdescription">
+	<div class="list">
+    <!-- <div class="headingDiv">
+      <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="COMPLDESC"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+    </div> -->
+
+    <label class="input-label padding-left-15 required" translate="REOPENREMARK"></label>
+    <select class="select-dropdown" name="reOpeningRemark" ng-model="data.reOpeningRemark" ng-change="selectedRemark()" ng-options="o.id as o.name for o in reOpeningOption" required>
+      <option value="" translate="SELECT"> </option>
+    </select><label class="item item-input item-floating-label"></label>
+
+	 	 <label class="item item-input item-floating-label" ng-show="showRemarkDesc">
+			<span class="input-label required" translate="YOUREPLY"></span>
+			<input type="text" placeholder="{{ 'YOUREPLY' | translate }}*"  name="data.reply" ng-model="data.reply"
+        id="replyID"   required  autofocus="false"/>
+			<span class="errorMessage" ng-show="reopenForm.data.reply.$error.pattern">Please Enter Valid Reply</span>
+		</label>
+
+    <label class="item item-input item-floating-label">
+			<span class="input-label" translate="UPLOAD"></span>
+			<input type="file" placeholder="{{ 'UPLOAD' | translate }}" name="data.Document" ng-model="data.Document"
+			id="verfiyFile" data-max-size="5000000" onchange="angular.element(this).scope().imageupload(this)" />
+			<span class="errorMessage" ng-show="reopenForm.data.Document.$error.pattern">Upload file</span>
+            <div class="note-for-fileupload">{{'validdocumentreopenSize' | translate}}</div>
+		</label>
+
+		<div ng-if = "attachments" style="margin: 16px;" ng-repeat="obj in attachments track by $index" ng-click="zoomPic(obj.documentName, obj.documentType)">
+			<div class="col-xs-4">
+				<button ng-click="removeImage($index)" class="crossBtnClass">
+					<img src="./img/cancel.png" class="imgClass">
+				</button>
+				<img ng-if="obj.documentType=='png' || obj.documentType=='jpeg' || obj.documentType=='jpg'" ng-src="{{ 'data:image/jpeg;base64,'+ obj.documentByteCode }}" class="camerImage"/>
+				<img ng-if="obj.documentType=='pdf'" src="./img/pdf.png" class="camerImage"/>
+				<img ng-if="obj.documentType=='doc' || obj.documentType=='docx'" src="./img/docx.png" class="camerImage"/>
+				<p style="font-size: 12px; margin-top: 2px; text-align: center;">{{obj.documentName}}</p>
+				
+			</div>
+		</div>
+		<div ng-show="zoomedIn" class="zoom-container">
+			<span class="closeBtn" ng-click="zoomPicClose()">&times;</span>
+			<img ng-src="{{ 'data:image/jpeg;base64,'+ imageZoomed }}" class="zoomed-image"/>
+		</div>
+
+	 <div class="padding">
+		<button ng-click="reopencompsave()" class="button button-block  customBgColor "><!-- ng-disabled="!reopenForm.$valid" -->
+		<span translate="SUBMIT"></span></button>
+	 </div>
+
+   <div class="padding">
+		<button ng-click="reopencompreset()" class="button button-block  customBgColor ">
+		<span translate="RESET"></span></button>
+	 </div>
+
+	</div>
+</form>
+
+    </ion-content>
+</ion-view>
+
+<style>
+.center
+{
+	  margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width:50%;
+    height: 40px;
+
+}
+</style>

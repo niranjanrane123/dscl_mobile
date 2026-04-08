@@ -1,0 +1,81 @@
+<ion-view >
+	<!-- title="{{'ECHATTISGARH' | translate}}" -->
+	<ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+<!--<ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+</ion-nav-buttons>-->
+
+<ion-content ng-controller="COUOldNewCTRL" class="HomeBackground">
+<form name="COUolddetailsdiv">
+<!--<h3 class="heading" translate="OLDDET"></h3>-->
+  <div class="headingDiv">
+    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="OLDDET"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+  </div>
+  	<div class="list">
+	  	 <label class="item item-input item-floating-label">
+				<span class="input-label" translate="CONSNAME"></span>
+				<input type="text" placeholder="{{'CONSNAME' | translate}}*" name="COUconnName" ng-model="COUconnName" ng-trim="false"  disabled/>
+				<span class="errorMessage" ng-show="COUolddetailsdiv.COUconnName.$error.pattern" translate="VALIDCONSUMER"></span>
+		</label>
+		<label class="input-label padding-left-15" translate="SELECT_CONSIZE"></label>
+			<select class="select-dropdown" name="COUconnSize" ng-model="COUconnSize" id="COUconnSize"
+				ng-options="o.cszid as o.cszname for o in cszoptions" disabled>
+				<option value="" class="disabled-class" translate="SELECTSIZE"></option>
+      </select> <label class="item item-input item-floating-label"></label>
+		<label class="input-label padding-left-15" translate="SELECT_TARIF"> </label>
+			<select class="select-dropdown disabled-classselect" name="COUtarifate" ng-model="COUtarifCate" id="COUtarifCate"
+				ng-options="o.trfid as o.trfname for o in trfoptions" disabled>
+				<option value="" translate="SELECTTARIF"></option>
+			</select><label class="item item-input item-floating-label"></label>
+		<label class="input-label padding-left-15" translate="SELECT_PERMISE"> </label>
+			<select class="select-dropdown disabled-classselect" name="COUpermiseType" ng-model="oldCOUpermiseType" id="COUpermiseType"
+				ng-options="o.permiseid as o.permisename for o in permiseoptions" disabled>
+				<option value="" translate="SELECTPERMISE"></option>
+			</select><label class="item item-input item-floating-label"></label>
+
+		<!--<h3 class="heading" translate="NEWDET"></h3><div class="spacer" style="height: 7px;"></div>-->
+
+      <div class="headingDiv">
+        <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="NEWDET"><img src="./img/quick-services-32x32.png" width="32" height="32"></h3>
+      </div>
+		<label class="input-label padding-left-15 required" translate="SELECT_TARIF"> </label>
+			<select class="select-dropdown" name="newCOUtarifnew" ng-model="newCOUtarifnew" ng-click="" ng-change="selectAction()"
+				ng-options="o.trfid as o.trfname for o in trfoptions" id="NCOutarif" required>
+				<option value="" translate="SELECT">Select</option>
+			</select><label class="item item-input item-floating-label"></label>
+		<label class="input-label padding-left-15 required" translate="SELECT_PERMISE"></label>
+			<select class="select-dropdown" ng-disabled="!permiseoptions1" ng-model="newCOUpermise"
+				ng-options ="o.permiseid1 as o.permisevalue1 for o in permiseoptions1" id="NCOUpermise" required>
+				<option value="" translate="SELECT">Select</option>
+			</select><label class="item item-input item-floating-label"></label>
+		<label class="item item-input item-floating-label">
+			<span class="input-label" translate="REMARKS"></span>
+			<input type="text" placeholder="{{'REMARKS' | translate}}*" name="COURemarks" ng-model="COURemarks" required/>
+			<span class="errorMessage" ng-show="COUolddetailsdiv.COURemarks.$error.pattern" translate="VALIDREMARKS"></span>
+		</label>
+
+		    <div class="padding">
+		        <button ng-disabled="!COUolddetailsdiv.$valid" ng-click="confrmproceed()" class="button button-block  customBgColor">
+		        <span translate="CMF_PROCEED"></span></button>
+		    </div>
+	</div>
+</form>
+
+
+</ion-content>
+</ion-view>
+

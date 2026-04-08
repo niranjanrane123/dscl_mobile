@@ -1,0 +1,147 @@
+<!-- User story #161012, Defect #165841-->
+<ion-view>
+    <ion-nav-bar class="bar-dark" align-title="center">
+        <ion-nav-back-button class="button-clear">
+            <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"
+                style="background: transparent;border: none;"></button>
+            <img style="right: 46%;
+	  position: absolute;
+	  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content ng-controller="ComplaintRegistrationFormCtrl" class="HomeBackground">
+
+        <form name="complaintMobileForm">
+            <div class="list">
+
+                <div class="headingDiv" ng-if="!donationService">
+                    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading"
+                        translate="COMPLAINT_REGISTRATION"></h3>
+                </div>
+
+                <div class="headingDiv" ng-if="donationService">
+                    <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate="DONATION_SERVICE"></h3>
+                </div>
+
+                <div ng-show="fromLandingPage">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label required" translate="MOBILENO"></span>
+                        <input type="tel" numbers-only maxlength="10" placeholder="{{ 'MOBILENO' | translate}}*"
+                            name="complaintMobileNo" ng-model="complaintMobileNo" ng-trim="false"
+                            ng-pattern="/^[0-9]{10,10}$/" ng-model-options="{ allowInvalid: true}" required />
+                        <span class="errorMessage" ng-show="complaintMobileForm.complaintMobileNo.$error.pattern"
+                            translate="VALIDMOBILE"></span>
+                    </label>
+                </div>
+
+                <div class="padding" ng-if="submitCheck == true && fromLandingPage == true">
+                    <button ng-click="complaintMobileNumberSubmit()" class="button button-block customBgColor">
+                        <span translate="GENERATEOTP"></span></button>
+                </div>
+
+            </div>
+        </form>
+
+        <form name="complaintOtpForm" ng-if="submitCheck == false">
+            <label class="item item-input item-floating-label">
+                <span class="input-label required" translate="ENTOTP"></span>
+                <input type="tel" id="complaintOtp" maxlength="6" placeholder="{{ 'ENTOTP' | translate}}*"
+                    name="complaintOtp" ng-model="$parent.complaintOtp" ng-trim="false" ng-pattern="/^[0-9]{6,6}$/"
+                    numbers-only limit="6" ng-model-options="{ allowInvalid: true}" required />
+                <span class="errorMessage" ng-show="complaintOtpForm.complaintOtp.$error.pattern"
+                    translate="VALIDOTP"></span>
+            </label>
+
+            <div class="padding">
+                <button ng-click="compliantOtpSubmit()" ng-disabled="otpSubmitCheck"
+                    class="button button-block customBgColor">
+                    <span translate="SUBMIT"></span></button>
+            </div>
+
+            <ul class="center">
+                <li><a class="resendOTP-btn" ng-if="resendOTPCheck == true" ng-click="resendOTP()"><b
+                            translate="RESENDOTP"></b></a></li>
+            </ul>
+
+            <h6 class="verifyClass" translate="MOBOTPVERIFY" ng-if="resendOTPCheck == false"></h6>
+        </form>
+
+        <form name="complaintRegistrationForm" id="complaintForm">
+            <div class="divcennter" ng-click="takeimage()">
+                <img ng-src="./img/camimage.png" class="center" ng-show="defaultimage" />
+                <img ng-src="{{ myImgUrl }}" data-ng-model="cameraImg" class="camerImage" ng-show="cameraImage" />
+                <div style="text-align: center;"><i class="icon ion-camera fonth3"></i>
+                    <span ng-if="!donationService" translate="CLICKCOMPLAINTIMAGE"></span>
+                    <span ng-if="donationService" translate="CLICKDONATIONIMAGE"></span>
+                </div>
+            </div>
+
+            <label class="item item-input item-stacked-label" ng-if="!donationService">
+                <span class="input-label required" translate="YOUREPLY"></span>
+                <input type="text" placeholder="{{ 'COMPL_DESC' | translate}}*" name="complaintRemark"
+                    ng-model="$parent.complaintRemark" required />
+            </label>
+
+            <div ng-if="donationService" style="margin-top: 1rem;">
+                <label class="input-label padding-left-15 required" translate="DONATION_TYPE"></label>
+                <select class="select-dropdown" name="donationType" ng-model="donationType"
+                    ng-options="o.value as o.name for o in donationOption"
+                    ng-change="onChangeDonationType(donationType)" required>
+                    <option value="" translate="SELECT" required></option>
+                </select>
+                <label class="item item-input item-floating-label"></label>
+            </div>
+
+            <div class="padding">
+                <button ng-disabled="!complaintRegistrationForm.$valid" on-tap="savecomplaint()"
+                    class="button button-block customBgColor">
+                    <span translate="SUBMIT"></span>
+                </button>
+            </div>
+        </form>
+
+    </ion-content>
+</ion-view>
+
+<script>
+    $(document).ready(function () {
+        console.log('disable on');
+        $("#complaintForm").addClass("disable-div");
+    });
+</script>
+
+<style>
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+    }
+
+    .divcennter {
+        margin: auto;
+        width: 90%;
+        height: 40%;
+        border: 1px solid#013561;
+        padding: 10px;
+    }
+
+    .camerImage {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+        height: 175px;
+    }
+
+    .disable-div {
+        pointer-events: none;
+    }
+
+    .verifyClass {
+        text-align: center;
+        margin-top: -3rem !important;
+        margin-bottom: 2rem ! important;
+        color: #3d7559;
+    }
+</style>

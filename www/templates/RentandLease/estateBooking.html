@@ -1,0 +1,126 @@
+<ion-view class="" title="e-Chhattisgarh">
+
+<!--<ion-nav-title>
+<div class="bar bar-header headercolor">
+	<h1 class="title">MaiNet<sup>&reg;</sup></h1>
+</div>
+</ion-nav-title>
+<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>-->
+
+<ion-content ng-controller="EstateBookingCtrl" class="HomeBackground">
+ <!--<h3 class="heading">Estate Booking</h3>-->
+
+		<form name="EstateBookingForm">
+      <div class="headingDiv">
+        <h3 class="heading">Estate Booking</h3>
+      </div>
+
+
+<!--      <div style="height: 52px;" class="search_categories">-->
+<!--        <div class="select">-->
+<!--          <select class="search_categories" name="rnlCategory" ng-model="rnlCategory" ng-change="initialize(rnlCategory)" id="category" ng-options="o.categoryValue as o.categoryName for o in categoryList"  required >-->
+<!--            <option value="" translate="CATEGORY" required></option>-->
+<!--          </select>-->
+<!--        </div>-->
+<!--      </div>-->
+      <div>
+			<label class="input-label padding-left-15 required">Category</label>
+			<select class="select-dropdown" ng-change="initialize(rnlCategorySelect)" ng-options="c.categoryValue as c.categoryName for c in categoryList" data-ng-model="rnlCategorySelect" required>
+				<option value="" selected="true" disabled="disabled" style="display:none;">Select</option>
+			</select>
+			</div>
+      <div>
+        <label class="input-label padding-left-15 required">Event</label>
+        <select class="select-dropdown"  ng-change="initializeEvent(rnlEventSelect)"  ng-options="e.eventValue as e.eventName for e in eventList" data-ng-model="rnlEventSelect" required>
+          <option value="" selected="true" >Select</option>
+        </select>
+      </div>
+      <label  class="item item-input item-floating-label">
+        <span class="input-label" translate="CAPACITYFROM"></span>
+        <input type="number" placeholder="{{'CAPACITYFROM' | translate}}" name="capacityFrom" ng-model="capacityFrom"  />
+      </label>
+      <label  class="item item-input item-floating-label">
+        <span class="input-label" translate="CAPACITYTO"></span>
+        <input type="number" placeholder="{{'CAPACITYTO' | translate}}" name="capacityTo" ng-model="capacityTo" />
+      </label>
+      <label  class="item item-input item-floating-label">
+        <span class="input-label" translate="RENTFROM"></span>
+        <input type="number" placeholder="{{'RENTFROM' | translate}}" name="rentFrom" ng-model="rentFrom"  />
+      </label>
+      <label  class="item item-input item-floating-label">
+        <span class="input-label" translate="RENTTO"></span>
+        <input type="number" placeholder="{{'RENTTO' | translate}}" name="rentTo" ng-model="rentTo" />
+      </label>
+
+      <div class="padding">
+        <button ng-disabled="!EstateBookingForm.$valid"  class="button button-block  customBgColor" ng-click="search()">
+          <span translate="SEARCH"></span></button>
+      </div>
+			<div ng-show="showPropDetail">
+<!--				<label class="item item-input item-floating-label">-->
+<!--					<span class="input-label">{{'SEARCH' | translate}}</span>-->
+<!--					<input type="text" placeholder="{{'SEARCH' | translate}}" ng-model="search" />-->
+<!--				</label>-->
+<!--				<ion-list>-->
+<!--					<ion-item class="listTableItem" ng-repeat="item in propertyListResponse.estatePropResponseDTOs | filter:search track by $index">-->
+<!--						<table class="gridtable">-->
+<!--							<tr>-->
+<!--								<th>Property Name</th>-->
+<!--								<td>{{item.propName}}</td>-->
+<!--							</tr>-->
+<!--							<tr>-->
+<!--								<th>Location</th>-->
+<!--								<td>{{item.location}}</td>-->
+<!--							</tr>-->
+<!--							<tr>-->
+<!--								<th>Availability</th>-->
+<!--								<td><button class="customButtonSmall" ng-click="checkBookingDetails(item.propId)">Check</button></td>-->
+<!--							</tr>-->
+<!--						</table>-->
+<!--					</ion-item>-->
+<!--				</ion-list>-->
+        <ion-list>
+
+<!--          <ion-item ng-repeat="item in propertyListResponse.estatePropResponseDTOs" ng-click="showDetail(item.propId)" type="item-avatar" >-->
+          <div class = "card" ng-repeat="item in propertyListResponse.estatePropResponseDTOs" ng-click="showDetail(item.propId)">
+            <table class="gridtable">
+                <tr >
+                  <th style="border-bottom:none !important" translate="PROPERTYNAME"></th>
+                  <td style="border-bottom:none !important">{{item.propName }}</td>
+                </tr>
+                <tr>
+                  <th style="border-bottom:none !important" translate="LOCATION"></th>
+                  <td style="border-bottom:none !important">{{item.location}}</td>
+                </tr>
+                <tr >
+                  <th style="border-bottom:none !important" translate="CAPACITY"></th>
+                  <td style="border-bottom:none !important">{{item.capacity }}</td>
+                </tr>
+                <tr >
+                  <th style="border-bottom:none !important" translate="TOTELRENT"></th>
+                  <td style="border-bottom:none !important">{{item.totalRent }}</td>
+                </tr>
+                <tr>
+                  <th style="border-bottom:none !important" translate="AVAILABILITY"></th>
+                  <td style="border-bottom:none !important"><button class="customButtonSmall" ng-click="checkBookingDetails(item.propId)" translate="CHECK"></button></td>
+                </tr>
+              <tr>
+                <th style="border-bottom:none !important" translate="AMENITYFACILITY">Amenity/Facility</th>
+                <td style="border-bottom:none !important"><button class="customButtonSmall" ng-click="openAmenityDetail(item.propId)" translate="VIEW"></button></td>
+              </tr>
+              </table>
+
+<!--          </ion-item>--></div>
+
+        </ion-list>
+			</div>
+		</form>
+    </ion-content>
+</ion-view>
+
+
+
+
+

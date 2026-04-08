@@ -1,0 +1,507 @@
+<ion-view >
+  
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+ 
+  <ion-nav-buttons side="left" >
+    <div class="title title-center header-item" style="font-weight: bold; color: #fff; left: 48px; right: 48px; font-size: 21px; text-align: center; top: 0px;">
+      </div>
+      <img style="right: 46%;
+      position: absolute;
+      margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+    </ion-nav-buttons>
+
+  <ion-content ng-controller="NewComplaintService" class="HomeBackground content-bg-color">
+
+    <div ng-show="showMap">
+
+      <div id="map" style="width: 111%; height: auto; z-index: -1;"></div>
+
+        <button ng-click="nearbyLocation('1')" class="locateClass" id="myLocation">
+          <i class="icon ion-android-locate" style="color: #000; font-size: 25px !important;"></i>
+        </button>
+      
+        <div class="locField">
+          <label class="item item-input item-stacked-label labelClass">
+            <span class="input-label spanClass required">
+              <i class="icon ion-ios-location" style="color: #000;font-size: 18px !important; padding: 0px 0 0 0px !important;"></i>{{'LOCATIONCOMP' | translate}}
+            </span>
+            <input type="text" class="inputClass"  placeholder="{{ 'ENTERLOCATIONCOMP' | translate}}*" ng-disabled="locationInput" name="loc" ng-model="NewCompMapLocation"  required/> <!-- ng-trim="false" ng-change="isValueChange()"-->
+            <span class="errorMessage" ng-show="lodgeComplaintForm.loc.$error.pattern" translate="VALIDDESC">Please enter valid Location</span>
+          </label>
+
+          <table style="width: 100%; margin-bottom: 0.8rem;">
+            <tr>
+              <td style="width: 45%;" ng-show="searchBtn">
+                <button class="button button-block  customBgColor submitBtn" ng-click="searchLocation()" style="margin-top: 5px !important;"> 
+                  <span translate="SEARCH_LOC">Search</span>
+                  <!-- <i class="icon ion-ios-location" style="color: #fff;font-size: 18px !important; padding: 0px 0 0 0px !important; margin-left: 2px;"></i> -->
+                </button>
+              </td>
+
+              <td style="width: 45%;" ng-show="changeBtn"> 
+                <button class="button button-block  customBgColor submitBtn" ng-click="changeLocation()" style="margin-top: 5px !important;"> 
+                  <span translate="CHANGE_LOC">Change</span>
+                  <!-- <i class="icon ion-ios-location" style="color: #fff;font-size: 18px !important; padding: 0px 0 0 0px !important; margin-left: 2px;"></i> -->
+                </button>
+              </td>
+
+              <td style="width: 10%;"></td>
+
+              <td style="width: 45%;">
+                <button ng-disabled="confirmBtn" class="button button-block  customBgColor submitBtn" ng-click="goToComplaintService('fromMap')" style="margin-top: 5px !important;"> 
+                  <span translate="CONFIRM_LOC">Confirm</span>
+                  <!-- <i class="icon ion-ios-location" style="color: #fff;font-size: 18px !important; padding: 0px 0 0 0px !important; margin-left: 2px;"></i> -->
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+  </div>
+
+    <form name="lodgeComplaintForm" style="padding: 15px;" ng-show="!showMap"> 
+
+      <div class="list formLayout" style="background-color: #fff;">
+
+        <h4 translate="COMPLREGFORM" class="formHeading">Grievance Registration Form</h4>
+        <p class="ptextcss formSubHeading" translate="FILLUPDET">Please fill up the Details</p>
+
+        <div class="item item-input item-stacked-label labelClass">
+          <label class="input-label padding-left-15 required" style="font-family: 'Poppins-Regular';" translate="COMPLTYPE">Complaint Type</label>
+          <select class="select-dropdown titleClass" name="NewCompDeptdetails" ng-model="NewCompDeptdetails" style="padding-left: 0px !important; font-family: 'Poppins-Regular !important';"
+            ng-options="o.deptid as o.deptname for o in deptoptions" ng-change="selectAction()" required>
+            <option value="" translate="SELECTCOMPLTYPE" required>Select Complaint Type</option>
+          </select>
+        </div>
+    
+        <div class="item item-input item-stacked-label labelClass">
+          <label class="input-label padding-left-15 required" style="font-family: 'Poppins-Regular';" translate="COMPSUBTYPE">Complaint Sub Type</label>
+          <select class="select-dropdown titleClass" name="NewCompType" ng-model="NewCompType" style="padding-left: 0px !important; font-family: 'Poppins-Regular !important';"
+            ng-options="o.comptypeID as o.comptypeDesc for o in compltypeoption" ng-change="deptloc()" required>
+            <option value="" translate="SELECTCOMPLSUBTYPE" required></option>
+          </select>
+        </div>
+
+        <!-- <div style="margin: 10px;" >
+          <label class=" input-label padding-left-15 required" translate="SERVICEREQUESTCOMPLAINTTYPE" style="padding-left: 5px !important;">Title</label>
+          <select class="select-dropdown" name="NewCompType" 
+                  data-ng-model="NewCompType" 
+                  ng-change="checkIsDocsReq()"
+                  style="padding-left: 2px !important;"
+                  ng-options="o.comptypeID as o.comptypeDesc for o in compltypeoption" required>
+            <option value="" translate="SELECT" disabled hidden>Select</option>
+          </select>
+        </div>
+        <div style="height: 1px;width:100%; background-color: #bcbcbc"></div> -->
+
+        <label class="item item-input item-stacked-label labelClass" ng-show="isRefNumberRequired" style="padding-left: 0px !important;">
+          <span style="display: inline-flex; align-items: center;" tooltip="{{refeMessage|translate}}">
+            <span class="input-label spanClass required">{{'RESIDENTID' | translate}}</span>
+            <!-- <i class="icon ion-information-circled" style="color: #009bcc;font-size: 17px !important;margin-top: 3px;"></i> -->
+          </span>
+          <input alpha-numeric-only limit="16" type="text" class="inputClass" placeholder="{{ 'RESIDENTID' | translate}}*" name="RefNumber" 
+            ng-model="RefNumber" ng-trim="false" ng-blur="getWardDataFromRefeNumber(RefNumber)"/>
+        </label> 
+
+        <label class="item item-input item-stacked-label labelClass" ng-if="isPropConNotRequired" style="padding-left: 0px !important;">
+          <span style="display: inline-flex;align-items: center;" tooltip="{{refeMessage|translate}}">
+            <span class="input-label spanClass required">{{ isPropConHeader | translate}}</span>
+            <!-- <i class="icon ion-information-circled" style="color: #009bcc;font-size: 17px !important;margin-top: 3px;"></i> -->
+          </span>          
+          <input alpha-numeric-only limit="16" type="text" class="inputClass" placeholder="{{ isPropConHeader | translate}}*" name="propConNumber" 
+            ng-model="propConNumber" ng-trim="false" ng-blur="getWardDataFromRefeNumber(propConNumber)"/>
+        </label>
+
+        <label class="item item-input item-stacked-label labelClass" ng-if="isPropConRequired">
+          <span style="display: inline-flex;align-items: center;" tooltip="{{refeMessage|translate}}">
+            <span class="input-label spanClass required">{{ isPropConHeader | translate}}</span>
+            <!-- <i class="icon ion-information-circled" style="color: #009bcc;font-size: 17px !important;margin-top: 3px;"></i> -->
+          </span>          
+          <input alpha-numeric-only limit="16" type="text" class="inputClass" placeholder="{{ isPropConHeader | translate}}*" name="propConNumber" 
+            ng-model="propConNumber" ng-trim="false" ng-blur="getWardDataFromRefeNumber(propConNumber)" required/>
+        </label>
+
+        <label class="item item-input item-stacked-label labelClass" ng-if="displayFlats">
+          <label class="input-label padding-left-15 required" style="font-family: 'Poppins-Regular';" translate="FLATNO">Flat No.</label>
+          <select class="select-dropdown titleClass" id="flatNo" name="flatNo" ng-model="flatNo" style="padding-left: 0px !important; font-family: 'Poppins-Regular';" 
+            ng-change="findPropertByFlat(flatNo)" required>
+            <option value="" translate="SELECTFLATNO" disabled>Select</option>
+            <option ng-repeat="options in allFlatList" value="{{options}}">{{options}}</option>
+          </select>
+        </label>
+
+      <!--  <label class="item item-input item-stacked-label" ng-if="displayFlats">ng-options="o.comptypeID as o.comptypeDesc for o in compltypeoption"
+          <label class="input-label padding-left-15 required" translate="FLATNO">Title</label>
+            <select class="select-dropdown" id="flatNo" name="flatNo" 
+              ng-model="flatNo" ng-change="findPropertByFlat(flatNo)" 
+              style="padding: 0px !important;font-weight: 400">
+              <option value="" translate="SELECT" disabled> </option>
+              <option ng-repeat="options in allFlatList" value="{{options}}">{{options}}</option>
+            </select>
+        </label> -->
+
+        <label class="item item-input item-stacked-label labelClass">
+          <span class="input-label spanClass required" translate="SERVICEREQUESTCOMPLAINTTYPEDESC"></span>
+          <textarea  maxlength='3000' rows="4" class="inputClass" placeholder="{{ 'DESCCOMP' | translate}}*"  name="newCompDescription" ng-model="NewCompDescription"  
+            style="font-weight: normal;border: 1px #bcbcbc solid;padding: 10px; margin-top: 10px;" required></textarea> <!-- ng-trim="false" ng-change="isValueChange()"-->
+          <div id="char_contact" class="limit-count {{NewCompDescription.length>3000?'error':''}}" style="padding: 2px; float: right; font-size: 8px; font-family: 'Poppins-Regular';">{{NewCompDescription.length}} / 3000</div>
+          <!-- <span class="errorMessage" ng-show="lodgeComplaintForm.newCompDescription.$error.pattern" translate="VALIDDESC"></span> -->
+          <span class="errorMessage" ng-show="lodgeComplaintForm.newCompDescription.$error.max" translate="VALIDDESC"></span>
+        </label>
+
+        <!-- <label class="item item-input item-stacked-label" style="margin-right: 10px;">
+          <span class="input-label required">{{'SERVICEREQUESTCOMPLAINTTYPEDESC' | translate}}</span>
+          <textarea  maxlength='1000' rows="4" placeholder="{{'SERVICEREQUESTCOMPLAINTTYPEDESC' | translate}}*" 
+            name="newCompDescription" ng-model="NewCompDescription" style="border: 1px #bcbcbc solid;padding: 10px; margin-top: 10px;" required></textarea> 
+          <div id="char_contact" style="padding: 2px; float: right; font-size: 8px;">{{'MAXIMUM'|translate}} 1000: 1000 {{'LEFT_CHAR'|translate}}</div>
+          <!-- <span class="errorMessage" ng-show="lodgeComplaintForm.newCompDescription.$error.pattern" translate="VALIDDESC"></span> --
+        </label> -->
+
+        <!-- <div class="item item-input item-stacked-label labelClass">
+          <label class="input-label padding-left-15 required" translate="COMPLOCATION"></label>
+          <select class="select-dropdown"  name="NewCompLocation" ng-model="NewCompLocation"
+            ng-options="o.locationid as o.locationname for o in locationoptions" ng-change="locationpincode()" required>
+            <option value="" translate="SELECT" required></option>
+          </select><label class="item item-input item-floating-label"></label>
+        </div> -->
+
+        <label class="item item-input item-stacked-label labelClass">
+          <span class="input-label spanClass required" translate="LOCATIONCOMP"></span>
+          <input type="text" class="inputClass"  placeholder="{{ 'ENTERLOCATIONCOMP' | translate}}*" ng-blur="cordinatesfromloc()" name="loc" ng-model="NewCompLocation"  required disabled/> <!-- ng-trim="false" ng-change="isValueChange()"-->
+          <span class="errorMessage" ng-show="lodgeComplaintForm.loc.$error.pattern" translate="VALIDDESC">Please enter valid Location</span>
+        </label>
+
+
+        <div style="margin: 7px 1px 14px 1px;">
+          <button class="button button-small button-dark submitBtn" style="width: 100%;" ng-click="goToComplaintService('toMap')">
+            <span translate="CHANGE_LOC">Change Location</span>
+            <i class="icon ion-ios-location iconClass" style="color: #fff; font-size: 18px !important; padding: 0px 0 0 0px !important;"></i>
+          </button>
+        </div>
+        
+
+
+        <label class="item item-input item-stacked-label labelClass" ng-show="latlong">
+          <span class="input-label spanClass" translate="COMPCOORDINATES">Complaint Co-ordinates</span>
+
+          <div class="list" style="margin-left: 15px;">
+            <label class="item item-input  inputClass">
+              <span class="input-label spanClass" style="margin-right: -75px;" translate="LATITUDE">Latitude</span>
+              <!-- <span class=""></span> -->
+              <input type="text" name="Latitude" ng-model="Latitude" style="font-family:Poppins-Regular; background-color: #F0F0F0; padding-left: 4px;" readonly>
+            </label>
+          
+            <label class="item item-input inputClass">
+              <span class="input-label spanClass" style="margin-right: -75px;" translate="LONGITUDE">Longitude</span>
+              <input type="text" name="Longitude" ng-model="Longitude" style="font-family:Poppins-Regular; background-color: #F0F0F0; padding-left: 4px;" readonly>
+            </label>
+          </div>
+             
+        </label>
+        
+
+        <!-- <label class="item item-input item-stacked-label">
+          <span class="input-label required" translate="LOCATIONCOMP"></span>
+          <input type="text" placeholder="{{'LOCATIONCOMP' | translate}}*" name="loc" ng-model="NewCompLocation" required/>
+          <span class="errorMessage" ng-show="lodgeComplaintForm.loc.$error.pattern" translate="VALIDDESC">Please enter valid location</span>
+        </label> -->
+      
+        <div ng-if="ward1"><!-- style="margin: 10px;" --><!-- Defect Id: #154304 -->
+          <label class="item item-input item-stacked-label labelClass">
+            <!-- <label class="input-label padding-left-15 required" translate="COMP_LEVEL1" style="padding-left: 6px;">Title</label> -->
+            <label class="input-label padding-left-15 required" style="font-family: 'Poppins-Regular';">{{newWard1.label}}</label>
+            <select class="select-dropdown titleClass" name="propertyzone" data-ng-model="wardKaryalaya" id="complaintReferenceone"  style="padding-left: 0px !important; font-family: 'Poppins-Regular';" 
+              ng-options="o.value as o.name for o in ward1" ng-change="fetchZone(2,wardKaryalaya)" ng-disabled="isDisableWard" required>
+              <!-- <option  value="" selected disabled hidden>{{allWard[0].comDesc}}</option> -->
+              <option value="" translate="SELECT" disabled hidden>Select Ward</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- <div style="margin: 10px;" ng-if="ward1">
+          <!-- <label class="input-label padding-left-15 required" translate="COMP_LEVEL1" style="padding-left: 6px;">Title</label> --
+          <label class="input-label padding-left-15 required" style="padding-left: 6px;">{{newWard1.label}}</label>
+          <select class="select-dropdown" name="propertyzone" data-ng-model="wardKaryalaya" id="complaintReferenceone" 
+              ng-options="o.value as o.name for o in ward1" 
+              ng-change="fetchZone(2,wardKaryalaya)" style="padding-left: 2px !important;" 
+              ng-disabled="isDisableWard" required>
+              <!-- <option  value="" selected disabled hidden>{{allWard[0].comDesc}}</option> --
+              <option value="" translate="SELECT" disabled hidden>Select</option>
+          </select>
+        </div>
+        <div style="height: 1px;width:100%; background-color: #bcbcbc"></div> -->
+
+        <div ng-if="ward2">
+          <label class="item item-input item-stacked-label labelClass">
+            <!-- <label class="input-label padding-left-15 required" translate="COMP_LEVEL2" style="padding-left: 6px;">Title</label> -->
+            <label class="input-label padding-left-15 required" style="font-family: 'Poppins-Regular';">{{newWard2Label}}</label>
+            <select class="select-dropdown titleClass" name="propertyztwo" data-ng-model="wardOne" id="complaintReferencetwo"  style="padding-left: 0px !important; font-family: 'Poppins-Regular';" 
+              ng-options="o.value as o.name for o in wardSec" ng-change="fetchZone(3,wardOne)"  ng-disabled="isDisableWard" required>
+              <!-- <option  value="" required>{{allWard[1].comDesc}}</option> -->
+              <option value="" translate="SELECT" required disabled>Select Zone</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- <div style="margin: 10px;" ng-if="ward2">
+          <!-- <label class="input-label padding-left-15 required" translate="COMP_LEVEL2" style="padding-left: 6px;">title</label> --
+          <label class="input-label padding-left-15 required" style="padding-left: 6px;">{{newWard2Label}}</label>
+          <select class="select-dropdown" name="propertyztwo" data-ng-model="wardOne" id="complaintReferencetwo" 
+              ng-options="o.value as o.name for o in wardSec" ng-change="fetchZone(3,wardOne)" style="padding-left: 2px !important;"
+              ng-disabled="isDisableWard" required>
+              <!-- <option value=""  required>{{allWard[1].comDesc}}</option> --
+              <option value="" translate="SELECT" required disabled>Select</option>
+          </select>
+        </div>
+        <div style="height: 1px;width:100%; background-color: #bcbcbc"></div> -->
+
+        <div ng-if="ward3">
+          <label class="item item-input item-stacked-label labelClass">
+            <!-- <label class="input-label padding-left-15 required" translate="COMP_LEVEL3" style="padding-left: 6px;">Title</label> -->
+            <label class="input-label padding-left-15 required" style="font-family: 'Poppins-Regular';">{{newWard3Label}}</label>
+            <select class="select-dropdown titleClass" name="propertyzthree" data-ng-model="wardTwo" id="wardTwo"  style="padding-left: 0px !important; font-family: 'Poppins-Regular';" 
+              ng-options="o.value as o.name for o in wardTh" ng-change="fetchZone(4,wardTwo)"  ng-disabled="isDisableWard" required>
+              <!-- <option  value="" required>{{allWard[2].comDesc}}</option> -->
+              <option value="" translate="SELECT" required disabled>Select</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- <div style="margin: 10px;" ng-if="ward3">
+          <!-- <label class="input-label padding-left-15 required" translate="COMP_LEVEL3" style="padding-left: 6px;">Title</label> --
+          <label class="input-label padding-left-15 required" style="padding-left: 6px;">{{newWard3Label}}</label>
+          <select class="select-dropdown" name="propertyzthree" data-ng-model="wardTwo" id="wardTwo" 
+              ng-options="o.value as o.name for o in wardTh" ng-change="fetchZone(4,wardTwo)" style="padding-left: 2px !important;"
+              ng-disabled="isDisableWard" required>
+              <!-- <option value=""  required>{{allWard[2].comDesc}}</option> --
+              <option value="" translate="SELECT" required disabled>Select</option>
+          </select>
+        </div>
+        <div style="height: 1px;width:100%; background-color: #bcbcbc"></div> -->
+
+        <div ng-if="ward4">
+          <label class="item item-input item-stacked-label labelClass">
+            <!-- <label class="input-label padding-left-15 required" translate="COMPLTYPE" style="padding-left: 6px;">Title</label> -->
+            <label class="input-label padding-left-15 required" style="font-family: 'Poppins-Regular';">{{newWard4Label}}</label>
+            <select class="select-dropdown titleClass" name="propertyzfour" data-ng-model="wardThree" id="complaintReferencefour"  style="padding-left: 0px !important; font-family: 'Poppins-Regular';" 
+              ng-options="o.value as o.name for o in wardFor" ng-change="fetchZone(5,wardThree)"  ng-disabled="isDisableWard" required>
+              <option  value="" required>{{allWard[3].comDesc}}</option>
+              <!-- <option value="" translate="SELECT" required disabled>Select</option> -->
+            </select>
+          </label>
+        </div>
+
+        <!-- <div style="margin: 10px;" ng-if="ward4">
+          <!-- <label class="input-label padding-left-15 required" translate="COMPLTYPE">Title</label> --
+          <label class="input-label padding-left-15 required" >{{newWard4Label}}</label>
+          <select class="select-dropdown" name="propertyzfour" data-ng-model="wardThree" id="complaintReferencefour" 
+              ng-options="o.value as o.name for o in wardFor" ng-change="fetchZone(5,wardThree)" 
+              ng-disabled="isDisableWard" required>
+              <option value=""  required disabled>{{allWard[3].comDesc}}</option>
+          </select>
+        </div>
+        <div style="height: 1px;width:100%; background-color: #bcbcbc"></div>-->
+
+        <div ng-if="ward5">
+          <label class="item item-input item-stacked-label labelClass">
+            <!-- <label class="input-label padding-left-15 required" translate="COMPLTYPE" style="padding-left: 6px;">Title</label> -->
+            <label class="input-label padding-left-15 required" style="font-family: 'Poppins-Regular';">{{newWard5Label}}</label>
+            <select class="select-dropdown titleClass" name="propertyzfive" data-ng-model="wardFour" id="complaintReferencefive"  style="padding-left: 0px !important; font-family: 'Poppins-Regular';" 
+              ng-options="o.value as o.name for o in wardFiv" ng-change="fetchZone(6,wardFour)"  ng-disabled="isDisableWard" required>
+              <option  value="" required>{{allWard[4].comDesc}}</option>
+              <!-- <option value="" translate="SELECT" required disabled>Select</option> -->
+            </select>
+          </label>
+        </div>
+
+        <!-- <div style="margin: 10px;" ng-if="ward5">
+          <!-- <label class="input-label padding-left-15 required" translate="COMPLTYPE">Title</label> --
+          <label class="input-label padding-left-15 required">{{newWard5Label}}</label>
+          <select class="select-dropdown" name="propertyzfive" data-ng-model="wardFour" id="complaintReferencefive" 
+              ng-options="o.value as o.name for o in wardFiv" ng-change="fetchZone(6,wardFour)" ng-disabled="isDisableWard" required>
+              <option value=""  required disabled>{{allWard[4].comDesc}}</option>
+          </select>
+        </div>
+        <div style="height: 1px;width:100%; background-color: #bcbcbc"></div> -->
+
+        <!-- <label class="input-label padding-left-15" translate="REFERENCEDATE"></label>
+        <div class="newDateDiv" >
+          <p  ng-click="openCalender()" id="dateEdit" 
+             ng-style="referenceDate ?{'color':'#000'} : {'color': '#afafaf'}"
+             max="{{maxDate | date: 'yyyy-MM-dd'}}"
+             style="height: 10px;margin: 0px;" placeholder="Please Enter Valid Date" ></p>
+             <span class="errorMessage" ng-show="refrenceForm.referencedate.$error.pattern">Please Enter Valid Date</span>
+        </div> -->
+
+        <!-- <div ng-if = "myImgUrl != null" style="margin: 16px;">
+          <img ng-src="{{ 'data:image/jpeg;base64,'+myImgUrl }}" data-ng-model="cameraImg" class="camerImage" ng-show="cameraImage"/>
+        </div> -->
+        <div ng-if = "attachments" style="margin: 16px;" ng-repeat="obj in attachments track by $index">
+          <div class="col-xs-4">
+            <button ng-click="removeImage($index)" class="crossBtnClass">
+              <img src="./img/cancel.png" class="imgClass">
+            </button>
+            <img ng-if="obj.documentType=='png' || obj.documentType=='jpeg' || obj.documentType=='jpg'" ng-src="{{ 'data:image/jpeg;base64,'+ obj.documentByteCode }}" class="camerImage"/>
+            <img ng-if="obj.documentType=='pdf'" src="./img/pdf.png" class="camerImage"/>
+            <img ng-if="obj.documentType=='doc' || obj.documentType=='docx'" src="./img/docx.png" class="camerImage"/>
+            <p style="font-size: 12px; margin-top: 2px; text-align: center;">{{obj.documentName}}</p>
+            
+          </div>
+        </div>
+
+        <div style="display: inline-flex;align-items: center; margin: 16px; width: 91%;">
+          <button class="button button-small button-dark submitBtn" style="width: 100%;" onclick="document.getElementById('myImgUrlid').click()">
+            {{'UPLOADIMAGEGRAIVANCE'| translate}}
+            </button>
+        </div>
+        <div style="display: inline-flex;align-items: center; margin: 16px; margin-top: -10px; width: 91%;">
+          <button class="button button-small button-dark submitBtn" style="width: 100%;" ng-click="takeimage()">
+            {{'CAPTUREIMAGEGRAIVANCE'| translate}}
+            </button>
+        </div>
+        <p class="uploadDocStyle" style="font-family:Poppins-Regular">{{'UPLOADIMAGEEXT' | translate}} {{'UPLOADIMAGESIZE5' | translate}}</p>
+        <input style="display:none" data-max-size="5000000" type="file" class="filecss " id="myImgUrlid"
+          onchange="angular.element(this).scope().complaintimageupload(this,'myImgUrlid')"/>
+
+        <!-- <div ng-if = "myImgUrl" style="display: inline-flex;align-items: center; margin: 10px; width: 91%;">
+          <button class="button button-small button-dark submitBtn" style="width: 100%;" ng-click="removeImage()"> <!-- <class="button-dark"> --
+            {{'REMOVEIMAGE'| translate}}
+          </button>
+        </div> -->
+
+        <table style="width: 100%; margin-top: 10px;">
+          <tr style="width: 100%;">
+            <td style="width: 50%;">
+              
+            </td>
+            <td style="width: 10%;">
+              
+            </td>	
+            <td style="width: 40%;">
+              <button ng-click="savecomplaint()" class="button button-block submitBtn" style="margin-top: 10px !important;height: 35px !important;">
+                <span translate="SUBMIT"></span></button> <!-- ng-disabled="!lodgeComplaintForm.$valid" -->
+            </td>
+          </tr>
+        </table>
+
+        <!-- <div class="padding">
+          <button ng-disabled="!lodgeComplaintForm.$valid"  ng-click="savecomplaint()" class="button button-block  customBgColor">
+          <span translate="SUBMIT"></span></button>
+        </div> -->
+
+
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
+
+
+<style>
+  #map {
+            width: 100%;
+            position: absolute;
+            top: 0%;
+            bottom: 17%; 
+            right: 0;
+            left: 0;
+          }
+
+          .leaflet-bar a{
+            color: black !important;
+          }
+
+          .locField{
+            position: absolute; 
+            bottom: 0%; 
+            width: 100%;
+            background-color: #fff;
+            padding: 0px 5px 0px 5px;
+          }
+
+          .locateClass{
+            position: absolute;
+            bottom: 22%;
+            right: 5%;
+            border: solid 2px #ccc;
+            border-radius: 20px;
+            background-color: #fff;
+          }
+
+          .btnClass{
+            margin-top: 1rem;
+          }
+
+  .uploadDocStyle{
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 10px;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+
+  .headingDiv {
+    margin-bottom: -1%;
+    margin-top: 2%;
+  }
+
+  .divcennter{
+    margin: auto;
+    width: 90%;
+    height:40%;
+    border: 1px solid #013561;
+    padding: 10px;
+  }
+  
+  .camerImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85px;
+    height: 85px;
+  }
+  
+  .tooltip.top {
+    padding: 5px 0;
+    margin-top: 18px !important;
+    top: -14px !important;
+    left: 119px !important;
+    display: block;
+  }
+
+  .tooltip.top .tooltip-arrow {
+    left: 0 !important;
+    top: 35% !important;
+    margin-left: -6px !important;
+    border-width: 10px 9px 5px 7px !important;
+    border-top-color: #000;
+    display: none !important;
+  }
+
+  iconClass{
+    color: #fff;
+    font-size: 18px !important;
+    padding: 0px 0 0 0px !important;
+    margin-left: 0.5rem;
+  }
+  .imgClass{
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  left: 90%;
+  flex: 1;
+  /* margin-top: 22px !important; */
+}
+.crossBtnClass{
+  background-color: transparent;
+  border: none;
+}
+  
+</style>
+
+
+
+

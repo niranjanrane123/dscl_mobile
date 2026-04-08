@@ -1,0 +1,87 @@
+<ion-view class="" hide-back-button="true">
+
+<ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+ <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
+
+<ion-content class="backgroundimage" ng-controller="CitizenCharterCtrl">
+
+  <h3 class="heading">Citizen Charter</h3>
+
+
+<div class="row margin-0">
+   <div class="col col-50 animated fadeInLeft">
+         <div class="list text-center">
+             <a class="item gridnopadding" ui-sref="app.CCaboutus">
+             <img src="./img/water-bill-icon.png" width=55px; height=55px;>
+	         <h5 translate="">About Us</h5></a>
+        </div>
+    </div>
+
+	<div class="col col-50 animated fadeInRight">
+    	<div class="list text-center">
+             <a class="item gridnopadding" ui-sref="app.CCcontactus">
+             <img src="./img/contact-us-icon.png" width=55px; height=55px;>
+	         <h5 translate="">Contact Us</h5></a>
+        </div>
+    </div>
+</div>
+
+ <div class="row margin-0">
+	 <div class="col col-50 animated fadeInLeft">
+         <div class="list text-center">
+             <a class="item gridnopadding" ui-sref="app.CCoffice">
+             <img src="./img/change-of-usage-icon.png" width=55px height=55px>
+	         <h5>Office Location</h5></a>
+        </div>
+    </div>
+     <div class="col col-50 animated fadeInRight">
+         <div class="list text-center" ng-click="inappbrowserlinnk('https://drive.google.com/open?id=1JPQ1IL5LoPMjEf7IYAE1VBvn45BESr0r')">
+             <a class="item gridnopadding" >
+             <img src="./img/change-of-usage-icon.png" width=55px; height=55px;>
+	         <h5>Public Notices</h5></a>
+        </div>
+	</div>
+</div>
+
+<!--
+ <div class="row margin-0">
+	<div class="col col-50 animated fadeInLeft">
+         <div class="list text-center">
+             <a class="item gridnopadding" ui-sref="">
+               <img src="./img/change-of-ownership-icon.png" width=55px height=55px>
+	         <h5>Detail Of Care Mechanism</h5></a>
+        </div>
+    </div>
+
+   <div class="col col-50 animated fadeInRight">
+     <div class="list text-center">
+       <a class="item gridnopadding" ui-sref=""><img src="./img/change-of-ownership-icon.png" width=55px height=55px>
+         <h5>Expectation From Citizen</h5></a>
+     </div>
+   </div>
+ </div>
+
+  <div class="row margin-0">
+    <div class="col col-50 animated fadeInLeft">
+      <div class="list text-center">
+        <a class="item gridnopadding" ui-sref=""><img src="./img/change-of-usage-icon.png" width=55px height=55px>
+          <h5>Other Information</h5></a>
+      </div>
+    </div>
+  </div>
+-->
+
+
+
+
+
+</ion-content>
+</ion-view>
+

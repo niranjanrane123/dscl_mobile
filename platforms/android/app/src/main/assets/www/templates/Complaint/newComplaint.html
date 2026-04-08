@@ -1,0 +1,121 @@
+<ion-view class="titlecss" >
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+  <ion-content scroll="true" class="HomeBackground" ng-controller="newComplaintCTRL">
+    <form name="www">
+      <div class="headingDiv">
+        <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate=""><img src="./img/quick-services-32x32.png" width="32" height="32">View All Complaints</h3>
+      </div>
+
+      <ion-slide-box show-pager="false" ion-slide-tabs>
+        <ion-slide ion-slide-tab-label="NearBy">
+          <p style="text-align: center;color: #36979e;">No Such Complaints......</p>
+          <!--<div class="card" style="box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3) !important;">
+            <div class="item item-text-wrap">
+             Gajendra Choudhary    <p style="color: #fff;background-color: #298C13;float:right;">Closed / Complaint</p>
+              <p>20/06/2018</p>
+            </div>
+
+            <div class="item">
+              <img ng-src="./img/camimage.png" class="center1" />
+            </div>
+
+            <div class="item item-text-wrap">
+              <p>Complaint Description Complaint Description Complaint Description</p>
+              <p>Location Ward Address</p>
+            </div>
+          </div>-->
+        </ion-slide>
+
+        <ion-slide ion-slide-tab-label="City">
+
+            <p style="text-align: center;color: #36979e;">No Such Complaints......</p>
+           <!-- <div ng-repeat="(key, post) in posts">
+              {{post.text}}
+              {{post.date}}
+              <a href="#" ng-click="postLike(key)">Like {{post.like}}</a>
+              <form>
+                <input type="text" ng-model="newcomment[key].comment">
+                <button ng-click="postCommand(key)">Add Comment</button>
+              </form>
+              <ul>
+                <li ng-repeat="(keyC, item) in post.comments">
+                  {{item.comment}} <br/>
+                  <a href="#" ng-click="commentLike(key, keyC)">
+                    <i class="icon ion-star"></i> Like {{item.like}}</a>
+                </li>
+              </ul>
+            </div>-->
+
+             <!-- <h1>Comment </h1>
+              <hr />-->
+           <!-- <div class="item" >
+                <ul class="list-group" >
+                  <li class="list-group-item" ng-repeat="cmt in commentArray">
+                    <p>@Gajendra Choudhary</p>
+                    {{cmt}}
+                    <a href="" ng-click="romoveComment($comText);" >
+                      <span class="icon ion-trash-b" style="float:right"> </span></a>
+                  </li>
+                </ul>
+                <br />
+                  <textarea style="height: 30px;" class="form-control" placeholder="Your Comment Please....."  ng-model="data.CommentText"></textarea>
+                  <button class="btn btn-success pull-right" ng-click="addComment()">Comment.</button>
+            </div>-->
+        </ion-slide>
+
+        <ion-slide ion-slide-tab-label="Yours">
+          <div class="card boder" style="box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3) !important;" ng-repeat="detail in mobileStatus">
+            <div class="item item-text-wrap">
+              <b>{{ fullName }} </b>   <p style="color: #fff;background-color: #298C13;float:right;">{{ detail.status }}</p>
+              <p>{{ detail.date }}</p>
+            </div>
+
+            <div class="item  ">
+              <img ng-src="./img/camimage.png" class="center1" />
+            </div>
+
+            <div class="item item-text-wrap ">
+              <b>{{ detail.description}}</b>
+              <p>Location: {{ detail.ward }}</p>
+            </div>
+
+            <div class="item ">
+              <a style= padding:20px;><i class="icon ion-thumbsup"></i>Like</a>
+              <a ui-sref="app.commentPage" style= padding:20px;><i class="icon ion-paper-airplane"></i>Comment</a>
+              <a ng-click="ShareContact('fullName')" style= padding:20px;><i class="icon ion-android-share-alt"></i>Share</a>
+            </div>
+          </div>
+        </ion-slide>
+
+      </ion-slide-box>
+    </form>
+  </ion-content>
+  <!-- <ion-footer-bar align-title="center">All fields marked asterik(<span class="required"></span>) are mandatory</ion-footer-bar> -->
+</ion-view>
+<style>
+.slider{
+	height: 477px;
+}
+ .center1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    opacity: 60px;
+}
+
+.boder{
+   border: solid 1px #B3ACAC !important;
+   margin: 10px 10px !important;
+   padding: 0px !important;
+}
+
+</style>

@@ -1,0 +1,92 @@
+.labelcss {
+	font-weight: normal;
+	padding: 3px 0px;
+	line-height: 25px;
+	font-size: 12px;
+	text-transform: capitalize !important;
+  }
+  
+  .label-none {
+	height: 0 !important;
+	display: block;
+  }
+  
+  .labelClass {
+	border-color: #181d30 !important;
+	padding: 12px 0px 0px 0px;
+  }
+  .slide-track {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+  }
+  
+  .slide-handle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: left 0.3s;
+  }
+
+
+  .footerClass{
+	margin-left: 0.6em;
+	color: black;
+	font-weight: bold;
+}
+.cardTitle {
+text-align: center;
+margin: 60px 10px;
+position: relative;
+border: 1px solid #cccccc45;
+border-radius: 5px;
+padding: 10px 0px;
+background-color: #fff;
+}
+.cardTitleSpan {
+background: #fff;
+padding: 5px 15px;
+text-transform: uppercase;
+font-size: large;
+}
+.font-grey {
+color: #373737;
+}
+.services {
+width: 100%;
+}
+.sr-card {
+margin-top: 12px;
+display: flow-root;
+position: relative;
+height: 4em;
+width: 4em;
+text-align: center;
+padding-left: 6px;
+padding-right: 6px;
+border-radius: 15%;
+border: 1px solid gray;
+}
+.quick-services-img {
+vertical-align: middle;
+width: 3.5em;
+height: 3.5em;
+position: absolute;
+left: 5%;
+top: 5%;
+border-radius: 0.5em;
+}
+h2 {
+font-family: 'Poppins-SemiBold';
+color: #000;
+font-size: 1.1rem;
+text-align: center;
+margin-top: 10px;
+margin-bottom: 10px;
+word-wrap: initial;
+}
+.row {
+margin-right: 0px;
+margin-left: -3px;
+}

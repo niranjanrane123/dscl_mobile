@@ -1,0 +1,455 @@
+<!--<ion-view title="e-Chhattisgarh">-->
+<!--  <ion-nav-bar class="bar-dark" align-title="center">    <ion-nav-back-button></ion-nav-back-button></ion-nav-bar>-->
+
+
+<!--<ion-content ng-controller="ComplaintRefrenceCtrl" class="animated zoomIn">-->
+<!--  <div class="headingDiv">-->
+<!--    <h3 class="heading" translate="SERVICEREQUESTCOMPLAINTDETAILS"></h3>-->
+<!--  </div>-->
+<!--  <form name="refrenceServiceForm">-->
+<!--    <div style="height: 52px;" class="search_categories">-->
+<!--      <div class="select">-->
+<!--        <select class="search_categories" name="propertyDepartment" ng-model="complaintPropertyDepartment"  id="complaintPropertyDepartment"-->
+<!--                ng-options="o.value as o.name for o in department" ng-change="fetchDepartment()" required >-->
+<!--          <option value="" translate="DEPARTMENT" required></option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div style="height: 52px;" class="search_categories">-->
+<!--      <div class="select">-->
+<!--        <select class="search_categories" name="propertyType" ng-model="complaintPropertyType"  id="complaintPropertyType"-->
+<!--                ng-options="o.value as o.name for o in type" ng-change="fetchServiceType()" required >-->
+<!--          <option value="" translate="SERVICEREQUESTCOMPLAINTTYPE" required></option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <label class="item item-input item-floating-label">-->
+<!--      <span class="input-label" translate="SERVICEREQUESTCOMPLAINTTYPEDESC">*</span>-->
+<!--      <input type="text"   placeholder="{{ 'SERVICEREQUESTCOMPLAINTTYPEDESC' | translate}}*" name="complainTypeDesc" ng-model="complainTypeDesc" ng-trim="false" required/>-->
+<!--    </label>-->
+<!--    <div style="height: 52px;" class="search_categories">-->
+<!--      <div class="select">-->
+<!--        <select class="search_categories" name="propertyType" ng-model="complaintPropertyLocation"  id="complaintPropertyLocation"-->
+<!--                ng-options="o.value as o.name for o in location" ng-change="fetchServiceDesc()" required >-->
+<!--          <option value="" translate="SERVICEREQUESTCOMPLAINTLOCATION" required></option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <label class="item item-input item-floating-label">-->
+<!--      <span class="input-label" translate="PINCODE">*</span>-->
+<!--      <input type="number"   placeholder="{{ 'PINCODE' | translate}}*" ng-pattern="/^[0-9]{6,6}$/" name="pinCode" ng-model="pinCode" ng-trim="false" />-->
+<!--      <span class="errorMessage" ng-show="refrenceForm.pinCode.$error.pattern" translate="VALIDPINCODE"></span>-->
+<!--    </label>-->
+<!--    <label class="item item-input item-floating-label">-->
+<!--      <span class="input-label" translate="LANDMARK">*</span>-->
+<!--      <input type="text"   placeholder="{{ 'LANDMARK' | translate}}*" name="landmark" ng-model="landmark" ng-trim="false" />-->
+<!--    </label>-->
+
+<!--    <label class="item item-input item-floating-label">-->
+<!--      <span class="input-label" translate="REFERENCENUMBER">*</span>-->
+<!--      <input type="text"   placeholder="{{ 'REFERENCENUMBER' | translate}}*" name="refNumber" ng-model="refNumber" ng-trim="false" />-->
+<!--    </label>-->
+
+
+<!--    <div class="padding">-->
+<!--      <button ng-disabled="!refrenceServiceForm.$valid" type="button" class="button button-block  customBgColor"-->
+<!--              ng-model="submit" ng-click="submit()"  translate="SUBMIT"></button>-->
+<!--    </div>-->
+<!--  </form>-->
+
+<!--</ion-content>-->
+<!--</ion-view>-->
+<!--<style>-->
+
+<!--  .radio .radio-icon {-->
+<!--  visibility: visible !important;-->
+<!--}-->
+
+<!--.factorQes{-->
+<!--  margin-left: 15px;-->
+<!--  }-->
+<!--.radio-inline.item {-->
+<!--  display: inline-block;-->
+<!--  border: none;-->
+<!--  margin: 0;-->
+<!--  height: 50px;-->
+<!--}-->
+<!-- .radio-inline+.radio-inline {-->
+<!--    margin-top: 0;-->
+<!--    margin-left: 0px !important;-->
+<!--}-->
+<!--.errorMessage {-->
+<!--	font-weight: normal;-->
+<!--	font-size: 11px;-->
+<!--	color: red;-->
+<!--}-->
+<!--.item-input {-->
+<!--	border-style: solid;-->
+<!--  border-color: #bcbcbc !important;-->
+<!--  /*border-color: #36979e !important;*/-->
+<!--	border-width: 0px 0px 1px 0px;-->
+<!--}-->
+<!--.radio .radio-icon:before {-->
+<!--  content: "" !important;-->
+<!--  border: 2px solid black !important;-->
+<!--  width: 24px !important;-->
+<!--  height: 24px !important;-->
+<!--  border-radius: 50% !important;-->
+<!--  overflow: hidden !important;-->
+<!--}-->
+<!--  .radio .radio-icon {-->
+<!--  visibility: visible !important;-->
+<!--}-->
+
+<!--.radio .radio-icon:before {-->
+<!--  content: "" !important;-->
+<!--  border: 2px solid black !important;-->
+<!--  width: 24px !important;-->
+<!--  height: 24px !important;-->
+<!--  border-radius: 50% !important;-->
+<!--  overflow: hidden !important;-->
+<!--}-->
+
+<!--.radio .radio-icon:after {-->
+<!--  content: "" !important;-->
+<!--  position: absolute !important;-->
+<!--  right: 20px !important;-->
+<!--  top: 22px !important;-->
+<!--  background: black !important;-->
+<!--  width: 12px !important;-->
+<!--  height: 12px !important;-->
+<!--  border-radius: 50% !important;-->
+<!--  overflow: hidden !important;-->
+<!--  transition: -webkit-transform .28s cubic-bezier(0.420, 0.000, 0.000, 1.650);-->
+<!--  transition: transform .28s cubic-bezier(0.420, 0.000, 0.000, 1.650);-->
+<!--  -webkit-transform: scale(0);-->
+<!--  transform: scale(0);-->
+<!--}-->
+
+<!--.radio.item-radio > input[type=radio]:checked ~ .radio-icon:after {-->
+<!--  -webkit-transform: scale(1);-->
+<!--  transform: scale(1);-->
+<!--}-->
+
+<!--.radio .item-content {-->
+<!--  background-color: #fff;-->
+<!--  margin: 0;-->
+<!--  padding-right: 50px;-->
+<!--  padding-left: 0px;-->
+<!--}-->
+
+<!--.radio.item-radio > input[type=radio]:checked ~ .item-content {-->
+<!--  background-color: #fff;-->
+<!--}-->
+
+<!--.radio-inline.item {-->
+<!--  display: inline-block;-->
+<!--  border: none;-->
+<!--  margin: 0;-->
+<!--  height: 50px;-->
+<!--}-->
+
+<!--.radio-blue .radio-icon:after {-->
+<!--  background: #2196F3 !important;-->
+<!--}-->
+
+<!--.radio-blue .radio-icon:before {-->
+<!--  border-color: #2196F3 !important;-->
+<!--}-->
+
+<!--.radio-teal .radio-icon:after {-->
+<!--  background: #009688 !important;-->
+<!--}-->
+
+<!--.radio-teal .radio-icon:before {-->
+<!--  border-color: #009688 !important;-->
+<!--}-->
+
+<!--.radio-gray .radio-icon:after {-->
+<!--  background: #B6B6B6 !important;-->
+<!--}-->
+
+<!--.radio-gray .radio-icon:before {-->
+<!--  border-color: #B6B6B6 !important;-->
+<!--}-->
+
+<!--.radio-content{-->
+<!--height:10px;-->
+<!--}-->
+<!--.input[type="text"][disabled]{background-color: transparent;}-->
+<!--.margin-top-20{margin-top:20px;}-->
+<!--input[type=checkbox], input[type=radio]{margin: 0px 0 0;}-->
+
+<!--.radio .radio-icon:after {-->
+<!--  content: "" !important;-->
+<!--  position: absolute !important;-->
+<!--  right: 20px !important;-->
+<!--  top: 22px !important;-->
+<!--  background: black !important;-->
+<!--  width: 12px !important;-->
+<!--  height: 12px !important;-->
+<!--  border-radius: 50% !important;-->
+<!--  overflow: hidden !important;-->
+<!--  transition: -webkit-transform .28s cubic-bezier(0.420, 0.000, 0.000, 1.650);-->
+<!--  transition: transform .28s cubic-bezier(0.420, 0.000, 0.000, 1.650);-->
+<!--  -webkit-transform: scale(0);-->
+<!--  transform: scale(0);-->
+<!--}-->
+
+<!--.radio.item-radio > input[type=radio]:checked ~ .radio-icon:after {-->
+<!--  -webkit-transform: scale(1);-->
+<!--  transform: scale(1);-->
+<!--}-->
+
+<!--.radio .item-content {-->
+<!--  background-color: #fff;-->
+<!--  margin: 0;-->
+<!--  padding-right: 50px;-->
+<!--  padding-left: 0px;-->
+<!--}-->
+
+<!--.radio.item-radio > input[type=radio]:checked ~ .item-content {-->
+<!--  background-color: #fff;-->
+<!--}-->
+
+<!--.radio-inline.item {-->
+<!--  display: inline-block;-->
+<!--  border: none;-->
+<!--  margin: 0;-->
+<!--  height: 50px;-->
+<!--}-->
+
+<!--.radio-blue .radio-icon:after {-->
+<!--  background: #2196F3 !important;-->
+<!--}-->
+
+<!--.radio-blue .radio-icon:before {-->
+<!--  border-color: #2196F3 !important;-->
+<!--}-->
+
+<!--.radio-teal .radio-icon:after {-->
+<!--  background: #009688 !important;-->
+<!--}-->
+
+<!--.radio-teal .radio-icon:before {-->
+<!--  border-color: #009688 !important;-->
+<!--}-->
+
+<!--.radio-gray .radio-icon:after {-->
+<!--  background: #B6B6B6 !important;-->
+<!--}-->
+
+<!--.radio-gray .radio-icon:before {-->
+<!--  border-color: #B6B6B6 !important;-->
+<!--}-->
+
+<!--.radio-content{-->
+<!--height:10px;-->
+<!--}-->
+<!--.input[type="text"][disabled]{background-color: transparent;}-->
+<!--.margin-top-20{margin-top:20px;}-->
+<!--input[type=checkbox], input[type=radio]{margin: 0px 0 0;}-->
+
+<!--&lt;!&ndash;.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio]{&ndash;&gt;-->
+<!--  &lt;!&ndash;margin: 0px;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--</style>-->
+<ion-view >
+  <!-- title="{{'ECHATTISGARH' | translate}}" -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+		<ion-nav-back-button class="button-clear">
+		  <button class="icon ion-chevron-left" ng-click="myGoBack()" ng-controller="TodoCtrl"  style="background: transparent;border: none;"></button>
+		  <img style="right: 46%;
+		  position: absolute;
+		  margin-top: 1px;" src="./img/doon1-3d-test_13-10-2021.png" width=38px; height=35px;>
+		</ion-nav-back-button>
+	  </ion-nav-bar>
+  <ion-content ng-controller="ComplaintService" class="HomeBackground">
+    <form name="lodgeComplaintForm">
+      <div class="list">
+
+        <div class="headingDiv">
+          <h3 style="height:32px;padding: 5px 0px 0px 10px;" class="heading" translate=" COMPLDET">
+          </h3>
+          <div class="rti-steps">2 of 2</div>
+        </div>
+        
+        <!-- <div class="padding">
+          <button ng-disabled="!lodgeComplaintForm.$valid" on-tap="savecomplaint()"z
+            class="button button-block  customBgColor">
+            <span translate="SUBMIT"></span></button>
+        </div> -->
+       <!--  <div class="divcennter" ng-click="takeimage()">
+          <img ng-src="./img/camimage.png" class="center" ng-show="defaultimage" />
+          <img ng-src="{{ myImgUrl }}" data-ng-model="cameraImg" class="camerImage" ng-show="cameraImage" />
+          <div style="text-align: center;"><i class="icon ion-camera fonth3"></i><span
+              translate="CLICKCOMPLAINTIMAGE"></span></div>
+        </div> -->
+
+        <!-- <div  >
+          <label class="input-label padding-left-15 required" translate="SELECTDISTRICT"></label>
+            <select class="select-dropdown"
+              ng-options="dstoptions.id as dstoptions.name for dstoptions in dstoptions track by dstoptions.name"
+              ng-model="friend.selectedTicket" ng-disabled="!friend.isPresent"
+              ng-change="changeDistrict(friend.selectedTicket.id)" readonly>
+              {{friend.selectedTicket.name}}
+              <option value="" translate="SELECTDISTRICT" required></option>
+            </select><label class="item item-input item-floating-label"></label>
+          </div> -->
+       
+
+      
+          <!-- <div  >
+            <label class="input-label padding-left-15 required" translate="SELORG"></label>
+            <select class="select-dropdown" name="org" data-ng-model="organization" id="organization"
+              ng-options="o.id as o.name for o in orgoptions" ng-change="changeOrg()" required>
+              <option value="" translate="SELORG" required></option>
+            </select><label class="item item-input item-floating-label"></label>
+          </div> -->
+        
+
+          <div  >
+            <label class="input-label padding-left-15 required" translate="SELECTDEPARTMENT"></label>
+            <select class="select-dropdown" name="NewCompDeptdetails" ng-model="NewCompDeptdetails"
+              ng-options="o.deptid as o.deptname for o in deptoptions" ng-change="selectAction()" required>
+              <option value="" translate="SELECTDEPARTMENT" required></option>
+            </select><label class="item item-input item-floating-label"></label>
+          </div>
+       
+      
+          <div  >
+            <label class="input-label padding-left-15 required" translate="SERVICEREQUESTCOMPLAINTTYPE"></label>
+            <select class="select-dropdown" name="NewCompType" ng-model="NewCompType"
+              ng-options="o.comptypeID as o.comptypeDesc for o in compltypeoption" ng-change="deptloc()" required>
+              <option value="" translate="SERVICEREQUESTCOMPLAINTTYPE" required></option>
+            </select><label class="item item-input item-floating-label"></label>
+          </div>
+       
+        
+        <label class="item item-input item-floating-label">
+          <span class="input-label " translate="SERVICEREQUESTCOMPLAINTTYPEDESC"></span>
+          <input type="text" maxlength="3000" placeholder="{{'SERVICEREQUESTCOMPLAINTTYPEDESC' | translate}}*"
+            name="newCompDescription" ng-model="NewCompDescription" id="descLim" ng-keyup="LimitInput()" required />
+          <!-- <span class="errorMessage" ng-show="lodgeComplaintForm.newCompDescription.$error.pattern"
+            translate="VALIDDESC"></span> -->
+          <span class="errorMessage" ng-show="lodgeComplaintForm.newCompDescription.$error.max"
+            translate="VALIDDESC"></span>
+        </label>
+        <div ng-if="NewCompDescription.length>0" class="limit-count {{NewCompDescription.length>3000?'error':''}}">{{NewCompDescription.length}} / 3000</div>
+          
+        <div>
+          <label class="input-label padding-left-15 required" translate="COMPLOCATION"></label>
+            <select class="select-dropdown"  name="NewCompLocation" ng-model="NewCompLocation"
+              ng-options="o.locationid as o.locationname for o in locationoptions" ng-change="locationpincode()"
+              required>
+              <option value="" translate="SELECT" required></option>
+            </select><label class="item item-input item-floating-label">    
+          </label>
+        </div>
+       
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label " translate="PINCODE"></span>
+          <input type="number" placeholder="{{'PINCODE' | translate}}" name="NewCompPincode" ng-model="NewCompPincode"
+            id="pincodelim" ng-change="locationperfix()" ng-keyup="onlyNumericSixLimitInput()" ng-trim="false"
+            ng-pattern="/^[1-9]\d{5,5}$/" />
+          <span class="errorMessage" ng-show="lodgeComplaintForm.NewCompPincode.$error.pattern"
+            translate="VALIDPINCODE"></span>
+        </label>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label" translate="LANDMARK"></span>
+          <input type="text" placeholder="{{'LANDMARK' | translate}}" name="NewCompLandmark" ng-model="NewCompLandmark"
+          ng-change="changeLandmark(NewCompLandmark)"  alpha-numeric-only space="true" limit="50" ng-trim="false" ng-model-options="{ allowInvalid: true}" />
+          <span class="errorMessage" ng-show="lodgeComplaintForm.NewCompLandmark.$error.pattern"
+            translate="VALIDLANDMARK"></span>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label" translate="REFERENCENUMBER"></span>
+          <input type="tel" id="complaintREFERENCENUMBER" placeholder="{{ 'REFERENCENUMBER' | translate}}"
+            ng-pattern="/^[1-9]\d{12,12}$/" name="refNumber" ng-model="refNumber" ng-change="refrenceChange(refNumber)" ng-trim="false" numbers-only
+            limit="13" ng-model-options="{ allowInvalid: true}" />
+          <span class="errorMessage" ng-show="lodgeComplaintForm.refNumber.$error.pattern"
+            translate="VALIDREFERENCE"></span>
+        </label>
+
+        <!--new-->
+        <!-- <label class="item item-input item-floating-label">
+          <span class="input-label" translate="REFERENCEDATE">*</span>
+          <input type="text" ng-blur="changeAttr($event)" name="referencedate" ng-model="referenceDate" ng-trim="false"
+            max="{{maxDate | date: 'yyyy-MM-dd'}}" disabled />
+          <span class="errorMessage" ng-show="refrenceForm.referencedate.$error.pattern">Please Enter Valid Date</span>
+        </label> -->
+
+        <label class="input-label padding-left-15" translate="REFERENCEDATE"></label>
+        <div class="newDateDiv" >
+          <p  ng-click="openCalender()" id="dateEdit" 
+             ng-style="referenceDate ?{'color':'#000'} : {'color': '#afafaf'}"
+             max="{{maxDate | date: 'yyyy-MM-dd'}}"
+             style="height: 10px;margin: 0px;" placeholder="Please Enter Valid Date" ></p>
+             <span class="errorMessage" ng-show="refrenceForm.referencedate.$error.pattern">Please Enter Valid Date</span>
+        </div>
+
+        <div class="divcennter" ng-click="takeimage()">
+          <img ng-src="./img/camimage.png" class="center" ng-show="defaultimage" />
+          <!-- <img ng-src="{{ myImgUrl }}" data-ng-model="cameraImg" class="camerImage" ng-show="cameraImage" /> -->
+          <div style="text-align: center;"><i class="icon ion-camera fonth3"></i><span
+              translate="CLICKCOMPLAINTIMAGE"></span></div>
+        </div>
+
+        <div ng-if = "attachments" style="margin: 16px;" ng-repeat="obj in attachments track by $index" ng-click="zoomPic(obj.documentName)">
+          <div class="col-xs-4">
+            <button ng-click="removeImage($index)" class="crossBtnClass">
+              <img src="./img/cancel.png" class="imgClass">
+            </button>
+            <img ng-src="{{ 'data:image/jpeg;base64,'+ obj.documentByteCode }}" class="camerImage"/>
+            <p style="font-size: 12px; margin-top: 2px; text-align: center;">{{obj.documentName}}</p>
+          </div>
+        </div>
+
+        <div ng-show="zoomedIn" class="zoom-container">
+          <span class="closeBtn" ng-click="zoomPicClose()">&times;</span>
+          <img ng-src="{{ 'data:image/jpeg;base64,'+ imageZoomed }}" class="zoomed-image"/>
+        </div>
+
+        <div class="padding">
+          <button ng-disabled="!lodgeComplaintForm.$valid" on-tap="savecomplaint()"
+            class="button button-block  customBgColor">
+            <span translate="SUBMIT"></span></button>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
+
+
+<style>
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+
+  .headingDiv {
+    margin-bottom: -1%;
+    margin-top: 2%;
+  }
+
+  .divcennter {
+    margin: auto;
+    width: 90%;
+    height: 40%;
+    border: 1px solid#013561;
+    padding: 10px;
+  }
+
+
+  /* .camerImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 175px;
+  } */
+</style>

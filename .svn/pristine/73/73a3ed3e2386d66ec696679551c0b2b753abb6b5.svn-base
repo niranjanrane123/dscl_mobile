@@ -1,0 +1,59 @@
+<ion-view>
+  <ion-nav-title>
+    <div class="bar bar-header headercolor">
+      <h1 class="title">Mainet</h1>
+    </div>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ></button>
+  </ion-nav-buttons>
+
+  <ion-content ng-controller="LocationSearchCTRL" class="animated zoomIn backgroundimage" >
+    <form name="locationGet">
+      <h3 class="heading">Asset Tracker</h3>
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label required"> Asset Number </span>
+          <input id="address" type="number"  placeholder="Asset Number" required/>
+          <span class="errorMessage" ng-show="locationGet.$error.pattern">Please Enter Valid Asset Number</span>
+        </label>
+
+        <div class="padding">
+          <button type="button" class="button button-positive customBgColor"
+          ng-model="takephoto" ng-click="getPhoto()"><i class="icon ion-ios-camera-outline fonth3"></i>
+            Take Photo</button>
+        </div>
+
+        <img ng-src="{{ myImgUrl }}" style="width: 50%; height: 30%; align: centre;" ng-hide="takephotoshow" />
+        <br><br>
+        <table class="gridtable" ng-hide="tableshow">
+          <tr>
+            <th>Latitude</th>
+            <td>{{ Latitude }}</td>
+          </tr>
+          <tr>
+            <th>Longitude</th>
+            <td>{{ Longitude }}</td>
+          </tr>
+          <tr>
+            <th>Address</th>
+            <td>{{ address }}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="map_canvas" id="map"></div>
+    </form>
+
+  </ion-content>
+</ion-view>
+
+<style>
+.map_canvas
+{
+	 width: 100%;
+	 height: 200px;
+	 align: center;
+}
+</style>

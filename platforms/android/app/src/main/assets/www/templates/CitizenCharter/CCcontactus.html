@@ -1,0 +1,176 @@
+<!--
+<ion-view>
+
+<ion-nav-title>
+  <div class="bar bar-header headercolor">
+ 	 <h1 class="title">MaiNet</h1>
+ </div>
+</ion-nav-title>
+
+<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>
+
+<ion-content ng-controller="CCcontactUsCtrl" class="animated zoomIn backgroundimage">
+  <h3 class="heading">Contact Us</h3>
+
+  <form name="CCcontactUsForm">
+    <div class="button-group" data-grouptype="OR" style="font-size: 24px;">
+      <button  type="button" class="button button-positive twoButtons" ng-click="buttonclick('contact')">Contact Us</button>
+      <button  type="button" class="button button-positive twoButtons" ng-click="buttonclick('department')">Department Details</button>
+    </div>
+
+    <div ng-if="contact">
+      <label class="item item-input item-floating-label"></label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="MOBILENO"></span>
+        <input type="number" placeholder="{{ 'MOBILENO' | translate}}" name="mobileNo" ng-model="mobileNo" ng-trim="false" ng-pattern="/^[0-9]{10,10}$/" required/>
+        <span class="errorMessage" ng-show="CCcontactUsForm.mobileNo.$error.pattern">Please Enter Valid Mobile Number</span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="">First Name</span>
+        <input type="text" placeholder="First Name*"  name="firstname" ng-model="firstname" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+        <span class="errorMessage" ng-show="CCcontactUsForm.firstname.$error.pattern">Please Enter Valid First Name</span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="">Last Name</span>
+        <input type="text" placeholder="Last Name*"  name="lastname" ng-model="lastname" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+        <span class="errorMessage" ng-show="CCcontactUsForm.lastname.$error.pattern">Please Enter Valid Last Name</span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="">Email ID</span>
+        <input type="text" placeholder="Email ID*"  name="emailID" ng-model="emailID" ng-trim="false" ng-pattern="^[A-Za-z0-9/s,.'-@]{1,50}$/" required/>
+        <span class="errorMessage" ng-show="CCcontactUsForm.emailID.$error.pattern">Please Enter Valid Email ID</span>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label required" translate="">Description</span>
+        <input type="text" placeholder="Description*"  name="description" ng-model="description" ng-trim="false" ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/" required/>
+        <span class="errorMessage" ng-show="CCcontactUsForm.description.$error.pattern">Please Enter Valid description</span>
+      </label>
+
+      <div class="padding">
+        <button ng-disabled="!CCcontactUsForm.$valid" ng-click="()" class="button button-block button-positive customBgColor">
+        <span translate="">Save</span></button>
+      </div>
+
+
+    </div>
+
+    <div ng-if="department">
+
+      <table class="gridtable">
+        <tr>
+          <th width="50%">Serial No.</th>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th width="50%">Department Details</th>
+          <td>sad</td>
+        </tr>
+        <tr>
+          <th width="50%">Contact Details</th>
+          <td>asdasd,sad,asdas</td>
+        </tr>
+        <tr>
+        <th width="50%">Office/ Mobile No.</th>
+        <td>Telephone No. : 3244234234<br>
+          Mobile No. : 9999999999</td>
+      </tr>
+        <tr>
+          <th width="50%">	Email ID</th>
+          <td>s@test.com</td>
+        </tr>
+      </table>
+
+      <table class="gridtable">
+        <tr>
+          <th width="50%">Serial No.</th>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th width="50%">Department Details</th>
+          <td>A&C</td>
+        </tr>
+        <tr>
+          <th width="50%">Contact Details</th>
+          <td>Rajnish,WI,Patna</td>
+        </tr>
+        <tr>
+          <th width="50%">Office/ Mobile No.</th>
+          <td>
+            Telephone No. : 9638521470<br>
+
+            Mobile No. : 9874561230</td>
+        </tr>
+        <tr>
+          <th width="50%">	Email ID</th>
+          <td>abc@gmail.com</td>
+        </tr>
+      </table>
+    </div>
+
+
+  </form>
+
+
+  </ion-content>
+</ion-view>
+
+  old one -->
+<ion-view >
+  <ion-nav-title>
+    <div class="bar bar-header headercolor">
+      <h1 class="title">MaiNet</h1>
+    </div>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
+
+  <ion-content ng-controller="CCcontactUsCtrl">
+    <div class="padding-15">
+      <select class="select-dropdown" required>
+        <option value="">Select Department </option>
+        <option value=""> Department1 </option>
+        <option value=""> Department2 </option>
+        <option value=""> Department3 </option>
+      </select>
+    </div>
+
+    <div class="list">
+      <div class="item">
+        <p class="listname" id="n1">M.N. Thakur <!--<p  style="align: right;">designation</p>--></p>
+        <p class="listitems" id="a1"> <i class="icon ion-android-pin iconcss" ></i> Raipur </p>
+        <p class="listitems listitemstext" id="p1" > <i class="icon ion-ios-telephone iconcss" ></i> <a ng-click="CallNumber('p1');">1234567890</a></p>
+        <p class="listitems listitemstext" id="e1" > <i class="icon ion-email iconcss" ></i> <a ng-click="mail('e1');"> mn@gmail.com</a> <i  class="icon ion-android-share-alt rightcs"  ng-click="ShareContact('n1','p1','e1','a1')"></i> <i  class="icon  ion-ios-personadd rightcs" ng-click="SaveContact('n1','p1','e1')"></i></p>
+      </div>
+      <div class="item">
+        <p class="listname" id="n2">S.N. Thakur <!--<p  style="align: right;">designation</p>--></p>
+        <p class="listitems" id="a2"> <i class="icon ion-android-pin"></i> Raipur </p>
+        <p class="listitems listitemstext" id="p2" > <i class="icon ion-ios-telephone iconcss"></i> <a ng-click="CallNumber('p2');">1234567890</a></p>
+        <p class="listitems listitemstext" id="e2" > <i class="icon ion-email iconcss" ></i> <a  ng-click="mail('e2');">sn@gmail.com </a><i  class="icon ion-android-share-alt rightcs" ng-click="ShareContact('n2','p2','e2','a2')"></i> <i  class="icon  ion-ios-personadd rightcs"  ng-click="SaveContact('n2','p2')"></i></p>
+      </div>
+      <div class="item">
+        <p class="listname" id="n3">R.N. Thakur <!--<p  style="align: right;">designation</p>--></p>
+        <p class="listitems" id="a3"> <i class="icon ion-android-pin"></i> Raipur </p>
+        <p class="listitems listitemstext" id="p3"> <i class="icon ion-ios-telephone iconcss"></i> <a ng-click="CallNumber('p3');">1234567890 </a></p>
+        <p class="listitems listitemstext" id="e3"> <i class="icon ion-email iconcss"></i><a  ng-click="mail('e3');"> sn@gmail.com</a> <i  class="icon ion-android-share-alt rightcs" ng-click="ShareContact('n3','p3','e3','a3')"></i> <i  class="icon  ion-ios-personadd rightcs" ng-click="SaveContact('n3','p3')"></i></p>
+      </div>
+      <div class="item">
+        <p class="listname" id="n4">P.N. Thakur <!--<p  style="align: right;">designation</p>--></p>
+        <p class="listitems" id="a4"> <i class="icon ion-android-pin"></i> Raipur </p>
+        <p class="listitems listitemstext" id="p4" > <i class="icon ion-ios-telephone iconcss"></i> <a ng-click="CallNumber('p4');"> 1234567890 </a></p>
+        <p class="listitems listitemstext" id="e4" > <i class="icon ion-email iconcss"></i> <a  ng-click="mail('e4');">pn@gmail.com </a> <i  class="icon ion-android-share-alt rightcs" ng-click="ShareContact('n4','p4','e4','a4')"></i> <i  class="icon  ion-ios-personadd rightcs" ng-click="SaveContact('n4','p4')"></i></p>
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-view>
+
+<style>
+
+</style>
+
+
