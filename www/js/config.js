@@ -68,12 +68,15 @@ angular.module("starter")
     trafficURL:'http://dscliothub.uk.gov.in:5151/',
     upclURL:'https://www.upcl.org/',
     jalSansthanURL:'https://ujsbill.uk.gov.in/auth/BillPay.aspx?c=',
-    // swmAdminName: "admin",
-    // swmAdminPassword: "admin",
-    swmAdminName: "abm",
-    swmAdminPassword: "Welcome@123",
-    // gisToken:"eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJzZXJ2ZXJfb2JqIjoiZmRiYmFiYTZkYjBlN2Q3MWYxMTFiMzc3NThlNzU5ZjkuMzkxMGNiZmY5YzA3ZmQ0ODczZjcwM2ZkZDBkNmJjMjk1YjAyYTU0MWE3YjM2ODE2Y2ZhYTU4ZGM4MmY4ZDI3ZjE5NWE5YTA3OWM2YmZhOTE1ZGViYTk4M2E3MGUyYTZjMDNiYzczMjAwMGUyNDcxMTg5NWU5MDU3M2EzNWNmYzJiZjllYWNlNmY1ZjdmM2JkNTU2NmJkZmU4Njc4ZjI0NDUyNDk3MDIzOWVkMzkzOGM1M2FiY2RkOWVjMWIxZjk1MjljYTgyYWVlYWU4MDI4YWYxMmVjNWVkZWY5NDdjMjdkYTM4NzJmNWRmYzQ3YWYwYjcyOWU2Y2QyY2U0MDQyYmMyOWExNTMyNGRiZDk5NmJhMjJhODk4ODU5MzM2ZjYwIiwiaWF0IjoxNjcxMzgxMjAxLCJhdWQiOiJzZ2w6UHJvZmVzc2lvbmFsIiwiaXNzIjoic2dsLnRsZCJ9.NxmUq2oit6GxUcmS6Lx1e1ZSiN1OPeyl8lcO4He-hgW8M0JclHfobpTBZbYbP27fmPzmQW2eJ07o63wcVV96cTVHw61hlGkC5JrUM7eVoirER7YTRIQU9-IXiW3dofK0SPo3NFBGBvcLYO8797IdCqTqP2o5Sq1f_qYN12EmU3U",
-     gisToken:"eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJzZXJ2ZXJfb2JqIjoiZjFiZmIwZDI5MjJlM2YzZjE5Mjk5ZWE4NDI0NWQ5ZWUuYjJkNmRmMzY5YjAwYWEyNzgzNGIzNmQ0NTg1NzFlZDZjYjY1NzY1YmYzODZiNzZkOGE1NDYwNzAwNmQzMWEwOTAyMzMwZDk0YzhiZWY4MjUyYzVkOWQyMGRjNGExMjQ3N2M2M2Y1NmQzYmVkNTMxZjAzMmM4ZTcxYjcyZWY0YTMyNDQyNzI3Mjg4MzEzZmEzOTY2MWY2ZGQ3MDZlY2JjYjIyMjE2NTU0YWM2MTg0Y2YwN2U0MjYzNTIzNmQzN2NjNzZmMTI0NzI4YTM1M2U5MjU2YmM3MDJhZjU5ZDZhZTFhNzFiMzMxNmFkYTkwMWI4Mzc0MWVjOWJjZDY1NDVmNjljMjczNjY3ZWUzMGMxYzM4YWVmMzMwOTliMmQyZGU3IiwiaWF0IjoxNzQxMTY0OTM4LCJhdWQiOiJzZ2w6UHJvZmVzc2lvbmFsIiwiaXNzIjoic2dsLnRsZCJ9.DNhPdu-CzPyNRjCumtuLDKpYafcf_8WJ1y4bJYcVLI4sp0iPZ4A23NnufYJhexvuh35gHSo7QBes8r6lp7l866FI8WOKmY61qq9VLWjdNwbkHBkhxXmF_bD2qIDGFYS3ExVWTNS6nIzbe1yisWSWcdPH7yoM-h-wEoz-CJdgcww",
+    // SECURITY WARNING: Credentials removed from source code
+    // swmAdminName and swmAdminPassword should be retrieved from secure backend authentication
+    // These should NEVER be hardcoded in the client-side code
+    swmAdminName: null,  // TODO: Implement secure authentication flow
+    swmAdminPassword: null,  // TODO: Implement secure authentication flow
+    // SECURITY WARNING: Static JWT tokens removed from source code
+    // GIS tokens should be fetched dynamically from backend with proper expiration handling
+    // JWT tokens expire and should NEVER be hardcoded
+    gisToken: null,  // TODO: Implement dynamic token fetch with refresh mechanism
 
 
     PUSHBOTS_APP_ID: "56779c061779594a6d8b456f",
@@ -82,10 +85,11 @@ angular.module("starter")
     // SOS API
     sosApi: "https://api.uk.ners.in/interconnect/api/event/create",
 
-     // MDDA Creds
-
-     MDDA_USER_NAME: "babloo72in@live.com",
-     MDDA_PASSWORD: "1234",
+     // MDDA Authentication
+     // SECURITY WARNING: Credentials removed from source code
+     // These should be retrieved from secure backend authentication or environment variables
+     MDDA_USER_NAME: null,  // TODO: Implement secure authentication flow
+     MDDA_PASSWORD: null,  // TODO: Implement secure authentication flow
      MDDA_AUTH_URL: "https://mddaonline.org.in/mdda/rest/auth/authenticatePublicUser",  
      MDDA_GET_SUMMARY: "https://mddaonline.org.in/mdda/rest/dashboard/getSummary",
 
